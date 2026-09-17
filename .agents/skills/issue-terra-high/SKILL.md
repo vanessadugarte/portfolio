@@ -1,9 +1,9 @@
 ---
-name: issue-sol-terra-high
+name: issue-terra-high
 description: "Resuelve de principio a fin un issue de GitHub identificado como #123 o 123 usando obligatoriamente gpt-5.6-terra con esfuerzo high: interpreta la especificación, crea o retoma su rama según las reglas del repositorio, implementa y valida la solución, realiza una revisión de código previa al push, crea commits explicativos y abre el PR contra la rama base correcta. Úsalo cuando el usuario pida implementar o solucionar un issue con Terra/High, no para consultas o revisiones de solo lectura."
 ---
 
-# Issue Sol Terra High
+# Issue Terra High
 
 Duplica el flujo de `issue-sol-high`, pero exige que toda la resolución sustantiva se ejecute con `gpt-5.6-terra` y razonamiento `high`.
 
@@ -11,7 +11,7 @@ Duplica el flujo de `issue-sol-high`, pero exige que toda la resolución sustant
 
 1. Si el hilo actual confirma que usa exactamente `gpt-5.6-terra` con esfuerzo `high`, ejecuta el flujo directamente.
 2. En cualquier otro caso, delega el trabajo completo a un único subagente con:
-   - agente personalizado: `issue_sol_terra_high`, cuando esté disponible;
+   - agente personalizado: `issue_terra_high`, cuando esté disponible;
    - modelo explícito: `gpt-5.6-terra`;
    - esfuerzo de razonamiento explícito: `high`;
    - marcador en el prompt: `MODO_EJECUTOR_TERRA_HIGH=1`.
@@ -54,9 +54,10 @@ Reutiliza la especificación del issue si ya cubre esos puntos. Si el proyecto e
 
 ## 3. Preparar la rama sin dañar trabajo existente
 
-- Actualiza referencias remotas sin reescribir historia.
+- Actualiza referencias remotas sin reescribir historia. Antes de crear la rama del issue, sincroniza `develop` con `origin/develop` si es necesario: haz fetch, compara ambas referencias y aplica únicamente un avance rápido de `develop` cuando esté atrasada.
+- Si `develop` no existe localmente, créala con seguimiento de `origin/develop`. Si diverge, contiene commits locales no publicados, hay cambios que impidan el avance rápido o falta `origin/develop`, detente y explica el conflicto; no hagas merge, rebase ni reset para forzarla.
 - Nunca hagas commits directos en una rama protegida o permanente.
-- Crea la rama desde la referencia remota actual de la base, conforme al esquema del proyecto. Para un issue de este portafolio, el formato esperado es `fix/<numero>-<slug-corto>` desde `origin/develop`.
+- Crea la rama solo después de esa sincronización, desde el `develop` actualizado y su referencia remota actual. Para un issue de este portafolio, el formato esperado es `fix/<numero>-<slug-corto>` desde `origin/develop`.
 - Si la rama exacta ya existe, inspecciónala y retómala únicamente si corresponde al mismo issue. No la borres, reinicies ni sobrescribas.
 - Si el checkout contiene cambios ajenos, consérvalos. Usa un worktree aislado cuando sea seguro y práctico; si no puede aislarse el trabajo sin riesgo, detente y explica el conflicto.
 - No uses `--force`, `reset --hard`, `checkout --`, limpieza destructiva ni reescritura de commits ajenos.
