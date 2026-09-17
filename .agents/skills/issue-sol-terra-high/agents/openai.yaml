@@ -1,0 +1,4 @@
+interface:
+  display_name: "Issue Solution Terra High"
+  short_description: "Resuelve issues con Terra y esfuerzo alto"
+  default_prompt: "Usa $issue-sol-terra-high para resolver el issue #123 con gpt-5.6-terra y razonamiento high."

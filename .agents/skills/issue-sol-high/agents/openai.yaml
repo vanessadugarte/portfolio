@@ -1,0 +1,4 @@
+interface:
+  display_name: "Issue Solution High"
+  short_description: "Resuelve issues con revisión y PR seguro"
+  default_prompt: "Usa $issue-sol-high para resolver el issue #123 en su rama y abrir el PR correspondiente."
