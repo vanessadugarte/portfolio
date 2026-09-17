@@ -1,4 +1,4 @@
-# Revisión previa a publicación
+# Revisión de código previa a publicación
 
 Usa esta guía después de implementar y validar, antes de crear los commits finales y hacer push. Revisa el cambio completo contra la rama base; no te limites al último archivo editado.
 

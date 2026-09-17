@@ -1,9 +1,9 @@
 ---
-name: issue-sol-terra-high
+name: issue-terra-high
 description: "Resuelve de principio a fin un issue de GitHub identificado como #123 o 123 usando obligatoriamente gpt-5.6-terra con esfuerzo high: interpreta la especificación, crea o retoma su rama según las reglas del repositorio, implementa y valida la solución, realiza una revisión de código previa al push, crea commits explicativos y abre el PR contra la rama base correcta. Úsalo cuando el usuario pida implementar o solucionar un issue con Terra/High, no para consultas o revisiones de solo lectura."
 ---
 
-# Issue Sol Terra High
+# Issue Terra High
 
 Duplica el flujo de `issue-sol-high`, pero exige que toda la resolución sustantiva se ejecute con `gpt-5.6-terra` y razonamiento `high`.
 
@@ -11,7 +11,7 @@ Duplica el flujo de `issue-sol-high`, pero exige que toda la resolución sustant
 
 1. Si el hilo actual confirma que usa exactamente `gpt-5.6-terra` con esfuerzo `high`, ejecuta el flujo directamente.
 2. En cualquier otro caso, delega el trabajo completo a un único subagente con:
-   - agente personalizado: `issue_sol_terra_high`, cuando esté disponible;
+   - agente personalizado: `issue_terra_high`, cuando esté disponible;
    - modelo explícito: `gpt-5.6-terra`;
    - esfuerzo de razonamiento explícito: `high`;
    - marcador en el prompt: `MODO_EJECUTOR_TERRA_HIGH=1`.
