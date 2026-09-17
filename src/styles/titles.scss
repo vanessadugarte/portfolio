@@ -1,13 +1,20 @@
 @use 'variables' as *;
 
-@import '../App.css';
-
 .section-heading h2,
 .experience-preview-heading h2,
 .projects-landing h2,
 .project-landing h2,
 .experience-intro h2 {
-  color: $title-color;
   font-family: $title-font-family;
-  font-size: $title-font-size;
+}
+
+.section-heading h2,
+.experience-preview-heading h2,
+.experience-intro h2 {
+  color: $title-color-on-light;
+}
+
+.projects-landing h2,
+.project-landing h2 {
+  color: $title-color-on-dark;
 }
