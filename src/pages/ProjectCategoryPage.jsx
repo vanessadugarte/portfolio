@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom'
+import './ProjectCategoryPage.scss'
 
 function ProjectCategoryPage({ slug }) {
   const { text } = useOutletContext()

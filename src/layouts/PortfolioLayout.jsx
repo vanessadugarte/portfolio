@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navigation from '../components/Navigation.jsx'
 import { translations } from '../content/translations.js'
+import './PortfolioLayout.scss'
 
 function PortfolioLayout() {
   const location = useLocation()

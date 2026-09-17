@@ -1,0 +1,6 @@
+@use '../styles/abstracts' as tokens;
+
+.page {
+  min-height: 100vh;
+  background: tokens.$color-page;
+}
