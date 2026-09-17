@@ -54,9 +54,10 @@ Reutiliza la especificación del issue si ya cubre esos puntos. Si el proyecto e
 
 ## 3. Preparar la rama sin dañar trabajo existente
 
-- Actualiza referencias remotas sin reescribir historia.
+- Actualiza referencias remotas sin reescribir historia. Antes de crear la rama del issue, sincroniza `develop` con `origin/develop` si es necesario: haz fetch, compara ambas referencias y aplica únicamente un avance rápido de `develop` cuando esté atrasada.
+- Si `develop` no existe localmente, créala con seguimiento de `origin/develop`. Si diverge, contiene commits locales no publicados, hay cambios que impidan el avance rápido o falta `origin/develop`, detente y explica el conflicto; no hagas merge, rebase ni reset para forzarla.
 - Nunca hagas commits directos en una rama protegida o permanente.
-- Crea la rama desde la referencia remota actual de la base, conforme al esquema del proyecto. Para un issue de este portafolio, el formato esperado es `fix/<numero>-<slug-corto>` desde `origin/develop`.
+- Crea la rama solo después de esa sincronización, desde el `develop` actualizado y su referencia remota actual. Para un issue de este portafolio, el formato esperado es `fix/<numero>-<slug-corto>` desde `origin/develop`.
 - Si la rama exacta ya existe, inspecciónala y retómala únicamente si corresponde al mismo issue. No la borres, reinicies ni sobrescribas.
 - Si el checkout contiene cambios ajenos, consérvalos. Usa un worktree aislado cuando sea seguro y práctico; si no puede aislarse el trabajo sin riesgo, detente y explica el conflicto.
 - No uses `--force`, `reset --hard`, `checkout --`, limpieza destructiva ni reescritura de commits ajenos.
