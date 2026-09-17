@@ -21,6 +21,12 @@ export const translations = {
     allProjectsTitle: 'Todos los proyectos',
     allProjectsIntro: 'Explora los proyectos por categoría.',
     comingSoon: 'Próximamente',
+    notFound: {
+      eyebrow: 'Error 404',
+      title: 'Página no encontrada',
+      description: 'La dirección que buscas no existe o cambió de lugar.',
+      backHome: 'Volver a Inicio',
+    },
     selected: {
       eyebrow: 'Una muestra',
       title: 'Trabajos seleccionados',
@@ -140,6 +146,12 @@ export const translations = {
     allProjectsTitle: 'All projects',
     allProjectsIntro: 'Explore projects by category.',
     comingSoon: 'Coming soon',
+    notFound: {
+      eyebrow: 'Error 404',
+      title: 'Page not found',
+      description: 'The address you are looking for does not exist or has moved.',
+      backHome: 'Back to Home',
+    },
     selected: {
       eyebrow: 'A selection',
       title: 'Selected work',
