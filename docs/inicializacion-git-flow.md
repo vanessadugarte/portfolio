@@ -67,14 +67,14 @@ Las protecciones se aplican a `develop` y `main` con estas reglas:
 | Regla | `develop` | `main` |
 | --- | --- | --- |
 | Cambios mediante PR | Sí | Sí |
-| Aprobaciones requeridas | 1 | 1 |
+| Aprobaciones requeridas | 0 | 0 |
 | Descartar aprobaciones obsoletas | Sí | Sí |
 | Resolver conversaciones | Sí | Sí |
 | Rama actualizada antes de integrar | Sí | Sí |
 | Comprobaciones requeridas | `Quality` | `Quality`, `Main source policy` |
 | Force-push y borrado | Bloqueados | Bloqueados |
 
-El repositorio tiene una sola administradora. Por ello, las reglas no se imponen a administradores: GitHub permite una salida de recuperación si una comprobación queda mal configurada, pero la política del proyecto sigue prohibiendo commits directos y exige registrar cualquier uso excepcional. Una aprobación no puede ser emitida por la misma persona que creó el PR; si no hay otro colaborador disponible, el PR permanecerá pendiente de revisión o requerirá que la administradora use su bypass de forma explícita y auditable.
+El repositorio tiene una sola administradora, que no puede aprobar sus propios PRs. Por ello, la cantidad de aprobaciones obligatorias es `0`: la autora puede integrar cuando los checks y las conversaciones estén resueltos, pero el PR continúa siendo obligatorio. Las reglas no se imponen a administradores para conservar una salida de recuperación; aun así, la política del proyecto prohíbe commits directos y exige registrar cualquier uso excepcional. Si se incorpora otra persona con acceso de escritura, se puede elevar nuevamente el requisito a una aprobación.
 
 ### Activación inicial del control de `main`
 
