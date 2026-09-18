@@ -1,22 +1,95 @@
-# React + Vite
+# Portafolio web de Vanessa Dugarte
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web personal para presentar el trabajo, la experiencia y el currículum de Vanessa Dugarte durante procesos de búsqueda laboral. Está construida con React y Vite y conserva una identidad visual basada en composiciones abstractas, figuras SVG y transiciones sutiles.
 
-Currently, two official plugins are available:
+## Estado actual
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+La aplicación incluye:
 
-## React Compiler
+- una página de inicio con hero visual, accesos a categorías, trabajos seleccionados y un resumen de experiencia;
+- una página de experiencia con trayectoria, educación y habilidades;
+- un índice provisional de proyectos;
+- landings provisionales para Ilustración, Front-end + UX/UI, 3D, Diseño gráfico y Animaciones;
+- interfaz en español e inglés, con español como idioma inicial y persistencia de la preferencia en el navegador;
+- una página de error para rutas no reconocidas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Las tarjetas de trabajos seleccionados, el índice general y las categorías todavía no contienen casos de estudio. Sus destinos y mensajes actuales son deliberadamente provisionales. El detalle auditable de este alcance está en [Estado y alcance vigente](docs/alcance-vigente.md).
 
-## Expanding the Oxlint configuration
+## Requisitos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Node.js compatible con Vite 8 (`^20.19.0` o `>=22.12.0`).
+- npm.
 
-## Enrutamiento
+La configuración actual se verificó con Node.js 22.20.0 y npm 10.9.3.
 
-La aplicación usa React Router con `createHashRouter`. Las rutas públicas se expresan después del hash (`#/`, `#/proyectos`, `#/experiencia` y `#/proyectos/<categoria>`), por lo que una apertura directa o una recarga funciona en alojamientos estáticos sin configurar reescrituras del servidor.
+## Instalación y ejecución
 
-Al iniciar, los hashes heredados sin barra se migran una sola vez a la sintaxis actual. Por ejemplo, `#inicio`, `#experiencia` y `#proyectos/ilustracion` se convierten en `#/`, `#/experiencia` y `#/proyectos/ilustracion`. A partir de ahí, React Router es la única fuente de navegación e historial.
+Desde la raíz del repositorio:
+
+```bash
+npm ci
+npm run dev
+```
+
+Vite mostrará en la terminal la dirección local de desarrollo. Para comprobar una compilación de producción:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Comandos disponibles
+
+| Comando | Propósito |
+| --- | --- |
+| `npm run dev` | Inicia el servidor local con recarga en caliente. |
+| `npm run build` | Genera la compilación de producción en `dist/`. |
+| `npm run lint` | Analiza el código con Oxlint. |
+| `npm run preview` | Sirve localmente la compilación generada. |
+
+## Navegación
+
+La aplicación usa React Router con `createHashRouter`, por lo que las rutas aparecen después de `#` y funcionan en alojamientos estáticos sin reglas de reescritura del servidor.
+
+| Vista | Ruta |
+| --- | --- |
+| Inicio | `#/` |
+| Todos los proyectos | `#/proyectos` |
+| Ilustración | `#/proyectos/ilustracion` |
+| Front-end + UX/UI | `#/proyectos/frontend-uxui` |
+| 3D | `#/proyectos/3d` |
+| Diseño gráfico | `#/proyectos/diseno-grafico` |
+| Animaciones | `#/proyectos/animaciones` |
+| Experiencia | `#/experiencia` |
+
+Los hashes heredados, como `#inicio` o `#proyectos/ilustracion`, se migran automáticamente al formato vigente.
+
+## Idiomas
+
+Los textos de interfaz viven en `src/content/translations.js`, separados de los componentes. El español es el idioma predeterminado y el control `EN`/`ES` cambia toda la interfaz sin duplicar páginas ni componentes. La elección se guarda en `localStorage` bajo la clave `portfolio-language`.
+
+## Estructura principal
+
+```text
+src/
+├── assets/       # Imágenes y figuras SVG
+├── components/   # Navegación y componentes compartidos
+├── content/      # Categorías y textos por idioma
+├── layouts/      # Layout común y estado de idioma
+├── pages/        # Componentes asociados a rutas
+├── routes/       # Constructores de rutas
+├── styles/       # Tokens y estilos base de Sass
+└── router.jsx    # Configuración central de React Router
+```
+
+Los estilos específicos permanecen junto a sus componentes y los tokens compartidos se centralizan en `src/styles/abstracts`.
+
+## Colaboración y especificaciones
+
+Cada cambio debe partir de una especificación breve y verificable en un issue o documento enlazado. Las plantillas del repositorio solicitan objetivo, alcance, flujos, criterios de aceptación, requisitos no funcionales, exclusiones y validación.
+
+- [Reglas del proyecto y desarrollo guiado por especificaciones](agents.md)
+- [Flujo de ramas y versionamiento](VERSIONAMIENTO.md)
+- [Estado y alcance vigente documentado retrospectivamente](docs/alcance-vigente.md)
+
+Las decisiones nuevas o los cambios de alcance se actualizan en la especificación enlazada desde el PR; no se copian las mismas reglas en varios documentos.
