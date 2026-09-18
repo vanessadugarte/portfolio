@@ -76,11 +76,9 @@ Las protecciones se aplican a `develop` y `main` con estas reglas:
 
 El repositorio tiene una sola administradora. Por ello, las reglas no se imponen a administradores: GitHub permite una salida de recuperación si una comprobación queda mal configurada, pero la política del proyecto sigue prohibiendo commits directos y exige registrar cualquier uso excepcional. Una aprobación no puede ser emitida por la misma persona que creó el PR; si no hay otro colaborador disponible, el PR permanecerá pendiente de revisión o requerirá que la administradora use su bypass de forma explícita y auditable.
 
-### Activación inicial de los workflows
+### Activación inicial del control de `main`
 
-GitHub carga los workflows de PR desde la rama base. Mientras `develop` todavía no contenga `Quality`, el primer PR que incorpora estos controles no puede producir esa comprobación y queda bloqueado por el estado requerido. La administradora debe validar localmente todos los comandos, integrar ese único PR mediante el bypass disponible y comprobar que el siguiente PR hacia `develop` ya reporte `Quality`.
-
-Lo mismo ocurre en el primer PR correcto de `develop` hacia `main`: hasta que `main` reciba los workflows, no puede producir `Quality` ni `Main source policy`. La administradora debe comprobar que el origen sea exactamente `vanessadugarte/portfolio:develop`, integrar ese único PR mediante el bypass disponible y verificar inmediatamente que los PR posteriores ya reporten ambos checks. No se deben quitar las protecciones ni empujar directamente a las ramas permanentes para resolver este arranque.
+GitHub carga un workflow de `pull_request_target` desde la rama predeterminada. Mientras `main` todavía no contenga `Main source policy`, el primer PR correcto de `develop` hacia `main` no puede producir esa comprobación y queda bloqueado por el estado requerido. La administradora debe comprobar que el origen sea exactamente `vanessadugarte/portfolio:develop`, integrar ese único PR mediante el bypass disponible y verificar inmediatamente que los PR posteriores ya reporten `Main source policy`. No se debe quitar la protección ni empujar directamente a `main` para resolver este arranque.
 
 ## Auditoría
 
