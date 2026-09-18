@@ -1,5 +1,6 @@
 import { Link, useOutletContext } from 'react-router-dom'
 import { paths } from '../routes/paths.js'
+import './NotFoundPage.scss'
 
 function NotFoundPage() {
   const { text } = useOutletContext()

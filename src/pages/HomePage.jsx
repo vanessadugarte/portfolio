@@ -3,6 +3,7 @@ import vectorOne from '../assets/hero/abstract-vector-01.svg'
 import vectorTwo from '../assets/hero/abstract-vector-02.svg'
 import vectorThree from '../assets/hero/abstract-vector-03.svg'
 import { paths } from '../routes/paths.js'
+import './HomePage.scss'
 
 const shapes = {
   one: vectorOne,

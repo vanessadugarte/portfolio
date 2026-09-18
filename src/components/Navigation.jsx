@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { projectCategories } from '../content/projectCategories.js'
 import { paths } from '../routes/paths.js'
+import './Navigation.scss'
 
 function ProjectMenu({ text }) {
   return (

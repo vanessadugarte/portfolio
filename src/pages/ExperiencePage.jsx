@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom'
+import './ExperiencePage.scss'
 
 function ExperiencePage() {
   const { text } = useOutletContext()
