@@ -93,6 +93,7 @@ Cada cambio debe partir de una especificación breve y verificable en un issue o
 
 - [Reglas del proyecto y desarrollo guiado por especificaciones](agents.md)
 - [Flujo de ramas y versionamiento](VERSIONAMIENTO.md)
+- [Inicialización del repositorio y controles de Git Flow](docs/inicializacion-git-flow.md)
 - [Estado y alcance vigente documentado retrospectivamente](docs/alcance-vigente.md)
 
 Las decisiones nuevas o los cambios de alcance se actualizan en la especificación enlazada desde el PR; no se copian las mismas reglas en varios documentos.
