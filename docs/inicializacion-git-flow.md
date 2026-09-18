@@ -50,6 +50,8 @@ El workflow `Quality` se ejecuta en cada PR hacia `develop` o `main` con Node.js
 
 El workflow `Main source policy` se ejecuta para PRs hacia `main`. Solo acepta `develop` como rama de origen y además exige que esa rama pertenezca a `vanessadugarte/portfolio`, por lo que una rama `develop` de un fork no satisface la política. El workflow usa `pull_request_target`, permisos de solo lectura y el script alojado en `main`; nunca obtiene ni ejecuta código del PR que está evaluando.
 
+La política de Actions `Allow trusted main source policy` se aplica únicamente a `.github/workflows/main-source-policy.yml` y autoriza únicamente el evento `pull_request_target`. Esta excepción explícita evita que la política predeterminada de GitHub para repositorios públicos desactive el control, sin habilitar ese evento para otros workflows.
+
 La lógica se comprueba localmente con:
 
 ```bash
@@ -85,6 +87,7 @@ Las protecciones actuales se pueden inspeccionar sin modificarlas con:
 ```bash
 gh api repos/vanessadugarte/portfolio/branches/develop/protection
 gh api repos/vanessadugarte/portfolio/branches/main/protection
+gh api repos/vanessadugarte/portfolio/actions/policies
 ```
 
 Para cada PR se debe conservar en su descripción la especificación enlazada, los criterios validados, el resultado de calidad, la conclusión de revisión y cualquier limitación pendiente.
