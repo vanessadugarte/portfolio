@@ -43,9 +43,12 @@ npm run preview
 | Comando | Propósito |
 | --- | --- |
 | `npm run dev` | Inicia el servidor local con recarga en caliente. |
-| `npm run build` | Genera la compilación de producción en `dist/`. |
+| `npm run build` | Valida el presupuesto de recursos y genera la compilación de producción en `dist/`. |
+| `npm run check:assets` | Comprueba los límites de peso sin compresión y gzip de los recursos auditados. |
 | `npm run lint` | Analiza el código con Oxlint. |
 | `npm run preview` | Sirve localmente la compilación generada. |
+
+El SVG `abstract-vector-03.svg` tiene un presupuesto de 100 KiB sin compresión y 40 KiB con gzip. Estos límites dejan margen para ajustes menores sobre el recurso optimizado, pero evitan que una exportación completa de varios megabytes vuelva a incorporarse sin que el build falle.
 
 ## Navegación
 

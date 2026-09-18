@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run check:assets && vite build",
+    "check:assets": "node scripts/check-asset-budgets.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
