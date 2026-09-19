@@ -154,12 +154,12 @@
 }
 
 .selected-work {
-  padding: clamp(3.5rem, 7vw, 7rem) clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 8vw, 8.25rem);
+  padding: tokens.$space-lg clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 8vw, 8.25rem);
   background: tokens.$color-surface;
 }
 
 .section-heading {
-  margin-bottom: clamp(2.25rem, 5vw, 4.5rem);
+  margin-bottom: tokens.$space-xl;
   text-align: center;
 }
 
@@ -175,6 +175,7 @@
 }
 
 .section-heading h2 {
+  margin-top: tokens.$space-xxxl;
   font-size: tokens.$font-size-project-title;
 }
 
@@ -241,14 +242,16 @@
 .project-link {
   display: inline-block;
   margin-top: 0.8125rem;
-  color: tokens.$color-accent-green;
+  color: tokens.$color-page;
   font-size: clamp(0.82rem, 1.15vw, 1rem);
   text-decoration: none;
 }
 
 .project-link:hover,
 .project-link:focus-visible {
-  color: #ff7b6c;
+  text-decoration: underline;
+  text-decoration-color: tokens.$color-page;
+  text-underline-offset: 0.2em;
 }
 
 .experience-preview {
@@ -370,10 +373,10 @@
   align-items: center;
   margin-top: 2.5rem;
   padding: 0.625rem 0.75rem;
-  border: 1px solid tokens.$color-text;
+  border: 1px solid tokens.$color-page;
   border-radius: 0.625rem;
   background: transparent;
-  color: tokens.$color-text;
+  color: tokens.$color-page;
   font-size: clamp(0.95rem, 1.25vw, 1.125rem);
   text-decoration: none;
   transition:
@@ -384,7 +387,7 @@
 
 .experience-link:hover,
 .experience-link:focus-visible {
-  background: tokens.$color-text;
+  background: tokens.$color-page;
   color: tokens.$color-experience-background;
   transform: translateY(-0.125rem);
 }
