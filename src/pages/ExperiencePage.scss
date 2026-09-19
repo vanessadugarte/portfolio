@@ -12,10 +12,10 @@
   margin-bottom: 4.75rem;
 }
 
-.experience-intro > p:first-child,
 .experience-block > h2 {
   margin: 0 0 0.625rem;
   color: tokens.$color-accent-green;
+  font-family: tokens.$font-heading;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -25,14 +25,14 @@
 .experience-intro h2 {
   margin: 0 0 1.75rem;
   color: tokens.$color-text;
-  font-family: tokens.$font-display;
+  font-family: tokens.$font-heading;
   font-size: clamp(3rem, 8vw, 7.5rem);
   font-weight: 400;
   letter-spacing: -0.075em;
   line-height: 0.88;
 }
 
-.experience-intro > p:last-child {
+.experience-intro > p {
   max-width: 40rem;
   margin: 0;
   color: tokens.$color-text-muted;

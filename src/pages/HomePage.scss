@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  height: 42.5rem;
+  height: 35rem;
   overflow: hidden;
   background: tokens.$color-hero;
   color: tokens.$color-surface;
@@ -42,7 +42,7 @@
 .figure-field {
   position: relative;
   z-index: tokens.$z-hero-decoration;
-  height: 46.25rem;
+  height: 38.5rem;
 }
 
 .figure {
@@ -101,6 +101,7 @@
   top: calc(100% + clamp(0.3125rem, 0.8vw, 0.75rem));
   left: 50%;
   color: tokens.$color-surface;
+  font-family: tokens.$font-heading;
   font-size: clamp(0.73rem, 4.5vw, 1.08rem);
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -149,12 +150,12 @@
 
 .selected-work,
 .experience-preview {
-  background: tokens.$color-surface;
   color: tokens.$color-text;
 }
 
 .selected-work {
   padding: clamp(3.5rem, 7vw, 7rem) clamp(1.5rem, 5vw, 6rem) clamp(4.75rem, 8vw, 8.25rem);
+  background: tokens.$color-surface;
 }
 
 .section-heading {
@@ -162,26 +163,23 @@
   text-align: center;
 }
 
-.section-heading p,
-.experience-preview-heading > p {
-  margin: 0 0 0.625rem;
-  color: tokens.$color-accent-green;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .section-heading h2,
 .experience-preview-heading h2 {
   margin: 0;
   color: tokens.$color-text;
-  font-family: tokens.$font-display;
-  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-family: tokens.$font-heading;
   font-weight: 400;
   letter-spacing: -0.07em;
   line-height: 0.9;
   text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: tokens.$font-size-project-title;
+}
+
+.experience-preview-heading h2 {
+  font-size: tokens.$font-size-project-title;
 }
 
 .project-grid {
@@ -192,15 +190,18 @@
 
 .project-preview {
   position: relative;
-  aspect-ratio: 1 / 1.08;
+  width: 380px;
+  max-width: 100%;
+  aspect-ratio: 760 / 500;
   margin-bottom: tokens.$space-3;
   overflow: hidden;
 }
 
-.project-preview::before,
-.project-preview::after {
-  position: absolute;
-  content: '';
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-preview span {
@@ -211,79 +212,6 @@
   color: rgb(255 255 255 / 75%);
   font-size: 0.76rem;
   font-weight: 700;
-}
-
-.preview-playful {
-  background: #18275d;
-}
-
-.preview-playful::before {
-  inset: 13% 18%;
-  border: 0.875rem dotted #ff7b6c;
-  border-radius: 50%;
-}
-
-.preview-playful::after {
-  right: -14%;
-  bottom: 12%;
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #ffd238;
-}
-
-.preview-material {
-  background: linear-gradient(145deg, #c78148 0 45%, #f4ded0 45% 100%);
-}
-
-.preview-material::before {
-  bottom: 11%;
-  left: 15%;
-  width: 72%;
-  height: 24%;
-  border-radius: 50%;
-  background: #73431e;
-  box-shadow: 0 -2.1875rem 0 #fc8b9e, 0 -4.375rem 0 #ffe473;
-}
-
-.preview-editorial {
-  background: #e7f3e9;
-}
-
-.preview-editorial::before {
-  bottom: 0;
-  left: 12%;
-  width: 42%;
-  height: 78%;
-  border-radius: 50% 50% 0 0;
-  background: #79ad76;
-}
-
-.preview-editorial::after {
-  top: 16%;
-  right: 10%;
-  width: 42%;
-  height: 0.4375rem;
-  background: #4ab7a6;
-  box-shadow: 0 1.25rem 0 #4ab7a6, 0 2.5rem 0 #4ab7a6, 0 3.75rem 0 #4ab7a6;
-}
-
-.preview-poster {
-  background: #f6d8df;
-}
-
-.preview-poster::before {
-  inset: 12%;
-  border: 1px solid #f15f72;
-}
-
-.preview-poster::after {
-  top: 26%;
-  left: 20%;
-  width: 60%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #fff4dc 0 18%, #ff8191 19% 49%, #de4d68 50%);
 }
 
 .project-type,
@@ -301,7 +229,7 @@
 
 .project-card h3 {
   margin: 0 0 tokens.$space-1;
-  font-size: 1rem;
+  font-size: tokens.$font-size-project-title;
   letter-spacing: -0.035em;
 }
 
@@ -324,62 +252,151 @@
 }
 
 .experience-preview {
-  padding: 4rem 1.5rem;
-  border-top: 1px solid tokens.$color-border;
+  position: relative;
+  min-height: 50rem;
+  padding: 1.5rem 1.5rem 2.75rem;
+  overflow: hidden;
+  background: tokens.$color-experience-background;
+}
+
+.experience-preview-content {
+  position: relative;
+  z-index: 2;
+  max-width: 43.75rem;
 }
 
 .experience-preview-heading {
-  max-width: 43.125rem;
-  margin-bottom: clamp(2.125rem, 5vw, 4.375rem);
+  margin-bottom: 2.75rem;
 }
 
 .recent-jobs {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 3.5rem;
+  padding-left: 3.75rem;
+}
+
+.recent-jobs::before {
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  width: 0.1875rem;
+  background: tokens.$color-text;
+  content: '';
 }
 
 .recent-job {
-  min-height: auto;
-  padding: clamp(1.375rem, 3vw, 2.625rem);
-  border: 1px solid tokens.$color-border;
+  position: relative;
 }
 
-.recent-job p {
-  margin: 0 0 1.125rem;
-  color: tokens.$color-accent-green;
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.4;
+.recent-job::before {
+  position: absolute;
+  top: 0;
+  left: -3.75rem;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border: 0.1875rem solid tokens.$color-text;
+  border-radius: 50%;
+  background: tokens.$color-experience-background;
+  content: '';
+}
+
+.recent-job-meta,
+.recent-job-role,
+.recent-job-highlights {
+  margin: 0;
 }
 
 .recent-job h3 {
-  margin: 0 0 0.375rem;
-  font-size: clamp(1.08rem, 1.8vw, 1.55rem);
-  letter-spacing: -0.045em;
-  line-height: 1.05;
+  margin: 0;
+  font-family: tokens.$font-body;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.35;
 }
 
-.recent-job strong {
-  font-size: 0.94rem;
+.recent-job-meta,
+.recent-job-role,
+.recent-job-highlights {
+  font-size: clamp(0.93rem, 1.2vw, 1.125rem);
+  line-height: 1.28;
+}
+
+.recent-job-highlights {
+  padding: 0;
+  list-style: none;
+}
+
+.recent-job-dashed .recent-job-highlights li::before {
+  content: '-';
+}
+
+.experience-figures {
+  position: relative;
+  z-index: 1;
+  min-height: 17rem;
+  margin-top: -1rem;
+  pointer-events: none;
+}
+
+.experience-figure {
+  position: absolute;
+  display: block;
+  aspect-ratio: 152.49 / 167.43;
+  transform-origin: center;
+}
+
+.experience-figure .shape-visual {
+  background: tokens.$color-experience-figure;
+}
+
+.experience-figure-large {
+  right: -4.5rem;
+  bottom: -5rem;
+  width: min(72vw, 18rem);
+  transform: rotate(-8deg);
+}
+
+.experience-figure-small {
+  bottom: 1.25rem;
+  left: -2rem;
+  width: min(36vw, 8.5rem);
+  transform: rotate(12deg);
 }
 
 .experience-link {
-  display: inline-block;
-  margin-top: 1.75rem;
-  color: tokens.$color-accent-green;
-  font-size: 1rem;
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid tokens.$color-text;
+  border-radius: 0.625rem;
+  background: transparent;
+  color: tokens.$color-text;
+  font-size: clamp(0.95rem, 1.25vw, 1.125rem);
   text-decoration: none;
+  transition:
+    background-color tokens.$transition-fast,
+    color tokens.$transition-fast,
+    transform tokens.$transition-fast;
 }
 
 .experience-link:hover,
 .experience-link:focus-visible {
-  color: tokens.$color-accent-cyan;
+  background: tokens.$color-text;
+  color: tokens.$color-experience-background;
+  transform: translateY(-0.125rem);
+}
+
+.experience-link:focus-visible {
+  outline: 0.1875rem solid tokens.$color-experience-figure;
+  outline-offset: 0.1875rem;
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
   .hero {
-    height: clamp(30rem, 49vw, 42.5rem);
+    height: clamp(27.5rem, 41vw, 35rem);
   }
 
   .hero-name {
@@ -393,7 +410,7 @@
   }
 
   .figure-field {
-    height: clamp(32.5rem, 56vw, 47.5rem);
+    height: clamp(30rem, 46vw, 38.5rem);
   }
 
   .figure {
@@ -446,10 +463,6 @@
     margin-bottom: 1.125rem;
   }
 
-  .project-card h3 {
-    font-size: clamp(1rem, 1.4vw, 1.25rem);
-  }
-
   .project-description {
     font-size: clamp(0.78rem, 1.1vw, 0.95rem);
   }
@@ -459,20 +472,50 @@
   }
 
   .experience-preview {
-    padding: clamp(4rem, 9vw, 8.875rem) clamp(1.5rem, 9vw, 11.25rem);
+    min-height: clamp(43.75rem, 50vw, 50rem);
+    padding: 1.5rem clamp(3rem, 7.4vw, 7.5rem) 2.75rem;
+  }
+
+  .experience-preview-content {
+    width: 50%;
+    max-width: 43.75rem;
+  }
+
+  .experience-preview-heading {
+    margin-bottom: 2.875rem;
   }
 
   .recent-jobs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(3.5rem, 4.5vw, 4.75rem);
   }
 
-  .recent-job {
-    min-height: 13.125rem;
+  .experience-figures {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .experience-figure-large {
+    top: 4%;
+    right: 5%;
+    bottom: auto;
+    width: min(35vw, 34rem);
+  }
+
+  .experience-figure-small {
+    bottom: 17%;
+    left: 49%;
+    width: min(12vw, 11.5rem);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .shape-visual {
+    transition: none;
+  }
+
+  .experience-link {
     transition: none;
   }
 }

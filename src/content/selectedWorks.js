@@ -1,8 +1,8 @@
 export const selectedWorks = [
-  { id: 'playful-web', number: '01', preview: 'playful' },
-  { id: 'material-3d', number: '02', preview: 'material' },
-  { id: 'editorial-digital', number: '03', preview: 'editorial' },
-  { id: 'graphic-poster', number: '04', preview: 'poster' },
+  { id: 'donas-3d', number: '01' },
+  { id: 'jardin-web', number: '02' },
+  { id: 'medusas', number: '03' },
+  { id: 'ventti', number: '04' },
 ]
 
 export function localizeSelectedWorks(works, translationsById) {
