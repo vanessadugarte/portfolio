@@ -8,7 +8,8 @@ Recrear en la página de Inicio la sección de experiencia profesional definida 
 
 - Mostrar el título `Experiencia` como `h2` con los tokens tipográficos vigentes para encabezados.
 - Mostrar los dos cargos y sus descripciones en una línea de tiempo vertical.
-- Incorporar dos instancias decorativas de una figura SVG existente del hero.
+- Incorporar dos instancias decorativas del vector SVG número 2 existente del hero.
+- Ocultar las figuras decorativas en móvil; en tablet reducirlas y reservar al contenido de experiencia al menos el 60 % del ancho de la sección.
 - Usar `#F4F6FF` como fondo de la sección y `#273E88` para las figuras, mediante tokens Sass.
 - Mostrar al final un enlace visualmente tratado como botón secundario ghost con el texto `Ver experiencia completa`, borde y texto `#344A91`, y relleno del mismo color en hover.
 - Dirigir el botón a la misma ruta `/experiencia` utilizada por la navegación principal.
@@ -24,7 +25,8 @@ La persona recorre Inicio, lee los dos cargos destacados y selecciona `Ver exper
 - El encabezado visible en español dice `Experiencia` y es un `h2`.
 - Los dos cargos, empresas, fechas y descripciones solicitados están visibles.
 - La línea de tiempo conecta visualmente ambos cargos.
-- Las dos figuras usan un SVG del hero y el token de color `#273E88`.
+- Las dos figuras usan el vector SVG número 2 del hero y el token de color `#273E88`.
+- En móvil las figuras decorativas no se muestran; en tablet son más pequeñas que en escritorio y el bloque de contenido usa el 60 % del ancho de la sección.
 - El fondo usa el token de color `#F4F6FF`.
 - El botón final tiene borde y texto `#344A91` sobre fondo transparente; en hover se rellena con `#344A91` y mantiene texto legible; conserva foco visible y navega a `/experiencia`.
 - `npm run test:content`, `npm run lint` y `npm run build` finalizan correctamente.
