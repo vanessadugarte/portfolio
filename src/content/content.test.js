@@ -2,7 +2,8 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { heroCategoryFigures } from './heroFigures.js'
 import { projectCategories } from './projectCategories.js'
-import { getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
+import { getProjectBySlug, getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
+import { paths } from '../routes/paths.js'
 import { translations } from './translations.js'
 
 const sortedKeys = (value) => Object.keys(value).sort()
@@ -41,6 +42,18 @@ test('one catalog supplies all projects and preserves selected order', () => {
       assert.equal(localizedWork.previewImage, projects.find(({ id }) => id === localizedWork.id).previewImage)
     }
   }
+})
+
+test('project detail URLs are generated from the catalog without category collisions', () => {
+  const categorySlugs = new Set(projectCategories.map(({ slug }) => slug))
+
+  for (const project of projects) {
+    assert.equal(getProjectBySlug(project.id), project)
+    assert.equal(paths.projectDetail(project.id), `/proyectos/${project.id}`)
+    assert.equal(categorySlugs.has(project.id), false)
+  }
+
+  assert.equal(getProjectBySlug('inexistente'), undefined)
 })
 
 test('every language defines the complete catalog and its metadata', () => {
