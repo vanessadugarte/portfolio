@@ -16,7 +16,7 @@
   margin: 0 0 0.625rem;
   color: tokens.$color-accent-green;
   font-family: tokens.$font-heading;
-  font-size: 0.76rem;
+  font-size: tokens.$font-size-body;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -30,6 +30,7 @@
   font-weight: 400;
   letter-spacing: -0.075em;
   line-height: 0.88;
+  overflow-wrap: anywhere;
 }
 
 .experience-intro > p {
@@ -46,7 +47,7 @@
 
 .experience-block > h2 {
   margin-bottom: 1.5rem;
-  font-size: 0.78rem;
+  font-size: tokens.$font-size-body;
 }
 
 .experience-timeline {
@@ -64,7 +65,7 @@
 .education > p {
   margin: 0 0 1.125rem;
   color: tokens.$color-accent-green;
-  font-size: 0.78rem;
+  font-size: tokens.$font-size-body;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -72,7 +73,7 @@
 .experience-job > p {
   margin: 0;
   color: tokens.$color-accent-green;
-  font-size: 0.78rem;
+  font-size: tokens.$font-size-body;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -92,7 +93,7 @@
 
 .experience-job strong,
 .education strong {
-  font-size: 0.94rem;
+  font-size: tokens.$font-size-body;
 }
 
 .experience-job ul {
@@ -132,13 +133,13 @@
 }
 
 .skills-grid h3 {
-  font-size: 1rem;
+  font-size: tokens.$font-size-body;
 }
 
 .skills-grid p {
   margin: 0;
   color: tokens.$color-text-muted;
-  font-size: 0.91rem;
+  font-size: tokens.$font-size-body;
   line-height: 1.5;
 }
 
