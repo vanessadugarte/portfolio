@@ -10,7 +10,7 @@ Recrear en la página de Inicio la sección de experiencia profesional definida 
 - Mostrar los dos cargos y sus descripciones en una línea de tiempo vertical.
 - Incorporar dos instancias decorativas de una figura SVG existente del hero.
 - Usar `#F4F6FF` como fondo de la sección y `#273E88` para las figuras, mediante tokens Sass.
-- Mostrar al final un enlace visualmente tratado como botón secundario ghost con el texto `Ver experiencia completa`.
+- Mostrar al final un enlace visualmente tratado como botón secundario ghost con el texto `Ver experiencia completa`, borde y texto `#344A91`, y relleno del mismo color en hover.
 - Dirigir el botón a la misma ruta `/experiencia` utilizada por la navegación principal.
 - Mantener contenido equivalente en español e inglés mediante la estructura de traducciones existente.
 
@@ -26,7 +26,7 @@ La persona recorre Inicio, lee los dos cargos destacados y selecciona `Ver exper
 - La línea de tiempo conecta visualmente ambos cargos.
 - Las dos figuras usan un SVG del hero y el token de color `#273E88`.
 - El fondo usa el token de color `#F4F6FF`.
-- El botón final tiene tratamiento secondary/ghost, conserva foco visible y navega a `/experiencia`.
+- El botón final tiene borde y texto `#344A91` sobre fondo transparente; en hover se rellena con `#344A91` y mantiene texto legible; conserva foco visible y navega a `/experiencia`.
 - `npm run test:content`, `npm run lint` y `npm run build` finalizan correctamente.
 
 ## Requisitos no funcionales
