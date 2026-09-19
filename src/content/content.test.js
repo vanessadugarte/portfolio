@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { heroCategoryFigures } from './heroFigures.js'
 import { projectCategories } from './projectCategories.js'
-import { localizeSelectedWorks, selectedWorks } from './selectedWorks.js'
+import { getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
 import { translations } from './translations.js'
 
 const sortedKeys = (value) => Object.keys(value).sort()
@@ -20,28 +20,51 @@ test('category IDs connect routes, hero figures and every language', () => {
   }
 })
 
-test('selected works preserve their translated content when reordered', () => {
-  const reorderedWorks = [...selectedWorks].reverse()
+test('one catalog supplies all projects and preserves selected order', () => {
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti'])
+  assert.deepEqual(
+    getSelectedProjects([...projects].reverse()).map(({ id }) => id),
+    ['donas-3d', 'jardin-web', 'medusas', 'ventti'],
+  )
+
+  const reorderedWorks = [...getSelectedProjects()].reverse()
 
   for (const text of Object.values(translations)) {
-    const localizedWorks = localizeSelectedWorks(reorderedWorks, text.selected.items)
+    const localizedWorks = localizeProjects(reorderedWorks, text.projects.items)
 
     assert.deepEqual(localizedWorks.map(({ id }) => id), reorderedWorks.map(({ id }) => id))
 
     for (const localizedWork of localizedWorks) {
-      assert.equal(localizedWork.title, text.selected.items[localizedWork.id].title)
-      assert.equal(localizedWork.description, text.selected.items[localizedWork.id].description)
-      assert.equal(localizedWork.type, text.selected.items[localizedWork.id].type)
+      assert.equal(localizedWork.title, text.projects.items[localizedWork.id].title)
+      assert.equal(localizedWork.description, text.projects.items[localizedWork.id].description)
+      assert.equal(localizedWork.type, text.projects.items[localizedWork.id].type)
+      assert.equal(localizedWork.previewImage, projects.find(({ id }) => id === localizedWork.id).previewImage)
     }
   }
 })
 
-test('every language defines the same selected work IDs', () => {
-  const selectedWorkIds = selectedWorks.map(({ id }) => id).sort()
+test('every language defines the complete catalog and its metadata', () => {
+  const projectIds = projects.map(({ id }) => id).sort()
+  assert.deepEqual(sortedKeys(translations), ['en', 'es'])
 
   for (const text of Object.values(translations)) {
-    assert.deepEqual(sortedKeys(text.selected.items), selectedWorkIds)
+    assert.deepEqual(sortedKeys(text.projects.items), projectIds)
   }
+
+  assert.doesNotThrow(() => validateProjectCatalog(projects, projectCategories, translations))
+})
+
+test('a project can be listed in multiple categories without duplicate records', () => {
+  const multiCategoryProject = { ...projects[0], categoryIds: ['three-d', 'illustration'] }
+  const animationProject = { id: 'new-animation', categoryIds: ['animations'], previewImage: projects[0].previewImage }
+  const catalog = [multiCategoryProject, ...projects.slice(1), animationProject]
+
+  assert.deepEqual(getProjectsByCategory('three-d', catalog), [multiCategoryProject])
+  assert.deepEqual(getProjectsByCategory('illustration', catalog).map(({ id }) => id), ['donas-3d', 'medusas'])
+  assert.deepEqual(getProjectsByCategory('animations', catalog), [animationProject])
+  assert.deepEqual(getSelectedProjects(catalog).map(({ id }) => id), projects.map(({ id }) => id))
+  assert.equal(catalog.filter(({ id }) => id === multiCategoryProject.id).length, 1)
+  assert.doesNotThrow(() => validateProjectCatalog(catalog.slice(0, -1), projectCategories, translations))
 })
 
 test('every language exposes two complete experience preview jobs', () => {
@@ -57,9 +80,21 @@ test('every language exposes two complete experience preview jobs', () => {
   }
 })
 
-test('a missing selected work translation fails with its stable ID', () => {
+test('invalid catalog references fail with a useful project ID', () => {
   assert.throws(
-    () => localizeSelectedWorks(selectedWorks, {}),
-    /Missing selected work translation: donas-3d/,
+    () => localizeProjects(projects, {}),
+    /Missing project translation: donas-3d/,
+  )
+  assert.throws(
+    () => validateProjectCatalog([...projects, projects[0]], projectCategories, translations),
+    /Duplicate or reserved project ID\/slug: donas-3d/,
+  )
+  assert.throws(
+    () => validateProjectCatalog([{ ...projects[0], categoryIds: ['missing'] }, ...projects.slice(1)], projectCategories, translations),
+    /Unknown category missing for project donas-3d/,
+  )
+  assert.throws(
+    () => validateProjectCatalog(projects, projectCategories, { es: { projects: { items: {} } } }),
+    /Missing es project translation: donas-3d/,
   )
 })

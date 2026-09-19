@@ -35,6 +35,9 @@ jobs:
       - name: Test branch policy
         run: npm run test:branch-policy
 
+      - name: Test content catalog
+        run: npm run test:content
+
       - name: Lint
         run: npm run lint
 
