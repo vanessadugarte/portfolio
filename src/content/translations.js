@@ -3,6 +3,8 @@ export const translations = {
     language: 'EN',
     languageLabel: 'Cambiar idioma a inglés',
     navigationLabel: 'Navegación principal',
+    skipToContent: 'Saltar al contenido principal',
+    documentTitle: 'Portafolio',
     nav: {
       home: 'Inicio',
       projects: 'Proyectos',
@@ -155,6 +157,8 @@ export const translations = {
     language: 'ES',
     languageLabel: 'Switch language to Spanish',
     navigationLabel: 'Main navigation',
+    skipToContent: 'Skip to main content',
+    documentTitle: 'Portfolio',
     nav: {
       home: 'Home',
       projects: 'Projects',

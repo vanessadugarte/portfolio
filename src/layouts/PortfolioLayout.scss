@@ -1,5 +1,25 @@
 @use '../styles/abstracts' as tokens;
 
+.skip-link {
+  position: fixed;
+  z-index: calc(tokens.$z-navigation + 1);
+  top: tokens.$space-2;
+  left: tokens.$space-2;
+  padding: tokens.$space-2 tokens.$space-3;
+  border-radius: 0.25rem;
+  background: tokens.$color-navigation;
+  color: tokens.$color-surface;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 2rem));
+}
+
+.skip-link:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-accent-cyan;
+  outline-offset: tokens.$focus-ring-offset;
+  transform: translateY(0);
+}
+
 .page {
   min-height: 100vh;
   background: tokens.$color-page;

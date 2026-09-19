@@ -1,14 +1,16 @@
 import { useOutletContext } from 'react-router-dom'
+import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import './ExperiencePage.scss'
 
 function ExperiencePage() {
   const { text } = useOutletContext()
   const { experience } = text
+  const headingRef = usePageMetadata(experience.fullTitle)
 
   return (
     <section className="experience-landing" aria-labelledby="experience-title">
       <header className="experience-intro">
-        <h2 id="experience-title">{experience.fullTitle}</h2>
+        <h1 id="experience-title" ref={headingRef} tabIndex={-1}>{experience.fullTitle}</h1>
         <p>{experience.intro}</p>
       </header>
 

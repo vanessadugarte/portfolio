@@ -4,6 +4,7 @@ import { heroCategoryFigures } from './heroFigures.js'
 import { projectCategories } from './projectCategories.js'
 import { getProjectBySlug, getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
 import { paths } from '../routes/paths.js'
+import { formatDocumentTitle } from '../hooks/usePageMetadata.js'
 import { translations } from './translations.js'
 
 const sortedKeys = (value) => Object.keys(value).sort()
@@ -99,6 +100,14 @@ test('every language exposes two complete experience preview jobs', () => {
       assert.ok(job.role)
       assert.ok(job.highlights.length)
     }
+  }
+})
+
+test('every language exposes localized navigation metadata', () => {
+  for (const text of Object.values(translations)) {
+    assert.ok(text.skipToContent)
+    assert.ok(text.documentTitle)
+    assert.equal(formatDocumentTitle(text.documentTitle), `${text.documentTitle} | Vanessa Dugarte`)
   }
 })
 
