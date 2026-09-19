@@ -1,6 +1,6 @@
 ---
 name: issue-terra-high
-description: "Resuelve de principio a fin un issue de GitHub identificado como #123 o 123 usando obligatoriamente gpt-5.6-terra con esfuerzo high: interpreta la especificación, crea o retoma su rama según las reglas del repositorio, implementa y valida la solución, realiza una revisión de código previa al push, crea commits explicativos y abre el PR contra la rama base correcta. Úsalo cuando el usuario pida implementar o solucionar un issue con Terra/High, no para consultas o revisiones de solo lectura."
+description: "Resuelve de principio a fin un issue de GitHub identificado como #123 o 123 usando obligatoriamente gpt-5.6-terra con esfuerzo high y Graphify como única fuente para explorar y obtener contexto del proyecto: interpreta la especificación, crea o retoma su rama, implementa y valida la solución, revisa el código, crea commits explicativos y abre el PR contra la rama base correcta. Úsalo cuando el usuario pida implementar o solucionar un issue con Terra/High, no para consultas o revisiones de solo lectura."
 ---
 
 # Issue Terra High
@@ -31,6 +31,14 @@ Resuelve el issue completo en el repositorio actual. La invocación para solucio
 - Acepta el número como `#123` o `123` y normalízalo a un entero positivo.
 - Si no hay un único número de issue identificable, pide solamente ese dato y espera.
 - Trabaja en el repositorio correspondiente al directorio actual. Verifica el remoto y la identidad del repositorio antes de consultar GitHub.
+
+## Fuente exclusiva para explorar el proyecto
+
+- Carga y sigue la skill `graphify`. Usa exclusivamente sus consultas `query`, `path` y `explain` para descubrir archivos, arquitectura, relaciones, convenciones y cualquier otro dato sobre el contenido del proyecto. Si el grafo no existe o necesita actualización, créalo o actualízalo mediante el flujo de Graphify antes de continuar.
+- No busques, enumeres ni leas contenido del proyecto mediante comandos de consola o mecanismos alternativos. Quedan prohibidos como vía de exploración o recopilación de contexto `grep`, `rg`, `git grep`, `find`, `fd`, `ls`, `tree`, globbing, `cat`, `sed`, `awk`, `head`, `tail`, scripts de búsqueda, búsquedas del IDE y lecturas directas de archivos, incluso después de que Graphify identifique un archivo.
+- Si Graphify no contiene información suficiente, falla o no permite obtener el dato requerido, detente, explica qué información falta y pide autorización explícita al usuario antes de usar cualquier otra vía, incluyendo `grep` o una lectura directa. Espera su respuesta; no apliques un fallback silencioso.
+- Esta restricción no impide consultar el issue y el PR en GitHub ni ejecutar operaciones que no exploran el contenido: estado, remotos y ramas de Git; `fetch`, cambio de rama, staging, commits y push; edición de archivos ya determinados por Graphify; y pruebas, lint o build. El diff queda limitado a revisar los cambios del issue, no a descubrir código relacionado. Las búsquedas de contenido o historial con Git también requieren autorización previa.
+- Después de modificar el proyecto, actualiza Graphify antes de volver a pedirle contexto sobre el código cambiado.
 
 ## 1. Descubrir las reglas antes de actuar
 

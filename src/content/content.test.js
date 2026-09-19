@@ -44,9 +44,22 @@ test('every language defines the same selected work IDs', () => {
   }
 })
 
+test('every language exposes two complete experience preview jobs', () => {
+  for (const text of Object.values(translations)) {
+    assert.equal(text.experience.previewJobs.length, 2)
+
+    for (const job of text.experience.previewJobs) {
+      assert.ok(job.meta)
+      assert.ok(job.company)
+      assert.ok(job.role)
+      assert.ok(job.highlights.length)
+    }
+  }
+})
+
 test('a missing selected work translation fails with its stable ID', () => {
   assert.throws(
     () => localizeSelectedWorks(selectedWorks, {}),
-    /Missing selected work translation: playful-web/,
+    /Missing selected work translation: donas-3d/,
   )
 })

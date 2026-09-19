@@ -8,7 +8,6 @@ function ExperiencePage() {
   return (
     <section className="experience-landing" aria-labelledby="experience-title">
       <header className="experience-intro">
-        <p>{experience.eyebrow}</p>
         <h2 id="experience-title">{experience.fullTitle}</h2>
         <p>{experience.intro}</p>
       </header>

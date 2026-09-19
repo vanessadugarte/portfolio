@@ -2,6 +2,10 @@ import { Link, useOutletContext } from 'react-router-dom'
 import vectorOne from '../assets/hero/abstract-vector-01.svg'
 import vectorTwo from '../assets/hero/abstract-vector-02.svg'
 import vectorThree from '../assets/hero/abstract-vector-03.svg'
+import donasImage from '../assets/images/selected-work/donas3d-760x500.jpg'
+import jardinWebImage from '../assets/images/selected-work/webjardin-760x500.jpg'
+import medusasImage from '../assets/images/selected-work/medusas-760x500.jpg'
+import venttiImage from '../assets/images/selected-work/ventti-760x500.jpg'
 import { decorativeHeroFigures, heroCategoryFigures } from '../content/heroFigures.js'
 import { getProjectCategory } from '../content/projectCategories.js'
 import { localizeSelectedWorks, selectedWorks } from '../content/selectedWorks.js'
@@ -12,6 +16,13 @@ const shapes = {
   one: vectorOne,
   two: vectorTwo,
   three: vectorThree,
+}
+
+const selectedWorkImages = {
+  'donas-3d': donasImage,
+  'jardin-web': jardinWebImage,
+  medusas: medusasImage,
+  ventti: venttiImage,
 }
 
 function position({ x, y, size, rotation, mobileX, mobileY, mobileSize, opacity = 1 }) {
@@ -35,20 +46,31 @@ function Shape({ shape }) {
 function ExperiencePreview({ experience }) {
   return (
     <section className="experience-preview" aria-labelledby="experience-preview-title">
-      <div className="experience-preview-heading">
-        <p>{experience.eyebrow}</p>
-        <h2 id="experience-preview-title">{experience.title}</h2>
+      <div className="experience-preview-content">
+        <div className="experience-preview-heading">
+          <h2 id="experience-preview-title">{experience.title}</h2>
+        </div>
+
+        <div className="recent-jobs">
+          {experience.previewJobs.map((job) => (
+            <article className={`recent-job${job.showDashes ? ' recent-job-dashed' : ''}`} key={`${job.company}-${job.role}`}>
+              <p className="recent-job-meta">{job.meta}</p>
+              <h3>{job.company}</h3>
+              <p className="recent-job-role">{job.role}</p>
+              <ul className="recent-job-highlights">
+                {job.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <Link className="experience-link" to={paths.experience}>{experience.link}</Link>
       </div>
-      <div className="recent-jobs">
-        {experience.jobs.slice(0, 2).map((job) => (
-          <article className="recent-job" key={`${job.company}-${job.role}`}>
-            <p>{job.meta}</p>
-            <h3>{job.role}</h3>
-            <strong>{job.company}</strong>
-          </article>
-        ))}
+
+      <div className="experience-figures" aria-hidden="true">
+        <span className="experience-figure experience-figure-large"><Shape shape="three" /></span>
+        <span className="experience-figure experience-figure-small"><Shape shape="three" /></span>
       </div>
-      <Link className="experience-link" to={paths.experience}>{experience.link} <span aria-hidden="true">-&gt;</span></Link>
     </section>
   )
 }
@@ -84,14 +106,14 @@ function HomePage() {
 
       <section className="selected-work" id="trabajos">
         <div className="section-heading">
-          <p>{text.selected.eyebrow}</p>
           <h2>{text.selected.title}</h2>
         </div>
 
         <div className="project-grid">
           {localizedSelectedWorks.map((project) => (
             <article className="project-card" key={project.id}>
-              <div className={`project-preview preview-${project.preview}`} aria-hidden="true">
+              <div className="project-preview" aria-hidden="true">
+                <img src={selectedWorkImages[project.id]} alt="" />
                 <span>{project.number}</span>
               </div>
               <p className="project-type">{project.type}</p>

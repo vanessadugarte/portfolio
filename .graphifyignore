@@ -1,0 +1,8 @@
+# Assistant configuration and generated knowledge graph
+.agents/
+graphify-out/
+
+# Large visual assets are not useful to the initial code-only graph
+src/assets/**/*.svg
+src/assets/**/*.png
+public/*.svg
