@@ -189,71 +189,6 @@
   gap: 2.125rem tokens.$space-4;
 }
 
-.project-preview {
-  position: relative;
-  width: 380px;
-  max-width: 100%;
-  aspect-ratio: 760 / 500;
-  margin-bottom: tokens.$space-3;
-  overflow: hidden;
-}
-
-.project-preview img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project-preview span {
-  position: absolute;
-  z-index: tokens.$z-art-label;
-  top: 0.75rem;
-  right: 0.875rem;
-  color: rgb(255 255 255 / 75%);
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-.project-type,
-.project-description {
-  margin: 0;
-  line-height: 1.45;
-}
-
-.project-type {
-  margin-bottom: 0.1875rem;
-  color: tokens.$color-project-type;
-  font-size: clamp(0.78rem, 1.1vw, 0.95rem);
-  text-transform: uppercase;
-}
-
-.project-card h3 {
-  margin: 0 0 tokens.$space-1;
-  font-size: tokens.$font-size-project-title;
-  letter-spacing: -0.035em;
-}
-
-.project-description {
-  color: tokens.$color-text-muted;
-  font-size: 0.78rem;
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 0.8125rem;
-  color: tokens.$color-page;
-  font-size: clamp(0.82rem, 1.15vw, 1rem);
-  text-decoration: none;
-}
-
-.project-link:hover,
-.project-link:focus-visible {
-  text-decoration: underline;
-  text-decoration-color: tokens.$color-page;
-  text-underline-offset: 0.2em;
-}
-
 .experience-preview {
   position: relative;
   min-height: 50rem;
@@ -460,18 +395,6 @@
   .project-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(1.125rem, 2.5vw, 2.875rem);
-  }
-
-  .project-preview {
-    margin-bottom: 1.125rem;
-  }
-
-  .project-description {
-    font-size: clamp(0.78rem, 1.1vw, 0.95rem);
-  }
-
-  .project-link {
-    margin-top: 1.25rem;
   }
 
   .experience-preview {

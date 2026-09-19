@@ -80,6 +80,15 @@ test('a project can be listed in multiple categories without duplicate records',
   assert.doesNotThrow(() => validateProjectCatalog(catalog.slice(0, -1), projectCategories, translations))
 })
 
+test('project category listings derive from the catalog and preserve expected project IDs', () => {
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti'])
+  assert.deepEqual(getProjectsByCategory('three-d').map(({ id }) => id), ['donas-3d'])
+  assert.deepEqual(getProjectsByCategory('uxui').map(({ id }) => id), ['jardin-web'])
+  assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas'])
+  assert.deepEqual(getProjectsByCategory('graphic-design').map(({ id }) => id), ['ventti'])
+  assert.deepEqual(getProjectsByCategory('animations'), [])
+})
+
 test('every language exposes two complete experience preview jobs', () => {
   for (const text of Object.values(translations)) {
     assert.equal(text.experience.previewJobs.length, 2)

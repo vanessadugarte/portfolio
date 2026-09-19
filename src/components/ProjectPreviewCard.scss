@@ -1,0 +1,131 @@
+@use '../styles/abstracts' as tokens;
+
+.project-preview {
+  position: relative;
+  display: block;
+  width: 380px;
+  max-width: 100%;
+  aspect-ratio: 760 / 500;
+  margin-bottom: tokens.$space-3;
+  overflow: hidden;
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform tokens.$transition-fast;
+}
+
+.project-preview:hover img,
+.project-preview:focus-visible img {
+  transform: scale(1.03);
+}
+
+.project-preview:focus-visible {
+  outline: 0.1875rem solid tokens.$color-accent-cyan;
+  outline-offset: 0.25rem;
+}
+
+.project-preview span {
+  position: absolute;
+  z-index: tokens.$z-art-label;
+  top: 0.75rem;
+  right: 0.875rem;
+  color: rgb(255 255 255 / 75%);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.project-type,
+.project-description {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.project-type {
+  margin-bottom: 0.1875rem;
+  color: tokens.$color-project-type;
+  font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+  text-transform: uppercase;
+}
+
+.project-card h3 {
+  margin: 0 0 tokens.$space-1;
+  font-size: tokens.$font-size-project-title;
+  letter-spacing: -0.035em;
+}
+
+.project-description {
+  color: tokens.$color-text-muted;
+  font-size: 0.78rem;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 0.8125rem;
+  color: tokens.$color-page;
+  font-size: clamp(0.82rem, 1.15vw, 1rem);
+  text-decoration: none;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: tokens.$color-page;
+  text-underline-offset: 0.2em;
+}
+
+.projects-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.125rem tokens.$space-4;
+}
+
+.projects-preview-grid .project-card {
+  color: tokens.$color-surface;
+}
+
+.projects-preview-grid .project-preview {
+  width: 100%;
+}
+
+.projects-preview-grid .project-type,
+.projects-preview-grid .project-link {
+  color: tokens.$color-accent-cyan;
+}
+
+.projects-preview-grid .project-description {
+  color: rgb(255 255 255 / 72%);
+}
+
+.projects-preview-grid .project-link:hover,
+.projects-preview-grid .project-link:focus-visible {
+  text-decoration-color: tokens.$color-accent-cyan;
+}
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .projects-preview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.125rem, 2.5vw, 2.875rem);
+  }
+
+  .project-preview {
+    margin-bottom: 1.125rem;
+  }
+
+  .project-description {
+    font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+  }
+
+  .project-link {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-preview img {
+    transition: none;
+  }
+}

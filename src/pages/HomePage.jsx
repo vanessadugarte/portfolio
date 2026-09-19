@@ -6,6 +6,7 @@ import { decorativeHeroFigures, heroCategoryFigures } from '../content/heroFigur
 import { getProjectCategory } from '../content/projectCategories.js'
 import { getSelectedProjects, localizeProjects } from '../content/projects.js'
 import { paths } from '../routes/paths.js'
+import ProjectPreviewCard from '../components/ProjectPreviewCard.jsx'
 import './HomePage.scss'
 
 const shapes = {
@@ -98,19 +99,10 @@ function HomePage() {
           <h2>{text.selected.title}</h2>
         </div>
 
-        <div className="project-grid">
-          {localizedSelectedWorks.map((project, index) => (
-            <article className="project-card" key={project.id}>
-              <div className="project-preview">
-                <img src={project.previewImage} alt={project.previewAlt} />
-                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              </div>
-              <p className="project-type">{project.type}</p>
-              <h3>{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <Link className="project-link" to={paths.projectDetail(project.id)}>{text.selected.link} <span aria-hidden="true">-&gt;</span></Link>
-            </article>
-          ))}
+          <div className="project-grid">
+            {localizedSelectedWorks.map((project, index) => (
+              <ProjectPreviewCard actionLabel={text.selected.link} index={index} key={project.id} project={project} />
+            ))}
         </div>
       </section>
 
