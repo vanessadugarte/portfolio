@@ -31,11 +31,13 @@ export const translations = {
       eyebrow: 'Una muestra',
       title: 'Trabajos seleccionados',
       link: 'Ver proyecto',
+    },
+    projects: {
       items: {
-        'donas-3d': { type: '3D', title: 'Donas', description: 'Modelado 3D, texturizado e iluminación.' },
-        'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.' },
-        medusas: { type: 'Ilustración', title: 'Medusas', description: 'Ilustración digital.' },
-        ventti: { type: 'Diseño gráfico', title: 'Ventti', description: 'Diseño gráfico para e-commerce y campañas.' },
+        'donas-3d': { type: '3D', title: 'Donas', description: 'Modelado 3D, texturizado e iluminación.', previewAlt: '' },
+        'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.', previewAlt: '' },
+        medusas: { type: 'Ilustración', title: 'Medusas', description: 'Ilustración digital.', previewAlt: '' },
+        ventti: { type: 'Diseño gráfico', title: 'Ventti', description: 'Diseño gráfico para e-commerce y campañas.', previewAlt: '' },
       },
     },
     experience: {
@@ -181,11 +183,13 @@ export const translations = {
       eyebrow: 'A selection',
       title: 'Selected work',
       link: 'View project',
+    },
+    projects: {
       items: {
-        'donas-3d': { type: '3D', title: 'Donuts', description: '3D modeling, texturing and lighting.' },
-        'jardin-web': { type: 'Web design / UX/UI', title: 'Web garden', description: 'Design and development of an e-commerce experience.' },
-        medusas: { type: 'Illustration', title: 'Jellyfish', description: 'Digital illustration.' },
-        ventti: { type: 'Graphic design', title: 'Ventti', description: 'Graphic design for e-commerce and campaigns.' },
+        'donas-3d': { type: '3D', title: 'Donuts', description: '3D modeling, texturing and lighting.', previewAlt: '' },
+        'jardin-web': { type: 'Web design / UX/UI', title: 'Web garden', description: 'Design and development of an e-commerce experience.', previewAlt: '' },
+        medusas: { type: 'Illustration', title: 'Jellyfish', description: 'Digital illustration.', previewAlt: '' },
+        ventti: { type: 'Graphic design', title: 'Ventti', description: 'Graphic design for e-commerce and campaigns.', previewAlt: '' },
       },
     },
     experience: {

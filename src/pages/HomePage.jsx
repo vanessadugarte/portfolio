@@ -2,13 +2,9 @@ import { Link, useOutletContext } from 'react-router-dom'
 import vectorOne from '../assets/hero/abstract-vector-01.svg'
 import vectorTwo from '../assets/hero/abstract-vector-02.svg'
 import vectorThree from '../assets/hero/abstract-vector-03.svg'
-import donasImage from '../assets/images/selected-work/donas3d-760x500.jpg'
-import jardinWebImage from '../assets/images/selected-work/webjardin-760x500.jpg'
-import medusasImage from '../assets/images/selected-work/medusas-760x500.jpg'
-import venttiImage from '../assets/images/selected-work/ventti-760x500.jpg'
 import { decorativeHeroFigures, heroCategoryFigures } from '../content/heroFigures.js'
 import { getProjectCategory } from '../content/projectCategories.js'
-import { localizeSelectedWorks, selectedWorks } from '../content/selectedWorks.js'
+import { getSelectedProjects, localizeProjects } from '../content/projects.js'
 import { paths } from '../routes/paths.js'
 import './HomePage.scss'
 
@@ -16,13 +12,6 @@ const shapes = {
   one: vectorOne,
   two: vectorTwo,
   three: vectorThree,
-}
-
-const selectedWorkImages = {
-  'donas-3d': donasImage,
-  'jardin-web': jardinWebImage,
-  medusas: medusasImage,
-  ventti: venttiImage,
 }
 
 function position({ x, y, size, rotation, mobileX, mobileY, mobileSize, opacity = 1 }) {
@@ -77,7 +66,7 @@ function ExperiencePreview({ experience }) {
 
 function HomePage() {
   const { text } = useOutletContext()
-  const localizedSelectedWorks = localizeSelectedWorks(selectedWorks, text.selected.items)
+  const localizedSelectedWorks = localizeProjects(getSelectedProjects(), text.projects.items)
 
   return (
     <>
@@ -110,11 +99,11 @@ function HomePage() {
         </div>
 
         <div className="project-grid">
-          {localizedSelectedWorks.map((project) => (
+          {localizedSelectedWorks.map((project, index) => (
             <article className="project-card" key={project.id}>
-              <div className="project-preview" aria-hidden="true">
-                <img src={selectedWorkImages[project.id]} alt="" />
-                <span>{project.number}</span>
+              <div className="project-preview">
+                <img src={project.previewImage} alt={project.previewAlt} />
+                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               </div>
               <p className="project-type">{project.type}</p>
               <h3>{project.title}</h3>
