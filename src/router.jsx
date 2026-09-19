@@ -30,9 +30,9 @@ export const routeConfig = [
     children: [
       { index: true, element: <HomePage /> },
       { path: paths.projects.slice(1), element: <ProjectsPage /> },
-      ...projectCategories.map(({ slug }) => ({
+      ...projectCategories.map(({ id, slug }) => ({
         path: paths.projectCategory(slug).slice(1),
-        element: <ProjectCategoryPage slug={slug} />,
+        element: <ProjectCategoryPage categoryId={id} />,
       })),
       { path: paths.experience.slice(1), element: <ExperiencePage /> },
       { path: '*', element: <NotFoundPage /> },

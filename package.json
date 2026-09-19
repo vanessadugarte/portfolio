@@ -8,6 +8,7 @@
     "build": "npm run check:assets && vite build",
     "check:assets": "node scripts/check-asset-budgets.mjs",
     "test:branch-policy": "node --test scripts/check-main-pr-source.test.mjs",
+    "test:content": "node --test src/content/content.test.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },

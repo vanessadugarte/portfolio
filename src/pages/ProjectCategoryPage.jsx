@@ -1,13 +1,14 @@
 import { useOutletContext } from 'react-router-dom'
 import './ProjectCategoryPage.scss'
 
-function ProjectCategoryPage({ slug }) {
+function ProjectCategoryPage({ categoryId }) {
   const { text } = useOutletContext()
+  const categoryName = text.categories[categoryId]
 
   return (
-    <section className="project-landing" aria-label={text.categories[slug]}>
+    <section className="project-landing" aria-label={categoryName}>
       <p>{text.projectLabel}</p>
-      <h2>{text.categories[slug]}</h2>
+      <h2>{categoryName}</h2>
       <span>{text.comingSoon}</span>
     </section>
   )
