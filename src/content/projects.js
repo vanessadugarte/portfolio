@@ -21,6 +21,10 @@ export function getProjectsByCategory(categoryId, catalog = projects) {
   return catalog.filter(({ categoryIds }) => categoryIds.includes(categoryId))
 }
 
+export function getProjectBySlug(slug, catalog = projects) {
+  return catalog.find(({ id }) => id === slug)
+}
+
 export function localizeProjects(projectList, translationsById) {
   return projectList.map((project) => {
     const content = translationsById[project.id]

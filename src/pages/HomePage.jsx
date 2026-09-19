@@ -108,7 +108,7 @@ function HomePage() {
               <p className="project-type">{project.type}</p>
               <h3>{project.title}</h3>
               <p className="project-description">{project.description}</p>
-              <Link className="project-link" to={paths.experience}>{text.selected.link} <span aria-hidden="true">-&gt;</span></Link>
+              <Link className="project-link" to={paths.projectDetail(project.id)}>{text.selected.link} <span aria-hidden="true">-&gt;</span></Link>
             </article>
           ))}
         </div>
