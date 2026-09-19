@@ -8,8 +8,8 @@ function ProjectMenu({ text }) {
     <details className="project-menu">
       <summary>{text.nav.projects}</summary>
       <div className="project-menu-list">
-        {projectCategories.map(({ slug }) => (
-          <Link to={paths.projectCategory(slug)} key={slug}>{text.categories[slug]}</Link>
+        {projectCategories.map(({ id, slug }) => (
+          <Link to={paths.projectCategory(slug)} key={id}>{text.categories[id]}</Link>
         ))}
         <Link to={paths.projects} className="view-all-projects">{text.viewAllProjects}</Link>
       </div>
