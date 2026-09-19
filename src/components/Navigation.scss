@@ -9,16 +9,17 @@
   display: flex;
   min-height: 3.5rem;
   align-items: center;
-  justify-content: flex-end;
-  gap: 1.25rem;
-  padding: 0 1.125rem;
+  justify-content: center;
+  gap: tokens.$space-2;
+  padding: 0 tokens.$space-2;
+  flex-wrap: wrap;
   background: tokens.$color-navigation;
 }
 
 .navigation a,
 .project-menu summary {
   color: tokens.$color-surface;
-  font-size: 0.76rem;
+  font-size: tokens.$font-size-body;
   font-weight: 600;
   text-decoration: none;
 }
@@ -30,7 +31,7 @@
   color: tokens.$color-surface;
   cursor: pointer;
   font: inherit;
-  font-size: 0.72rem;
+  font-size: tokens.$font-size-body;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
@@ -99,7 +100,7 @@
 
 .project-menu-list a {
   padding: 0.5625rem 0.625rem;
-  font-size: 0.76rem;
+  font-size: tokens.$font-size-body;
   font-weight: 500;
 }
 
@@ -117,13 +118,15 @@
 @media (min-width: tokens.$breakpoint-tablet) {
   .navigation {
     min-height: 4rem;
+    justify-content: flex-end;
     gap: clamp(1.75rem, 5vw, 4.75rem);
     padding: 0 clamp(1.5rem, 4vw, 4.5rem);
+    flex-wrap: nowrap;
   }
 
   .navigation a,
   .project-menu summary {
-    font-size: clamp(0.82rem, 1.25vw, 1.05rem);
+    font-size: tokens.$font-size-navigation;
   }
 
   .project-menu-list {
@@ -136,6 +139,6 @@
   }
 
   .project-menu-list a {
-    font-size: 0.83rem;
+    font-size: tokens.$font-size-body;
   }
 }

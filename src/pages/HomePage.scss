@@ -100,15 +100,18 @@
   position: absolute;
   top: calc(100% + clamp(0.3125rem, 0.8vw, 0.75rem));
   left: 50%;
+  width: max-content;
+  max-width: min(10rem, 44vw);
   color: tokens.$color-surface;
   font-family: tokens.$font-heading;
-  font-size: clamp(0.73rem, 4.5vw, 1.08rem);
+  font-size: clamp(1rem, 4.5vw, 1.08rem);
   font-weight: 500;
   letter-spacing: -0.04em;
   line-height: 1;
+  text-align: center;
   text-transform: uppercase;
   transform: translateX(-50%) rotate(var(--label-rotation));
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .figure-category:hover .figure-label,
@@ -253,14 +256,14 @@
 .recent-job h3 {
   margin: 0;
   font-family: tokens.$font-body;
-  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-size: tokens.$font-size-body-emphasis;
   line-height: 1.35;
 }
 
 .recent-job-meta,
 .recent-job-role,
 .recent-job-highlights {
-  font-size: clamp(0.93rem, 1.2vw, 1.125rem);
+  font-size: tokens.$font-size-body;
   line-height: 1.28;
 }
 
@@ -312,7 +315,7 @@
   border-radius: 0.625rem;
   background: transparent;
   color: tokens.$color-page;
-  font-size: clamp(0.95rem, 1.25vw, 1.125rem);
+  font-size: tokens.$font-size-body;
   text-decoration: none;
   transition:
     background-color tokens.$transition-fast,
@@ -358,7 +361,7 @@
   }
 
   .figure-label {
-    font-size: clamp(0.74rem, 1.25vw, 1.28rem);
+    font-size: clamp(1rem, 1.25vw, 1.28rem);
   }
 
   .figure-graphic-design {
