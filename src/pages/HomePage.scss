@@ -169,18 +169,22 @@
   color: tokens.$color-text;
   font-family: tokens.$font-heading;
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: tokens.$letter-spacing-section-heading;
   line-height: 0.9;
   text-transform: uppercase;
 }
 
 .section-heading h2 {
   margin-top: tokens.$space-xxxl;
-  font-size: tokens.$font-size-project-title;
+  font-size: tokens.$font-size-section-heading;
+}
+
+.selected-work .section-heading h2 {
+  text-transform: none;
 }
 
 .experience-preview-heading h2 {
-  font-size: tokens.$font-size-project-title;
+  font-size: tokens.$font-size-section-heading;
 }
 
 .project-grid {
@@ -270,11 +274,7 @@
 }
 
 .experience-figures {
-  position: relative;
-  z-index: 1;
-  min-height: 17rem;
-  margin-top: -1rem;
-  pointer-events: none;
+  display: none;
 }
 
 .experience-figure {
@@ -403,7 +403,7 @@
   }
 
   .experience-preview-content {
-    width: 50%;
+    width: 60%;
     max-width: 43.75rem;
   }
 
@@ -418,19 +418,38 @@
   .experience-figures {
     position: absolute;
     inset: 0;
+    display: block;
+    z-index: 1;
     min-height: 0;
     margin: 0;
+    pointer-events: none;
   }
 
   .experience-figure-large {
     top: 4%;
-    right: 5%;
+    right: 3%;
     bottom: auto;
-    width: min(35vw, 34rem);
+    width: min(24vw, 20rem);
   }
 
   .experience-figure-small {
     bottom: 17%;
+    left: 61%;
+    width: min(9vw, 7rem);
+  }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .experience-preview-content {
+    width: 50%;
+  }
+
+  .experience-figure-large {
+    right: 5%;
+    width: min(35vw, 34rem);
+  }
+
+  .experience-figure-small {
     left: 49%;
     width: min(12vw, 11.5rem);
   }

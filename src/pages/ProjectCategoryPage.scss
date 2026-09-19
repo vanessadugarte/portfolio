@@ -12,9 +12,9 @@
   margin: 0;
   color: tokens.$color-surface;
   font-family: tokens.$font-heading;
-  font-size: clamp(3rem, 9vw, 8rem);
+  font-size: tokens.$font-size-section-heading;
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: tokens.$letter-spacing-section-heading;
   line-height: 0.9;
 }
 

@@ -2,6 +2,8 @@ $font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
 $font-display: Georgia, 'Times New Roman', serif;
 $font-heading: 'Google Sans', 'Google Sans Text', Arial, sans-serif;
 $font-size-project-title: 20px;
+$font-size-section-heading: 32px;
+$letter-spacing-section-heading: -0.035em;
 
 $color-canvas: #f4f1eb;
 $color-page: #344a91;
@@ -36,6 +38,7 @@ $space-xxl: 32px;
 $space-xxxl: 32px;
 
 $breakpoint-tablet: 40.0625rem;
+$breakpoint-desktop: 64rem;
 
 $z-hero-grid: 0;
 $z-hero-decoration: 1;

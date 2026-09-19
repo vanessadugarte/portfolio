@@ -58,8 +58,8 @@ function ExperiencePreview({ experience }) {
       </div>
 
       <div className="experience-figures" aria-hidden="true">
-        <span className="experience-figure experience-figure-large"><Shape shape="three" /></span>
-        <span className="experience-figure experience-figure-small"><Shape shape="three" /></span>
+        <span className="experience-figure experience-figure-large"><Shape shape="two" /></span>
+        <span className="experience-figure experience-figure-small"><Shape shape="two" /></span>
       </div>
     </section>
   )
