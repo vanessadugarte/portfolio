@@ -10,21 +10,33 @@
   min-height: 3.5rem;
   align-items: center;
   justify-content: center;
-  gap: tokens.$space-2;
-  padding: 0 tokens.$space-2;
-  flex-wrap: wrap;
+  gap: 0.125rem;
+  padding: 0 tokens.$space-1;
+  flex-wrap: nowrap;
   background: tokens.$color-navigation;
 }
 
 .navigation a,
 .project-menu summary {
+  display: inline-flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
+  justify-content: center;
+  padding: tokens.$space-1;
   color: tokens.$color-surface;
   font-size: tokens.$font-size-body;
   font-weight: 600;
   text-decoration: none;
 }
 
+.navigation > a[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.3em;
+}
+
 .language-switch {
+  min-height: tokens.$target-size-comfortable;
   padding: 0.375rem tokens.$space-2;
   border: 1px solid rgb(255 255 255 / 48%);
   background: transparent;
@@ -46,6 +58,14 @@
   color: tokens.$color-accent-cyan;
 }
 
+.navigation a:focus-visible,
+.project-menu summary:focus-visible,
+.language-switch:focus-visible {
+  border-radius: 0.25rem;
+  outline: tokens.$focus-ring-width solid tokens.$color-accent-cyan;
+  outline-offset: 0.125rem;
+}
+
 .project-menu {
   position: relative;
 }
@@ -53,10 +73,11 @@
 .project-menu[open]::after {
   position: absolute;
   top: 100%;
-  right: -1.5625rem;
+  left: 50%;
   width: 14rem;
   height: 1.125rem;
   content: '';
+  transform: translateX(-50%);
 }
 
 .project-menu summary {
@@ -89,28 +110,31 @@
 .project-menu-list {
   position: absolute;
   top: calc(100% + 1.125rem);
-  right: -1.5625rem;
+  left: 50%;
   display: grid;
   min-width: 11.375rem;
   padding: tokens.$space-3;
-  border: 1px solid rgb(255 255 255 / 24%);
+  border: 1px solid rgb(255 255 255 / 48%);
   background: tokens.$color-navigation;
   box-shadow: 0 0.875rem 1.75rem rgb(0 0 0 / 24%);
+  transform: translateX(-50%);
 }
 
 .project-menu-list a {
+  display: flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
   padding: 0.5625rem 0.625rem;
   font-size: tokens.$font-size-body;
   font-weight: 500;
 }
 
 .project-menu-list a:focus-visible {
-  outline: 2px solid tokens.$color-accent-cyan;
-  outline-offset: -2px;
+  outline-offset: calc(tokens.$focus-ring-width * -1);
 }
 
 .project-menu-list .view-all-projects {
-  border-bottom: 1px solid rgb(255 255 255 / 24%);
+  border-bottom: 1px solid rgb(255 255 255 / 48%);
   color: tokens.$color-accent-cyan;
   font-weight: 700;
 }
@@ -131,14 +155,24 @@
 
   .project-menu-list {
     right: -1.125rem;
+    left: auto;
     min-width: 12.5rem;
+    transform: none;
   }
 
   .project-menu[open]::after {
     right: -1.125rem;
+    left: auto;
+    transform: none;
   }
 
   .project-menu-list a {
     font-size: tokens.$font-size-body;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-menu-chevron {
+    transition: none;
   }
 }

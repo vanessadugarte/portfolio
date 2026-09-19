@@ -24,8 +24,10 @@
 }
 
 .project-preview:focus-visible {
-  outline: 0.1875rem solid tokens.$color-accent-cyan;
-  outline-offset: 0.25rem;
+  outline: 0;
+  box-shadow:
+    0 0 0 tokens.$focus-ring-width tokens.$color-surface,
+    0 0 0 calc(tokens.$focus-ring-width * 2) tokens.$color-page;
 }
 
 .project-preview span {
@@ -33,7 +35,10 @@
   z-index: tokens.$z-art-label;
   top: 0.75rem;
   right: 0.875rem;
-  color: rgb(255 255 255 / 75%);
+  padding: 0.25rem 0.375rem;
+  border-radius: 0.25rem;
+  background: rgb(13 13 30 / 88%);
+  color: tokens.$color-surface;
   font-size: tokens.$font-size-body;
   font-weight: 700;
 }
@@ -63,8 +68,11 @@
 }
 
 .project-link {
-  display: inline-block;
+  display: inline-flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
   margin-top: 0.8125rem;
+  padding: 0 tokens.$space-1;
   color: tokens.$color-page;
   font-size: tokens.$font-size-body;
   text-decoration: none;
@@ -75,6 +83,12 @@
   text-decoration: underline;
   text-decoration-color: tokens.$color-page;
   text-underline-offset: 0.2em;
+}
+
+.project-link:focus-visible {
+  border-radius: 0.25rem;
+  outline: tokens.$focus-ring-width solid tokens.$color-page;
+  outline-offset: 0;
 }
 
 .projects-preview-grid {
@@ -102,6 +116,7 @@
 
 .projects-preview-grid .project-link:hover,
 .projects-preview-grid .project-link:focus-visible {
+  outline-color: tokens.$color-accent-cyan;
   text-decoration-color: tokens.$color-accent-cyan;
 }
 
@@ -123,5 +138,10 @@
 @media (prefers-reduced-motion: reduce) {
   .project-preview img {
     transition: none;
+  }
+
+  .project-preview:hover img,
+  .project-preview:focus-visible img {
+    transform: none;
   }
 }
