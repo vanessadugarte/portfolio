@@ -22,6 +22,7 @@ En escritorio, la persona pasa el cursor por Proyectos, atraviesa el espacio vis
 - El espacio visual entre Proyectos y el panel forma parte del área de hover, por lo que se pueden alcanzar todas las opciones sin cerrar el menú.
 - Bajo ese punto de quiebre, el menú se alterna con clic y un clic fuera lo cierra.
 - Los enlaces de categorías existentes mantienen sus destinos.
+- "Ver todo" parte con el mismo color y sin subrayado que las demás opciones; muestra subrayado únicamente cuando su ruta está seleccionada o durante hover/foco.
 - Cada enlace del panel tiene un indicador de foco visible para navegación por teclado.
 - `npm run lint` y `npm run build` finalizan correctamente.
 

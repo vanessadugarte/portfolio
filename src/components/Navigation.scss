@@ -12,8 +12,13 @@
   justify-content: center;
   gap: 0.125rem;
   padding: 0 tokens.$space-1;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   background: tokens.$color-navigation;
+}
+
+.navigation .navigation-brand {
+  flex-basis: 100%;
+  justify-content: flex-start;
 }
 
 .navigation a,
@@ -30,6 +35,19 @@
 }
 
 .navigation > a[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.3em;
+}
+
+.navigation .navigation-brand,
+.navigation .navigation-brand:hover,
+.navigation .navigation-brand:focus-visible {
+  color: tokens.$color-surface;
+}
+
+.navigation .navigation-brand:hover,
+.navigation .navigation-brand:focus-visible {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.3em;
@@ -135,8 +153,13 @@
 
 .project-menu-list .view-all-projects {
   border-bottom: 1px solid rgb(255 255 255 / 48%);
-  color: tokens.$color-accent-cyan;
   font-weight: 700;
+}
+
+.project-menu-list a[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.3em;
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
@@ -146,6 +169,11 @@
     gap: clamp(1.75rem, 5vw, 4.75rem);
     padding: 0 clamp(1.5rem, 4vw, 4.5rem);
     flex-wrap: nowrap;
+  }
+
+  .navigation .navigation-brand {
+    flex-basis: auto;
+    margin-right: auto;
   }
 
   .navigation a,

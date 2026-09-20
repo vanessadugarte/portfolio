@@ -34,21 +34,21 @@ function ExperiencePage() {
 
       <section className="experience-block education" aria-labelledby="education-title">
         <h2 id="education-title">{experience.educationLabel}</h2>
-        <p>{experience.education.meta}</p>
-        <h3>{experience.education.degree}</h3>
-        <strong>{experience.education.school}</strong>
+        <p className="experience-education-degree">{experience.education.degree}</p>
+        <p className="experience-education-school">{experience.education.school}</p>
+        <p className="experience-education-meta">{experience.education.meta}</p>
       </section>
 
-      <section className="experience-block" aria-labelledby="skills-title">
+      <section className="experience-block experience-details" aria-labelledby="skills-title">
         <h2 id="skills-title">{experience.skillsLabel}</h2>
-        <div className="skills-grid">
+        <ul className="skills-list">
           {experience.skills.map((skill) => (
-            <article key={skill.title}>
-              <h3>{skill.title}</h3>
-              <p>{skill.items}</p>
-            </article>
+            <li key={skill.title}>
+              <strong>{skill.title}:</strong>{' '}
+              <span>{skill.items}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </section>
   )

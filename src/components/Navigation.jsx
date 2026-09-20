@@ -83,6 +83,7 @@ function ProjectMenu({ text }) {
 function Navigation({ onLanguageChange, text }) {
   return (
     <nav className="navigation" aria-label={text.navigationLabel}>
+      <NavLink className="navigation-brand" to={paths.home} end>Vanessa Dugarte</NavLink>
       <NavLink to={paths.home} end>{text.nav.home}</NavLink>
       <ProjectMenu text={text} />
       <NavLink to={paths.experience}>{text.nav.experience}</NavLink>
