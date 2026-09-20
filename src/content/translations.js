@@ -44,11 +44,11 @@ export const translations = {
     },
     experience: {
       eyebrow: 'Experiencia reciente',
-      title: 'Experiencia',
+      title: 'Experiencia reciente',
       link: 'Ver experiencia completa',
       previewJobs: [
         {
-          meta: 'Septiembre 2025- presente',
+          meta: 'Septiembre 2026- Presente',
           company: 'AFP Modelo S.A',
           role: 'Diseñador web UX/UI & Front-end (Vue)',
           highlights: [
@@ -58,8 +58,8 @@ export const translations = {
           ],
         },
         {
-          meta: 'Septiembre 2026- presente',
-          company: 'AFP Modelo S.A',
+          meta: 'Septiembre 2025- Agosto 2026',
+          company: 'Solunova SPA',
           role: 'Diseñador web UX/UI & Front-end (React)',
           showDashes: true,
           highlights: [
@@ -203,7 +203,7 @@ export const translations = {
       link: 'View full experience',
       previewJobs: [
         {
-          meta: 'September 2025- present',
+          meta: 'September 2026 - Present',
           company: 'AFP Modelo S.A',
           role: 'Web UX/UI Designer & Front-end Developer (Vue)',
           highlights: [
@@ -213,8 +213,8 @@ export const translations = {
           ],
         },
         {
-          meta: 'September 2026- present',
-          company: 'AFP Modelo S.A',
+          meta: 'September 2025- August 2026',
+          company: 'Solunova SPA',
           role: 'Web UX/UI Designer & Front-end Developer (React)',
           showDashes: true,
           highlights: [
