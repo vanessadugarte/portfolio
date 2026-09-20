@@ -103,6 +103,24 @@ test('every language exposes two complete experience preview jobs', () => {
   }
 })
 
+test('every language exposes the complete experience landing content', () => {
+  for (const text of Object.values(translations)) {
+    assert.equal(text.experience.jobs.length, 6)
+    assert.equal(text.experience.skills.length, 6)
+    assert.ok(text.experience.education.degree)
+    assert.ok(text.experience.education.school)
+
+    for (const job of text.experience.jobs) {
+      assert.ok(job.meta)
+      assert.ok(job.company)
+      assert.ok(job.role)
+      assert.ok(job.highlights.length)
+    }
+
+    assert.match(text.experience.skills.at(-1).title, /Idiomas|Languages/)
+  }
+})
+
 test('every language exposes localized navigation metadata', () => {
   for (const text of Object.values(translations)) {
     assert.ok(text.skipToContent)

@@ -16,18 +16,20 @@ function ExperiencePage() {
 
       <section className="experience-block" aria-labelledby="employment-title">
         <h2 id="employment-title">{experience.employmentLabel}</h2>
-        <div className="experience-timeline">
+        <ol className="experience-timeline">
           {experience.jobs.map((job) => (
-            <article className="experience-job" key={`${job.company}-${job.role}`}>
-              <p>{job.meta}</p>
-              <h3>{job.role}</h3>
-              <strong>{job.company}</strong>
-              <ul>
-                {job.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-              </ul>
-            </article>
+            <li className="experience-timeline-item" key={`${job.company}-${job.role}-${job.meta}`}>
+              <article className="experience-job">
+                <p className="experience-job-meta">{job.meta}</p>
+                <h3>{job.role}</h3>
+                <p className="experience-job-company">{job.company}</p>
+                <ul className="experience-job-highlights">
+                  {job.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                </ul>
+              </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       <section className="experience-block education" aria-labelledby="education-title">
