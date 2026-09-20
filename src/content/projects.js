@@ -1,7 +1,14 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
-const medusasImage = new URL('../assets/images/selected-work/medusas-760x500.jpg', import.meta.url).href
+const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
 const venttiImage = new URL('../assets/images/selected-work/ventti-760x500.jpg', import.meta.url).href
+const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
+const jungleImage = new URL('../assets/images/projects/illustrations/jungle/jungle-illustration-thumbnail.jpg', import.meta.url).href
+const gameIconsImage = new URL('../assets/images/projects/illustrations/game-icons/iconos-760x500.jpg', import.meta.url).href
+const snapchatFramesImage = new URL('../assets/images/projects/illustrations/snapchat-frames/snapchat-frames-thumbnail.jpg', import.meta.url).href
+const reindeerImage = new URL('../assets/images/projects/illustrations/reindeer/reindeer-760x500.jpg', import.meta.url).href
+const muchokidsNationalitiesImage = new URL('../assets/images/projects/illustrations/muchokids-nationalities/muchokids-nationalities-760x500.jpg', import.meta.url).href
+const navalInfographicsImage = new URL('../assets/images/projects/other/ship-infographic-thumbnail.jpg', import.meta.url).href
 
 // Project IDs also serve as the stable, category-independent URL slugs.
 export const projects = [
@@ -9,6 +16,13 @@ export const projects = [
   { id: 'jardin-web', categoryIds: ['uxui'], previewImage: jardinWebImage, selectedOrder: 2 },
   { id: 'medusas', categoryIds: ['illustration'], previewImage: medusasImage, selectedOrder: 3 },
   { id: 'ventti', categoryIds: ['graphic-design'], previewImage: venttiImage, selectedOrder: 4 },
+  { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
+  { id: 'jungle', categoryIds: ['illustration'], previewImage: jungleImage },
+  { id: 'game-icons', categoryIds: ['illustration'], previewImage: gameIconsImage },
+  { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage },
+  { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
+  { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
+  { id: 'naval-infographics', categoryIds: ['animations'], previewImage: navalInfographicsImage },
 ]
 
 export function getSelectedProjects(catalog = projects) {
