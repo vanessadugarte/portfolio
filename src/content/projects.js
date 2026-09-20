@@ -25,6 +25,19 @@ export function getProjectBySlug(slug, catalog = projects) {
   return catalog.find(({ id }) => id === slug)
 }
 
+export function getProjectNeighbors(projectId, catalog = projects) {
+  const projectIndex = catalog.findIndex(({ id }) => id === projectId)
+
+  if (projectIndex === -1) {
+    return { previous: undefined, next: undefined }
+  }
+
+  return {
+    previous: catalog[projectIndex - 1],
+    next: catalog[projectIndex + 1],
+  }
+}
+
 export function localizeProjects(projectList, translationsById) {
   return projectList.map((project) => {
     const content = translationsById[project.id]

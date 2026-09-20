@@ -2,7 +2,8 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { heroCategoryFigures } from './heroFigures.js'
 import { projectCategories } from './projectCategories.js'
-import { getProjectBySlug, getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
+import { getProjectDetails } from './projectDetails.js'
+import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
 import { paths } from '../routes/paths.js'
 import { formatDocumentTitle } from '../hooks/usePageMetadata.js'
 import { translations } from './translations.js'
@@ -55,6 +56,32 @@ test('project detail URLs are generated from the catalog without category collis
   }
 
   assert.equal(getProjectBySlug('inexistente'), undefined)
+})
+
+test('Medusas exposes complete localized detail content, media and catalog navigation', () => {
+  const assets = getProjectDetails('medusas')
+  const neighbors = getProjectNeighbors('medusas')
+
+  assert.equal(neighbors.previous.id, 'jardin-web')
+  assert.equal(neighbors.next.id, 'ventti')
+  assert.equal(assets.referenceImages.length, 2)
+  assert.equal(assets.processImages.length, 4)
+  assert.equal(assets.detailImages.length, 4)
+  assert.equal(assets.palette.length, 6)
+
+  for (const text of Object.values(translations)) {
+    const detail = text.projects.items.medusas.detail
+
+    assert.equal(detail.number, '01')
+    assert.equal(detail.facts.length, 3)
+    assert.equal(detail.imageAlt.references.length, assets.referenceImages.length)
+    assert.equal(detail.imageAlt.process.length, assets.processImages.length)
+    assert.equal(detail.imageAlt.details.length, assets.detailImages.length)
+    assert.ok(detail.introduction)
+    assert.ok(detail.paletteDescription)
+  }
+
+  assert.deepEqual(getProjectNeighbors('missing'), { previous: undefined, next: undefined })
 })
 
 test('every language defines the complete catalog and its metadata', () => {
