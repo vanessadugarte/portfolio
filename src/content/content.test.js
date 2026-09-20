@@ -3,7 +3,7 @@ import test from 'node:test'
 import { heroCategoryFigures } from './heroFigures.js'
 import { projectCategories } from './projectCategories.js'
 import { getProjectDetails } from './projectDetails.js'
-import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
+import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getProjectsInMenuOrder, getSelectedProjects, localizeProjects, projects, validateProjectCatalog } from './projects.js'
 import { paths } from '../routes/paths.js'
 import { formatDocumentTitle } from '../hooks/usePageMetadata.js'
 import { translations } from './translations.js'
@@ -52,14 +52,17 @@ test('project detail URLs are generated from the catalog without category collis
   for (const project of projects) {
     assert.equal(getProjectBySlug(project.id), project)
     assert.equal(paths.projectDetail(project.id), `/proyectos/${project.id}`)
+    assert.equal(paths.projectDetail(project.id, 'all'), `/proyectos/${project.id}?categoria=all`)
     assert.equal(categorySlugs.has(project.id), false)
   }
 
   assert.equal(getProjectBySlug('inexistente'), undefined)
 })
 
-test('Medusas exposes complete localized detail content, media and catalog navigation', () => {
+test('complete project details expose localized content, media and catalog navigation', () => {
   const assets = getProjectDetails('medusas')
+  const donutAssets = getProjectDetails('donas-3d')
+  const deepSeaAssets = getProjectDetails('deep-sea')
   const neighbors = getProjectNeighbors('medusas')
 
   assert.equal(neighbors.previous.id, 'jardin-web')
@@ -68,6 +71,19 @@ test('Medusas exposes complete localized detail content, media and catalog navig
   assert.equal(assets.processImages.length, 4)
   assert.equal(assets.detailImages.length, 4)
   assert.equal(assets.palette.length, 6)
+  assert.equal(donutAssets.referenceImages, undefined)
+  assert.deepEqual(donutAssets.palette, ['#F5C6D8', '#E96486', '#F4B35E', '#B6E2C4', '#8E5A3C', '#E8D6C2'])
+  assert.equal(donutAssets.processImages.length, 4)
+  assert.equal(donutAssets.processWideImages.length, 2)
+  assert.equal(donutAssets.detailImages.length, 4)
+  assert.deepEqual(deepSeaAssets.heroDimensions, { width: 1200, height: 891 })
+  assert.deepEqual(deepSeaAssets.heroSecondaryDimensions, { width: 1200, height: 1618 })
+  assert.ok(deepSeaAssets.heroSecondaryImage)
+  assert.ok(deepSeaAssets.decorationImage)
+  assert.equal(deepSeaAssets.referenceImages.length, 2)
+  assert.deepEqual(deepSeaAssets.palette, ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'])
+  assert.equal(deepSeaAssets.processImages.length, 3)
+  assert.equal(deepSeaAssets.detailImages.length, 4)
 
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.medusas.detail
@@ -79,13 +95,47 @@ test('Medusas exposes complete localized detail content, media and catalog navig
     assert.equal(detail.imageAlt.details.length, assets.detailImages.length)
     assert.ok(detail.introduction)
     assert.ok(detail.paletteDescription)
+
+    const donutDetail = text.projects.items['donas-3d'].detail
+    assert.equal(donutDetail.number, '01')
+    assert.equal(donutDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
+    assert.equal(donutDetail.facts.at(-1).value, 'Blender')
+    assert.ok(donutDetail.paletteTitle)
+    assert.ok(donutDetail.paletteDescription)
+    assert.equal(donutDetail.imageAlt.process.length, donutAssets.processImages.length)
+    assert.equal(donutDetail.imageAlt.processWide.length, donutAssets.processWideImages.length)
+    assert.equal(donutDetail.imageAlt.details.length, donutAssets.detailImages.length)
+
+    const deepSeaDetail = text.projects.items['deep-sea'].detail
+    assert.equal(deepSeaDetail.number, '01')
+    assert.equal(deepSeaDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
+    assert.equal(deepSeaDetail.facts.at(-1).value, 'Photoshop, Illustrator, Wacom Tablet')
+    assert.ok(deepSeaDetail.imageAlt.heroSecondary)
+    assert.equal(deepSeaDetail.imageAlt.references.length, deepSeaAssets.referenceImages.length)
+    assert.equal(deepSeaDetail.imageAlt.process.length, deepSeaAssets.processImages.length)
+    assert.equal(deepSeaDetail.imageAlt.details.length, deepSeaAssets.detailImages.length)
   }
 
   assert.deepEqual(getProjectNeighbors('missing'), { previous: undefined, next: undefined })
 })
 
-test('new illustration projects have localized previews and pending details', () => {
-  for (const id of ['deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game']) {
+test('project navigation follows its category or the menu category order', () => {
+  const illustrationProjects = getProjectsByCategory('illustration')
+  const illustrationNeighbors = getProjectNeighbors('deep-sea', illustrationProjects)
+  const allProjects = getProjectsInMenuOrder(projects, projectCategories)
+
+  assert.equal(illustrationNeighbors.previous.id, 'medusas')
+  assert.equal(illustrationNeighbors.next.id, 'jungle')
+  assert.deepEqual(allProjects.map(({ id }) => id), [
+    'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game',
+    'jardin-web', 'donas-3d', 'ventti', 'naval-infographics',
+  ])
+  assert.equal(getProjectNeighbors('muchomix-game', allProjects).next.id, 'jardin-web')
+  assert.equal(getProjectNeighbors('jardin-web', allProjects).next.id, 'donas-3d')
+})
+
+test('pending illustration projects have localized previews without detail landings', () => {
+  for (const id of ['jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])

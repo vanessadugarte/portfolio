@@ -43,6 +43,22 @@ export function getProjectBySlug(slug, catalog = projects) {
   return catalog.find(({ id }) => id === slug)
 }
 
+export function getProjectsInMenuOrder(catalog = projects, categories) {
+  if (!categories) {
+    throw new Error('Project categories are required to order all projects')
+  }
+
+  const seenProjectIds = new Set()
+
+  return categories.flatMap(({ id: categoryId }) => getProjectsByCategory(categoryId, catalog)
+    .filter((project) => {
+      if (seenProjectIds.has(project.id)) return false
+
+      seenProjectIds.add(project.id)
+      return true
+    }))
+}
+
 export function getProjectNeighbors(projectId, catalog = projects) {
   const projectIndex = catalog.findIndex(({ id }) => id === projectId)
 

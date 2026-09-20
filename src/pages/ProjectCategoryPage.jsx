@@ -15,7 +15,7 @@ function ProjectCategoryPage({ categoryId }) {
       <h1 id="project-category-title" ref={headingRef} tabIndex={-1}>{categoryName}</h1>
       {localizedProjects.length > 0 ? (
         <div className="projects-preview-grid">
-          {localizedProjects.map((project) => <ProjectPreviewCard actionLabel={text.selected.link} headingLevel={2} key={project.id} project={project} />)}
+          {localizedProjects.map((project) => <ProjectPreviewCard actionLabel={text.selected.link} categoryId={categoryId} headingLevel={2} key={project.id} project={project} />)}
         </div>
       ) : <p className="project-category-empty">{text.comingSoon}</p>}
     </section>
