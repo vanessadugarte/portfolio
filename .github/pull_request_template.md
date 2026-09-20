@@ -25,6 +25,16 @@ Closes #
 - [ ] Comprobaciones funcionales — detalle:
 - [ ] Comprobaciones visuales y responsive — detalle o motivo por el que no aplica:
 
+## Accesibilidad
+
+<!-- Todo PR debe evaluar este apartado. Marca lo que aplique y justifica lo que no aplique. No declares conformidad solo por pasar un escaner. -->
+
+- [ ] Evalué el impacto sobre WCAG 2.2 A/AA — criterios afectados o motivo por el que no aplica:
+- [ ] Probé teclado y foco (Tab/Shift+Tab, Enter/Espacio y Escape cuando corresponda) — resultado o motivo por el que no aplica:
+- [ ] Revisé semántica, encabezados/landmarks, nombres/roles/estados, alternativas, título e idioma — resultado o motivo por el que no aplica:
+- [ ] Revisé contraste, foco visible, objetivos de puntero, reflujo/zoom y movimiento — resultado o motivo por el que no aplica:
+- [ ] Ejecuté comprobaciones automatizadas y/o lector de pantalla cuando el alcance lo requiere — herramienta, navegador, resultado y limitaciones:
+
 ## Revisión de código
 
 - [ ] Revisé el diff completo contra `develop`.

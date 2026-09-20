@@ -33,6 +33,18 @@ La interfaz se desarrolla primero en espanol. La arquitectura y el contenido deb
 - Mantener las especificaciones actualizadas cuando cambie el alcance; no introducir comportamiento no acordado sin reflejarlo en ellas.
 - Todo PR debe enlazar su especificacion o issue y explicar como se validaron los criterios de aceptacion.
 
+## Accesibilidad
+
+- Mantener WCAG 2.2 niveles A y AA como linea base obligatoria. Todo cambio debe conservar o mejorar la accesibilidad existente; un escaner automatico por si solo no demuestra conformidad.
+- Preferir HTML semantico y controles nativos. Mantener la navegacion repetida fuera de `main`, un unico `main` y un unico `h1` por ruta, jerarquia de encabezados sin saltos y el enlace para saltar al contenido.
+- Dar nombre, funcion y estado programaticos coherentes a enlaces y controles. Las imagenes informativas requieren alternativa util; las decorativas deben quedar ocultas para tecnologias de asistencia. No usar ARIA cuando un elemento nativo ya exponga la semantica necesaria.
+- Garantizar operacion completa con teclado: orden de foco logico, foco visible y no oculto, ausencia de trampas, Tab/Shift+Tab, Enter/Espacio y Escape cuando corresponda. Los componentes emergentes deben permanecer disponibles mientras el puntero o el foco esten dentro y poder descartarse sin perder el contexto.
+- En cada navegacion SPA, conservar titulos de documento localizados y orientar el foco sin desplazamientos inesperados. Mantener `html[lang]`, nombres accesibles y contenido sincronizados en espanol e ingles, incluidas rutas directas, historial, estados vacios y 404.
+- Conservar texto base de al menos 16 px, reflujo sin desplazamiento bidimensional a 320 CSS px y zoom de 200 %, espaciado de texto ajustable, soporte de `prefers-reduced-motion` y estados que no dependan solo del color.
+- Cumplir contraste WCAG: al menos 4.5:1 para texto normal, 3:1 para texto grande y 3:1 para componentes, bordes funcionales e indicadores de foco. Los objetivos de puntero deben medir al menos 24 x 24 CSS px o contar con el espaciado equivalente; priorizar 44 px de alto para controles principales.
+- Todo PR que afecte interfaz, contenido o interaccion debe registrar su impacto de accesibilidad y validar las rutas, estados e idiomas afectados. Como minimo: prueba manual de teclado, revision responsive y `npm run lint`/`npm run build`; añadir axe u otro escaner para cambios relevantes y un lector de pantalla cuando cambien semantica, navegacion, foco o estados dinamicos.
+- Documentar herramienta, navegador, resultados y limitaciones. Justificar explicitamente lo que no aplique y actualizar la matriz de [auditoria WCAG del issue #30](docs/evidence/issue-30/audit.md) cuando cambie la aplicabilidad o la evidencia de un criterio.
+
 ## Enrutamiento
 
 - Usar `react-router-dom` (React Router) como unica solucion de enrutamiento de la aplicacion.
