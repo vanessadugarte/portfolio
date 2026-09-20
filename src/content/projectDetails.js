@@ -1,4 +1,4 @@
-const asset = (filename) => new URL(`../assets/images/projects/medusas/${filename}`, import.meta.url).href
+const asset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 
 export const projectDetails = {
   medusas: {

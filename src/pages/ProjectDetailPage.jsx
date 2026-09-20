@@ -76,7 +76,7 @@ function CompleteProjectDetail({ assets, content, project, text }) {
   const categoryName = text.categories[category.id]
 
   return (
-    <article className="project-detail" aria-labelledby="project-detail-title">
+    <article className={`project-detail project-detail--${project.id}`} aria-labelledby="project-detail-title">
       <div className="project-detail-inner">
         <Link className="project-detail-back" to={paths.projectCategory(category.slug)}>
           <span aria-hidden="true">←</span>{' '}

@@ -5,14 +5,14 @@
   min-height: 100svh;
   place-content: center;
   padding: 7rem 1.5rem 3rem;
-  background: tokens.$color-hero;
-  color: tokens.$color-surface;
+  background: tokens.$color-project-canvas;
+  color: tokens.$color-text;
   text-align: center;
 }
 
 .project-detail-categories {
   margin: 0 0 tokens.$space-3;
-  color: tokens.$color-accent-cyan;
+  color: tokens.$color-project-type;
   font-size: tokens.$font-size-body;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -22,7 +22,7 @@
 .project-detail-placeholder h1 {
   max-width: 46.25rem;
   margin: 0;
-  color: tokens.$color-surface;
+  color: tokens.$color-text;
   font-family: tokens.$font-heading;
   font-size: 2rem;
   font-weight: 400;
@@ -32,7 +32,7 @@
 
 .project-detail-pending {
   margin: tokens.$space-5 0 0;
-  color: rgb(255 255 255 / 62%);
+  color: tokens.$color-text-muted;
   font-size: tokens.$font-size-body;
 }
 
@@ -105,6 +105,11 @@
   letter-spacing: -0.055em;
   line-height: 0.95;
   text-transform: uppercase;
+}
+
+.project-detail-placeholder h1:focus,
+.project-detail-summary h1:focus {
+  outline: none;
 }
 
 .project-detail-eyebrow {
@@ -359,6 +364,12 @@
 
   .project-detail-references {
     grid-template-columns: 12.5rem repeat(2, minmax(0, 1.15fr)) minmax(20rem, 2.2fr);
+  }
+
+  .project-detail--medusas .project-detail-references {
+    margin-top: tokens.$space-6;
+    padding-top: tokens.$space-6;
+    border-top: 1px solid tokens.$color-border;
   }
 
   .project-detail-gallery {
