@@ -25,15 +25,12 @@ Closes #
 - [ ] Comprobaciones funcionales — detalle:
 - [ ] Comprobaciones visuales y responsive — detalle o motivo por el que no aplica:
 
-## Accesibilidad
+## Accesibilidad (solo si el cambio tiene impacto)
 
-<!-- Todo PR debe evaluar este apartado. Marca lo que aplique y justifica lo que no aplique. No declares conformidad solo por pasar un escaner. -->
+<!-- Completar este apartado únicamente si el cambio modifica rutas, semántica, controles/interacciones, foco, contenido informativo/multimedia o estilos que puedan afectar contraste, legibilidad, reflujo o movimiento. Registra solo las comprobaciones pertinentes al alcance; no se exige una auditoría global ni actualizar la matriz del issue #30 salvo que el issue lo pida o el alcance lo justifique. No declares conformidad solo por pasar un escáner. -->
 
-- [ ] Evalué el impacto sobre WCAG 2.2 A/AA — criterios afectados o motivo por el que no aplica:
-- [ ] Probé teclado y foco (Tab/Shift+Tab, Enter/Espacio y Escape cuando corresponda) — resultado o motivo por el que no aplica:
-- [ ] Revisé semántica, encabezados/landmarks, nombres/roles/estados, alternativas, título e idioma — resultado o motivo por el que no aplica:
-- [ ] Revisé contraste, foco visible, objetivos de puntero, reflujo/zoom y movimiento — resultado o motivo por el que no aplica:
-- [ ] Ejecuté comprobaciones automatizadas y/o lector de pantalla cuando el alcance lo requiere — herramienta, navegador, resultado y limitaciones:
+- [ ] Riesgo o criterios de accesibilidad afectados:
+- [ ] Comprobaciones específicas realizadas — herramienta, navegador, resultado y limitaciones:
 
 ## Revisión de código
 
