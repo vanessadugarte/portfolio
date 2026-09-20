@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navigation from '../components/Navigation.jsx'
 import { translations } from '../content/translations.js'
@@ -6,6 +6,7 @@ import './PortfolioLayout.scss'
 
 function PortfolioLayout() {
   const location = useLocation()
+  const mainRef = useRef(null)
   const [language, setLanguage] = useState(() => (
     window.localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'es'
   ))
@@ -13,6 +14,11 @@ function PortfolioLayout() {
 
   function toggleLanguage() {
     setLanguage((currentLanguage) => (currentLanguage === 'es' ? 'en' : 'es'))
+  }
+
+  function skipToContent(event) {
+    event.preventDefault()
+    mainRef.current?.focus()
   }
 
   useEffect(() => {
@@ -25,10 +31,13 @@ function PortfolioLayout() {
   }, [location.pathname])
 
   return (
-    <main className="page">
+    <>
+      <a className="skip-link" href="#main-content" onClick={skipToContent}>{text.skipToContent}</a>
       <Navigation onLanguageChange={toggleLanguage} text={text} />
-      <Outlet context={{ text }} />
-    </main>
+      <main className="page" id="main-content" ref={mainRef} tabIndex={-1}>
+        <Outlet context={{ text }} />
+      </main>
+    </>
   )
 }
 

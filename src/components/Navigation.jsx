@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { projectCategories } from '../content/projectCategories.js'
 import { paths } from '../routes/paths.js'
 import './Navigation.scss'
@@ -8,6 +8,7 @@ const desktopMediaQuery = '(min-width: 40.0625rem)'
 
 function ProjectMenu({ text }) {
   const menuRef = useRef(null)
+  const summaryRef = useRef(null)
   const [isDesktop, setIsDesktop] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -25,16 +26,16 @@ function ProjectMenu({ text }) {
   }, [])
 
   useEffect(() => {
-    if (isDesktop || !isOpen) return undefined
+    if (!isOpen) return undefined
 
     const closeWhenClickingOutside = (event) => {
       if (!menuRef.current?.contains(event.target)) setIsOpen(false)
     }
 
-    document.addEventListener('pointerdown', closeWhenClickingOutside)
+    document.addEventListener('click', closeWhenClickingOutside)
 
-    return () => document.removeEventListener('pointerdown', closeWhenClickingOutside)
-  }, [isDesktop, isOpen])
+    return () => document.removeEventListener('click', closeWhenClickingOutside)
+  }, [isOpen])
 
   const closeMenu = () => setIsOpen(false)
 
@@ -44,26 +45,26 @@ function ProjectMenu({ text }) {
       open={isOpen}
       ref={menuRef}
       onBlur={(event) => {
-        if (isDesktop && !event.currentTarget.contains(event.relatedTarget)) closeMenu()
-      }}
-      onFocus={() => {
-        if (isDesktop) setIsOpen(true)
+        if (!event.currentTarget.contains(event.relatedTarget)) closeMenu()
       }}
       onMouseEnter={() => {
         if (isDesktop) setIsOpen(true)
       }}
       onMouseLeave={() => {
-        if (isDesktop) closeMenu()
+        if (isDesktop && !menuRef.current?.contains(document.activeElement)) closeMenu()
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== 'Escape' || !isOpen) return
+
+        event.preventDefault()
+        closeMenu()
+        summaryRef.current?.focus()
       }}
       onToggle={(event) => {
-        if (!isDesktop) setIsOpen(event.currentTarget.open)
+        setIsOpen(event.currentTarget.open)
       }}
     >
-      <summary
-        onClick={(event) => {
-          if (isDesktop) event.preventDefault()
-        }}
-      >
+      <summary ref={summaryRef}>
         <span>{text.nav.projects}</span>
         <svg aria-hidden="true" className="project-menu-chevron" viewBox="0 0 16 16">
           <path d="m3.5 6 4.5 4 4.5-4" />
@@ -71,9 +72,9 @@ function ProjectMenu({ text }) {
       </summary>
       <div className="project-menu-list">
         {projectCategories.map(({ id, slug }) => (
-          <Link to={paths.projectCategory(slug)} key={id} onClick={closeMenu}>{text.categories[id]}</Link>
+          <NavLink to={paths.projectCategory(slug)} key={id} onClick={closeMenu}>{text.categories[id]}</NavLink>
         ))}
-        <Link to={paths.projects} className="view-all-projects" onClick={closeMenu}>{text.viewAllProjects}</Link>
+        <NavLink to={paths.projects} end className="view-all-projects" onClick={closeMenu}>{text.viewAllProjects}</NavLink>
       </div>
     </details>
   )

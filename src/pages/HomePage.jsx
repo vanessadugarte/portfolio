@@ -6,6 +6,7 @@ import { decorativeHeroFigures, heroCategoryFigures } from '../content/heroFigur
 import { getProjectCategory } from '../content/projectCategories.js'
 import { getSelectedProjects, localizeProjects } from '../content/projects.js'
 import { paths } from '../routes/paths.js'
+import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import ProjectPreviewCard from '../components/ProjectPreviewCard.jsx'
 import './HomePage.scss'
 
@@ -67,12 +68,13 @@ function ExperiencePreview({ experience }) {
 
 function HomePage() {
   const { text } = useOutletContext()
+  const headingRef = usePageMetadata(text.documentTitle)
   const localizedSelectedWorks = localizeProjects(getSelectedProjects(), text.projects.items)
 
   return (
     <>
       <section className="hero" id="inicio" aria-label={text.heroLabel}>
-        <h1 className="hero-name"><span>Vanessa</span><span>Dugarte</span></h1>
+        <h1 className="hero-name" ref={headingRef} tabIndex={-1}><span>Vanessa</span><span>Dugarte</span></h1>
 
         <div className="figure-field">
           {decorativeHeroFigures.map((figure, index) => (
