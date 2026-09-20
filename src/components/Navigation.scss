@@ -34,7 +34,7 @@
   text-decoration: none;
 }
 
-.navigation > a[aria-current='page'] {
+.navigation > a[aria-current='page']:not(.navigation-brand) {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.3em;
@@ -48,9 +48,7 @@
 
 .navigation .navigation-brand:hover,
 .navigation .navigation-brand:focus-visible {
-  text-decoration: underline;
-  text-decoration-thickness: 0.125rem;
-  text-underline-offset: 0.3em;
+  text-decoration: none;
 }
 
 .language-switch {

@@ -8,6 +8,8 @@ const gameIconsImage = new URL('../assets/images/projects/illustrations/game-ico
 const snapchatFramesImage = new URL('../assets/images/projects/illustrations/snapchat-frames/snapchat-frames-thumbnail.jpg', import.meta.url).href
 const reindeerImage = new URL('../assets/images/projects/illustrations/reindeer/reindeer-760x500.jpg', import.meta.url).href
 const muchokidsNationalitiesImage = new URL('../assets/images/projects/illustrations/muchokids-nationalities/muchokids-nationalities-760x500.jpg', import.meta.url).href
+const forestImage = new URL('../assets/images/projects/illustrations/forest/forest-760x500.jpg', import.meta.url).href
+const muchomixGameImage = new URL('../assets/images/projects/illustrations/muchomix-game/muchomix-game.jpg', import.meta.url).href
 const navalInfographicsImage = new URL('../assets/images/projects/other/ship-infographic-thumbnail.jpg', import.meta.url).href
 
 // Project IDs also serve as the stable, category-independent URL slugs.
@@ -22,6 +24,8 @@ export const projects = [
   { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage },
   { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
+  { id: 'forest', categoryIds: ['illustration'], previewImage: forestImage },
+  { id: 'muchomix-game', categoryIds: ['illustration'], previewImage: muchomixGameImage },
   { id: 'naval-infographics', categoryIds: ['animations'], previewImage: navalInfographicsImage },
 ]
 

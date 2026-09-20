@@ -2,7 +2,7 @@
 
 .project-landing {
   min-height: 100svh;
-  padding: clamp(8rem, 14vw, 12.5rem) clamp(1.5rem, 10vw, 11.875rem) clamp(4.625rem, 10vw, 9.375rem);
+  padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 10vw, 11.875rem) clamp(3rem, 6vw, 5rem);
   background: tokens.$color-hero;
   color: tokens.$color-surface;
 }
@@ -19,7 +19,11 @@
 }
 
 .project-landing .projects-preview-grid {
-  margin-top: 3.25rem;
+  margin-top: 2.25rem;
+}
+
+.project-landing .project-link {
+  margin-top: 0.5rem;
 }
 
 .project-category-empty {

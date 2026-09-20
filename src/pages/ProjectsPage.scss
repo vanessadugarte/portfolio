@@ -2,7 +2,7 @@
 
 .projects-landing {
   min-height: 100svh;
-  padding: clamp(8rem, 14vw, 12.5rem) clamp(1.5rem, 10vw, 11.875rem) clamp(4.625rem, 10vw, 9.375rem);
+  padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 10vw, 11.875rem) clamp(3rem, 6vw, 5rem);
   background: tokens.$color-hero;
   color: tokens.$color-surface;
 }
@@ -19,7 +19,7 @@
 }
 
 .projects-landing-intro {
-  margin: 1.5rem 0 3.25rem;
+  margin: 1.25rem 0 2.25rem;
   color: rgb(255 255 255 / 70%);
   font-size: clamp(1rem, 2vw, 1.3rem);
 }
