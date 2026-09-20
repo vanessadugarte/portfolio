@@ -24,7 +24,7 @@ export const translations = {
     allProjectsIntro: 'Explora los proyectos por categoría.',
     comingSoon: 'Próximamente',
     projectDetail: {
-      backToCategory: 'Volver a {category}',
+      backToCategory: 'Volver a categoría',
       previousProject: 'Proyecto anterior',
       nextProject: 'Siguiente proyecto',
       previousProjectLabel: 'Proyecto anterior: {title}',
@@ -52,7 +52,6 @@ export const translations = {
           previewAlt: '',
           detail: {
             number: '01',
-            eyebrow: 'Ilustración digital - 2015',
             introduction: 'Una exploración personal inspirada en una escena de la película The Green Mile, donde las luciérnagas iluminan la noche de una manera mágica. En esta ilustración, las medusas se suman iluminando el fondo del mar y atraídas por las luciérnagas.',
             facts: [
               { label: 'Año', value: '2015' },
@@ -124,6 +123,18 @@ export const translations = {
           title: 'Muchokids: personajes de nacionalidades',
           description: 'Personajes infantiles inspirados en distintas nacionalidades.',
           previewAlt: 'Seis rostros de personajes infantiles junto a las banderas de España, Estados Unidos, Brasil, Rusia, China y Francia.',
+        },
+        forest: {
+          type: 'Ilustración',
+          title: 'Forest',
+          description: 'Un bosque de troncos altos y follaje verde.',
+          previewAlt: 'Ilustración de un bosque frondoso con árboles altos y un claro azul al fondo.',
+        },
+        'muchomix-game': {
+          type: 'Ilustración',
+          title: 'Muchomix Game',
+          description: 'Personajes e interfaz ilustrados para un juego espacial.',
+          previewAlt: 'Pantalla de juego Muchomix con personajes infantiles, indicadores de puntuación y un fondo espacial.',
         },
         'naval-infographics': {
           type: 'Infografía',
@@ -298,7 +309,6 @@ export const translations = {
           previewAlt: '',
           detail: {
             number: '01',
-            eyebrow: 'Digital illustration - 2015',
             introduction: 'A personal exploration inspired by a scene from the film The Green Mile, where fireflies light up the night in a magical way. In this illustration, jellyfish join them, illuminating the seabed as they are drawn to the fireflies.',
             facts: [
               { label: 'Year', value: '2015' },
@@ -370,6 +380,18 @@ export const translations = {
           title: 'Muchokids: Nationality Characters',
           description: 'Children’s characters inspired by different nationalities.',
           previewAlt: 'Six children’s character faces beside the flags of Spain, the United States, Brazil, Russia, China and France.',
+        },
+        forest: {
+          type: 'Illustration',
+          title: 'Forest',
+          description: 'A forest of tall trunks and green foliage.',
+          previewAlt: 'Lush forest illustration with tall trees and a blue clearing in the background.',
+        },
+        'muchomix-game': {
+          type: 'Illustration',
+          title: 'Muchomix Game',
+          description: 'Illustrated characters and interface for a space game.',
+          previewAlt: 'Muchomix game screen with children characters, score indicators and a space background.',
         },
         'naval-infographics': {
           type: 'Infographic',

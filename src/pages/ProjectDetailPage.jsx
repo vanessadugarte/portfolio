@@ -90,7 +90,6 @@ function CompleteProjectDetail({ assets, content, project, text }) {
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
             <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
-            <p className="project-detail-eyebrow">{detail.eyebrow}</p>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <dl className="project-detail-facts">
               {detail.facts.map(({ label, value }) => (
@@ -136,8 +135,9 @@ function CompleteProjectDetail({ assets, content, project, text }) {
             <h3>{detail.paletteTitle}</h3>
             <ul aria-label={detail.paletteTitle}>
               {assets.palette.map((color) => (
-                <li key={color} aria-label={color}>
+                <li key={color}>
                   <span aria-hidden="true" style={{ '--swatch-color': color }} />
+                  <code>{color}</code>
                 </li>
               ))}
             </ul>
@@ -184,17 +184,6 @@ function CompleteProjectDetail({ assets, content, project, text }) {
             />
           ))}
         </section>
-
-        <figure className="project-detail-expanded-artwork">
-          <img
-            src={assets.heroImage}
-            alt={detail.imageAlt.hero}
-            width="1300"
-            height="759"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
 
         <ProjectPager neighbors={neighbors} text={text} />
       </div>
