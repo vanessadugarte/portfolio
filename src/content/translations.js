@@ -18,6 +18,7 @@ export const translations = {
       animations: 'Otros',
     },
     heroLabel: 'Portafolio de Vanessa Dugarte',
+    heroRole: 'Diseñadora Web & Front-end',
     projectLabel: 'Proyectos',
     viewAllProjects: 'Ver todo',
     allProjectsTitle: 'Todos los proyectos',
@@ -211,6 +212,12 @@ export const translations = {
           description: 'Personajes e interfaz ilustrados para un juego espacial.',
           previewAlt: 'Pantalla de juego Muchomix con personajes infantiles, indicadores de puntuación y un fondo espacial.',
         },
+        'angels-sighs': {
+          type: 'Ilustración',
+          title: "Velas Angel's Sighs",
+          description: 'Ilustraciones para tapas y etiquetas, y selección de combinaciones de color para los vasos.',
+          previewAlt: "Dos velas Angel's Sighs con etiquetas y una tapa de madera ilustrada con flores rosadas.",
+        },
         'naval-infographics': {
           type: 'Infografía',
           title: 'Infografías navales',
@@ -350,6 +357,7 @@ export const translations = {
       animations: 'Other',
     },
     heroLabel: 'Vanessa Dugarte portfolio',
+    heroRole: 'Web Designer & Front-end Developer',
     projectLabel: 'Projects',
     viewAllProjects: 'View all',
     allProjectsTitle: 'All projects',
@@ -542,6 +550,12 @@ export const translations = {
           title: 'Muchomix Game',
           description: 'Illustrated characters and interface for a space game.',
           previewAlt: 'Muchomix game screen with children characters, score indicators and a space background.',
+        },
+        'angels-sighs': {
+          type: 'Illustration',
+          title: "Angel's Sighs Candles",
+          description: 'Illustrations for lids and labels, plus color-palette selection for the candle vessels.',
+          previewAlt: "Two Angel's Sighs candles with labels and a wooden lid illustrated with pink flowers.",
         },
         'naval-infographics': {
           type: 'Infographic',

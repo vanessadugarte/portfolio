@@ -7,7 +7,7 @@ Recrear en la página de Inicio la sección de experiencia profesional definida 
 ## Alcance
 
 - Mostrar el título `Experiencia` como `h2` con los tokens tipográficos vigentes para encabezados.
-- Mostrar los dos cargos y sus descripciones en una línea de tiempo vertical.
+- Mostrar los dos cargos en peso semibold y sus descripciones en una línea de tiempo vertical.
 - Incorporar dos instancias decorativas del vector SVG número 2 existente del hero.
 - Ocultar las figuras decorativas en móvil; en tablet reducirlas y reservar al contenido de experiencia al menos el 60 % del ancho de la sección.
 - Usar `#F4F6FF` como fondo de la sección y `#273E88` para las figuras, mediante tokens Sass.
@@ -23,7 +23,7 @@ La persona recorre Inicio, lee los dos cargos destacados y selecciona `Ver exper
 
 - La sección se adapta a móvil, tablet y escritorio sin solapamientos ni desbordes horizontales.
 - El encabezado visible en español dice `Experiencia` y es un `h2`.
-- Los dos cargos, empresas, fechas y descripciones solicitados están visibles.
+- Los dos cargos, empresas, fechas y descripciones solicitados están visibles; los cargos usan un peso semibold (600).
 - La línea de tiempo conecta visualmente ambos cargos.
 - Las dos figuras usan el vector SVG número 2 del hero y el token de color `#273E88`.
 - En móvil las figuras decorativas no se muestran; en tablet son más pequeñas que en escritorio y el bloque de contenido usa el 60 % del ancho de la sección.

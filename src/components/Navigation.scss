@@ -140,6 +140,7 @@
   display: flex;
   min-height: tokens.$target-size-comfortable;
   align-items: center;
+  justify-content: flex-start;
   padding: 0.5625rem 0.625rem;
   font-size: tokens.$font-size-body;
   font-weight: 500;
@@ -150,7 +151,6 @@
 }
 
 .project-menu-list .view-all-projects {
-  border-bottom: 1px solid rgb(255 255 255 / 48%);
   font-weight: 700;
 }
 

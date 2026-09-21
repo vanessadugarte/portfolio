@@ -24,7 +24,7 @@ test('category IDs connect routes, hero figures and every language', () => {
 })
 
 test('one catalog supplies all projects and preserves selected order', () => {
-  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'naval-infographics'])
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
   assert.deepEqual(
     getSelectedProjects([...projects].reverse()).map(({ id }) => id),
     ['donas-3d', 'jardin-web', 'medusas', 'ventti'],
@@ -127,15 +127,16 @@ test('project navigation follows its category or the menu category order', () =>
   assert.equal(illustrationNeighbors.previous.id, 'medusas')
   assert.equal(illustrationNeighbors.next.id, 'jungle')
   assert.deepEqual(allProjects.map(({ id }) => id), [
-    'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game',
+    'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs',
     'jardin-web', 'donas-3d', 'ventti', 'naval-infographics',
   ])
-  assert.equal(getProjectNeighbors('muchomix-game', allProjects).next.id, 'jardin-web')
+  assert.equal(getProjectNeighbors('muchomix-game', allProjects).next.id, 'angels-sighs')
+  assert.equal(getProjectNeighbors('angels-sighs', allProjects).next.id, 'jardin-web')
   assert.equal(getProjectNeighbors('jardin-web', allProjects).next.id, 'donas-3d')
 })
 
 test('pending illustration projects have localized previews without detail landings', () => {
-  for (const id of ['jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game']) {
+  for (const id of ['jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])
@@ -159,6 +160,7 @@ test('pending illustration projects have localized previews without detail landi
   assert.equal(getProjectNeighbors('reindeer').next.id, 'muchokids-nationalities')
   assert.equal(getProjectNeighbors('muchokids-nationalities').next.id, 'forest')
   assert.equal(getProjectNeighbors('forest').next.id, 'muchomix-game')
+  assert.equal(getProjectNeighbors('muchomix-game').next.id, 'angels-sighs')
 })
 
 test('naval infographics appear only in Other with localized pending detail', () => {
@@ -195,7 +197,7 @@ test('a project can be listed in multiple categories without duplicate records',
   const catalog = [multiCategoryProject, ...projects.slice(1), animationProject]
 
   assert.deepEqual(getProjectsByCategory('three-d', catalog), [multiCategoryProject])
-  assert.deepEqual(getProjectsByCategory('illustration', catalog).map(({ id }) => id), ['donas-3d', 'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game'])
+  assert.deepEqual(getProjectsByCategory('illustration', catalog).map(({ id }) => id), ['donas-3d', 'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs'])
   assert.deepEqual(getProjectsByCategory('animations', catalog).map(({ id }) => id), ['naval-infographics', 'new-animation'])
   assert.deepEqual(getSelectedProjects(catalog).map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti'])
   assert.equal(catalog.filter(({ id }) => id === multiCategoryProject.id).length, 1)
@@ -203,10 +205,10 @@ test('a project can be listed in multiple categories without duplicate records',
 })
 
 test('project category listings derive from the catalog and preserve expected project IDs', () => {
-  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'naval-infographics'])
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
   assert.deepEqual(getProjectsByCategory('three-d').map(({ id }) => id), ['donas-3d'])
   assert.deepEqual(getProjectsByCategory('uxui').map(({ id }) => id), ['jardin-web'])
-  assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game'])
+  assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs'])
   assert.deepEqual(getProjectsByCategory('graphic-design').map(({ id }) => id), ['ventti'])
   assert.deepEqual(getProjectsByCategory('animations').map(({ id }) => id), ['naval-infographics'])
 })
