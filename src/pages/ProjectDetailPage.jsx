@@ -1,7 +1,7 @@
-import { Link, useOutletContext, useParams } from 'react-router-dom'
+import { Link, useOutletContext, useParams, useSearchParams } from 'react-router-dom'
 import { getProjectDetails } from '../content/projectDetails.js'
-import { getProjectBySlug, getProjectNeighbors } from '../content/projects.js'
-import { getProjectCategory } from '../content/projectCategories.js'
+import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getProjectsInMenuOrder } from '../content/projects.js'
+import { getProjectCategory, projectCategories } from '../content/projectCategories.js'
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import NotFoundPage from './NotFoundPage.jsx'
@@ -40,7 +40,26 @@ function SectionIntroduction({ description, id, number, title }) {
   )
 }
 
-function ProjectPager({ neighbors, text }) {
+function ColorPalette({ description, headingId, headingLevel = 'h3', title, colors }) {
+  const Heading = headingLevel
+
+  return (
+    <div className="project-detail-palette">
+      <Heading id={headingId}>{title}</Heading>
+      <ul aria-label={title}>
+        {colors.map((color) => (
+          <li key={color}>
+            <span aria-hidden="true" style={{ '--swatch-color': color }} />
+            <code>{color}</code>
+          </li>
+        ))}
+      </ul>
+      <p>{description}</p>
+    </div>
+  )
+}
+
+function ProjectPager({ categoryId, neighbors, text }) {
   const previousContent = neighbors.previous && text.projects.items[neighbors.previous.id]
   const nextContent = neighbors.next && text.projects.items[neighbors.next.id]
 
@@ -49,7 +68,7 @@ function ProjectPager({ neighbors, text }) {
       {neighbors.previous && (
         <Link
           className="project-detail-pager-previous"
-          to={paths.projectDetail(neighbors.previous.id)}
+          to={paths.projectDetail(neighbors.previous.id, categoryId)}
           aria-label={formatTemplate(text.projectDetail.previousProjectLabel, { title: previousContent.title })}
         >
           <span aria-hidden="true">←</span> {text.projectDetail.previousProject}
@@ -58,7 +77,7 @@ function ProjectPager({ neighbors, text }) {
       {neighbors.next && (
         <Link
           className="project-detail-pager-next"
-          to={paths.projectDetail(neighbors.next.id)}
+          to={paths.projectDetail(neighbors.next.id, categoryId)}
           aria-label={formatTemplate(text.projectDetail.nextProjectLabel, { title: nextContent.title })}
         >
           {text.projectDetail.nextProject} <span aria-hidden="true">→</span>
@@ -68,24 +87,33 @@ function ProjectPager({ neighbors, text }) {
   )
 }
 
-function CompleteProjectDetail({ assets, content, project, text }) {
+function CompleteProjectDetail({ assets, content, navigation, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
-  const category = getProjectCategory(project.categoryIds[0])
-  const neighbors = getProjectNeighbors(project.id)
+  const category = getProjectCategory(navigation.categoryId)
+  const neighbors = getProjectNeighbors(project.id, navigation.projects)
   const categoryName = text.categories[category.id]
 
   return (
     <article className={`project-detail project-detail--${project.id}`} aria-labelledby="project-detail-title">
+      {project.id === 'donas-3d' && (
+        <div className="project-detail-sprinkles" aria-hidden="true">
+          {Array.from({ length: 30 }, (_, index) => <span key={index} />)}
+        </div>
+      )}
       <div className="project-detail-inner">
-        <Link className="project-detail-back" to={paths.projectCategory(category.slug)}>
+        <Link className="project-detail-back" to={navigation.backPath}>
           <span aria-hidden="true">←</span>{' '}
           {formatTemplate(text.projectDetail.backToCategory, { category: categoryName.toLocaleLowerCase() })}
         </Link>
 
         <div className="project-detail-hero">
-          <img className="project-detail-decoration project-detail-decoration-left" src={assets.decorationImage} alt="" aria-hidden="true" />
-          <img className="project-detail-decoration project-detail-decoration-right" src={assets.decorationImage} alt="" aria-hidden="true" />
+          {assets.decorationImage && (
+            <>
+              <img className="project-detail-decoration project-detail-decoration-left" src={assets.decorationImage} alt="" aria-hidden="true" />
+              <img className="project-detail-decoration project-detail-decoration-right" src={assets.decorationImage} alt="" aria-hidden="true" />
+            </>
+          )}
 
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
@@ -101,54 +129,95 @@ function CompleteProjectDetail({ assets, content, project, text }) {
             </dl>
           </header>
 
-          <figure className="project-detail-final-artwork">
-            <img
-              src={assets.heroImage}
-              alt={detail.imageAlt.hero}
-              width="1300"
-              height="759"
-              fetchPriority="high"
-            />
-          </figure>
+          {assets.heroSecondaryImage ? (
+            <div className="project-detail-final-artworks">
+              <figure className="project-detail-final-artwork">
+                <img
+                  src={assets.heroImage}
+                  alt={detail.imageAlt.hero}
+                  width={assets.heroDimensions?.width ?? 1300}
+                  height={assets.heroDimensions?.height ?? 759}
+                  fetchPriority="high"
+                />
+              </figure>
+              <figure className="project-detail-final-artwork">
+                <img
+                  src={assets.heroSecondaryImage}
+                  alt={detail.imageAlt.heroSecondary}
+                  width={assets.heroSecondaryDimensions?.width ?? 1300}
+                  height={assets.heroSecondaryDimensions?.height ?? 759}
+                  fetchPriority="high"
+                />
+              </figure>
+            </div>
+          ) : (
+            <figure className="project-detail-final-artwork">
+              <img
+                src={assets.heroImage}
+                alt={detail.imageAlt.hero}
+                width={assets.heroDimensions?.width ?? 1300}
+                height={assets.heroDimensions?.height ?? 759}
+                fetchPriority="high"
+              />
+            </figure>
+          )}
+
+          {assets.palettePlacement === 'hero' && (
+            <aside className="project-detail-hero-palette" aria-labelledby="project-palette-title">
+              <ColorPalette
+                headingId="project-palette-title"
+                headingLevel="h2"
+                title={detail.paletteTitle}
+                description={detail.paletteDescription}
+                colors={assets.palette}
+              />
+            </aside>
+          )}
         </div>
 
-        <section className="project-detail-section project-detail-references" aria-labelledby="project-references-title">
-          <SectionIntroduction
-            id="project-references-title"
-            number="02"
-            title={detail.referencesTitle}
-            description={detail.referencesDescription}
-          />
-          {assets.referenceImages.map((image, index) => (
-            <img
-              className="project-detail-reference-image"
-              src={image}
-              alt={detail.imageAlt.references[index]}
-              width="760"
-              height="500"
-              loading="lazy"
-              decoding="async"
-              key={image}
+        {assets.referenceImages && (
+          <section className="project-detail-section project-detail-references" aria-labelledby="project-references-title">
+            <SectionIntroduction
+              id="project-references-title"
+              number="02"
+              title={detail.referencesTitle}
+              description={detail.referencesDescription}
             />
-          ))}
-          <div className="project-detail-palette">
-            <h3>{detail.paletteTitle}</h3>
-            <ul aria-label={detail.paletteTitle}>
-              {assets.palette.map((color) => (
-                <li key={color}>
-                  <span aria-hidden="true" style={{ '--swatch-color': color }} />
-                  <code>{color}</code>
-                </li>
-              ))}
-            </ul>
-            <p>{detail.paletteDescription}</p>
-          </div>
-        </section>
+            {assets.referenceImages.map((image, index) => (
+              <img
+                className="project-detail-reference-image"
+                src={image}
+                alt={detail.imageAlt.references[index]}
+                width="760"
+                height="500"
+                loading="lazy"
+                decoding="async"
+                key={image}
+              />
+            ))}
+            <ColorPalette
+              title={detail.paletteTitle}
+              description={detail.paletteDescription}
+              colors={assets.palette}
+            />
+          </section>
+        )}
+
+        {assets.palette && !assets.referenceImages && assets.palettePlacement !== 'hero' && (
+          <section className="project-detail-section project-detail-palette-section" aria-labelledby="project-palette-title">
+            <ColorPalette
+              headingId="project-palette-title"
+              title={detail.paletteTitle}
+              description={detail.paletteDescription}
+              colors={assets.palette}
+            />
+          </section>
+        )}
 
         <section className="project-detail-section project-detail-gallery" aria-labelledby="project-process-title">
           <SectionIntroduction
             id="project-process-title"
-            number="03"
+            number={assets.referenceImages ? '03' : '02'}
             title={detail.processTitle}
             description={detail.processDescription}
           />
@@ -163,12 +232,24 @@ function CompleteProjectDetail({ assets, content, project, text }) {
               key={image}
             />
           ))}
+          {assets.processWideImages?.map((image, index) => (
+            <img
+              className="project-detail-process-wide-image"
+              src={image}
+              alt={detail.imageAlt.processWide[index]}
+              width="1508"
+              height="713"
+              loading="lazy"
+              decoding="async"
+              key={image}
+            />
+          ))}
         </section>
 
         <section className="project-detail-section project-detail-gallery" aria-labelledby="project-details-title">
           <SectionIntroduction
             id="project-details-title"
-            number="04"
+            number={assets.referenceImages ? '04' : '03'}
             title={detail.detailsTitle}
             description={detail.detailsDescription}
           />
@@ -185,7 +266,7 @@ function CompleteProjectDetail({ assets, content, project, text }) {
           ))}
         </section>
 
-        <ProjectPager neighbors={neighbors} text={text} />
+        <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
       </div>
     </article>
   )
@@ -194,6 +275,7 @@ function CompleteProjectDetail({ assets, content, project, text }) {
 function ProjectDetailPage() {
   const { text } = useOutletContext()
   const { slug } = useParams()
+  const [searchParams] = useSearchParams()
   const project = getProjectBySlug(slug)
 
   if (!project) {
@@ -202,12 +284,30 @@ function ProjectDetailPage() {
 
   const content = text.projects.items[project.id]
   const assets = getProjectDetails(project.id)
+  const requestedContextId = searchParams.get('categoria')
+  const requestedCategory = projectCategories.find(({ id }) => id === requestedContextId)
+  const category = requestedCategory && project.categoryIds.includes(requestedCategory.id)
+    ? requestedCategory
+    : getProjectCategory(project.categoryIds[0])
+  const navigation = requestedContextId === 'all'
+    ? {
+        backPath: paths.projectCategory(getProjectCategory(project.categoryIds[0]).slug),
+        categoryId: project.categoryIds[0],
+        contextId: 'all',
+        projects: getProjectsInMenuOrder(undefined, projectCategories),
+      }
+    : {
+        backPath: paths.projectCategory(category.slug),
+        categoryId: category.id,
+        contextId: category.id,
+        projects: getProjectsByCategory(category.id),
+      }
 
   if (!assets || !content.detail) {
     return <ProjectDetailPlaceholder content={content} project={project} text={text} />
   }
 
-  return <CompleteProjectDetail assets={assets} content={content} project={project} text={text} />
+  return <CompleteProjectDetail assets={assets} content={content} navigation={navigation} project={project} text={text} />
 }
 
 export default ProjectDetailPage

@@ -10,6 +10,7 @@ const reindeerImage = new URL('../assets/images/projects/illustrations/reindeer/
 const muchokidsNationalitiesImage = new URL('../assets/images/projects/illustrations/muchokids-nationalities/muchokids-nationalities-760x500.jpg', import.meta.url).href
 const forestImage = new URL('../assets/images/projects/illustrations/forest/forest-760x500.jpg', import.meta.url).href
 const muchomixGameImage = new URL('../assets/images/projects/illustrations/muchomix-game/muchomix-game.jpg', import.meta.url).href
+const angelsSighsImage = new URL('../assets/images/projects/illustrations/candles/angels-sighs-thumbnail.png', import.meta.url).href
 const navalInfographicsImage = new URL('../assets/images/projects/other/ship-infographic-thumbnail.jpg', import.meta.url).href
 
 // Project IDs also serve as the stable, category-independent URL slugs.
@@ -26,6 +27,7 @@ export const projects = [
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
   { id: 'forest', categoryIds: ['illustration'], previewImage: forestImage },
   { id: 'muchomix-game', categoryIds: ['illustration'], previewImage: muchomixGameImage },
+  { id: 'angels-sighs', categoryIds: ['illustration'], previewImage: angelsSighsImage },
   { id: 'naval-infographics', categoryIds: ['animations'], previewImage: navalInfographicsImage },
 ]
 
@@ -41,6 +43,22 @@ export function getProjectsByCategory(categoryId, catalog = projects) {
 
 export function getProjectBySlug(slug, catalog = projects) {
   return catalog.find(({ id }) => id === slug)
+}
+
+export function getProjectsInMenuOrder(catalog = projects, categories) {
+  if (!categories) {
+    throw new Error('Project categories are required to order all projects')
+  }
+
+  const seenProjectIds = new Set()
+
+  return categories.flatMap(({ id: categoryId }) => getProjectsByCategory(categoryId, catalog)
+    .filter((project) => {
+      if (seenProjectIds.has(project.id)) return false
+
+      seenProjectIds.add(project.id)
+      return true
+    }))
 }
 
 export function getProjectNeighbors(projectId, catalog = projects) {

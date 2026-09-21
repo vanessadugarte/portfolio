@@ -18,6 +18,7 @@ export const translations = {
       animations: 'Otros',
     },
     heroLabel: 'Portafolio de Vanessa Dugarte',
+    heroRole: 'Diseñadora Web & Front-end',
     projectLabel: 'Proyectos',
     viewAllProjects: 'Ver todo',
     allProjectsTitle: 'Todos los proyectos',
@@ -25,8 +26,8 @@ export const translations = {
     comingSoon: 'Próximamente',
     projectDetail: {
       backToCategory: 'Volver a categoría',
-      previousProject: 'Proyecto anterior',
-      nextProject: 'Siguiente proyecto',
+      previousProject: 'Anterior',
+      nextProject: 'Siguiente',
       previousProjectLabel: 'Proyecto anterior: {title}',
       nextProjectLabel: 'Siguiente proyecto: {title}',
     },
@@ -43,7 +44,46 @@ export const translations = {
     },
     projects: {
       items: {
-        'donas-3d': { type: '3D', title: 'Donas', description: 'Modelado 3D, texturizado e iluminación.', previewAlt: '' },
+        'donas-3d': {
+          type: '3D',
+          title: 'Donas',
+          description: 'Modelado, iluminación, textura y renderizado 3D.',
+          previewAlt: '',
+          detail: {
+            number: '01',
+            introduction: 'Una exploración personal de modelado 3D de donas, creada para trabajar formas orgánicas, materiales y una iluminación suave que realza cada textura.',
+            facts: [
+              { label: 'Año', value: '2024' },
+              { label: 'Técnica', value: 'Modelado y renderizado 3D' },
+              { label: 'Herramientas', value: 'Blender' },
+            ],
+            paletteTitle: 'Paleta de color',
+            paletteDescription: 'Una combinación cálida y suave de rosa, frambuesa, naranja, menta, chocolate y crema inspirada en las coberturas de las donas.',
+            processTitle: 'Proceso',
+            processDescription: 'El desarrollo parte del modelado de las donas y sus coberturas, seguido por la creación de texturas, la iluminación de la escena y el renderizado final.',
+            detailsTitle: 'Detalles',
+            detailsDescription: 'Acercamientos que muestran las variaciones de textura, color, cobertura e iluminación de las piezas.',
+            imageAlt: {
+              hero: 'Render final de una composición de donas 3D con coberturas de colores.',
+              process: [
+                'Primera prueba de modelado de una dona 3D.',
+                'Estudio de forma y cobertura de una dona 3D.',
+                'Prueba de materiales y texturas sobre una dona 3D.',
+                'Prueba de iluminación y composición para el render final.',
+              ],
+              processWide: [
+                'Vista de modelado de las donas 3D sin materiales.',
+                'Vista de modelado de las donas 3D con las coberturas aplicadas.',
+              ],
+              details: [
+                'Detalle de una dona con cobertura rosada y chispas.',
+                'Detalle de la textura y el glaseado de una dona 3D.',
+                'Detalle de una dona con cobertura de color.',
+                'Detalle de la iluminación y las texturas de la composición.',
+              ],
+            },
+          },
+        },
         'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.', previewAlt: '' },
         medusas: {
           type: 'Ilustración',
@@ -93,6 +133,42 @@ export const translations = {
           title: 'Deep Sea',
           description: 'Criaturas marinas y formas luminosas en las profundidades.',
           previewAlt: 'Ilustración submarina con un pez abisal violeta, peces de colores y corales luminosos.',
+          detail: {
+            number: '01',
+            introduction: 'Una ilustración digital que recorre las profundidades del mar a través de criaturas luminosas, vegetación y capas de color.',
+            facts: [
+              { label: 'Año', value: '2017' },
+              { label: 'Técnica', value: 'Ilustración digital' },
+              { label: 'Herramientas', value: 'Photoshop, Illustrator, Wacom Tablet' },
+            ],
+            referencesTitle: 'Referencias',
+            referencesDescription: 'Criaturas de las profundidades, texturas marinas y destellos bioluminiscentes orientan el ambiente luminoso de la ilustración.',
+            paletteTitle: 'Paleta de color',
+            paletteDescription: 'Siete tonos de azul profundo, verde marino, turquesa, violeta y rosa construyen el ambiente luminoso de la escena.',
+            processTitle: 'Proceso',
+            processDescription: 'Tres bocetos exploran la composición vertical, la escala de los personajes y la distribución de la luz bajo el agua.',
+            detailsTitle: 'Detalles',
+            detailsDescription: 'Acercamientos a las criaturas, el follaje submarino y las luces que aportan profundidad a la ilustración.',
+            imageAlt: {
+              hero: 'Ilustración submarina con un pez abisal violeta, peces de colores y corales luminosos.',
+              heroSecondary: 'Ilustración completa de las profundidades marinas con un pulpo, un pez abisal violeta, peces de colores y corales luminosos.',
+              references: [
+                'Referencia de una criatura marina luminosa en las profundidades.',
+                'Referencia de texturas y luces bioluminiscentes submarinas.',
+              ],
+              process: [
+                'Boceto inicial de la composición de criaturas y vegetación marina.',
+                'Boceto de la composición vertical con criaturas y vegetación marina.',
+                'Boceto de la distribución de personajes, luz y profundidad submarina.',
+              ],
+              details: [
+                'Detalle de las criaturas marinas en la parte superior de la ilustración.',
+                'Detalle de peces de colores y follaje submarino.',
+                'Detalle de corales luminosos y plantas marinas.',
+                'Detalle del pez abisal violeta iluminado.',
+              ],
+            },
+          },
         },
         jungle: {
           type: 'Ilustración',
@@ -135,6 +211,12 @@ export const translations = {
           title: 'Muchomix Game',
           description: 'Personajes e interfaz ilustrados para un juego espacial.',
           previewAlt: 'Pantalla de juego Muchomix con personajes infantiles, indicadores de puntuación y un fondo espacial.',
+        },
+        'angels-sighs': {
+          type: 'Ilustración',
+          title: "Velas Angel's Sighs",
+          description: 'Ilustraciones para tapas y etiquetas, y selección de combinaciones de color para los vasos.',
+          previewAlt: "Dos velas Angel's Sighs con etiquetas y una tapa de madera ilustrada con flores rosadas.",
         },
         'naval-infographics': {
           type: 'Infografía',
@@ -275,6 +357,7 @@ export const translations = {
       animations: 'Other',
     },
     heroLabel: 'Vanessa Dugarte portfolio',
+    heroRole: 'Web Designer & Front-end Developer',
     projectLabel: 'Projects',
     viewAllProjects: 'View all',
     allProjectsTitle: 'All projects',
@@ -300,7 +383,46 @@ export const translations = {
     },
     projects: {
       items: {
-        'donas-3d': { type: '3D', title: 'Donuts', description: '3D modeling, texturing and lighting.', previewAlt: '' },
+        'donas-3d': {
+          type: '3D',
+          title: 'Donuts',
+          description: '3D modeling, lighting, texturing and rendering.',
+          previewAlt: '',
+          detail: {
+            number: '01',
+            introduction: 'A personal 3D donut modeling exploration created to work with organic forms, materials and soft lighting that brings out each texture.',
+            facts: [
+              { label: 'Year', value: '2024' },
+              { label: 'Technique', value: '3D modeling and rendering' },
+              { label: 'Tools', value: 'Blender' },
+            ],
+            paletteTitle: 'Color palette',
+            paletteDescription: 'A warm, soft combination of pink, raspberry, orange, mint, chocolate and cream inspired by donut toppings.',
+            processTitle: 'Process',
+            processDescription: 'The work begins by modeling the donuts and their toppings, followed by building textures, lighting the scene and producing the final render.',
+            detailsTitle: 'Details',
+            detailsDescription: 'Close-up views show the pieces’ texture, color, topping and lighting variations.',
+            imageAlt: {
+              hero: 'Final render of a 3D donut composition with colorful toppings.',
+              process: [
+                'First 3D donut modeling test.',
+                'Shape and topping study for a 3D donut.',
+                'Material and texture test on a 3D donut.',
+                'Lighting and composition test for the final render.',
+              ],
+              processWide: [
+                '3D donut modeling view without materials.',
+                '3D donut modeling view with the toppings applied.',
+              ],
+              details: [
+                'Detail of a donut with pink icing and sprinkles.',
+                'Detail of a 3D donut texture and icing.',
+                'Detail of a donut with colorful topping.',
+                'Detail of the composition’s lighting and textures.',
+              ],
+            },
+          },
+        },
         'jardin-web': { type: 'Web design / UX/UI', title: 'Web garden', description: 'Design and development of an e-commerce experience.', previewAlt: '' },
         medusas: {
           type: 'Illustration',
@@ -350,6 +472,42 @@ export const translations = {
           title: 'Deep Sea',
           description: 'Sea creatures and glowing forms in the depths.',
           previewAlt: 'Underwater illustration with a purple anglerfish, colorful fish and glowing coral.',
+          detail: {
+            number: '01',
+            introduction: 'A digital illustration that travels through the deep sea with glowing creatures, underwater plants and layers of color.',
+            facts: [
+              { label: 'Year', value: '2017' },
+              { label: 'Technique', value: 'Digital illustration' },
+              { label: 'Tools', value: 'Photoshop, Illustrator, Wacom Tablet' },
+            ],
+            referencesTitle: 'References',
+            referencesDescription: 'Deep-sea creatures, marine textures and bioluminescent glimmers guide the illustration’s luminous atmosphere.',
+            paletteTitle: 'Color palette',
+            paletteDescription: 'Seven deep blue, marine green, turquoise, violet and pink tones build the scene’s luminous atmosphere.',
+            processTitle: 'Process',
+            processDescription: 'Three sketches explore the vertical composition, the scale of the characters and the distribution of light underwater.',
+            detailsTitle: 'Details',
+            detailsDescription: 'Close-up views of the creatures, underwater foliage and lights that give the illustration depth.',
+            imageAlt: {
+              hero: 'Underwater illustration with a purple anglerfish, colorful fish and glowing coral.',
+              heroSecondary: 'Complete deep-sea illustration with an octopus, a purple anglerfish, colorful fish and glowing coral.',
+              references: [
+                'Reference of a glowing marine creature in the deep sea.',
+                'Reference of underwater bioluminescent textures and light.',
+              ],
+              process: [
+                'Early composition sketch with marine creatures and plants.',
+                'Sketch of the vertical composition with marine creatures and plants.',
+                'Sketch of the character, light and underwater-depth distribution.',
+              ],
+              details: [
+                'Detail of the marine creatures at the top of the illustration.',
+                'Detail of colorful fish and underwater foliage.',
+                'Detail of glowing coral and marine plants.',
+                'Detail of the illuminated purple anglerfish.',
+              ],
+            },
+          },
         },
         jungle: {
           type: 'Illustration',
@@ -392,6 +550,12 @@ export const translations = {
           title: 'Muchomix Game',
           description: 'Illustrated characters and interface for a space game.',
           previewAlt: 'Muchomix game screen with children characters, score indicators and a space background.',
+        },
+        'angels-sighs': {
+          type: 'Illustration',
+          title: "Angel's Sighs Candles",
+          description: 'Illustrations for lids and labels, plus color-palette selection for the candle vessels.',
+          previewAlt: "Two Angel's Sighs candles with labels and a wooden lid illustrated with pink flowers.",
         },
         'naval-infographics': {
           type: 'Infographic',

@@ -9,7 +9,7 @@
 
 .experience-intro {
   max-width: 51.875rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .experience-block > h2 {
@@ -43,6 +43,10 @@
 
 .experience-block {
   margin-top: clamp(2.75rem, 6vw, 5rem);
+}
+
+.experience-intro + .experience-block {
+  margin-top: 0;
 }
 
 .experience-block > h2 {
@@ -137,8 +141,16 @@
 .experience-details,
 .education {
   max-width: 58rem;
-  padding-top: clamp(1.75rem, 4vw, 3.375rem);
+  padding-top: clamp(1.25rem, 3vw, 2.25rem);
   border-top: 1px solid tokens.$color-border;
+}
+
+.education {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.education + .experience-details {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .education > h2 {
@@ -195,7 +207,7 @@
   }
 
   .experience-intro {
-    margin-bottom: clamp(3rem, 6vw, 5rem);
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
   }
 
   .experience-timeline {

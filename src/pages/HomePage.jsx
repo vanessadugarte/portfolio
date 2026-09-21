@@ -75,6 +75,12 @@ function HomePage() {
     <>
       <section className="hero" id="inicio" aria-label={text.heroLabel}>
         <h1 className="hero-name" ref={headingRef} tabIndex={-1}><span>Vanessa</span><span>Dugarte</span></h1>
+        <p className="hero-role">{text.heroRole}</p>
+
+        <svg className="hero-cut-guides" aria-hidden="true" focusable="false" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <line x1="0" y1="100" x2="100" y2="0" />
+          <line x1="0" y1="100" x2="42" y2="0" />
+        </svg>
 
         <div className="figure-field">
           {decorativeHeroFigures.map((figure, index) => (

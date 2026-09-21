@@ -14,6 +14,7 @@ Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el t�
 - En escritorio, el texto descriptivo previo a la ilustración se limita a `44rem` para conservar una medida de lectura más cómoda.
 - En escritorio, la ficha técnica se muestra a la derecha de la descripción, en la misma fila y separada por una línea vertical; móvil y tablet conservan el orden vertical.
 - El encabezado no muestra la línea redundante «Ilustración digital - 2015»; el año y la técnica se presentan una sola vez en la ficha técnica.
+- Las etiquetas de la ficha técnica se muestran en negrita y sus valores conservan el peso regular.
 - La obra final se mantiene antes de las secciones de referencias, proceso y detalles en el orden de lectura.
 - No se muestra una segunda copia completa de la ilustración final al final de la ficha.
 - En móvil y tablet, la imagen conserva su comportamiento fluido y no provoca desplazamiento horizontal.
