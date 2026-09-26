@@ -28,6 +28,12 @@ Usa nombres en minúsculas, separados por guiones (`kebab-case`) y descriptivos.
 4. Tras la revisión y aprobación, integra el PR en `develop`.
 5. Para publicar, abre un PR desde `develop` hacia `main`. `main` solo recibe este tipo de PR.
 
+## Inicialización excepcional
+
+Cuando el repositorio todavía no tiene commits ni ramas, el primer arranque sigue el procedimiento auditado en [Inicialización y controles de Git Flow](docs/inicializacion-git-flow.md). La excepción permite únicamente crear y publicar el commit base y las ramas permanentes después de una aprobación explícita; termina en cuanto existen `main` y `develop`.
+
+El mismo documento describe las comprobaciones de CI, el control que restringe los PRs hacia `main` a la rama `develop` del repositorio esperado y las protecciones aplicadas a ambas ramas.
+
 ## Reglas obligatorias
 
 - Está prohibido hacer `push` o commits directos a `develop` y `main`.

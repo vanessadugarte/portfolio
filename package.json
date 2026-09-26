@@ -5,13 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run check:assets && vite build",
+    "check:assets": "node scripts/check-asset-budgets.mjs",
+    "test:branch-policy": "node --test scripts/check-main-pr-source.test.mjs",
+    "test:content": "node --test src/content/content.test.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

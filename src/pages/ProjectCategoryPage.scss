@@ -1,0 +1,33 @@
+@use '../styles/abstracts' as tokens;
+
+.project-landing {
+  min-height: 100svh;
+  padding: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 10vw, 11.875rem) clamp(3rem, 6vw, 5rem);
+  background: tokens.$color-hero;
+  color: tokens.$color-surface;
+}
+
+.project-landing h1 {
+  max-width: 51.25rem;
+  margin: 0;
+  color: tokens.$color-surface;
+  font-family: tokens.$font-heading;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: tokens.$letter-spacing-section-heading;
+  line-height: 0.9;
+}
+
+.project-landing .projects-preview-grid {
+  margin-top: 2.25rem;
+}
+
+.project-landing .project-link {
+  margin-top: 0.5rem;
+}
+
+.project-category-empty {
+  margin: tokens.$space-5 0 0;
+  color: rgb(255 255 255 / 62%);
+  font-size: tokens.$font-size-body;
+}

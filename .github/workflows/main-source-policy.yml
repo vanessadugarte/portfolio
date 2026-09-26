@@ -1,0 +1,40 @@
+name: Main source policy
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: read
+
+concurrency:
+  group: main-source-policy-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  source-policy:
+    name: Main source policy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out trusted policy from the base commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - name: Verify pull request source
+        env:
+          EXPECTED_REPOSITORY: ${{ github.repository }}
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+        run: node scripts/check-main-pr-source.mjs
