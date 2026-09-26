@@ -38,6 +38,14 @@ npm run build
 npm run preview
 ```
 
+## Producción
+
+La publicación se realiza en GitHub Pages mediante el flujo
+[`Deploy to GitHub Pages`](.github/workflows/deploy-pages.yml). Tras habilitar
+GitHub Pages con el origen **GitHub Actions**, cada actualización de `main`
+compila y publica `dist/` automáticamente. También puede ejecutarse de forma
+manual desde la pestaña **Actions** del repositorio.
+
 ## Comandos disponibles
 
 | Comando | Propósito |
