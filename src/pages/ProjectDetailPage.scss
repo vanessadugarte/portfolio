@@ -660,15 +660,32 @@
 }
 
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .project-detail--illustration-treatment .project-detail-hero > .project-detail-final-artwork,
+  .project-detail--illustration-treatment .project-detail-final-artworks {
+    width: calc(100% + 1.5rem);
+    max-width: none;
+    margin-inline: -0.75rem;
+  }
+
   .project-detail--deep-sea .project-detail-final-artworks {
     gap: tokens.$space-5;
-    max-width: none;
   }
 
   .project-detail--deep-sea .project-detail-final-artworks .project-detail-final-artwork {
     max-width: none;
   }
 
+  .project-detail--jungle .project-detail-hero-ornament--1 {
+    width: 15%;
+  }
+
+  .project-detail--jungle .project-detail-hero-ornament--2 {
+    width: 19%;
+  }
+
+  .project-detail--jungle .project-detail-hero-ornament--3 {
+    width: 14%;
+  }
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
