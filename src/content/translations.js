@@ -146,7 +146,7 @@ export const translations = {
             paletteTitle: 'Paleta de color',
             paletteDescription: 'Siete tonos de azul profundo, verde marino, turquesa, violeta y rosa construyen el ambiente luminoso de la escena.',
             processTitle: 'Proceso',
-            processDescription: 'Tres bocetos exploran la composición vertical, la escala de los personajes y la distribución de la luz bajo el agua.',
+            processDescription: 'Cuatro bocetos exploran la composición vertical, la escala de los personajes y la distribución de la luz bajo el agua.',
             detailsTitle: 'Detalles',
             detailsDescription: 'Acercamientos a las criaturas, el follaje submarino y las luces que aportan profundidad a la ilustración.',
             imageAlt: {
@@ -160,6 +160,7 @@ export const translations = {
                 'Boceto inicial de la composición de criaturas y vegetación marina.',
                 'Boceto de la composición vertical con criaturas y vegetación marina.',
                 'Boceto de la distribución de personajes, luz y profundidad submarina.',
+                'Boceto de un pez abisal violeta iluminado entre follaje y peces de colores.',
               ],
               details: [
                 'Detalle de las criaturas marinas en la parte superior de la ilustración.',
@@ -217,6 +218,30 @@ export const translations = {
           title: 'Iconos de juego',
           description: 'Iconos y controles ilustrados para una interfaz de juego.',
           previewAlt: 'Colección de botones, trofeos, estrellas y controles de juego en rosa, turquesa y dorado.',
+          detail: {
+            number: '01',
+            introduction: 'Una colección de iconos y controles para una interfaz de juego infantil, diseñada para comunicar acciones, progreso y recompensas con formas claras y coloridas.',
+            facts: [
+              { label: 'Año', value: '2017' },
+              { label: 'Técnica', value: 'Ilustración digital' },
+              { label: 'Herramientas', value: 'Photoshop, Illustrator' },
+            ],
+            processTitle: 'Proceso',
+            processDescription: 'El diseño parte con dibujos lineales de relojes, barras y botones; después se definen los colores, volúmenes y estados de interacción.',
+            detailsTitle: 'Detalles',
+            detailsDescription: 'Acercamientos a los controles y pantallas que muestran la aplicación de los iconos dentro de la interfaz.',
+            imageAlt: {
+              hero: 'Lámina de iconos para juego con botones, controles, trofeos, estrellas y medidores en rosa, turquesa y dorado.',
+              process: [
+                'Dibujos lineales de relojes, barras de progreso, botones y una estrella con estela.',
+                'Etapa de color de relojes, barras de progreso, botones y una estrella con estela.',
+              ],
+              details: [
+                'Pantalla de juego oscurecida con una estrella dorada bloqueada en el centro.',
+                'Pantalla de pausa con control de sonido y botones para reiniciar, volver al inicio o continuar.',
+              ],
+            },
+          },
         },
         'snapchat-frames': {
           type: 'Ilustración',
@@ -521,7 +546,7 @@ export const translations = {
             paletteTitle: 'Color palette',
             paletteDescription: 'Seven deep blue, marine green, turquoise, violet and pink tones build the scene’s luminous atmosphere.',
             processTitle: 'Process',
-            processDescription: 'Three sketches explore the vertical composition, the scale of the characters and the distribution of light underwater.',
+            processDescription: 'Four sketches explore the vertical composition, the scale of the characters and the distribution of light underwater.',
             detailsTitle: 'Details',
             detailsDescription: 'Close-up views of the creatures, underwater foliage and lights that give the illustration depth.',
             imageAlt: {
@@ -535,6 +560,7 @@ export const translations = {
                 'Early composition sketch with marine creatures and plants.',
                 'Sketch of the vertical composition with marine creatures and plants.',
                 'Sketch of the character, light and underwater-depth distribution.',
+                'Sketch of an illuminated purple anglerfish among foliage and colorful fish.',
               ],
               details: [
                 'Detail of the marine creatures at the top of the illustration.',
@@ -592,6 +618,30 @@ export const translations = {
           title: 'Game Icons',
           description: 'Illustrated icons and controls for a game interface.',
           previewAlt: 'Collection of game buttons, trophies, stars and controls in pink, turquoise and gold.',
+          detail: {
+            number: '01',
+            introduction: 'A collection of icons and controls for a children’s game interface, designed to communicate actions, progress and rewards through clear, colorful shapes.',
+            facts: [
+              { label: 'Year', value: '2017' },
+              { label: 'Technique', value: 'Digital illustration' },
+              { label: 'Tools', value: 'Photoshop, Illustrator' },
+            ],
+            processTitle: 'Process',
+            processDescription: 'The design begins with line drawings of clocks, bars and buttons, then develops the colors, volume and interaction states.',
+            detailsTitle: 'Details',
+            detailsDescription: 'Close-up views of controls and screens show how the icons are applied across the interface.',
+            imageAlt: {
+              hero: 'Sheet of game icons with buttons, controls, trophies, stars and meters in pink, turquoise and gold.',
+              process: [
+                'Line drawings of clocks, progress bars, buttons and a shooting star.',
+                'Color stage of clocks, progress bars, buttons and a shooting star.',
+              ],
+              details: [
+                'Dimmed game screen with a locked golden star at the center.',
+                'Pause screen with a sound control and buttons to restart, return home or continue.',
+              ],
+            },
+          },
         },
         'snapchat-frames': {
           type: 'Illustration',

@@ -7,7 +7,7 @@ Presentar la ilustración final ubicada al inicio del proyecto Medusas dentro de
 ## Alcance
 
 - Aplicar una máscara de recorte SVG únicamente a la ilustración final principal de Medusas.
-- Usar una silueta asimétrica, con bordes visiblemente irregulares.
+- Usar una silueta asimétrica, más redondeada y próxima a los bordes de la obra para conservar una mayor parte de la ilustración.
 - Reducir en escritorio el espacio vertical entre el resumen y la ilustración.
 - Reutilizar el mecanismo de máscaras orgánicas de las páginas de proyecto.
 - Mantener la imagen, su texto alternativo y su comportamiento responsive actuales.
@@ -22,6 +22,7 @@ Presentar la ilustración final ubicada al inicio del proyecto Medusas dentro de
 
 - La ilustración final inicial de Medusas muestra un contorno orgánico en navegadores compatibles con máscaras CSS.
 - El contorno evita una apariencia ovalada regular y mantiene visible a la figura principal.
+- La máscara de la obra principal de Medusas conserva visualmente una mayor superficie de la ilustración que la silueta vertical anterior, sin perder su contorno orgánico.
 - En escritorio, la ilustración queda visualmente más próxima al resumen que en la versión anterior.
 - La máscara utiliza un recurso SVG local y no modifica el archivo original de la ilustración.
 - El texto alternativo de la imagen se conserva.
