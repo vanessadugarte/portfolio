@@ -18,6 +18,29 @@ function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
 }
 
+function ProjectFactIcon({ factIndex }) {
+  const commonProps = {
+    'aria-hidden': true,
+    className: 'project-detail-fact-icon',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    strokeWidth: 1.75,
+    viewBox: '0 0 24 24',
+  }
+
+  if (factIndex === 0) {
+    return <svg {...commonProps}><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /></svg>
+  }
+
+  if (factIndex === 1) {
+    return <svg {...commonProps}><path d="m14.7 6.3 3 3M4 20l4.6-1.1L18.2 9.3a2.1 2.1 0 0 0-3-3l-9.6 9.6L4 20Z" /><path d="m12.8 8.2 3 3" /></svg>
+  }
+
+  return <svg {...commonProps}><path d="M21 7.5a6 6 0 0 1-8.7 5.3L6.1 19A2.1 2.1 0 1 1 3 16l6.2-6.2A6 6 0 0 1 16.5 3l-3.1 3.1 4.5 4.5L21 7.5Z" /></svg>
+}
+
 function ProjectDetailPlaceholder({ content, navigation, neighbors, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
@@ -25,13 +48,17 @@ function ProjectDetailPlaceholder({ content, navigation, neighbors, project, tex
   return (
     <section className="project-detail-placeholder" aria-labelledby="project-detail-title">
       <div className="project-detail-placeholder-inner">
-        <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
         <div className="project-detail-placeholder-content">
           <p className="project-detail-categories">
             {project.categoryIds.map((categoryId) => text.categories[getProjectCategory(categoryId).id]).join(' · ')}
           </p>
           <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
-          <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
           <p className="project-detail-pending">{text.comingSoon}</p>
         </div>
       </div>
@@ -82,7 +109,8 @@ function ProjectPager({ categoryId, neighbors, text }) {
           to={paths.projectDetail(neighbors.previous.id, categoryId)}
           aria-label={formatTemplate(text.projectDetail.previousProjectLabel, { title: previousContent.title })}
         >
-          <span aria-hidden="true">←</span> {text.projectDetail.previousProject}
+          <span aria-hidden="true">←</span>
+          <span>{text.projectDetail.previousProject}</span>
         </Link>
       )}
       {neighbors.next && (
@@ -91,7 +119,8 @@ function ProjectPager({ categoryId, neighbors, text }) {
           to={paths.projectDetail(neighbors.next.id, categoryId)}
           aria-label={formatTemplate(text.projectDetail.nextProjectLabel, { title: nextContent.title })}
         >
-          {text.projectDetail.nextProject} <span aria-hidden="true">→</span>
+          <span>{text.projectDetail.nextProject}</span>
+          <span aria-hidden="true">→</span>
         </Link>
       )}
     </nav>
@@ -107,21 +136,46 @@ function ProjectBackLink({ categoryName, navigation, text }) {
   )
 }
 
+function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
+  return (
+    <div className="project-detail-navigation">
+      <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
+      <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
+    </div>
+  )
+}
+
 function CompleteProjectDetail({ assets, content, navigation, neighbors, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
   const category = getProjectCategory(navigation.categoryId)
   const categoryName = text.categories[category.id]
+  const illustrationStyle = assets.illustrationTreatment
+    ? {
+        '--project-accent-color': assets.accentColor,
+        '--project-detail-count': assets.detailImages.length,
+        '--project-process-step-count': assets.processImages.length,
+      }
+    : undefined
 
   return (
-    <article className={`project-detail project-detail--${project.id}`} aria-labelledby="project-detail-title">
+    <article
+      className={`project-detail project-detail--${project.id}${assets.illustrationTreatment ? ' project-detail--illustration-treatment' : ''}`}
+      aria-labelledby="project-detail-title"
+      style={illustrationStyle}
+    >
       {project.id === 'donas-3d' && (
         <div className="project-detail-sprinkles" aria-hidden="true">
           {Array.from({ length: 30 }, (_, index) => <span key={index} />)}
         </div>
       )}
       <div className="project-detail-inner">
-        <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
 
         <div className="project-detail-hero">
           {assets.decorationImage && (
@@ -134,12 +188,12 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
             <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
-            <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
             <p className="project-detail-introduction">{detail.introduction}</p>
             <dl className="project-detail-facts">
-              {detail.facts.map(({ label, value }) => (
+              {detail.facts.map(({ label, value }, factIndex) => (
                 <div key={label}>
-                  <dt>{label}</dt>
+                  {assets.illustrationTreatment && <ProjectFactIcon factIndex={factIndex} />}
+                  <dt className={assets.illustrationTreatment ? 'project-detail-fact-label' : undefined}>{label}</dt>
                   <dd>{value}</dd>
                 </div>
               ))}
@@ -150,20 +204,24 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
             <div className="project-detail-final-artworks">
               <figure className="project-detail-final-artwork">
                 <img
+                  className={assets.organicMasks?.hero ? 'project-detail-organic-image' : undefined}
                   src={assets.heroImage}
                   alt={detail.imageAlt.hero}
                   width={assets.heroDimensions?.width ?? 1300}
                   height={assets.heroDimensions?.height ?? 759}
                   fetchPriority="high"
+                  style={getOrganicMaskStyle(assets.organicMasks?.hero)}
                 />
               </figure>
               <figure className="project-detail-final-artwork">
                 <img
+                  className={assets.organicMasks?.heroSecondary ? 'project-detail-organic-image' : undefined}
                   src={assets.heroSecondaryImage}
                   alt={detail.imageAlt.heroSecondary}
                   width={assets.heroSecondaryDimensions?.width ?? 1300}
                   height={assets.heroSecondaryDimensions?.height ?? 759}
                   fetchPriority="high"
+                  style={getOrganicMaskStyle(assets.organicMasks?.heroSecondary)}
                 />
               </figure>
             </div>
@@ -288,11 +346,15 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
                     {arrow && (
                       <img
                         className="project-detail-process-arrow"
-                        src={arrow}
+                        src={arrow.src}
                         alt=""
                         aria-hidden="true"
                         loading="lazy"
                         decoding="async"
+                        style={{
+                          '--project-process-arrow-mobile-rotation': `${arrow.mobileRotation}deg`,
+                          '--project-process-arrow-desktop-rotation': `${arrow.desktopRotation}deg`,
+                        }}
                       />
                     )}
                   </figure>
@@ -334,8 +396,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
           />
           {assets.detailImages.map((image, index) => {
             const mask = assets.organicMasks?.details?.[index]
-
-            return (
+            const detailImage = (
               <img
                 className={`project-detail-detail-image${mask ? ' project-detail-organic-image' : ''}`}
                 src={image}
@@ -348,6 +409,18 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
                 style={getOrganicMaskStyle(mask)}
               />
             )
+
+            return assets.illustrationTreatment && mask
+              ? (
+                  <div
+                    className="project-detail-detail-frame"
+                    key={image}
+                    style={getOrganicMaskStyle(mask)}
+                  >
+                    {detailImage}
+                  </div>
+                )
+              : detailImage
           })}
         </section>
 
