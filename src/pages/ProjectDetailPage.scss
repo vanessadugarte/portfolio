@@ -1,12 +1,25 @@
 @use '../styles/abstracts' as tokens;
 
 .project-detail-placeholder {
-  display: grid;
+  display: flex;
   min-height: 100svh;
-  place-content: center;
   padding: 7rem 1.5rem 3rem;
   background: tokens.$color-project-canvas;
   color: tokens.$color-text;
+}
+
+.project-detail-placeholder-inner {
+  display: flex;
+  width: 100%;
+  max-width: 81.25rem;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.project-detail-placeholder-content {
+  margin-block: auto;
+  padding-block: tokens.$space-6;
   text-align: center;
 }
 
@@ -48,7 +61,7 @@
 .project-detail-inner {
   position: relative;
   z-index: 1;
-  max-width: 92rem;
+  max-width: 81.25rem;
   margin: 0 auto;
 }
 
@@ -123,6 +136,7 @@
 }
 
 .project-detail-back {
+  width: fit-content;
   margin-bottom: 1.25rem;
   text-decoration: none;
 }
@@ -239,6 +253,46 @@
   height: auto;
 }
 
+.project-detail-organic-image {
+  -webkit-mask-image: var(--organic-mask);
+  mask-image: var(--organic-mask);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  height: auto;
+  pointer-events: none;
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--1 {
+  top: 5%;
+  left: -4%;
+  width: 20%;
+  transform: rotate(-18deg);
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--2 {
+  top: 39%;
+  right: 1%;
+  width: 25%;
+  transform: rotate(15deg) scaleX(-1);
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--3 {
+  bottom: -2%;
+  left: 10%;
+  width: 18%;
+  transform: rotate(-12deg);
+}
+
 .project-detail-hero-palette {
   position: relative;
   z-index: 2;
@@ -297,6 +351,84 @@
   aspect-ratio: 1508 / 713;
 }
 
+.project-detail--jungle .project-detail-process-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.project-detail--jungle .project-detail-detail-image {
+  aspect-ratio: 706 / 500;
+}
+
+.project-detail--jungle .project-detail-final-artwork {
+  margin-inline: auto;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette {
+  width: fit-content;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+  justify-content: center;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette h2 {
+  text-align: left;
+}
+
+.project-detail--jungle .project-detail-hero-references {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-3;
+  width: 17rem;
+  max-width: 100%;
+  margin-top: tokens.$space-5;
+  margin-inline: auto;
+}
+
+.project-detail--jungle .project-detail-hero-references h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: tokens.$font-heading;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.project-detail--jungle .project-detail-hero-references img {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-process-flow {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 4.5rem;
+}
+
+.project-detail-process-step {
+  position: relative;
+  margin: 0;
+}
+
+.project-detail-process-arrow {
+  position: absolute;
+  z-index: 2;
+  bottom: -3.85rem;
+  left: 50%;
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
 .project-detail-palette h2,
 .project-detail-palette h3 {
   margin: 0;
@@ -345,10 +477,16 @@
 
 .project-detail-pager {
   display: flex;
-  min-height: 5rem;
+  min-height: tokens.$target-size-comfortable;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  border-block: 1px solid tokens.$color-border;
+}
+
+.project-detail-summary .project-detail-pager,
+.project-detail-placeholder-content .project-detail-pager {
+  margin-top: tokens.$space-4;
 }
 
 .project-detail-pager-next {
@@ -357,6 +495,13 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: start;
+    gap: 1rem;
+  }
+
   .project-detail-placeholder {
     padding-top: 6rem;
   }
@@ -422,7 +567,11 @@
 
 @media (min-width: tokens.$breakpoint-desktop) {
   .project-detail {
-    padding-inline: clamp(1.5rem, 2.25vw, 2.25rem);
+    padding-inline: clamp(2rem, 5vw, 6rem);
+  }
+
+  .project-detail--medusas .project-detail-hero {
+    row-gap: 0.5rem;
   }
 
   .project-detail-back {
@@ -438,6 +587,43 @@
     max-width: 81.25rem;
   }
 
+  .project-detail--jungle .project-detail-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 34rem) max-content minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .project-detail--jungle .project-detail-summary {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+    column-gap: tokens.$space-5;
+    width: 100%;
+  }
+
+  .project-detail--jungle .project-detail-introduction {
+    max-width: 26rem;
+  }
+
+  .project-detail--jungle .project-detail-final-artwork {
+    grid-column: 2;
+    max-width: 34rem;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette {
+    grid-column: 3;
+    align-self: center;
+    margin-inline-start: clamp(2rem, 5vw, 5rem);
+    justify-self: center;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, max-content);
+  }
+
+  .project-detail--jungle .project-detail-hero-references {
+    margin-top: tokens.$space-6;
+  }
+
   .project-detail-final-artworks {
     max-width: 81.25rem;
   }
@@ -445,6 +631,10 @@
   .project-detail-summary h1 {
     grid-column: 1 / -1;
     font-size: 2rem;
+  }
+
+  .project-detail-summary .project-detail-pager {
+    grid-column: 1 / -1;
   }
 
   .project-detail-summary {
@@ -534,6 +724,39 @@
 
   .project-detail-gallery {
     grid-template-columns: 12.5rem repeat(4, minmax(0, 1fr));
+  }
+
+  .project-detail--jungle .project-detail-process-section {
+    grid-template-columns: 12.5rem minmax(0, 1fr);
+  }
+
+  .project-detail--jungle .project-detail-process-flow {
+    grid-column: 2;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(3rem, 4vw, 4.75rem);
+  }
+
+  .project-detail--jungle .project-detail-process-arrow {
+    top: 50%;
+    right: -2rem;
+    bottom: auto;
+    left: auto;
+    width: 2.25rem;
+    transform: translate(50%, -50%) rotate(-90deg);
+  }
+
+  .project-detail--jungle .project-detail-details-section {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .project-detail--jungle .project-detail-details-section .project-detail-section-intro {
+    grid-column: 1 / -1;
+  }
+
+  .project-detail--jungle .project-detail-details-section .project-detail-detail-image {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
   }
 
   .project-detail-process-wide-image {

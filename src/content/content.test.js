@@ -63,6 +63,7 @@ test('complete project details expose localized content, media and catalog navig
   const assets = getProjectDetails('medusas')
   const donutAssets = getProjectDetails('donas-3d')
   const deepSeaAssets = getProjectDetails('deep-sea')
+  const jungleAssets = getProjectDetails('jungle')
   const neighbors = getProjectNeighbors('medusas')
 
   assert.equal(neighbors.previous.id, 'jardin-web')
@@ -71,6 +72,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(assets.processImages.length, 4)
   assert.equal(assets.detailImages.length, 4)
   assert.equal(assets.palette.length, 6)
+  assert.equal(assets.organicMasks.hero.endsWith('/organic-shape-01.svg'), true)
   assert.equal(donutAssets.referenceImages, undefined)
   assert.deepEqual(donutAssets.palette, ['#F5C6D8', '#E96486', '#F4B35E', '#B6E2C4', '#8E5A3C', '#E8D6C2'])
   assert.equal(donutAssets.processImages.length, 4)
@@ -84,6 +86,18 @@ test('complete project details expose localized content, media and catalog navig
   assert.deepEqual(deepSeaAssets.palette, ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'])
   assert.equal(deepSeaAssets.processImages.length, 3)
   assert.equal(deepSeaAssets.detailImages.length, 4)
+  assert.equal(jungleAssets.referenceImages, undefined)
+  assert.equal(jungleAssets.heroReferenceImages.length, 2)
+  assert.deepEqual(jungleAssets.heroDimensions, { width: 1200, height: 1490 })
+  assert.equal(jungleAssets.heroDecorations.length, 3)
+  assert.equal(jungleAssets.palettePlacement, 'hero')
+  assert.deepEqual(jungleAssets.palette, ['#332B1D', '#51472D', '#B9AE92', '#A29D2A', '#EAE62B', '#C53F18', '#3F5B2B', '#6B8534'])
+  assert.equal(jungleAssets.processImages.length, 4)
+  assert.equal(jungleAssets.processImageDimensions.length, jungleAssets.processImages.length)
+  assert.equal(jungleAssets.processArrows.length, jungleAssets.processImages.length - 1)
+  assert.equal(jungleAssets.detailImages.length, 5)
+  assert.equal(jungleAssets.detailImageDimensions.length, jungleAssets.detailImages.length)
+  assert.equal(jungleAssets.organicMasks.details.length, jungleAssets.detailImages.length)
 
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.medusas.detail
@@ -114,6 +128,15 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(deepSeaDetail.imageAlt.references.length, deepSeaAssets.referenceImages.length)
     assert.equal(deepSeaDetail.imageAlt.process.length, deepSeaAssets.processImages.length)
     assert.equal(deepSeaDetail.imageAlt.details.length, deepSeaAssets.detailImages.length)
+
+    const jungleDetail = text.projects.items.jungle.detail
+    assert.equal(text.projects.items.jungle.title, text === translations.es ? 'Pantano' : 'Swamp')
+    assert.equal(jungleDetail.number, '01')
+    assert.equal(jungleDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
+    assert.equal(jungleDetail.facts.at(-1).value, 'Photoshop, Illustrator, Wacom Tablet')
+    assert.equal(jungleDetail.imageAlt.heroReferences.length, jungleAssets.heroReferenceImages.length)
+    assert.equal(jungleDetail.imageAlt.process.length, jungleAssets.processImages.length)
+    assert.equal(jungleDetail.imageAlt.details.length, jungleAssets.detailImages.length)
   }
 
   assert.deepEqual(getProjectNeighbors('missing'), { previous: undefined, next: undefined })
@@ -136,7 +159,7 @@ test('project navigation follows its category or the menu category order', () =>
 })
 
 test('pending illustration projects have localized previews without detail landings', () => {
-  for (const id of ['jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
+  for (const id of ['game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])
