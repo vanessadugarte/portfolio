@@ -45,7 +45,7 @@ function ProjectMenu({ text }) {
       open={isOpen}
       ref={menuRef}
       onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) closeMenu()
+        if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) closeMenu()
       }}
       onMouseEnter={() => {
         if (isDesktop) setIsOpen(true)
