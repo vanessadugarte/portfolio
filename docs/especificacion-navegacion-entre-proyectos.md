@@ -22,6 +22,7 @@ Al abrir un proyecto desde una categoría, puede avanzar o retroceder solo entre
 - Los enlaces de una ficha abierta desde «Todo» respetan el orden de `projectCategories`.
 - Al recargar una ficha, se mantiene el contexto de navegación indicado en su URL.
 - Los enlaces conservan nombre accesible, foco visible y operación con teclado.
+- En móvil y tablet, cuando ambos controles están disponibles, «Anterior» y «Siguiente» se distribuyen en los extremos del ancho disponible.
 
 ## Requisitos no funcionales
 

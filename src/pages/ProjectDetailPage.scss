@@ -1,12 +1,25 @@
 @use '../styles/abstracts' as tokens;
 
 .project-detail-placeholder {
-  display: grid;
+  display: flex;
   min-height: 100svh;
-  place-content: center;
   padding: 7rem 1.5rem 3rem;
   background: tokens.$color-project-canvas;
   color: tokens.$color-text;
+}
+
+.project-detail-placeholder-inner {
+  display: flex;
+  width: 100%;
+  max-width: 81.25rem;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.project-detail-placeholder-content {
+  margin-block: auto;
+  padding-block: tokens.$space-6;
   text-align: center;
 }
 
@@ -48,7 +61,7 @@
 .project-detail-inner {
   position: relative;
   z-index: 1;
-  max-width: 92rem;
+  max-width: 81.25rem;
   margin: 0 auto;
 }
 
@@ -119,27 +132,68 @@
   align-items: center;
   color: tokens.$color-text;
   font-size: tokens.$font-size-body;
-  text-underline-offset: 0.2em;
 }
 
 .project-detail-back {
-  margin-bottom: 1.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
   text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+
+.project-detail-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-2;
+  margin-bottom: 1.25rem;
 }
 
 .project-detail-back:hover,
-.project-detail-back:focus-visible,
-.project-detail-pager a:hover,
-.project-detail-pager a:focus-visible {
+.project-detail-back:focus-visible {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
 }
 
 .project-detail-back:focus-visible,
 .project-detail-pager a:focus-visible {
-  border-radius: 0.125rem;
   outline: tokens.$focus-ring-width solid tokens.$color-text;
   outline-offset: tokens.$focus-ring-offset;
+}
+
+.project-detail-pager a {
+  position: relative;
+  white-space: nowrap;
+  justify-content: center;
+  gap: tokens.$space-1;
+  padding-inline: tokens.$space-2;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color tokens.$transition-fast,
+    transform tokens.$transition-fast;
+}
+
+.project-detail-pager a::after {
+  position: absolute;
+  right: tokens.$space-2;
+  bottom: calc(50% - 0.75em);
+  left: tokens.$space-2;
+  height: 0.125rem;
+  background: currentColor;
+  content: '';
+  opacity: 0;
+  transition: opacity tokens.$transition-fast;
+}
+
+.project-detail-pager a:hover,
+.project-detail-pager a:focus-visible {
+  transform: translateY(-0.125rem);
+}
+
+.project-detail-pager a:hover::after,
+.project-detail-pager a:focus-visible::after {
+  opacity: 1;
 }
 
 .project-detail-hero {
@@ -168,6 +222,51 @@
   letter-spacing: -0.055em;
   line-height: 0.95;
   text-transform: uppercase;
+}
+
+.project-detail--illustration-treatment .project-detail-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
+}
+
+.project-detail--illustration-treatment .project-detail-hero {
+  row-gap: tokens.$space-2;
+}
+
+.project-detail--illustration-treatment .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.project-detail--illustration-treatment .project-detail-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
+  color: var(--project-accent-color);
+  font-family: tokens.$font-jungle-title;
+  font-size: clamp(2.5rem, 12vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+  overflow-wrap: anywhere;
+  text-transform: none;
+}
+
+.project-detail--illustration-treatment .project-detail-pager,
+.project-detail--illustration-treatment .project-detail-introduction,
+.project-detail--illustration-treatment .project-detail-facts {
+  grid-column: 1 / -1;
+}
+
+.project-detail--illustration-treatment .project-detail-facts {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: tokens.$space-2;
 }
 
 .project-detail-placeholder h1:focus,
@@ -206,6 +305,41 @@
   line-height: 1.35;
 }
 
+.project-detail--illustration-treatment .project-detail-facts div {
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  gap: 0.4rem;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid tokens.$color-border;
+  border-radius: 999px;
+}
+
+.project-detail--illustration-treatment .project-detail-facts dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.project-detail--illustration-treatment .project-detail-fact-icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+}
+
+.project-detail--illustration-treatment .project-detail-fact-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .project-detail-final-artwork {
   position: relative;
   z-index: 2;
@@ -237,6 +371,46 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project-detail-organic-image {
+  -webkit-mask-image: var(--organic-mask);
+  mask-image: var(--organic-mask);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  height: auto;
+  pointer-events: none;
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--1 {
+  top: 5%;
+  left: -4%;
+  width: 20%;
+  transform: rotate(-18deg);
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--2 {
+  top: 39%;
+  right: 1%;
+  width: 25%;
+  transform: rotate(15deg) scaleX(-1);
+}
+
+.project-detail-final-artwork .project-detail-hero-ornament--3 {
+  bottom: -2%;
+  left: 10%;
+  width: 18%;
+  transform: rotate(-12deg);
 }
 
 .project-detail-hero-palette {
@@ -278,7 +452,8 @@
 }
 
 .project-detail-reference-image,
-.project-detail-gallery > img {
+.project-detail-gallery > img,
+.project-detail-detail-frame > img {
   display: block;
   width: 100%;
   height: auto;
@@ -295,6 +470,141 @@
 
 .project-detail-gallery > img.project-detail-process-wide-image {
   aspect-ratio: 1508 / 713;
+}
+
+.project-detail--illustration-treatment .project-detail-process-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.project-detail--illustration-treatment .project-detail-detail-image {
+  aspect-ratio: 706 / 500;
+}
+
+.project-detail--illustration-treatment .project-detail-detail-frame {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  isolation: isolate;
+}
+
+.project-detail--illustration-treatment .project-detail-detail-frame::before {
+  position: absolute;
+  z-index: 0;
+  inset: -5px;
+  background: var(--project-accent-color);
+  content: '';
+  -webkit-mask-image: var(--organic-mask);
+  mask-image: var(--organic-mask);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  pointer-events: none;
+}
+
+.project-detail--illustration-treatment .project-detail-detail-frame > img {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.project-detail--illustration-treatment .project-detail-final-artwork {
+  margin-inline: auto;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette {
+  width: fit-content;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+}
+
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette h2 {
+  text-align: left;
+}
+
+.project-detail--jungle .project-detail-hero-references {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-3;
+  width: 17rem;
+  max-width: 100%;
+  margin-top: tokens.$space-5;
+  margin-inline: auto;
+}
+
+.project-detail--jungle .project-detail-hero-references h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: tokens.$font-heading;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+@media (max-width: calc(tokens.$breakpoint-desktop - 0.0625rem)) {
+  .project-detail--deep-sea .project-detail-final-artworks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-detail--deep-sea .project-detail-final-artwork:first-child {
+    display: none;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette {
+    width: min(17rem, 100%);
+    margin-inline: 0;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette,
+  .project-detail--jungle .project-detail-hero-references {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+    justify-content: start;
+  }
+}
+
+.project-detail--jungle .project-detail-hero-references img {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-process-flow {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 4.5rem;
+}
+
+.project-detail-process-step {
+  position: relative;
+  margin: 0;
+}
+
+.project-detail-process-arrow {
+  position: absolute;
+  z-index: 2;
+  bottom: -3.85rem;
+  left: 50%;
+  display: block;
+  width: 2.5rem;
+  height: auto;
+  transform: translateX(-50%) rotate(var(--project-process-arrow-mobile-rotation));
+  pointer-events: none;
 }
 
 .project-detail-palette h2,
@@ -345,18 +655,60 @@
 
 .project-detail-pager {
   display: flex;
-  min-height: 5rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: tokens.$space-1;
 }
 
-.project-detail-pager-next {
-  margin-left: auto;
-  text-align: right;
+@media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .project-detail--illustration-treatment .project-detail-hero > .project-detail-final-artwork,
+  .project-detail--illustration-treatment .project-detail-final-artworks {
+    width: calc(100% + 1.5rem);
+    max-width: none;
+    margin-inline: -0.75rem;
+  }
+
+  .project-detail--deep-sea .project-detail-final-artworks {
+    gap: tokens.$space-5;
+  }
+
+  .project-detail--deep-sea .project-detail-final-artworks .project-detail-final-artwork {
+    max-width: none;
+  }
+
+  .project-detail--jungle .project-detail-hero-ornament--1 {
+    width: 15%;
+  }
+
+  .project-detail--jungle .project-detail-hero-ornament--2 {
+    width: 19%;
+  }
+
+  .project-detail--jungle .project-detail-hero-ornament--3 {
+    width: 14%;
+  }
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail--jungle .project-detail-hero-palette {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette {
+    width: fit-content;
+  }
+
+  .project-detail--jungle .project-detail-hero-references {
+    width: 17rem;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+    display: grid;
+    grid-template-columns: repeat(8, max-content);
+    justify-content: start;
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+  }
+
   .project-detail-placeholder {
     padding-top: 6rem;
   }
@@ -422,11 +774,11 @@
 
 @media (min-width: tokens.$breakpoint-desktop) {
   .project-detail {
-    padding-inline: clamp(1.5rem, 2.25vw, 2.25rem);
+    padding-inline: clamp(2rem, 5vw, 6rem);
   }
 
-  .project-detail-back {
-    margin-bottom: 1.5rem;
+  .project-detail--medusas .project-detail-hero {
+    row-gap: 0.5rem;
   }
 
   .project-detail-hero {
@@ -438,13 +790,55 @@
     max-width: 81.25rem;
   }
 
+  .project-detail--jungle .project-detail-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 34rem) max-content minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .project-detail--illustration-treatment .project-detail-summary {
+    grid-column: 1 / -1;
+    grid-template-columns: 2rem minmax(0, 26rem) max-content minmax(0, 1fr);
+    column-gap: tokens.$space-5;
+    width: 100%;
+  }
+
+  .project-detail--illustration-treatment .project-detail-introduction {
+    max-width: 26rem;
+  }
+
+  .project-detail--jungle .project-detail-final-artwork {
+    grid-column: 2;
+    max-width: 34rem;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette {
+    grid-column: 3;
+    align-self: center;
+    margin-inline-start: clamp(2rem, 5vw, 5rem);
+    justify-self: center;
+  }
+
+  .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, max-content);
+  }
+
+  .project-detail--jungle .project-detail-hero-references {
+    margin-top: tokens.$space-6;
+  }
+
   .project-detail-final-artworks {
     max-width: 81.25rem;
   }
 
   .project-detail-summary h1 {
-    grid-column: 1 / -1;
     font-size: 2rem;
+  }
+
+  .project-detail--illustration-treatment .project-detail-summary h1 {
+    grid-row: 1;
+    grid-column: 2;
+    font-size: clamp(5.5rem, 9vw, 6rem);
   }
 
   .project-detail-summary {
@@ -465,7 +859,37 @@
   }
 
   .project-detail-number {
+    grid-row: 1;
+    grid-column: 1 / -1;
     font-size: 1.75rem;
+  }
+
+  .project-detail--illustration-treatment .project-detail-number {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: start;
+    margin: 0;
+  }
+
+  .project-detail--illustration-treatment .project-detail-introduction {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .project-detail--illustration-treatment .project-detail-facts {
+    grid-row: 2;
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    gap: tokens.$space-4;
+    margin-top: tokens.$space-4;
+    padding: 0;
+    border: 0;
+  }
+
+  .project-detail--illustration-treatment .project-detail-facts div {
+    align-items: center;
+    white-space: nowrap;
   }
 
   .project-detail-decoration {
@@ -534,6 +958,39 @@
 
   .project-detail-gallery {
     grid-template-columns: 12.5rem repeat(4, minmax(0, 1fr));
+  }
+
+  .project-detail--illustration-treatment .project-detail-process-section {
+    grid-template-columns: 12.5rem minmax(0, 1fr);
+  }
+
+  .project-detail--illustration-treatment .project-detail-process-flow {
+    grid-column: 2;
+    grid-template-columns: repeat(var(--project-process-step-count), minmax(0, 1fr));
+    gap: clamp(3rem, 4vw, 4.75rem);
+  }
+
+  .project-detail--illustration-treatment .project-detail-process-arrow {
+    top: 50%;
+    right: -2rem;
+    bottom: auto;
+    left: auto;
+    width: 2.25rem;
+    transform: translate(50%, -50%) rotate(var(--project-process-arrow-desktop-rotation));
+  }
+
+  .project-detail--illustration-treatment .project-detail-details-section {
+    grid-template-columns: repeat(var(--project-detail-count), minmax(0, 1fr));
+    column-gap: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .project-detail--illustration-treatment .project-detail-details-section .project-detail-section-intro {
+    grid-column: 1 / -1;
+  }
+
+  .project-detail--illustration-treatment .project-detail-details-section .project-detail-detail-image {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
   }
 
   .project-detail-process-wide-image {

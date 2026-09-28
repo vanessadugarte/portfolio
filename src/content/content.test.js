@@ -63,6 +63,8 @@ test('complete project details expose localized content, media and catalog navig
   const assets = getProjectDetails('medusas')
   const donutAssets = getProjectDetails('donas-3d')
   const deepSeaAssets = getProjectDetails('deep-sea')
+  const jungleAssets = getProjectDetails('jungle')
+  const gameIconsAssets = getProjectDetails('game-icons')
   const neighbors = getProjectNeighbors('medusas')
 
   assert.equal(neighbors.previous.id, 'jardin-web')
@@ -71,6 +73,12 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(assets.processImages.length, 4)
   assert.equal(assets.detailImages.length, 4)
   assert.equal(assets.palette.length, 6)
+  assert.equal(assets.illustrationTreatment, true)
+  assert.equal(assets.accentColor, '#004461')
+  assert.equal(assets.organicMasks.hero.endsWith('/organic-shape-horiz.svg'), true)
+  assert.equal(assets.organicMasks.details.length, assets.detailImages.length)
+  assert.equal(assets.processArrows.length, assets.processImages.length - 1)
+  assert.deepEqual(assets.processArrows.map(({ mobileRotation, desktopRotation }) => [mobileRotation, desktopRotation]), [[90, 0], [90, 0], [180, 90]])
   assert.equal(donutAssets.referenceImages, undefined)
   assert.deepEqual(donutAssets.palette, ['#F5C6D8', '#E96486', '#F4B35E', '#B6E2C4', '#8E5A3C', '#E8D6C2'])
   assert.equal(donutAssets.processImages.length, 4)
@@ -80,10 +88,45 @@ test('complete project details expose localized content, media and catalog navig
   assert.deepEqual(deepSeaAssets.heroSecondaryDimensions, { width: 1200, height: 1618 })
   assert.ok(deepSeaAssets.heroSecondaryImage)
   assert.ok(deepSeaAssets.decorationImage)
+  assert.equal(deepSeaAssets.illustrationTreatment, true)
+  assert.equal(deepSeaAssets.accentColor, '#041A3D')
   assert.equal(deepSeaAssets.referenceImages.length, 2)
   assert.deepEqual(deepSeaAssets.palette, ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'])
-  assert.equal(deepSeaAssets.processImages.length, 3)
+  assert.equal(deepSeaAssets.processImages.length, 4)
+  assert.equal(deepSeaAssets.processImageDimensions.length, deepSeaAssets.processImages.length)
+  assert.equal(deepSeaAssets.processImages.at(-1).endsWith('/sketch-deepsea-3.png'), true)
   assert.equal(deepSeaAssets.detailImages.length, 4)
+    assert.equal(deepSeaAssets.organicMasks.hero.endsWith('/organic-shape-02.svg'), true)
+    assert.equal(deepSeaAssets.organicMasks.heroSecondary.endsWith('/organic-shape-05.svg'), true)
+    assert.equal(deepSeaAssets.organicMasks.details.length, deepSeaAssets.detailImages.length)
+  assert.equal(deepSeaAssets.processArrows.length, deepSeaAssets.processImages.length - 1)
+  assert.deepEqual(deepSeaAssets.processArrows.map(({ mobileRotation, desktopRotation }) => [mobileRotation, desktopRotation]), [[180, 90], [0, -90], [0, -90]])
+  assert.equal(jungleAssets.referenceImages, undefined)
+  assert.equal(jungleAssets.heroReferenceImages.length, 2)
+  assert.deepEqual(jungleAssets.heroDimensions, { width: 1200, height: 1490 })
+  assert.equal(jungleAssets.heroDecorations.length, 3)
+  assert.equal(jungleAssets.palettePlacement, 'hero')
+  assert.equal(jungleAssets.illustrationTreatment, true)
+  assert.equal(jungleAssets.accentColor, '#6B8534')
+  assert.deepEqual(jungleAssets.palette, ['#332B1D', '#51472D', '#B9AE92', '#A29D2A', '#EAE62B', '#C53F18', '#3F5B2B', '#6B8534'])
+  assert.equal(jungleAssets.processImages.length, 4)
+  assert.equal(jungleAssets.processImageDimensions.length, jungleAssets.processImages.length)
+  assert.equal(jungleAssets.processArrows.length, jungleAssets.processImages.length - 1)
+  assert.equal(new Set(jungleAssets.processArrows).size, jungleAssets.processArrows.length)
+  assert.deepEqual(jungleAssets.processArrows.map(({ mobileRotation, desktopRotation }) => [mobileRotation, desktopRotation]), [[0, -90], [-45, -135], [0, -90]])
+  assert.equal(jungleAssets.detailImages.length, 5)
+  assert.equal(jungleAssets.detailImageDimensions.length, jungleAssets.detailImages.length)
+  assert.equal(jungleAssets.organicMasks.details.length, jungleAssets.detailImages.length)
+  assert.deepEqual(gameIconsAssets.heroDimensions, { width: 1200, height: 1192 })
+  assert.equal(gameIconsAssets.illustrationTreatment, true)
+  assert.equal(gameIconsAssets.accentColor, '#E90051')
+  assert.ok(gameIconsAssets.decorationImage)
+  assert.equal(gameIconsAssets.processImages.length, 2)
+  assert.equal(gameIconsAssets.processImageDimensions.length, gameIconsAssets.processImages.length)
+  assert.equal(gameIconsAssets.processArrows.length, gameIconsAssets.processImages.length - 1)
+  assert.equal(gameIconsAssets.detailImages.length, 2)
+  assert.equal(gameIconsAssets.detailImageDimensions.length, gameIconsAssets.detailImages.length)
+  assert.equal(gameIconsAssets.organicMasks.details.length, gameIconsAssets.detailImages.length)
 
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.medusas.detail
@@ -114,6 +157,22 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(deepSeaDetail.imageAlt.references.length, deepSeaAssets.referenceImages.length)
     assert.equal(deepSeaDetail.imageAlt.process.length, deepSeaAssets.processImages.length)
     assert.equal(deepSeaDetail.imageAlt.details.length, deepSeaAssets.detailImages.length)
+
+    const jungleDetail = text.projects.items.jungle.detail
+    assert.equal(text.projects.items.jungle.title, text === translations.es ? 'Pantano' : 'Swamp')
+    assert.equal(jungleDetail.number, '01')
+    assert.equal(jungleDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
+    assert.equal(jungleDetail.facts.at(-1).value, 'Photoshop, Illustrator, Wacom Tablet')
+    assert.equal(jungleDetail.imageAlt.heroReferences.length, jungleAssets.heroReferenceImages.length)
+    assert.equal(jungleDetail.imageAlt.process.length, jungleAssets.processImages.length)
+    assert.equal(jungleDetail.imageAlt.details.length, jungleAssets.detailImages.length)
+
+    const gameIconsDetail = text.projects.items['game-icons'].detail
+    assert.equal(gameIconsDetail.number, '01')
+    assert.equal(gameIconsDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
+    assert.equal(gameIconsDetail.facts.at(-1).value, 'Photoshop, Illustrator')
+    assert.equal(gameIconsDetail.imageAlt.process.length, gameIconsAssets.processImages.length)
+    assert.equal(gameIconsDetail.imageAlt.details.length, gameIconsAssets.detailImages.length)
   }
 
   assert.deepEqual(getProjectNeighbors('missing'), { previous: undefined, next: undefined })
@@ -136,7 +195,7 @@ test('project navigation follows its category or the menu category order', () =>
 })
 
 test('pending illustration projects have localized previews without detail landings', () => {
-  for (const id of ['jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
+  for (const id of ['snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])
