@@ -29,7 +29,7 @@
   }
 }
 
-@media (min-width: tokens.$breakpoint-desktop) {
+@media (min-width: tokens.$breakpoint-wide-desktop) {
   .project-landing .projects-preview-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
