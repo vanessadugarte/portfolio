@@ -3,6 +3,8 @@ export const translations = {
     language: 'EN',
     languageLabel: 'Cambiar idioma a inglés',
     navigationLabel: 'Navegación principal',
+    openMenu: 'Abrir menú de navegación',
+    closeMenu: 'Cerrar menú de navegación',
     skipToContent: 'Saltar al contenido principal',
     documentTitle: 'Portafolio',
     nav: {
@@ -403,6 +405,8 @@ export const translations = {
     language: 'ES',
     languageLabel: 'Switch language to Spanish',
     navigationLabel: 'Main navigation',
+    openMenu: 'Open navigation menu',
+    closeMenu: 'Close navigation menu',
     skipToContent: 'Skip to main content',
     documentTitle: 'Portfolio',
     nav: {
