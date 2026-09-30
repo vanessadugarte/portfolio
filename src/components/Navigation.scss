@@ -7,19 +7,19 @@
   right: 0;
   left: 0;
   display: flex;
-  min-height: 3.5rem;
+  min-height: 4rem;
   align-items: center;
-  justify-content: flex-end;
-  column-gap: clamp(tokens.$space-4, 5vw, tokens.$space-5);
-  row-gap: 0;
+  justify-content: space-between;
   padding: 0 tokens.$space-3;
-  flex-wrap: wrap;
   background: tokens.$color-navigation;
 }
 
 .navigation .navigation-brand {
-  flex-basis: 100%;
   justify-content: flex-start;
+}
+
+.desktop-navigation {
+  display: none;
 }
 
 .navigation a,
@@ -35,7 +35,7 @@
   text-decoration: none;
 }
 
-.navigation > a[aria-current='page']:not(.navigation-brand) {
+.desktop-navigation > a[aria-current='page'] {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;
   text-underline-offset: 0.3em;
@@ -65,19 +65,137 @@
   letter-spacing: 0.06em;
 }
 
+.mobile-menu-button,
+.mobile-drawer-close {
+  display: inline-flex;
+  width: tokens.$target-size-comfortable;
+  height: tokens.$target-size-comfortable;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 48%);
+  background: transparent;
+  color: tokens.$color-surface;
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 1.3rem;
+  height: 0.125rem;
+  border-radius: 1rem;
+  background: currentcolor;
+}
+
+.mobile-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(18rem, calc(100vw - 3.5rem));
+  max-width: none;
+  max-height: none;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: tokens.$color-navigation;
+  color: tokens.$color-surface;
+  box-shadow: -0.875rem 0 2rem rgb(0 0 0 / 24%);
+}
+
+.mobile-drawer:not([open]) {
+  display: none;
+}
+
+.mobile-drawer[open] {
+  animation: drawer-enter tokens.$transition-fast;
+}
+
+.mobile-drawer::backdrop {
+  background: rgb(0 0 0 / 58%);
+}
+
+.mobile-drawer-panel {
+  min-height: 100%;
+  padding: tokens.$space-3 tokens.$space-4 tokens.$space-6;
+  overflow-y: auto;
+}
+
+.mobile-drawer-heading {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-2;
+  font-weight: 700;
+}
+
+.mobile-drawer-close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.mobile-drawer-links {
+  display: grid;
+  gap: tokens.$space-1;
+  margin-top: tokens.$space-5;
+}
+
+.navigation .mobile-drawer-links a {
+  justify-content: flex-start;
+  padding: tokens.$space-2 tokens.$space-3;
+}
+
+.mobile-drawer-categories {
+  display: grid;
+  padding-left: tokens.$space-4;
+}
+
+.navigation .mobile-drawer-categories a {
+  font-weight: 400;
+}
+
+.mobile-drawer-links a[aria-current='page'] {
+  border-left: 0.1875rem solid tokens.$color-accent-cyan;
+  color: tokens.$color-accent-cyan;
+}
+
+.mobile-drawer-links .language-switch {
+  justify-self: start;
+  margin: tokens.$space-4 0 0 tokens.$space-3;
+}
+
+@keyframes drawer-enter {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
 .navigation a:hover,
 .navigation a:focus-visible,
 .project-menu summary:hover,
 .project-menu summary:focus-visible,
 .language-switch:hover,
-.language-switch:focus-visible {
+.language-switch:focus-visible,
+.mobile-menu-button:hover,
+.mobile-menu-button:focus-visible,
+.mobile-drawer-close:hover,
+.mobile-drawer-close:focus-visible {
   border-color: tokens.$color-accent-cyan;
   color: tokens.$color-accent-cyan;
 }
 
 .navigation a:focus-visible,
 .project-menu summary:focus-visible,
-.language-switch:focus-visible {
+.language-switch:focus-visible,
+.mobile-menu-button:focus-visible,
+.mobile-drawer-close:focus-visible {
   border-radius: 0.25rem;
   outline: tokens.$focus-ring-width solid tokens.$color-accent-cyan;
   outline-offset: 0.125rem;
@@ -164,15 +282,17 @@
 @media (min-width: tokens.$breakpoint-tablet) {
   .navigation {
     min-height: 4rem;
-    justify-content: flex-end;
-    gap: clamp(1.75rem, 5vw, 4.75rem);
     padding: 0 clamp(1.5rem, 4vw, 4.5rem);
-    flex-wrap: nowrap;
   }
 
-  .navigation .navigation-brand {
-    flex-basis: auto;
-    margin-right: auto;
+  .desktop-navigation {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.75rem, 5vw, 4.75rem);
+  }
+
+  .mobile-menu-button {
+    display: none;
   }
 
   .navigation a,
@@ -201,5 +321,9 @@
 @media (prefers-reduced-motion: reduce) {
   .project-menu-chevron {
     transition: none;
+  }
+
+  .mobile-drawer[open] {
+    animation: none;
   }
 }
