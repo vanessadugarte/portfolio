@@ -8,7 +8,7 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 
 - Conservar la ruta `/proyectos/reindeer` y su ubicación en Ilustración.
 - Titular la ficha «Super reno» en español y «Superdeer» en inglés.
-- Mostrar la ilustración del reno volando, las tres etapas disponibles del desarrollo de poses y la lámina final con dos versiones del personaje.
+- Mostrar la ilustración del reno volando, las tres etapas disponibles del desarrollo de poses y la lámina final con dos versiones del personaje en `complete-illustration-2.png`.
 - Añadir después de las poses finales una sección «Detalles» / «Details» con cuatro recortes: rostro, brazo y capa, textura del fondo, y asta y oreja.
 - Incluir la paleta de colores visible en las ilustraciones y la ficha técnica: 2018, ilustración digital, Photoshop, Illustrator y tableta Wacom.
 - Localizar títulos, descripciones y alternativas de imágenes en español e inglés.
@@ -23,6 +23,7 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 
 - La ruta deja de mostrar el estado pendiente y presenta un único `h1` localizado.
 - Las nueve imágenes elegidas cargan con su proporción sin recortes relevantes, alternativas útiles y orden narrativo.
+- La lámina final de los dos renos usa el PNG de 1536 × 1024 px y conserva visibles ambos personajes y sus capas.
 - La nueva sección «Detalles» / «Details» aparece después de «Poses finales» / «Final poses» con cuatro recortes distintos y encabezado de nivel 2.
 - La paleta muestra muestras y códigos hexadecimales legibles en español e inglés.
 - En la paleta de Reno, las muestras y sus códigos tienen al menos 2 rem de separación horizontal entre elementos contiguos, sin superposición a 320 CSS px.
@@ -38,6 +39,12 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 
 - No añadir imágenes, etapas de producción ni información biográfica no proporcionadas.
 - No cambiar la ruta, el orden del catálogo ni los demás proyectos.
+
+## Actualización de la lámina final
+
+- Se sustituye únicamente la imagen final de los dos renos por el PNG proporcionado; la ilustración principal, las etapas y los recortes conservan sus archivos.
+- La lámina debe mantener su proporción de 1536 × 1024 px en móvil y escritorio, sin recortar los personajes.
+- En escritorio (desde 64 rem), la lámina final usa un ancho máximo de 56.25 rem para reducir ligeramente su tamaño; en móvil y tablet conserva el ancho actual.
 
 ## Validación
 
@@ -57,3 +64,9 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 - `npm run build`, `npm run lint` y `git diff --check`: correctos.
 - Navegador integrado de Codex (Chromium): a 320, 641 y 1280 CSS px la separación horizontal calculada es 32 px. La distancia mínima entre códigos contiguos es de 45 px en móvil y 32 px en tablet y escritorio; los códigos conservan 14 px y no hay desplazamiento horizontal.
 - La comprobación de accesibilidad se limitó al reflujo y legibilidad de la paleta; no cambiaron controles, semántica ni foco.
+
+## Validación del reemplazo PNG
+
+- Visor local de imágenes y `file`: el PNG mide 1536 × 1024 px y muestra completos a los dos renos y sus capas. La alternativa existente describe las dos versiones en español e inglés.
+- `npm run test:content` (17 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos. La compilación incluye `complete-illustration-2.png` y la prueba de contenido verifica su nombre y dimensiones.
+- La revisión de accesibilidad se limitó a la imagen informativa y su proporción declarada. No se repitió una prueba de navegador ni una auditoría WCAG global para este reemplazo.

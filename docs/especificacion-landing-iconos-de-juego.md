@@ -7,26 +7,27 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 ## Alcance
 
 - Conservar el identificador y la ruta estable `/proyectos/game-icons`.
-- Mostrar la lámina final junto a la composición de objetos, dos etapas de proceso y cuatro detalles estáticos desde `src/assets/images/projects/illustrations/game-icons/`.
-- Integrar una paleta de seis colores del proyecto en la sección Proceso. En escritorio comparte la fila con las dos etapas para reducir el tamaño de sus imágenes; en pantallas estrechas se presenta después de ellas.
+- Mostrar la lámina final junto a la composición de objetos, tres etapas de proceso y nueve detalles estáticos desde `src/assets/images/projects/illustrations/game-icons/`: la pantalla de pausa, seis monedas individuales, la estrella con candado y el reloj de arena.
+- Integrar una paleta de seis colores del proyecto en la sección Proceso. La paleta ocupa una fila propia después de las tres etapas, alineada con el encabezado de la sección y sin texto explicativo, tanto en escritorio como en pantallas estrechas.
 - Reutilizar la composición editorial, navegación y tratamiento visual de las fichas de ilustración existentes.
 - Incluir en ambos idiomas la introducción, los datos de 2017, técnica de ilustración digital y herramientas Photoshop e Illustrator, junto con alternativas útiles para cada imagen.
 
 ## Flujo de usuario
 
 1. La persona abre Iconos de juego / Game Icons desde Ilustración o la navegación entre proyectos.
-2. Revisa el resumen, la lámina de iconos y los objetos, las etapas de dibujo y color junto a su paleta, y los cuatro detalles de interfaz e iconografía.
+2. Revisa el resumen, la lámina de iconos y los objetos, las etapas de dibujo, color parcial y color final, la paleta y los detalles de interfaz e iconografía, incluidas las seis monedas y la estrella con candado.
 3. Puede volver a Ilustración o ir al proyecto anterior o siguiente, preservando el contexto de categoría.
 
 ## Criterios de aceptación
 
 - La ruta deja de presentar «Próximamente» / «Coming soon» y muestra un único `h1` localizado.
 - El título «Iconos de juego» / «Game Icons» ocupa una sola línea y todo el ancho que necesita en escritorio; en pantallas estrechas conserva el reflujo sin desbordamiento horizontal.
-- La lámina `game-icons-complete.jpg`, `icons-objects.jpg`, las dos imágenes `game-icons-process-*.jpg` y los cuatro detalles `icons-detail-*` se cargan sin deformación.
-- `icons-detail-4.jpg` aparece como cuarto detalle, conserva su proporción vertical y tiene una alternativa localizada que describe el reloj de arena.
+- La lámina `game-icons-complete.jpg`, `icons-objects.jpg`, las imágenes de proceso `game-icons-process-1.jpg`, `game-icons-process-3.jpg` y `game-icons-process-2.jpg` en ese orden, y los nueve detalles configurados se cargan sin deformación.
+- Se retiran `icons-detail-1.jpg` e `icons-detail-3.jpg` de la sección Detalles. `estrella-candado.png`, `coins-02.svg` a `coins-07.svg` e `icons-detail-4.png` tienen alternativas localizadas y conservan sus proporciones originales.
 - Las dos imágenes principales conservan su contorno rectangular original, sin máscara orgánica; se muestran en la misma fila en escritorio y se apilan en pantallas estrechas.
-- Excepcionalmente, las cuatro imágenes de Detalles de Iconos de juego conservan su contorno y proporción originales, sin máscaras ni marcos orgánicos.
-- La paleta aparece una sola vez dentro de Proceso, con título, seis muestras y valores hexadecimales legibles; comparte fila con las dos imágenes a ancho de escritorio sin recortarlas y se apila sin desbordamiento a 320 CSS px.
+- Excepcionalmente, las nueve imágenes de Detalles de Iconos de juego conservan su contorno y proporción originales, sin máscaras ni marcos orgánicos. En escritorio se distribuyen en una sola fila de nueve columnas, centradas verticalmente; las seis monedas se muestran a menor escala dentro de sus celdas. En pantallas estrechas se apilan.
+- La paleta aparece una sola vez dentro de Proceso, con título, seis muestras y valores hexadecimales legibles, sin texto explicativo; ocupa una fila propia después de las tres imágenes, alineada con el encabezado de la sección, y no se desborda a 320 CSS px.
+- En escritorio, la ficha técnica mantiene una separación vertical de al menos `1.5rem` respecto del título para que no haya solapamiento visual.
 - La ficha muestra los datos y textos localizados en español e inglés, incluidas alternativas específicas de las imágenes.
 - La tarjeta se mantiene solamente en Ilustración y no modifica los trabajos seleccionados de Inicio.
 - A 320 CSS px el contenido se adapta sin desplazamiento horizontal; los enlaces de retorno, anterior y siguiente conservan sus nombres accesibles y operación por teclado.
@@ -71,3 +72,21 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 - `npm run test:content` (15 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos. La compilación incluye `icons-detail-4.jpg` y no incluye el GIF retirado.
 - Navegador integrado de Codex (Chromium): a 320 y 1280 CSS px la ficha muestra cuatro detalles y ningún GIF. `icons-detail-4.jpg` carga con dimensiones naturales de 1136 × 1816 px, conserva su proporción vertical y no provoca desplazamiento horizontal.
 - En español e inglés se verificaron el texto alternativo del reloj de arena, un único `h1`, el título de documento localizado y `html[lang]`. La revisión de accesibilidad se acotó al nuevo contenido informativo y su reflujo; no cambiaron controles, navegación ni foco.
+
+## Validación de la ampliación del proceso y la paleta
+
+- `npm run lint`, `npm run build` y `git diff --check`: correctos. `npm run test:content` recorre correctamente la secuencia nueva, pero el conjunto queda pendiente por una aserción ajena que aún espera `icons-detail-4.jpg` mientras la configuración compartida ya referencia `icons-detail-4.png`.
+- Navegador integrado de Codex (Chromium): a 1280 CSS px las tres etapas aparecen en el orden dibujo lineal, color parcial y color final; la paleta queda en una fila posterior, alineada con el encabezado «02 Proceso», y no expone texto explicativo. A 320 CSS px las etapas se apilan, la paleta conserva ese orden y no hay desplazamiento horizontal.
+- La revisión de accesibilidad se acotó al nuevo contenido informativo y al reflujo: cada etapa tiene alternativa localizada y la paleta conserva un encabezado visible y valores hexadecimales legibles. No cambiaron controles, navegación ni foco.
+
+## Validación de la separación de la ficha técnica
+
+- `npm run lint`, `npm run build` y `git diff --check`: correctos.
+- Navegador integrado de Codex (Chromium): a 1280 CSS px, el borde superior de la ficha técnica queda a 24 px del borde inferior del `h1` «Game Icons», sin solapamiento.
+- La revisión de accesibilidad se limitó al espaciado visual de escritorio; no cambiaron semántica, contenido, controles, foco ni los puntos de quiebre inferiores.
+
+## Validación de los detalles actualizados
+
+- `npm run test:content` (17 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos.
+- Navegador integrado de Codex (Chromium): a 1280 CSS px la sección muestra nueve imágenes en una sola fila, con todos los elementos centrados verticalmente y las monedas al 55 % del ancho de las demás celdas; a 320 CSS px se apilan en una sola columna. En ambas anchuras no hay desplazamiento horizontal.
+- La revisión de accesibilidad se acotó al contenido informativo y al reflujo: las nueve imágenes tienen alternativas localizadas no vacías. No cambiaron controles, navegación ni foco.
