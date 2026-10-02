@@ -26,7 +26,7 @@ Completar la ficha bilingüe de Snapchat Frames como una galería de marcos crea
 - Se cargan los 18 JPG completos con su proporción vertical, sin recortar ninguna composición en la galería principal.
 - No aparecen secciones de Detalles, Proceso o Referencias ni una imagen principal.
 - Cada marco tiene nombre y alternativa útil y localizada.
-- La ficha técnica presenta los tres datos proporcionados con etiquetas visuales de borde y nombres localizados en español e inglés.
+- La ficha técnica presenta los tres datos proporcionados con etiquetas visuales de borde e iconos; los nombres localizados en español e inglés quedan asociados a los valores para tecnologías de asistencia.
 - Todas las fichas completas reutilizan el mismo componente de datos técnicos y muestran cada dato en una etiqueta compacta sin perder la relación entre término y definición.
 - El contenido se adapta a 320 CSS px sin desplazamiento horizontal; los enlaces existentes siguen funcionando con teclado.
 - El cambio de idioma sincroniza contenido, `html[lang]`, título del documento y alternativas.
