@@ -18,6 +18,10 @@ Aplicacion web de portafolio de Vanessa Dugarte, creada en React. Su objetivo es
 
 La interfaz se desarrolla primero en espanol. La arquitectura y el contenido deben permitir incorporar ingles posteriormente, sin duplicar componentes ni textos en linea.
 
+## Convenciones de contenido
+
+- Las paletas de color de las fichas de proyecto muestran únicamente sus muestras y códigos de color; no incluyen texto explicativo, descriptivo ni contextual. Esta regla aplica a todos los proyectos actuales y futuros, en todos los idiomas.
+
 ## Desarrollo
 
 - Mantener React y Vite como base del proyecto.
@@ -59,6 +63,8 @@ La interfaz se desarrolla primero en espanol. La arquitectura y el contenido deb
 - Usar Sass (`.scss`) para los estilos nuevos y las modificaciones de estilos existentes; evitar incorporar CSS plano nuevo.
 - Organizar los estilos con parciales de Sass por responsabilidad y usar `@use` y `@forward` en lugar de `@import`.
 - Centralizar tokens visuales (colores, tipografias, espaciados, puntos de quiebre y z-index) en variables o mapas de Sass reutilizables.
+- Mantener los `h1` de las fichas de proyecto en `80px` (`5rem`) desde el breakpoint de escritorio; centralizar el valor en tokens Sass y conservar los tamanos responsive de movil y tablet.
+- Mantener en las fichas de proyecto un ancho maximo de `44rem` para la descripcion y de `23rem` para la ficha tecnica desde el breakpoint de escritorio, con separador vertical entre ambas columnas; Muchokids Nationalities conserva una composicion apilada y compacta de `36rem`. Centralizar los valores en tokens Sass y conservar los anchos responsive de movil y tablet.
 - Mantener los estilos de cada componente o seccion cerca de su codigo y evitar selectores globales o anidamientos profundos.
 - Diseñar primero para móvil y añadir mejoras progresivas mediante media queries. No usar estilos en linea salvo cuando sean valores realmente dinámicos.
 

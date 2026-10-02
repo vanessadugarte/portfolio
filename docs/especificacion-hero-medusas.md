@@ -11,7 +11,7 @@ Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el t�
 ## Criterios de aceptación
 
 - En escritorio, la ilustración final de la cabecera usa el ancho disponible del contenido, con un máximo de `81.25rem`.
-- En escritorio, el texto descriptivo previo a la ilustración se limita a `44rem` para conservar una medida de lectura más cómoda.
+- En escritorio, el texto descriptivo previo a la ilustración consume el ancho compartido de `44rem` definido para las cabeceras de proyecto.
 - En escritorio, la ficha técnica se muestra a la derecha de la descripción, en la misma fila y separada por una línea vertical; móvil y tablet conservan el orden vertical.
 - El encabezado no muestra la línea redundante «Ilustración digital - 2015»; el año y la técnica se presentan una sola vez en la ficha técnica.
 - Las etiquetas de la ficha técnica se muestran en negrita y sus valores conservan el peso regular.
@@ -34,7 +34,7 @@ Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el t�
 ## Validación
 
 - Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: resultado final amplio, sin copia al final y sin desplazamiento horizontal.
-- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: la descripción de la cabecera no supera `44rem` de ancho.
+- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: la descripción de la cabecera no supera el ancho compartido de `44rem`.
 - Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: descripción y ficha técnica comparten fila, con un separador vertical visible; a 390 px permanecen apiladas.
 - Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 390 px: imagen fluida, sin desplazamiento horizontal.
 - `npm run lint` y `npm run build` finalizan correctamente.

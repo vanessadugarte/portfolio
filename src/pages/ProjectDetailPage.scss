@@ -23,24 +23,24 @@
   text-align: center;
 }
 
-.project-detail-categories {
-  margin: 0 0 tokens.$space-3;
-  color: tokens.$color-project-type;
-  font-size: tokens.$font-size-body;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.project-detail-title {
+  color: var(--project-accent-color, #{tokens.$color-text});
+  font-family: tokens.$font-project-detail-title;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+  overflow-wrap: anywhere;
+  text-transform: none;
+}
+
+.project-detail-title-secondary {
+  color: var(--project-title-secondary-color, currentColor);
 }
 
 .project-detail-placeholder h1 {
   max-width: 46.25rem;
   margin: 0;
-  color: tokens.$color-text;
-  font-family: tokens.$font-heading;
   font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  line-height: 0.9;
 }
 
 .project-detail-pending {
@@ -216,12 +216,7 @@
 
 .project-detail-summary h1 {
   margin: 0;
-  font-family: tokens.$font-heading;
   font-size: clamp(2.25rem, 9vw, 3.25rem);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  text-transform: uppercase;
 }
 
 .project-detail--illustration-treatment .project-detail-summary {
@@ -245,14 +240,7 @@
   grid-row: 1;
   grid-column: 2;
   min-width: 0;
-  color: var(--project-accent-color);
-  font-family: tokens.$font-jungle-title;
   font-size: clamp(2.5rem, 12vw, 6.5rem);
-  font-weight: 900;
-  letter-spacing: -0.075em;
-  line-height: 0.82;
-  overflow-wrap: anywhere;
-  text-transform: none;
 }
 
 .project-detail--illustration-treatment .project-detail-pager,
@@ -262,11 +250,7 @@
 }
 
 .project-detail--illustration-treatment .project-detail-facts {
-  display: flex;
   min-width: 0;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: tokens.$space-2;
 }
 
 .project-detail-placeholder h1:focus,
@@ -280,13 +264,23 @@
 }
 
 .project-detail-facts {
-  display: grid;
-  gap: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: tokens.$space-2;
   margin: 0;
 }
 
 .project-detail-facts div {
-  display: block;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid tokens.$color-border;
+  border-radius: 999px;
 }
 
 .project-detail-facts dt {
@@ -301,35 +295,20 @@
 
 .project-detail-facts dd {
   display: inline;
+  min-width: 0;
   margin: 0;
   line-height: 1.35;
-}
-
-.project-detail--illustration-treatment .project-detail-facts div {
-  display: flex;
-  align-items: flex-start;
-  width: fit-content;
-  max-width: 100%;
-  min-width: 0;
-  gap: 0.4rem;
-  padding: 0.375rem 0.625rem;
-  border: 1px solid tokens.$color-border;
-  border-radius: 999px;
-}
-
-.project-detail--illustration-treatment .project-detail-facts dd {
-  min-width: 0;
   overflow-wrap: anywhere;
 }
 
-.project-detail--illustration-treatment .project-detail-fact-icon {
+.project-detail-fact-icon {
   display: block;
   width: 1.25rem;
   height: 1.25rem;
   flex: none;
 }
 
-.project-detail--illustration-treatment .project-detail-fact-label {
+.project-detail-fact-label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -358,6 +337,10 @@
   max-width: 37.5rem;
 }
 
+.project-detail--game-icons .project-detail-final-artworks {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .project-detail--deep-sea .project-detail-final-artworks .project-detail-final-artwork {
   width: 100%;
   max-width: none;
@@ -365,6 +348,10 @@
 
 .project-detail--deep-sea .project-detail-final-artworks {
   grid-template-columns: 1.81594fr 1fr;
+}
+
+.project-detail--deep-sea .project-detail-final-artworks > .project-detail-hero-ornament {
+  display: none;
 }
 
 .project-detail-final-artwork img {
@@ -430,6 +417,233 @@
   border-bottom: 1px solid tokens.$color-border;
 }
 
+.project-detail-frames-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-frames-summary > .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.project-detail-frames-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(2.75rem, 10vw, 5.5rem);
+}
+
+.project-detail-frames-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-frames-summary > .project-detail-introduction {
+  grid-column: 1 / -1;
+  max-width: 45rem;
+  margin: tokens.$space-4 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-frames-summary > .project-detail-facts {
+  grid-column: 1 / -1;
+  margin-top: tokens.$space-4;
+}
+
+.project-detail-frames-grid {
+  display: grid;
+  min-width: 0;
+  gap: tokens.$space-5;
+}
+
+.project-detail-frame {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-detail-frame > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0.25rem 0.75rem rgb(13 13 30 / 14%);
+}
+
+.project-detail-frame figcaption {
+  margin-bottom: tokens.$space-2;
+  font-size: tokens.$font-size-body;
+  font-weight: 700;
+}
+
+.project-detail-isolated-assets {
+  display: grid;
+  gap: tokens.$space-5;
+  margin-top: clamp(3rem, 8vw, 7rem);
+  padding-block: tokens.$space-5;
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-isolated-assets header {
+  max-width: 42rem;
+}
+
+.project-detail-isolated-assets ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-detail-isolated-assets li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.project-detail-isolated-assets img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: clamp(3rem, 10vw, 5.75rem);
+  max-height: none;
+}
+
+.project-detail-nationalities-hero {
+  position: relative;
+  display: grid;
+  gap: tokens.$space-6;
+  align-items: center;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-nationalities-summary {
+  min-width: 0;
+}
+
+.project-detail-nationalities-summary h1 {
+  max-width: 14ch;
+  margin: 0;
+  color: tokens.$color-muchokids-green;
+  font-size: clamp(2.75rem, 10vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.project-detail-nationalities-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-nationalities-summary .project-detail-introduction {
+  max-width: 36rem;
+  margin: tokens.$space-3 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-nationalities-summary .project-detail-facts {
+  margin-top: tokens.$space-4;
+}
+
+.project-detail-nationalities-feature {
+  min-width: 0;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.project-detail-nationalities-artwork {
+  display: grid;
+  align-items: end;
+}
+
+.project-detail-nationalities-artwork > img {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-nationalities-artwork .project-detail-nationalities-background {
+  position: absolute;
+  bottom: 0;
+  left: -1.25rem;
+  width: calc(100% + 2.5rem);
+}
+
+.project-detail-nationalities-artwork .project-detail-nationalities-face {
+  z-index: 1;
+  justify-self: start;
+  width: 72%;
+  margin: 0 0 4% 4%;
+  transform: translateY(tokens.$space-3);
+}
+
+.project-detail-nationalities-flags {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: -1.25rem;
+  width: calc(100% + 2.5rem);
+  aspect-ratio: 1200 / 536;
+  pointer-events: none;
+}
+
+.project-detail-nationalities-flags img {
+  position: absolute;
+  display: block;
+  width: 2.5rem;
+  height: auto;
+}
+
+.project-detail-nationalities-flags img:nth-child(1) { top: 14%; left: 5%; transform: rotate(-18deg); }
+.project-detail-nationalities-flags img:nth-child(2) { bottom: 3%; left: 44%; transform: rotate(14deg) scale(0.85); }
+.project-detail-nationalities-flags img:nth-child(3) { top: 12%; right: 4%; transform: rotate(25deg) scale(0.75); }
+
+.project-detail-nationalities-character figcaption {
+  color: tokens.$color-muchokids-green;
+  font-family: tokens.$font-heading;
+  font-size: tokens.$font-size-project-title;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-detail-nationalities-gallery {
+  padding-block: tokens.$space-6;
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-nationalities-gallery-intro {
+  max-width: 40rem;
+  margin-bottom: tokens.$space-5;
+}
+
+.project-detail-nationalities-grid {
+  display: grid;
+  gap: tokens.$space-5;
+}
+
+.project-detail-nationalities-character {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-detail-nationalities-character img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-nationalities-character figcaption {
+  padding-top: tokens.$space-2;
+}
+
 .project-detail-palette-section {
   display: block;
 }
@@ -480,8 +694,36 @@
   object-fit: cover;
 }
 
+.project-detail--game-icons .project-detail-process-image {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.project-detail--reindeer .project-detail-process-image {
+  object-fit: contain;
+}
+
 .project-detail--illustration-treatment .project-detail-detail-image {
   aspect-ratio: 706 / 500;
+}
+
+.project-detail--game-icons .project-detail-detail-image {
+  aspect-ratio: auto;
+}
+
+.project-detail--reindeer .project-detail-detail-image {
+  max-width: 62.5rem;
+  height: auto;
+  aspect-ratio: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.project-detail--reindeer .project-detail-closeup-image {
+  min-width: 0;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .project-detail--illustration-treatment .project-detail-detail-frame {
@@ -518,7 +760,8 @@
   margin-inline: auto;
 }
 
-.project-detail--jungle .project-detail-hero-palette .project-detail-palette {
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette,
+.project-detail--deep-sea .project-detail-hero-palette .project-detail-palette {
   width: fit-content;
   margin-inline: auto;
   text-align: center;
@@ -530,11 +773,13 @@
   justify-content: center;
 }
 
-.project-detail--jungle .project-detail-hero-palette .project-detail-palette h2 {
+.project-detail--jungle .project-detail-hero-palette .project-detail-palette h2,
+.project-detail--deep-sea .project-detail-hero-palette .project-detail-palette h2 {
   text-align: left;
 }
 
-.project-detail--jungle .project-detail-hero-references {
+.project-detail--jungle .project-detail-hero-references,
+.project-detail--deep-sea .project-detail-hero-references {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: tokens.$space-3;
@@ -544,7 +789,8 @@
   margin-inline: auto;
 }
 
-.project-detail--jungle .project-detail-hero-references h3 {
+.project-detail--jungle .project-detail-hero-references h3,
+.project-detail--deep-sea .project-detail-hero-references h3 {
   grid-column: 1 / -1;
   margin: 0;
   font-family: tokens.$font-heading;
@@ -577,7 +823,8 @@
   }
 }
 
-.project-detail--jungle .project-detail-hero-references img {
+.project-detail--jungle .project-detail-hero-references img,
+.project-detail--deep-sea .project-detail-hero-references img {
   display: block;
   min-width: 0;
   width: 100%;
@@ -641,16 +888,15 @@
 .project-detail-palette code {
   margin-top: tokens.$space-2;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.6875rem;
+  font-size: tokens.$font-size-palette-code;
   line-height: 1;
   white-space: nowrap;
 }
 
-.project-detail-palette p {
-  max-width: 33rem;
-  margin: 0;
-  font-size: tokens.$font-size-body-emphasis;
-  line-height: 1.35;
+.project-detail--reindeer .project-detail-palette ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: tokens.$space-3 tokens.$space-6;
 }
 
 .project-detail-pager {
@@ -660,6 +906,23 @@
 }
 
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .project-detail--muchokids-nationalities .project-detail-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-back {
+    flex: none;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-pager {
+    justify-content: space-between;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-pager a {
+    padding-inline: 0;
+  }
+
   .project-detail--illustration-treatment .project-detail-hero > .project-detail-final-artwork,
   .project-detail--illustration-treatment .project-detail-final-artworks {
     width: calc(100% + 1.5rem);
@@ -689,6 +952,29 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail-nationalities-artwork .project-detail-nationalities-background,
+  .project-detail-nationalities-flags {
+    left: 50%;
+    width: min(100%, 40rem);
+    transform: translateX(-50%);
+  }
+
+  .project-detail-nationalities-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail--reindeer .project-detail-closeups-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail--reindeer .project-detail-palette ul {
+    display: flex;
+  }
+
+  .project-detail-frames-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .project-detail--jungle .project-detail-hero-palette {
     width: fit-content;
     max-width: 100%;
@@ -721,34 +1007,6 @@
     font-size: clamp(2.25rem, 5vw, 3.25rem);
   }
 
-  .project-detail-facts div {
-    display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: 0.75rem;
-  }
-
-  .project-detail-facts dt,
-  .project-detail-facts dd {
-    display: block;
-  }
-
-  .project-detail-facts dt::after {
-    content: none;
-  }
-
-  .project-detail--donas-3d .project-detail-facts div {
-    display: block;
-  }
-
-  .project-detail--donas-3d .project-detail-facts dt,
-  .project-detail--donas-3d .project-detail-facts dd {
-    display: inline;
-  }
-
-  .project-detail--donas-3d .project-detail-facts dt::after {
-    content: ': ';
-  }
-
   .project-detail--donas-3d .project-detail-final-artwork {
     max-width: none;
   }
@@ -773,6 +1031,135 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .project-detail--muchokids-nationalities {
+    padding-top: 4rem;
+  }
+
+  .project-detail--reindeer .project-detail-detail-image {
+    max-width: 56.25rem;
+  }
+
+  .project-detail-nationalities-artwork .project-detail-nationalities-background,
+  .project-detail-nationalities-flags {
+    right: 0;
+    left: auto;
+    width: min(55%, 42rem);
+    transform: none;
+  }
+
+  .project-detail-nationalities-artwork .project-detail-nationalities-face {
+    transform: translateY(4rem);
+  }
+
+  .project-detail-nationalities-hero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 4rem;
+  }
+
+  .project-detail-nationalities-summary h1 {
+    font-size: clamp(4rem, 6.5vw, 5rem);
+  }
+
+  .project-detail-nationalities-flags img {
+    width: 3.25rem;
+  }
+
+  .project-detail-nationalities-flags img:nth-child(1) {
+    left: 25%;
+  }
+
+  .project-detail-nationalities-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .project-detail--deep-sea .project-detail-final-artworks > .project-detail-hero-ornament {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--1 {
+    top: 12%;
+    left: -4%;
+    width: 12%;
+    transform: rotate(-12deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--2 {
+    top: 37%;
+    right: -3%;
+    width: 9%;
+    transform: rotate(12deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--3 {
+    bottom: 13%;
+    left: 57%;
+    width: 9%;
+    transform: rotate(-10deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--4 {
+    right: -5%;
+    bottom: -9%;
+    width: 30%;
+  }
+
+  .project-detail-frames-summary {
+    grid-template-columns:
+      2rem
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-5;
+  }
+
+  .project-detail-frames-summary h1 {
+    grid-column: 2 / -1;
+  }
+
+  .project-detail-frames-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .project-detail-frames-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 3;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail--reindeer .project-detail-closeups-section {
+    grid-template-columns: 12.5rem repeat(4, minmax(0, 1fr));
+  }
+
+  .project-detail-frames-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-isolated-assets {
+    gap: tokens.$space-4;
+  }
+
+  .project-detail-isolated-assets header {
+    max-width: none;
+  }
+
+  .project-detail-isolated-assets ul {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: clamp(0.25rem, 0.75vw, 0.75rem);
+  }
+
+  .project-detail-isolated-assets img {
+    height: clamp(3rem, 6vw, 5rem);
+  }
+
   .project-detail {
     padding-inline: clamp(2rem, 5vw, 6rem);
   }
@@ -797,13 +1184,16 @@
 
   .project-detail--illustration-treatment .project-detail-summary {
     grid-column: 1 / -1;
-    grid-template-columns: 2rem minmax(0, 26rem) max-content minmax(0, 1fr);
+    grid-template-columns:
+      2rem
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
     column-gap: tokens.$space-5;
     width: 100%;
   }
 
   .project-detail--illustration-treatment .project-detail-introduction {
-    max-width: 26rem;
+    max-width: tokens.$width-project-detail-description-desktop;
   }
 
   .project-detail--jungle .project-detail-final-artwork {
@@ -831,6 +1221,11 @@
     max-width: 81.25rem;
   }
 
+  .project-detail--game-icons .project-detail-final-artworks {
+    grid-template-columns: minmax(0, 1.34fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
   .project-detail-summary h1 {
     font-size: 2rem;
   }
@@ -841,21 +1236,60 @@
     font-size: clamp(5.5rem, 9vw, 6rem);
   }
 
+  .project-detail--game-icons .project-detail-summary h1 {
+    grid-column: 2 / -1;
+    white-space: nowrap;
+  }
+
+  .project-detail--reindeer .project-detail-summary h1 {
+    grid-column: 2 / -1;
+  }
+
   .project-detail-summary {
     display: grid;
-    grid-template-columns: minmax(0, 44rem) minmax(16rem, 1fr);
+    grid-template-columns:
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop)
+      minmax(0, 1fr);
     column-gap: tokens.$space-6;
     align-items: start;
   }
 
-  .project-detail-introduction {
+  .project-detail-summary > h1 {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+
+  .project-detail-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 1;
     margin: tokens.$space-4 0 0;
   }
 
-  .project-detail-facts {
+  .project-detail-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 2;
     margin-top: tokens.$space-4;
     padding-inline-start: tokens.$space-6;
     border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail-summary > .project-detail-introduction,
+  .project-detail-frames-summary > .project-detail-introduction {
+    width: 100%;
+    max-width: tokens.$width-project-detail-description-desktop;
+  }
+
+  .project-detail-summary > .project-detail-facts,
+  .project-detail-frames-summary > .project-detail-facts {
+    width: 100%;
+    max-width: tokens.$width-project-detail-facts-desktop;
+  }
+
+  .project-detail-nationalities-summary .project-detail-introduction,
+  .project-detail-nationalities-summary .project-detail-facts {
+    width: 100%;
+    max-width: tokens.$width-project-detail-summary-compact-desktop;
   }
 
   .project-detail-number {
@@ -883,13 +1317,17 @@
     align-items: center;
     gap: tokens.$space-4;
     margin-top: tokens.$space-4;
-    padding: 0;
-    border: 0;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
   }
 
   .project-detail--illustration-treatment .project-detail-facts div {
     align-items: center;
     white-space: nowrap;
+  }
+
+  .project-detail--game-icons .project-detail-facts {
+    margin-top: tokens.$space-5;
   }
 
   .project-detail-decoration {
@@ -970,6 +1408,15 @@
     gap: clamp(3rem, 4vw, 4.75rem);
   }
 
+  .project-detail--game-icons .project-detail-process-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail--game-icons .project-detail-process-palette {
+    grid-column: 1 / -1;
+    align-self: start;
+  }
+
   .project-detail--illustration-treatment .project-detail-process-arrow {
     top: 50%;
     right: -2rem;
@@ -982,6 +1429,16 @@
   .project-detail--illustration-treatment .project-detail-details-section {
     grid-template-columns: repeat(var(--project-detail-count), minmax(0, 1fr));
     column-gap: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .project-detail--game-icons .project-detail-details-section {
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .project-detail--game-icons .project-detail-details-section .project-detail-detail-image[src*="coins-"] {
+    justify-self: center;
+    width: 55%;
   }
 
   .project-detail--illustration-treatment .project-detail-details-section .project-detail-section-intro {
@@ -1016,5 +1473,51 @@
 
   .project-detail-palette li > span {
     width: clamp(2.75rem, 3.8vw, 3.5rem);
+  }
+
+  .project-detail--deep-sea .project-detail-hero {
+    grid-template-columns: minmax(18rem, 0.85fr) minmax(30rem, 1.15fr);
+    column-gap: clamp(2rem, 3vw, 4rem);
+    align-items: start;
+  }
+
+  .project-detail--deep-sea .project-detail-summary {
+    grid-column: 1 / -1;
+  }
+
+  .project-detail--deep-sea .project-detail-final-artworks {
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 34rem;
+  }
+
+  .project-detail--deep-sea .project-detail-final-artwork:first-child {
+    display: none;
+  }
+
+  .project-detail--deep-sea .project-detail-final-artwork:nth-child(2) img {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-palette {
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette ul {
+    flex-wrap: nowrap;
+    gap: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-references {
+    margin-top: tokens.$space-6;
+    margin-inline: 0;
+  }
+
+  .project-detail h1.project-detail-title,
+  .project-detail-placeholder h1.project-detail-title {
+    font-size: tokens.$font-size-project-detail-title-desktop;
   }
 }

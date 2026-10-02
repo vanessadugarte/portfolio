@@ -1,11 +1,16 @@
 $font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-display: Georgia, 'Times New Roman', serif;
 $font-heading: 'Google Sans', 'Google Sans Text', Arial, sans-serif;
-$font-jungle-title: 'Cooper Black', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
+$font-project-detail-title: 'Cooper Black', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
 $font-size-body: 1rem;
+$font-size-palette-code: max(14px, 0.875rem);
 $font-size-body-emphasis: clamp(1.0625rem, 1.2vw, 1.125rem);
 $font-size-navigation: clamp(1rem, 1.25vw, 1.05rem);
 $font-size-project-title: 1.25rem;
+$font-size-project-detail-title-desktop: 5rem;
+$width-project-detail-description-desktop: 44rem;
+$width-project-detail-facts-desktop: 23rem;
+$width-project-detail-summary-compact-desktop: 36rem;
 $font-size-section-heading: 2rem;
 $letter-spacing-section-heading: -0.035em;
 
@@ -32,6 +37,7 @@ $color-donut-chocolate: #8e5a3c;
 $color-donut-cream: #e8d6c2;
 $color-jungle-detail-background: #6b8534;
 $color-jungle-title: $color-jungle-detail-background;
+$color-muchokids-green: #145938;
 
 $space-1: 0.25rem;
 $space-2: 0.5rem;

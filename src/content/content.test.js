@@ -90,7 +90,9 @@ test('complete project details expose localized content, media and catalog navig
   assert.ok(deepSeaAssets.decorationImage)
   assert.equal(deepSeaAssets.illustrationTreatment, true)
   assert.equal(deepSeaAssets.accentColor, '#041A3D')
-  assert.equal(deepSeaAssets.referenceImages.length, 2)
+  assert.equal(deepSeaAssets.referenceImages, undefined)
+  assert.equal(deepSeaAssets.heroReferenceImages.length, 2)
+  assert.equal(deepSeaAssets.palettePlacement, 'hero')
   assert.deepEqual(deepSeaAssets.palette, ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'])
   assert.equal(deepSeaAssets.processImages.length, 4)
   assert.equal(deepSeaAssets.processImageDimensions.length, deepSeaAssets.processImages.length)
@@ -118,15 +120,35 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(jungleAssets.detailImageDimensions.length, jungleAssets.detailImages.length)
   assert.equal(jungleAssets.organicMasks.details.length, jungleAssets.detailImages.length)
   assert.deepEqual(gameIconsAssets.heroDimensions, { width: 1200, height: 1192 })
+  assert.deepEqual(gameIconsAssets.heroSecondaryDimensions, { width: 2048, height: 2732 })
+  assert.equal(gameIconsAssets.heroSecondaryImage.endsWith('/icons-objects.jpg'), true)
+  assert.equal(gameIconsAssets.organicMasks, undefined)
   assert.equal(gameIconsAssets.illustrationTreatment, true)
   assert.equal(gameIconsAssets.accentColor, '#E90051')
   assert.ok(gameIconsAssets.decorationImage)
-  assert.equal(gameIconsAssets.processImages.length, 2)
+  assert.equal(gameIconsAssets.palettePlacement, 'process')
+  assert.equal(gameIconsAssets.palette.length, 6)
+  assert.deepEqual(gameIconsAssets.processImages.map((image) => image.split('/').at(-1)), [
+    'game-icons-process-1.jpg',
+    'game-icons-process-3.jpg',
+    'game-icons-process-2.jpg',
+  ])
   assert.equal(gameIconsAssets.processImageDimensions.length, gameIconsAssets.processImages.length)
   assert.equal(gameIconsAssets.processArrows.length, gameIconsAssets.processImages.length - 1)
-  assert.equal(gameIconsAssets.detailImages.length, 2)
+  assert.deepEqual(gameIconsAssets.detailImages.map((image) => image.split('/').at(-1)), [
+    'icons-detail-2.png',
+    'coins-02.svg',
+    'coins-03.svg',
+    'coins-04.svg',
+    'coins-05.svg',
+    'coins-06.svg',
+    'coins-07.svg',
+    'estrella-candado.png',
+    'icons-detail-4.png',
+  ])
   assert.equal(gameIconsAssets.detailImageDimensions.length, gameIconsAssets.detailImages.length)
-  assert.equal(gameIconsAssets.organicMasks.details.length, gameIconsAssets.detailImages.length)
+  assert.equal(gameIconsAssets.detailImages.at(-1).endsWith('/icons-detail-4.png'), true)
+  assert.deepEqual(gameIconsAssets.detailImageDimensions.at(-1), { width: 1136, height: 1816 })
 
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.medusas.detail
@@ -137,14 +159,14 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(detail.imageAlt.process.length, assets.processImages.length)
     assert.equal(detail.imageAlt.details.length, assets.detailImages.length)
     assert.ok(detail.introduction)
-    assert.ok(detail.paletteDescription)
+    assert.equal(detail.paletteDescription, undefined)
 
     const donutDetail = text.projects.items['donas-3d'].detail
     assert.equal(donutDetail.number, '01')
     assert.equal(donutDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
     assert.equal(donutDetail.facts.at(-1).value, 'Blender')
     assert.ok(donutDetail.paletteTitle)
-    assert.ok(donutDetail.paletteDescription)
+    assert.equal(donutDetail.paletteDescription, undefined)
     assert.equal(donutDetail.imageAlt.process.length, donutAssets.processImages.length)
     assert.equal(donutDetail.imageAlt.processWide.length, donutAssets.processWideImages.length)
     assert.equal(donutDetail.imageAlt.details.length, donutAssets.detailImages.length)
@@ -154,7 +176,7 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(deepSeaDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
     assert.equal(deepSeaDetail.facts.at(-1).value, 'Photoshop, Illustrator, Wacom Tablet')
     assert.ok(deepSeaDetail.imageAlt.heroSecondary)
-    assert.equal(deepSeaDetail.imageAlt.references.length, deepSeaAssets.referenceImages.length)
+    assert.equal(deepSeaDetail.imageAlt.heroReferences.length, deepSeaAssets.heroReferenceImages.length)
     assert.equal(deepSeaDetail.imageAlt.process.length, deepSeaAssets.processImages.length)
     assert.equal(deepSeaDetail.imageAlt.details.length, deepSeaAssets.detailImages.length)
 
@@ -172,6 +194,9 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(gameIconsDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
     assert.equal(gameIconsDetail.facts.at(-1).value, 'Photoshop, Illustrator')
     assert.equal(gameIconsDetail.imageAlt.process.length, gameIconsAssets.processImages.length)
+    assert.ok(gameIconsDetail.paletteTitle)
+    assert.equal(gameIconsDetail.paletteDescription, undefined)
+    assert.ok(gameIconsDetail.imageAlt.heroSecondary)
     assert.equal(gameIconsDetail.imageAlt.details.length, gameIconsAssets.detailImages.length)
   }
 
@@ -194,8 +219,163 @@ test('project navigation follows its category or the menu category order', () =>
   assert.equal(getProjectNeighbors('jardin-web', allProjects).next.id, 'donas-3d')
 })
 
+test('Snapchat Frames has a localized gallery of complete vertical frames', () => {
+  const assets = getProjectDetails('snapchat-frames')
+  const expectedIds = ['china', 'egypt', 'india', 'mexico', 'france', 'italy', 'england', 'ireland', 'spain', 'cuba', 'netherlands', 'russia', 'united-states', 'germany', 'sweden', 'south-korea', 'arab', 'muchokids']
+
+  assert.equal(assets.layout, 'gallery')
+  assert.equal(assets.accentColor, '#E90051')
+  assert.equal(assets.secondaryAccentColor, '#008F87')
+  assert.equal(assets.heroImage, undefined)
+  assert.equal(assets.processImages, undefined)
+  assert.equal(assets.isolatedAssets.length, 13)
+  assert.equal(assets.isolatedAssets.length, new Set(assets.isolatedAssets.map(({ image }) => image)).size)
+  assert.equal(assets.isolatedAssets.every(({ image, width, height }) => image.endsWith('.svg') && width > 0 && height > 0), true)
+  assert.deepEqual(assets.frames.map(({ id }) => id), expectedIds)
+  assert.equal(assets.frames.length, new Set(assets.frames.map(({ image }) => image)).size)
+  assert.equal(assets.frames.find(({ id }) => id === 'england').image.endsWith('/england-verticalframe.jpg'), true)
+  assert.equal(assets.frames.every(({ width, height }) => width < height), true)
+  assert.equal(assets.frames.some(({ image }) => image.includes('horizontal')), false)
+
+  for (const text of Object.values(translations)) {
+    const detail = text.projects.items['snapchat-frames'].detail
+
+    assert.equal(detail.number, '01')
+    assert.ok(detail.introduction)
+    assert.ok(detail.isolatedAssetsTitle)
+    assert.ok(detail.isolatedAssetsDescription)
+    assert.ok(detail.isolatedAssetsAlt)
+    assert.equal(detail.titleParts.join(' '), text.projects.items['snapchat-frames'].title)
+    assert.deepEqual(detail.facts, text === translations.es
+      ? [
+          { label: 'Año', value: '2017' },
+          { label: 'Técnica', value: 'Ilustración digital' },
+          { label: 'Herramientas', value: 'Photoshop, Illustrator, Wacom Bamboo' },
+        ]
+      : [
+          { label: 'Year', value: '2017' },
+          { label: 'Technique', value: 'Digital illustration' },
+          { label: 'Tools', value: 'Photoshop, Illustrator, Wacom Bamboo' },
+        ])
+    assert.equal(detail.galleryTitle, undefined)
+    assert.equal(detail.galleryDescription, undefined)
+    assert.equal(detail.detailsTitle, undefined)
+    assert.deepEqual(sortedKeys(detail.frames), [...expectedIds].sort())
+
+    for (const frame of assets.frames) {
+      assert.ok(frame.image.endsWith('.jpg'))
+      assert.ok(detail.frames[frame.id].name)
+      assert.ok(detail.frames[frame.id].alt)
+      assert.equal(detail.frames[frame.id].detailAlt, undefined)
+    }
+  }
+})
+
+test('Superdeer shows the available poses, process and technical details in both languages', () => {
+  const assets = getProjectDetails('reindeer')
+
+  assert.ok(assets.heroImage.endsWith('/complete-illustration.jpg'))
+  assert.equal(assets.processImages.length, 3)
+  assert.equal(assets.processArrows.length, 2)
+  assert.equal(assets.detailImages.length, 1)
+  assert.ok(assets.detailImages[0].endsWith('/complete-illustration-2.png'))
+  assert.deepEqual(assets.detailImageDimensions, [{ width: 1536, height: 1024 }])
+  assert.deepEqual(assets.closeupImages.map((image) => image.split('/').at(-1)), [
+    'reindeer-detail1.jpg',
+    'reindeer-detail2.jpg',
+    'reindeer-detail3.jpg',
+    'reindeer-detail4.jpg',
+  ])
+  assert.equal(assets.palette.length, 6)
+  assert.equal(new Set([assets.heroImage, ...assets.processImages, ...assets.detailImages, ...assets.closeupImages]).size, 9)
+
+  for (const [language, text] of Object.entries(translations)) {
+    const content = text.projects.items.reindeer
+    const detail = content.detail
+
+    assert.equal(content.title, language === 'es' ? 'Super reno' : 'Superdeer')
+    assert.deepEqual(detail.facts.map(({ value }) => value), language === 'es'
+      ? ['2018', 'Ilustración digital', 'Photoshop, Illustrator y tableta Wacom']
+      : ['2018', 'Digital illustration', 'Photoshop, Illustrator and Wacom tablet'])
+    assert.ok(detail.paletteTitle)
+    assert.equal(detail.paletteDescription, undefined)
+    assert.ok(detail.imageAlt.hero)
+    assert.equal(detail.imageAlt.process.length, assets.processImages.length)
+    assert.equal(detail.imageAlt.details.length, assets.detailImages.length)
+    assert.equal(detail.closeupsTitle, language === 'es' ? 'Detalles' : 'Details')
+    assert.ok(detail.closeupsDescription)
+    assert.equal(detail.imageAlt.closeups.length, assets.closeupImages.length)
+  }
+})
+
+test('Muchokids Nationalities shows Brazil, an editorial gallery introduction and fifteen localized gallery characters without process sections', () => {
+  const assets = getProjectDetails('muchokids-nationalities')
+  const expectedIds = ['spain', 'united-states', 'netherlands', 'norway', 'mexico', 'kenya', 'cuba', 'australia', 'japan', 'france', 'india', 'united-arab-emirates', 'netherlands-cap', 'united-kingdom', 'canada']
+
+  assert.equal(assets.layout, 'nationalities')
+  assert.ok(assets.heroImage.endsWith('/nacionalidadesmapa-12.svg'))
+  assert.ok(assets.backgroundImage.endsWith('/fondo-brasil.png'))
+  assert.deepEqual(assets.backgroundDimensions, { width: 1200, height: 536 })
+  assert.ok(assets.flagImage.endsWith('/brazil-10.svg'))
+  assert.deepEqual(assets.characters.map(({ id }) => id), expectedIds)
+  assert.equal(assets.characters.every(({ image }) => image.endsWith('.svg')), true)
+  assert.equal(assets.processImages, undefined)
+  assert.equal(assets.detailImages, undefined)
+
+  for (const text of Object.values(translations)) {
+    const detail = text.projects.items['muchokids-nationalities'].detail
+
+    assert.ok(detail.introduction)
+    assert.deepEqual(detail.facts, text === translations.es
+      ? [
+          { label: 'Año', value: '2017' },
+          { label: 'Técnica', value: 'Ilustración digital' },
+          { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
+        ]
+      : [
+          { label: 'Year', value: '2017' },
+          { label: 'Technique', value: 'Digital illustration' },
+          { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
+        ])
+    assert.ok(detail.galleryTitle)
+    assert.equal(detail.galleryTitle, text === translations.es ? 'Personajes' : 'Characters')
+    assert.ok(detail.heroAlt)
+    assert.deepEqual(sortedKeys(detail.characters), [...expectedIds].sort())
+    for (const character of assets.characters) {
+      assert.ok(detail.characters[character.id].name)
+      assert.ok(detail.characters[character.id].alt)
+    }
+  }
+})
+
+test('Forest exposes its localized final illustration, palette and process', () => {
+  const assets = getProjectDetails('forest')
+
+  assert.equal(assets.heroImage.endsWith('/forest-finalwork.jpg'), true)
+  assert.deepEqual(assets.heroDimensions, { width: 1920, height: 2561 })
+  assert.deepEqual(assets.processImages.map((image) => image.split('/').at(-1)), [
+    'forest-process-1.png',
+    'forest-process-2.jpg',
+    'forest-process-3.jpg',
+  ])
+  assert.equal(assets.processArrows.length, assets.processImages.length - 1)
+  assert.equal(assets.palette.length, 6)
+  assert.equal(assets.referenceImages, undefined)
+  assert.equal(assets.detailImages, undefined)
+
+  for (const text of Object.values(translations)) {
+    const detail = text.projects.items.forest.detail
+
+    assert.ok(detail.introduction)
+    assert.equal(detail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
+    assert.equal(detail.facts.at(-1).value, 'Illustrator, Photoshop, Wacom Tablet')
+    assert.ok(detail.paletteTitle)
+    assert.equal(detail.imageAlt.process.length, assets.processImages.length)
+  }
+})
+
 test('pending illustration projects have localized previews without detail landings', () => {
-  for (const id of ['snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
+  for (const id of ['muchomix-game', 'angels-sighs']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])
