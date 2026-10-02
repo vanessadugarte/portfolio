@@ -7,7 +7,7 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 ## Alcance
 
 - Conservar el identificador y la ruta estable `/proyectos/game-icons`.
-- Mostrar la lámina final junto a la composición de objetos, dos etapas de proceso, tres acercamientos estáticos y el GIF `fever-example.gif` en Detalles desde `src/assets/images/projects/illustrations/game-icons/`.
+- Mostrar la lámina final junto a la composición de objetos, dos etapas de proceso y cuatro detalles estáticos desde `src/assets/images/projects/illustrations/game-icons/`.
 - Integrar una paleta de seis colores del proyecto en la sección Proceso. En escritorio comparte la fila con las dos etapas para reducir el tamaño de sus imágenes; en pantallas estrechas se presenta después de ellas.
 - Reutilizar la composición editorial, navegación y tratamiento visual de las fichas de ilustración existentes.
 - Incluir en ambos idiomas la introducción, los datos de 2017, técnica de ilustración digital y herramientas Photoshop e Illustrator, junto con alternativas útiles para cada imagen.
@@ -15,16 +15,15 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 ## Flujo de usuario
 
 1. La persona abre Iconos de juego / Game Icons desde Ilustración o la navegación entre proyectos.
-2. Revisa el resumen, la lámina de iconos y los objetos, las etapas de dibujo y color junto a su paleta, y los detalles de interfaz e iconografía, incluida la animación de la estrella.
-3. Ve el GIF reproducirse de forma continua dentro de Detalles.
-4. Puede volver a Ilustración o ir al proyecto anterior o siguiente, preservando el contexto de categoría.
+2. Revisa el resumen, la lámina de iconos y los objetos, las etapas de dibujo y color junto a su paleta, y los cuatro detalles de interfaz e iconografía.
+3. Puede volver a Ilustración o ir al proyecto anterior o siguiente, preservando el contexto de categoría.
 
 ## Criterios de aceptación
 
 - La ruta deja de presentar «Próximamente» / «Coming soon» y muestra un único `h1` localizado.
 - El título «Iconos de juego» / «Game Icons» ocupa una sola línea y todo el ancho que necesita en escritorio; en pantallas estrechas conserva el reflujo sin desbordamiento horizontal.
-- La lámina `game-icons-complete.jpg`, `icons-objects.jpg`, las dos imágenes `game-icons-process-*.jpg` y los tres detalles `icons-detail-*` se cargan sin deformación.
-- `fever-example.gif` aparece como cuarto detalle, conserva su proporción, tiene una alternativa localizada y se reproduce continuamente sin control de pausa.
+- La lámina `game-icons-complete.jpg`, `icons-objects.jpg`, las dos imágenes `game-icons-process-*.jpg` y los cuatro detalles `icons-detail-*` se cargan sin deformación.
+- `icons-detail-4.jpg` aparece como cuarto detalle, conserva su proporción vertical y tiene una alternativa localizada que describe el reloj de arena.
 - Las dos imágenes principales conservan su contorno rectangular original, sin máscara orgánica; se muestran en la misma fila en escritorio y se apilan en pantallas estrechas.
 - Excepcionalmente, las cuatro imágenes de Detalles de Iconos de juego conservan su contorno y proporción originales, sin máscaras ni marcos orgánicos.
 - La paleta aparece una sola vez dentro de Proceso, con título, seis muestras y valores hexadecimales legibles; comparte fila con las dos imágenes a ancho de escritorio sin recortarlas y se apila sin desbordamiento a 320 CSS px.
@@ -44,10 +43,6 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 - No sumar el proyecto a Trabajos seleccionados.
 - No modificar los recursos visuales proporcionados ni las fichas de otros proyectos.
 
-## Limitación de accesibilidad de la excepción
-
-- El GIF proporcionado se repite indefinidamente y la reproducción continua solicitada no ofrece pausa ni una alternativa automática para `prefers-reduced-motion`. Esta excepción no cumple el requisito de movimiento reducido y control de contenido animado establecido en `AGENTS.md`.
-
 ## Validación inicial
 
 - `npm run test:content`, `npm run lint` y `npm run build`: correctos.
@@ -60,18 +55,6 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 - Navegador integrado de Codex (Chromium): a 1280 CSS px ambas imágenes principales aparecen en la misma fila, con proporciones originales, sin máscara y sin desbordamiento horizontal. A 320 CSS px se apilan, conservan proporciones y tampoco aparece desplazamiento horizontal. Las tres imágenes de detalles cargan; el tercer detalle conserva su proporción vertical.
 - El DOM expone textos alternativos útiles para las dos imágenes principales y los tres detalles. El cambio a inglés actualiza `html[lang]`, título, `h1` y alternativas. La revisión de accesibilidad se limitó a contenido informativo y reflujo; no cambiaron controles, navegación ni foco, por lo que no se repitió una auditoría global.
 
-## Validación del GIF antes de la excepción
-
-- `npm run test:content`, `npm run lint`, `npm run build` y `git diff --check`: correctos.
-- Navegador integrado de Codex (Chromium): el cuarto detalle carga a 1280 y 320 CSS px, conserva su proporción y no causa desbordamiento horizontal. Enter pausa la animación y muestra el fotograma fijo; Espacio la reanuda. El botón conserva el foco y muestra un contorno visible de 3 px. El control y la alternativa aparecen en español e inglés.
-- El elemento `source` ofrece el fotograma fijo cuando se activa `prefers-reduced-motion: reduce` y la hoja Sass oculta entonces el control de reproducción. Se verificó esta configuración en DOM y código; no se emuló la preferencia del sistema en el navegador. La revisión se acotó al contenido animado, su control y reflujo.
-
-## Validación de la excepción
-
-- `npm run test:content`, `npm run lint`, `npm run build` y `git diff --check`: correctos.
-- Navegador integrado de Codex (Chromium): a 1280 y 320 CSS px las cuatro imágenes de Detalles cargan con su proporción natural, sin máscaras, marcos orgánicos ni desplazamiento horizontal. La galería no contiene botones; el cuarto recurso cargado es `fever-example.gif`.
-- El GIF tiene 21 fotogramas, dura 4,6 segundos por ciclo y el archivo indica repetición indefinida. La excepción de movimiento continuo descrita arriba permanece como limitación de accesibilidad.
-
 ## Validación de la paleta en Proceso
 
 - `npm run test:content`, `npm run lint`, `npm run build` y `git diff --check`: correctos.
@@ -82,3 +65,9 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 
 - `npm run test:content`, `npm run lint`, `npm run build` y `git diff --check`: correctos.
 - Navegador integrado de Codex (Chromium): a 1024 CSS px «Iconos de juego» y «Game Icons» ocupan una sola línea dentro del ancho de la ficha; a 320 CSS px el título vuelve a fluir y no aparece desplazamiento horizontal. La comprobación se acotó al reflujo del encabezado.
+
+## Validación del cuarto detalle estático
+
+- `npm run test:content` (15 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos. La compilación incluye `icons-detail-4.jpg` y no incluye el GIF retirado.
+- Navegador integrado de Codex (Chromium): a 320 y 1280 CSS px la ficha muestra cuatro detalles y ningún GIF. `icons-detail-4.jpg` carga con dimensiones naturales de 1136 × 1816 px, conserva su proporción vertical y no provoca desplazamiento horizontal.
+- En español e inglés se verificaron el texto alternativo del reloj de arena, un único `h1`, el título de documento localizado y `html[lang]`. La revisión de accesibilidad se acotó al nuevo contenido informativo y su reflujo; no cambiaron controles, navegación ni foco.

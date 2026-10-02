@@ -131,7 +131,8 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(gameIconsAssets.processArrows.length, gameIconsAssets.processImages.length - 1)
   assert.equal(gameIconsAssets.detailImages.length, 4)
   assert.equal(gameIconsAssets.detailImageDimensions.length, gameIconsAssets.detailImages.length)
-  assert.equal(gameIconsAssets.detailImages.at(-1).endsWith('/fever-example.gif'), true)
+  assert.equal(gameIconsAssets.detailImages.at(-1).endsWith('/icons-detail-4.jpg'), true)
+  assert.deepEqual(gameIconsAssets.detailImageDimensions.at(-1), { width: 1136, height: 1816 })
 
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.medusas.detail

@@ -186,13 +186,13 @@ export const projectDetails = {
       gameIconsAsset('icons-detail-1.jpg'),
       gameIconsAsset('icons-detail-2.png'),
       gameIconsAsset('icons-detail-3.jpg'),
-      gameIconsAsset('fever-example.gif'),
+      gameIconsAsset('icons-detail-4.jpg'),
     ],
     detailImageDimensions: [
       { width: 535, height: 543 },
       { width: 617, height: 500 },
       { width: 558, height: 640 },
-      { width: 689, height: 568 },
+      { width: 1136, height: 1816 },
     ],
   },
   'snapchat-frames': {
