@@ -359,6 +359,10 @@
   grid-template-columns: 1.81594fr 1fr;
 }
 
+.project-detail--deep-sea .project-detail-final-artworks > .project-detail-hero-ornament {
+  display: none;
+}
+
 .project-detail-final-artwork img {
   display: block;
   width: 100%;
@@ -423,11 +427,27 @@
 }
 
 .project-detail-frames-summary {
-  max-width: 55rem;
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
   padding-block: tokens.$space-6;
 }
 
+.project-detail-frames-summary > .project-detail-categories {
+  grid-column: 1 / -1;
+}
+
+.project-detail-frames-summary > .project-detail-number {
+  grid-row: 2;
+  grid-column: 1;
+  margin: 0;
+}
+
 .project-detail-frames-summary h1 {
+  grid-row: 2;
+  grid-column: 2;
+  min-width: 0;
   margin: 0;
   font-size: clamp(2.75rem, 10vw, 5.5rem);
 }
@@ -437,6 +457,7 @@
 }
 
 .project-detail-frames-summary > .project-detail-introduction {
+  grid-column: 1 / -1;
   max-width: 45rem;
   margin: tokens.$space-4 0 0;
   font-size: tokens.$font-size-body-emphasis;
@@ -444,6 +465,7 @@
 }
 
 .project-detail-frames-summary > .project-detail-facts {
+  grid-column: 1 / -1;
   margin-top: tokens.$space-4;
 }
 
@@ -468,6 +490,101 @@
   margin-top: tokens.$space-2;
   font-size: tokens.$font-size-body;
   font-weight: 700;
+}
+
+.project-detail-nationalities-hero {
+  display: grid;
+  gap: tokens.$space-6;
+  align-items: center;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-nationalities-summary {
+  min-width: 0;
+}
+
+.project-detail-nationalities-summary h1 {
+  max-width: 14ch;
+  margin: 0;
+  color: tokens.$color-muchokids-green;
+  font-size: clamp(2.75rem, 10vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.project-detail-nationalities-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-nationalities-summary .project-detail-introduction {
+  max-width: 36rem;
+  margin: tokens.$space-3 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-nationalities-flags {
+  position: relative;
+  height: 4.5rem;
+  margin-top: tokens.$space-2;
+  pointer-events: none;
+}
+
+.project-detail-nationalities-flags img {
+  position: absolute;
+  display: block;
+  width: 3.25rem;
+  height: auto;
+}
+
+.project-detail-nationalities-flags img:nth-child(1) { top: 0.25rem; left: 3%; transform: rotate(-18deg); }
+.project-detail-nationalities-flags img:nth-child(2) { top: 1.5rem; left: 36%; transform: rotate(14deg) scale(0.8); }
+.project-detail-nationalities-flags img:nth-child(3) { top: 0; left: 73%; transform: rotate(25deg) scale(0.65); }
+
+.project-detail-nationalities-feature {
+  min-width: 0;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.project-detail-nationalities-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-nationalities-feature figcaption,
+.project-detail-nationalities-character figcaption {
+  color: tokens.$color-muchokids-green;
+  font-family: tokens.$font-heading;
+  font-size: tokens.$font-size-project-title;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-detail-nationalities-grid {
+  display: grid;
+  gap: tokens.$space-5;
+  padding-block: tokens.$space-6;
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-nationalities-character {
+  min-width: 0;
+  margin: 0;
+  padding: tokens.$space-4;
+  border: 1px solid tokens.$color-border;
+  border-radius: 1rem;
+  background: tokens.$color-surface;
+}
+
+.project-detail-nationalities-character img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-nationalities-character figcaption {
+  padding-top: tokens.$space-2;
 }
 
 .project-detail-palette-section {
@@ -525,12 +642,31 @@
   object-fit: contain;
 }
 
+.project-detail--reindeer .project-detail-process-image {
+  object-fit: contain;
+}
+
 .project-detail--illustration-treatment .project-detail-detail-image {
   aspect-ratio: 706 / 500;
 }
 
 .project-detail--game-icons .project-detail-detail-image {
   aspect-ratio: auto;
+}
+
+.project-detail--reindeer .project-detail-detail-image {
+  max-width: 62.5rem;
+  height: auto;
+  aspect-ratio: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.project-detail--reindeer .project-detail-closeup-image {
+  min-width: 0;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .project-detail--illustration-treatment .project-detail-detail-frame {
@@ -696,9 +832,15 @@
 .project-detail-palette code {
   margin-top: tokens.$space-2;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.6875rem;
+  font-size: tokens.$font-size-palette-code;
   line-height: 1;
   white-space: nowrap;
+}
+
+.project-detail--reindeer .project-detail-palette ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: tokens.$space-3 tokens.$space-6;
 }
 
 .project-detail-palette p {
@@ -715,6 +857,23 @@
 }
 
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .project-detail--muchokids-nationalities .project-detail-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-back {
+    flex: none;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-pager {
+    justify-content: space-between;
+  }
+
+  .project-detail--muchokids-nationalities .project-detail-pager a {
+    padding-inline: 0;
+  }
+
   .project-detail--illustration-treatment .project-detail-hero > .project-detail-final-artwork,
   .project-detail--illustration-treatment .project-detail-final-artworks {
     width: calc(100% + 1.5rem);
@@ -744,6 +903,18 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail-nationalities-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail--reindeer .project-detail-closeups-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail--reindeer .project-detail-palette ul {
+    display: flex;
+  }
+
   .project-detail-frames-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -804,6 +975,88 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .project-detail-nationalities-hero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    min-height: 35rem;
+  }
+
+  .project-detail-nationalities-summary h1 {
+    font-size: clamp(4rem, 6.5vw, 6.5rem);
+  }
+
+  .project-detail-nationalities-flags {
+    height: 5.5rem;
+  }
+
+  .project-detail-nationalities-flags img {
+    width: 4rem;
+  }
+
+  .project-detail-nationalities-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-detail--deep-sea .project-detail-final-artworks > .project-detail-hero-ornament {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--1 {
+    top: 12%;
+    left: -4%;
+    width: 12%;
+    transform: rotate(-12deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--2 {
+    top: 37%;
+    right: -3%;
+    width: 9%;
+    transform: rotate(12deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--3 {
+    bottom: 13%;
+    left: 57%;
+    width: 9%;
+    transform: rotate(-10deg);
+  }
+
+  .project-detail--deep-sea .project-detail-hero-ornament--4 {
+    right: -5%;
+    bottom: -9%;
+    width: 30%;
+  }
+
+  .project-detail-frames-summary {
+    grid-template-columns: 2rem minmax(0, 44rem) minmax(16rem, 1fr);
+    column-gap: tokens.$space-5;
+  }
+
+  .project-detail-frames-summary h1 {
+    grid-column: 2 / -1;
+  }
+
+  .project-detail-frames-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .project-detail-frames-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 3;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail--reindeer .project-detail-closeups-section {
+    grid-template-columns: 12.5rem repeat(4, minmax(0, 1fr));
+  }
+
   .project-detail-frames-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -884,6 +1137,10 @@
   .project-detail--game-icons .project-detail-summary h1 {
     grid-column: 2 / -1;
     white-space: nowrap;
+  }
+
+  .project-detail--reindeer .project-detail-summary h1 {
+    grid-column: 2 / -1;
   }
 
   .project-detail-summary {

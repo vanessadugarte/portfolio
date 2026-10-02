@@ -221,6 +221,7 @@ test('Snapchat Frames has a localized gallery of complete vertical frames', () =
   for (const text of Object.values(translations)) {
     const detail = text.projects.items['snapchat-frames'].detail
 
+    assert.equal(detail.number, '01')
     assert.ok(detail.introduction)
     assert.equal(detail.titleParts.join(' '), text.projects.items['snapchat-frames'].title)
     assert.deepEqual(detail.facts, text === translations.es
@@ -234,7 +235,8 @@ test('Snapchat Frames has a localized gallery of complete vertical frames', () =
           { label: 'Technique', value: 'Digital illustration' },
           { label: 'Tools', value: 'Photoshop, Illustrator, Wacom Bamboo' },
         ])
-    assert.ok(detail.galleryTitle)
+    assert.equal(detail.galleryTitle, undefined)
+    assert.equal(detail.galleryDescription, undefined)
     assert.equal(detail.detailsTitle, undefined)
     assert.deepEqual(sortedKeys(detail.frames), [...expectedIds].sort())
 
@@ -247,8 +249,70 @@ test('Snapchat Frames has a localized gallery of complete vertical frames', () =
   }
 })
 
+test('Superdeer shows the available poses, process and technical details in both languages', () => {
+  const assets = getProjectDetails('reindeer')
+
+  assert.ok(assets.heroImage.endsWith('/complete-illustration.jpg'))
+  assert.equal(assets.processImages.length, 3)
+  assert.equal(assets.processArrows.length, 2)
+  assert.equal(assets.detailImages.length, 1)
+  assert.ok(assets.detailImages[0].endsWith('/complete-illustration-2.jpg'))
+  assert.deepEqual(assets.closeupImages.map((image) => image.split('/').at(-1)), [
+    'reindeer-detail1.jpg',
+    'reindeer-detail2.jpg',
+    'reindeer-detail3.jpg',
+    'reindeer-detail4.jpg',
+  ])
+  assert.equal(assets.palette.length, 6)
+  assert.equal(new Set([assets.heroImage, ...assets.processImages, ...assets.detailImages, ...assets.closeupImages]).size, 9)
+
+  for (const [language, text] of Object.entries(translations)) {
+    const content = text.projects.items.reindeer
+    const detail = content.detail
+
+    assert.equal(content.title, language === 'es' ? 'Super reno' : 'Superdeer')
+    assert.deepEqual(detail.facts.map(({ value }) => value), language === 'es'
+      ? ['2018', 'Ilustración digital', 'Photoshop, Illustrator y tableta Wacom']
+      : ['2018', 'Digital illustration', 'Photoshop, Illustrator and Wacom tablet'])
+    assert.ok(detail.paletteTitle)
+    assert.ok(detail.paletteDescription)
+    assert.ok(detail.imageAlt.hero)
+    assert.equal(detail.imageAlt.process.length, assets.processImages.length)
+    assert.equal(detail.imageAlt.details.length, assets.detailImages.length)
+    assert.equal(detail.closeupsTitle, language === 'es' ? 'Detalles' : 'Details')
+    assert.ok(detail.closeupsDescription)
+    assert.equal(detail.imageAlt.closeups.length, assets.closeupImages.length)
+  }
+})
+
+test('Muchokids Nationalities shows Brazil and the other eight localized characters without process sections', () => {
+  const assets = getProjectDetails('muchokids-nationalities')
+  const expectedIds = ['spain', 'united-states', 'netherlands', 'norway', 'mexico', 'kenya', 'cuba', 'australia']
+
+  assert.equal(assets.layout, 'nationalities')
+  assert.ok(assets.heroImage.endsWith('/brazil-09.svg'))
+  assert.ok(assets.flagImage.endsWith('/brazil-10.svg'))
+  assert.deepEqual(assets.characters.map(({ id }) => id), expectedIds)
+  assert.equal(assets.characters.every(({ image }) => image.endsWith('.svg')), true)
+  assert.equal(assets.processImages, undefined)
+  assert.equal(assets.detailImages, undefined)
+
+  for (const text of Object.values(translations)) {
+    const detail = text.projects.items['muchokids-nationalities'].detail
+
+    assert.ok(detail.introduction)
+    assert.ok(detail.heroAlt)
+    assert.ok(detail.heroName)
+    assert.deepEqual(sortedKeys(detail.characters), [...expectedIds].sort())
+    for (const character of assets.characters) {
+      assert.ok(detail.characters[character.id].name)
+      assert.ok(detail.characters[character.id].alt)
+    }
+  }
+})
+
 test('pending illustration projects have localized previews without detail landings', () => {
-  for (const id of ['reindeer', 'muchokids-nationalities', 'forest', 'muchomix-game', 'angels-sighs']) {
+  for (const id of ['forest', 'muchomix-game', 'angels-sighs']) {
     const project = getProjectBySlug(id)
 
     assert.deepEqual(project.categoryIds, ['illustration'])

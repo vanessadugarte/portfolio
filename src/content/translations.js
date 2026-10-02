@@ -256,6 +256,7 @@ export const translations = {
           description: 'Marcos ilustrados para la promoción de Muchokids y sus nacionalidades.',
           previewAlt: 'Máscara de carnaval azul y violeta con plumas fucsias sobre un fondo negro con confeti.',
           detail: {
+            number: '01',
             introduction: 'Una serie de marcos de Snapchat creada para promocionar el videojuego Muchokids y sus personajes de distintas nacionalidades. La persona colocaba su rostro en el espacio libre, bajo el sombrero, tocado o accesorio ilustrado. La colección también incluye un marco de marca Muchokids.',
             titleParts: ['Snapchat', 'Frames'],
             facts: [
@@ -263,8 +264,6 @@ export const translations = {
               { label: 'Técnica', value: 'Ilustración digital' },
               { label: 'Herramientas', value: 'Photoshop, Illustrator, Wacom Bamboo' },
             ],
-            galleryTitle: 'Marcos',
-            galleryDescription: 'Dieciocho escenas verticales para que cada persona formara parte de la imagen.',
             frames: {
               china: { name: 'China', alt: 'Marco de China con faroles de colores, sombrero cónico, cenefas doradas y dos personajes.' },
               egypt: { name: 'Egipto', alt: 'Marco de Egipto con tocados azules y dorados, pirámides, jeroglíficos y dos personajes.' },
@@ -289,15 +288,64 @@ export const translations = {
         },
         reindeer: {
           type: 'Ilustración',
-          title: 'Reindeer',
-          description: 'Personaje de reno ilustrado en tonos suaves.',
+          title: 'Super reno',
+          description: 'Personaje ilustrado para un cuento infantil, explorado a través de distintas poses.',
           previewAlt: 'Reno ilustrado con grandes ojos, astas grises y ropa rosada sobre un fondo verde.',
+          detail: {
+            number: '01',
+            introduction: 'Desarrollo de un personaje ilustrado para un cuento infantil. La exploración de su apariencia y lenguaje corporal a través de distintas poses dio forma a un pequeño superhéroe con capa.',
+            facts: [
+              { label: 'Año', value: '2018' },
+              { label: 'Técnica', value: 'Ilustración digital' },
+              { label: 'Herramientas', value: 'Photoshop, Illustrator y tableta Wacom' },
+            ],
+            paletteTitle: 'Paleta de color',
+            paletteDescription: 'Verdes y tierras suaves enmarcan al personaje; el rosa de la camisa y el coral de la capa aportan acentos cálidos.',
+            processTitle: 'Proceso',
+            processDescription: 'Estudio de poses en línea, aplicación de color y trabajo de textura para definir el gesto y el movimiento del personaje.',
+            detailsTitle: 'Poses finales',
+            detailsDescription: 'Dos versiones del super reno muestran cómo la capa y el color cambian su presencia sin perder la identidad del personaje.',
+            closeupsTitle: 'Detalles',
+            closeupsDescription: 'Acercamientos al rostro, la capa, las astas y las texturas que dan profundidad a la ilustración final.',
+            imageAlt: {
+              hero: 'Super reno volando con camisa rosa y capa clara sobre un fondo verde texturizado.',
+              process: [
+                'Cinco dibujos lineales del reno con capa en poses de pie y de vuelo.',
+                'Cinco poses del reno con los colores base aplicados sobre un fondo gris.',
+                'Reno en pose de vuelo con textura aplicada en la cabeza, camisa y pantalón.',
+              ],
+              details: [
+                'Dos versiones finales del reno de pie y frente a frente, con capas clara y coral.',
+              ],
+              closeups: [
+                'Detalle del rostro del reno con ojo, nariz negra y hocico claro sobre el fondo verde.',
+                'Detalle del brazo del reno y el borde de la capa clara sobre el fondo texturizado.',
+                'Detalle de las capas de textura verde grisácea del fondo.',
+                'Detalle del asta gris y la oreja del reno sobre el fondo verde.',
+              ],
+            },
+          },
         },
         'muchokids-nationalities': {
           type: 'Ilustración',
-          title: 'Muchokids: personajes de nacionalidades',
-          description: 'Personajes infantiles inspirados en distintas nacionalidades.',
+          title: 'Muchokids: nacionalidades',
+          description: 'Rostros infantiles inspirados en trajes típicos de distintos países para Muchokids.',
           previewAlt: 'Seis rostros de personajes infantiles junto a las banderas de España, Estados Unidos, Brasil, Rusia, China y Francia.',
+          detail: {
+            introduction: 'Rostros de personajes inspirados en trajes típicos de distintos países para Muchokids, una app de videojuego infantil e interactivo.',
+            heroAlt: 'Personaje de Brasil con cabello negro y un tocado de plumas verdes y amarillas.',
+            heroName: 'Brasil',
+            characters: {
+              spain: { name: 'España', alt: 'Personaje con cabello castaño recogido, una rosa roja y la bandera de España.' },
+              'united-states': { name: 'Estados Unidos', alt: 'Personaje rubio de ojos azules junto a la bandera de Estados Unidos.' },
+              netherlands: { name: 'Países Bajos', alt: 'Personaje rubio con trenzas y casco gris junto a la bandera de los Países Bajos.' },
+              norway: { name: 'Noruega', alt: 'Personaje rubio con coleta y diadema junto a la bandera de Noruega.' },
+              mexico: { name: 'México', alt: 'Personaje con sombrero negro decorado en dorado junto a la bandera de México.' },
+              kenya: { name: 'Kenia', alt: 'Personaje con cabello negro corto junto a la bandera de Kenia.' },
+              cuba: { name: 'Cuba', alt: 'Personaje con turbante azul y pendientes junto a la bandera de Cuba.' },
+              australia: { name: 'Australia', alt: 'Personaje de cabello castaño ondulado junto a la bandera de Australia.' },
+            },
+          },
         },
         forest: {
           type: 'Ilustración',
@@ -694,6 +742,7 @@ export const translations = {
           description: 'Illustrated frames promoting Muchokids and its nationalities.',
           previewAlt: 'Blue and violet carnival mask with magenta feathers on a black confetti-filled background.',
           detail: {
+            number: '01',
             introduction: 'A series of Snapchat frames created to promote the Muchokids video game and its characters from different nationalities. People placed their faces in the open space, beneath the illustrated hat, headdress or accessory. The collection also includes a Muchokids brand frame.',
             titleParts: ['Snapchat', 'Frames'],
             facts: [
@@ -701,8 +750,6 @@ export const translations = {
               { label: 'Technique', value: 'Digital illustration' },
               { label: 'Tools', value: 'Photoshop, Illustrator, Wacom Bamboo' },
             ],
-            galleryTitle: 'Frames',
-            galleryDescription: 'Eighteen vertical scenes inviting people to become part of the image.',
             frames: {
               china: { name: 'China', alt: 'China frame with colorful lanterns, a conical hat, gold borders and two characters.' },
               egypt: { name: 'Egypt', alt: 'Egypt frame with blue and gold headdresses, pyramids, hieroglyphs and two characters.' },
@@ -727,15 +774,64 @@ export const translations = {
         },
         reindeer: {
           type: 'Illustration',
-          title: 'Reindeer',
-          description: 'An illustrated reindeer character in soft colors.',
+          title: 'Superdeer',
+          description: 'An illustrated character for a children’s story, explored through different poses.',
           previewAlt: 'Illustrated reindeer with large eyes, gray antlers and pink clothing against a green background.',
+          detail: {
+            number: '01',
+            introduction: 'An illustrated character developed for a children’s story. Exploring his appearance and body language through different poses shaped a little caped superhero.',
+            facts: [
+              { label: 'Year', value: '2018' },
+              { label: 'Technique', value: 'Digital illustration' },
+              { label: 'Tools', value: 'Photoshop, Illustrator and Wacom tablet' },
+            ],
+            paletteTitle: 'Color palette',
+            paletteDescription: 'Soft greens and earth tones frame the character, while the pink shirt and coral cape add warm accents.',
+            processTitle: 'Process',
+            processDescription: 'Line studies of the poses, base colors and textured rendering define the character’s gestures and movement.',
+            detailsTitle: 'Final poses',
+            detailsDescription: 'Two versions of Superdeer show how the cape and its color change his presence while preserving his identity.',
+            closeupsTitle: 'Details',
+            closeupsDescription: 'Close views of the face, cape, antlers and textures that give depth to the final illustration.',
+            imageAlt: {
+              hero: 'Superdeer flying in a pink shirt and pale cape against a textured green background.',
+              process: [
+                'Five line drawings of the caped reindeer standing and flying.',
+                'Five reindeer poses with base colors applied against a gray background.',
+                'Reindeer in a flying pose with texture applied to the head, shirt and trousers.',
+              ],
+              details: [
+                'Two final versions of the reindeer standing face to face, with pale and coral capes.',
+              ],
+              closeups: [
+                'Detail of the reindeer’s face with an eye, black nose and pale muzzle against the green background.',
+                'Detail of the reindeer’s arm and the edge of the pale cape against the textured background.',
+                'Detail of the gray-green layers of texture in the background.',
+                'Detail of the gray antler and reindeer ear against the green background.',
+              ],
+            },
+          },
         },
         'muchokids-nationalities': {
           type: 'Illustration',
-          title: 'Muchokids: Nationality Characters',
-          description: 'Children’s characters inspired by different nationalities.',
+          title: 'Muchokids Nationalities',
+          description: 'Children’s faces inspired by traditional clothing from different countries for Muchokids.',
           previewAlt: 'Six children’s character faces beside the flags of Spain, the United States, Brazil, Russia, China and France.',
+          detail: {
+            introduction: 'Character faces inspired by traditional clothing from different countries for Muchokids, an interactive children’s video game app.',
+            heroAlt: 'Brazil character with black hair and a green and yellow feathered headdress.',
+            heroName: 'Brazil',
+            characters: {
+              spain: { name: 'Spain', alt: 'Character with brown hair tied back, a red rose and the Spanish flag.' },
+              'united-states': { name: 'United States', alt: 'Blond, blue-eyed character beside the United States flag.' },
+              netherlands: { name: 'Netherlands', alt: 'Blond character with braids and a gray helmet beside the Netherlands flag.' },
+              norway: { name: 'Norway', alt: 'Blond character with a ponytail and headband beside the Norwegian flag.' },
+              mexico: { name: 'Mexico', alt: 'Character with a black hat decorated in gold beside the Mexican flag.' },
+              kenya: { name: 'Kenya', alt: 'Character with short black hair beside the Kenyan flag.' },
+              cuba: { name: 'Cuba', alt: 'Character with a blue headwrap and earrings beside the Cuban flag.' },
+              australia: { name: 'Australia', alt: 'Character with wavy brown hair beside the Australian flag.' },
+            },
+          },
         },
         forest: {
           type: 'Illustration',
