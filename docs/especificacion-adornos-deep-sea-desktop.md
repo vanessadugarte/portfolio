@@ -1,0 +1,40 @@
+# Especificación: adornos de peces en Deep Sea
+
+## Objetivo
+
+Incorporar los tres recursos `little-fish` y `adorno-fish` como adornos de la obra principal de Deep Sea en escritorio.
+
+## Alcance
+
+- Mostrar los cuatro SVG existentes alrededor de las dos imágenes finales del hero de Deep Sea desde el punto de quiebre de escritorio (64 rem).
+- Conservar la composición actual en tablet y móvil y mantener intactas las demás fichas de proyecto.
+
+## Flujo de usuario
+
+1. La persona abre la ficha de Deep Sea en escritorio.
+2. Recorre el resumen y las dos obras finales acompañadas por los peces decorativos.
+3. Continúa hacia referencias, proceso y detalles con el mismo orden de lectura.
+
+## Criterios de aceptación
+
+- Los cuatro SVG aparecen en la composición principal de Deep Sea a partir de 64 rem y no se muestran por debajo de ese ancho.
+- Los adornos no cubren el título, la descripción ni los controles de navegación y no producen desplazamiento horizontal.
+- Los adornos carecen de texto alternativo y quedan ocultos a tecnologías de asistencia; tampoco capturan eventos del puntero.
+- La página conserva las obras finales y el contenido localizable en español e inglés.
+
+## Requisitos no funcionales
+
+- Reutilizar los datos de medios del proyecto y los estilos Sass del detalle.
+- Preservar el diseño responsive y la accesibilidad existente.
+
+## Exclusiones
+
+- No añadir animación ni interacciones a los peces.
+- No cambiar el contenido editorial o los recursos visuales de otros proyectos.
+
+## Validación
+
+- `npm run build` y `npm run lint`: correctos.
+- Navegador integrado (Chromium): inspección visual a 1440 y 1024 CSS px. Los cuatro peces acompañan la obra sin cubrir el resumen ni las referencias; `document.documentElement.scrollWidth` coincide con el ancho de 1440 y 1024 px.
+- Navegador integrado (Chromium): a 390 y 320 CSS px, los cuatro adornos tienen `display: none`; a 320 px no hay desbordamiento horizontal. Los cuatro elementos usan `alt=""`, `aria-hidden="true"` y `pointer-events: none` cuando se muestran.
+- Limitación: esta comprobación visual y de semántica se limita a los adornos de Deep Sea; no constituye una auditoría WCAG global.

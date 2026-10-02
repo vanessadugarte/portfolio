@@ -183,6 +183,7 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
 
         <header className="project-detail-frames-summary">
           <p className="project-detail-categories">{content.type}</p>
+          <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>
             {detail.titleParts.map((part, index) => (
               <span className={index === 1 ? 'project-detail-title-secondary' : undefined} key={`${index}-${part}`}>
@@ -194,13 +195,7 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="project-detail-section project-detail-frames-section" aria-labelledby="project-frames-title">
-          <SectionIntroduction
-            id="project-frames-title"
-            number="01"
-            title={detail.galleryTitle}
-            description={detail.galleryDescription}
-          />
+        <div className="project-detail-frames-section">
           <div className="project-detail-frames-grid">
             {assets.frames.map((frame, index) => (
               <figure className="project-detail-frame" key={frame.id}>
@@ -217,8 +212,67 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
               </figure>
             ))}
           </div>
-        </section>
+        </div>
 
+      </div>
+    </article>
+  )
+}
+
+function NationalitiesProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--muchokids-nationalities" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <div className="project-detail-nationalities-hero">
+          <header className="project-detail-nationalities-summary">
+            <p className="project-detail-categories">{content.type}</p>
+            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+            <div className="project-detail-nationalities-flags" aria-hidden="true">
+              {Array.from({ length: 3 }, (_, index) => (
+                <img src={assets.flagImage} alt="" width="260" height="254" key={index} />
+              ))}
+            </div>
+            <p className="project-detail-introduction">{detail.introduction}</p>
+          </header>
+
+          <figure className="project-detail-nationalities-feature">
+            <img
+              src={assets.heroImage}
+              alt={detail.heroAlt}
+              width={assets.heroDimensions.width}
+              height={assets.heroDimensions.height}
+              fetchPriority="high"
+            />
+            <figcaption>{detail.heroName}</figcaption>
+          </figure>
+        </div>
+
+        <div className="project-detail-nationalities-grid">
+          {assets.characters.map((character) => (
+            <figure className="project-detail-nationalities-character" key={character.id}>
+              <img
+                src={character.image}
+                alt={detail.characters[character.id].alt}
+                width="582"
+                height="788"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{detail.characters[character.id].name}</figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </article>
   )
@@ -295,6 +349,17 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
                   style={getOrganicMaskStyle(assets.organicMasks?.heroSecondary)}
                 />
               </figure>
+              {assets.heroDecorations?.map((decoration, index) => (
+                <img
+                  className={`project-detail-hero-ornament project-detail-hero-ornament--${index + 1}`}
+                  src={decoration}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  key={decoration}
+                />
+              ))}
             </div>
           ) : (
             <figure className="project-detail-final-artwork">
@@ -505,6 +570,29 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
           })}
         </section>
 
+        {assets.closeupImages && (
+          <section className="project-detail-section project-detail-gallery project-detail-closeups-section" aria-labelledby="project-closeups-title">
+            <SectionIntroduction
+              id="project-closeups-title"
+              number={assets.referenceImages ? '05' : '04'}
+              title={detail.closeupsTitle}
+              description={detail.closeupsDescription}
+            />
+            {assets.closeupImages.map((image, index) => (
+              <img
+                className="project-detail-closeup-image"
+                src={image}
+                alt={detail.imageAlt.closeups[index]}
+                width="725"
+                height="569"
+                loading="lazy"
+                decoding="async"
+                key={image}
+              />
+            ))}
+          </section>
+        )}
+
       </div>
     </article>
   )
@@ -557,6 +645,18 @@ function ProjectDetailPage() {
   if (assets.layout === 'gallery') {
     return (
       <GalleryProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'nationalities') {
+    return (
+      <NationalitiesProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}
