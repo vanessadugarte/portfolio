@@ -41,13 +41,13 @@ function ProjectFactIcon({ factIndex }) {
   return <svg {...commonProps}><path d="M21 7.5a6 6 0 0 1-8.7 5.3L6.1 19A2.1 2.1 0 1 1 3 16l6.2-6.2A6 6 0 0 1 16.5 3l-3.1 3.1 4.5 4.5L21 7.5Z" /></svg>
 }
 
-function ProjectFacts({ facts, withIcons = false }) {
+function ProjectFacts({ facts }) {
   return (
     <dl className="project-detail-facts">
       {facts.map(({ label, value }, factIndex) => (
         <div key={label}>
-          {withIcons && <ProjectFactIcon factIndex={factIndex} />}
-          <dt className={withIcons ? 'project-detail-fact-label' : undefined}>{label}</dt>
+          <ProjectFactIcon factIndex={factIndex} />
+          <dt className="project-detail-fact-label">{label}</dt>
           <dd>{value}</dd>
         </div>
       ))}
@@ -268,7 +268,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
             <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
-            <ProjectFacts facts={detail.facts} withIcons={assets.illustrationTreatment} />
+            <ProjectFacts facts={detail.facts} />
           </header>
 
           {assets.heroSecondaryImage ? (

@@ -11,8 +11,7 @@ Al abrir `#/proyectos/donas-3d`, la persona encuentra una portada, ficha técnic
 ## Criterios de aceptación
 
 - La ruta muestra el año 2024, Blender y las disciplinas de modelado, iluminación, textura y renderizado.
-- En la ficha técnica, cada etiqueta y su valor se leen juntos en una misma línea, por ejemplo «Herramientas: Blender».
-- Las etiquetas de la ficha técnica, como «Año», «Técnica» y «Herramientas», se muestran en negrita y sus valores conservan el peso regular.
+- En la ficha técnica, cada dato muestra su icono y valor dentro de una etiqueta compacta; el nombre localizado queda asociado al valor para tecnologías de asistencia.
 - La portada, cuatro imágenes de proceso, dos vistas ampliadas de modelado y cuatro detalles se cargan desde `src/assets/images/projects/3d/3d-donuts`.
 - La paleta con los seis colores proporcionados se muestra antes del paso 02.
 - En tablet y escritorio, la ilustración final de la portada ocupa todo el ancho disponible dentro del contenedor, respetando sus márgenes laterales; en móvil conserva el ancho contenido y responsive.
