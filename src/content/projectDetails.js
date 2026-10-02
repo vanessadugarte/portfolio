@@ -3,6 +3,7 @@ const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donut
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
 const jungleAsset = (filename) => new URL(`../assets/images/projects/illustrations/jungle/${filename}`, import.meta.url).href
 const gameIconsAsset = (filename) => new URL(`../assets/images/projects/illustrations/game-icons/${filename}`, import.meta.url).href
+const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const organicShapeAsset = (filename) => new URL(`../assets/images/shapes/organic/${filename}`, import.meta.url).href
 const arrowShapeAsset = (filename) => new URL(`../assets/images/shapes/flechas/${filename}`, import.meta.url).href
 const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
@@ -166,16 +167,13 @@ export const projectDetails = {
   'game-icons': {
     heroImage: gameIconsAsset('game-icons-complete.jpg'),
     heroDimensions: { width: 1200, height: 1192 },
+    heroSecondaryImage: gameIconsAsset('icons-objects.jpg'),
+    heroSecondaryDimensions: { width: 2048, height: 2732 },
     illustrationTreatment: true,
     accentColor: '#E90051',
     decorationImage: gameIconsAsset('adorno-icons.svg'),
-    organicMasks: {
-      hero: organicShapeAsset('organic-shape-horiz.svg'),
-      details: [
-        organicShapeAsset('organic-shape-05.svg'),
-        organicShapeAsset('organic-shape-02.svg'),
-      ],
-    },
+    palette: ['#04031F', '#590023', '#E90051', '#FF5B99', '#2BBFAF', '#F8B900'],
+    palettePlacement: 'process',
     processImages: [
       gameIconsAsset('game-icons-process-1.jpg'),
       gameIconsAsset('game-icons-process-2.jpg'),
@@ -187,10 +185,39 @@ export const projectDetails = {
     detailImages: [
       gameIconsAsset('icons-detail-1.jpg'),
       gameIconsAsset('icons-detail-2.png'),
+      gameIconsAsset('icons-detail-3.jpg'),
+      gameIconsAsset('icons-detail-4.jpg'),
     ],
     detailImageDimensions: [
       { width: 535, height: 543 },
       { width: 617, height: 500 },
+      { width: 558, height: 640 },
+      { width: 1136, height: 1816 },
+    ],
+  },
+  'snapchat-frames': {
+    layout: 'gallery',
+    accentColor: '#E90051',
+    secondaryAccentColor: '#008F87',
+    frames: [
+      { id: 'china', image: snapchatFramesAsset('China-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'egypt', image: snapchatFramesAsset('egypt-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'india', image: snapchatFramesAsset('india-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'mexico', image: snapchatFramesAsset('Mexico-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'france', image: snapchatFramesAsset('france-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'italy', image: snapchatFramesAsset('italy-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'england', image: snapchatFramesAsset('england-verticalframe.jpg'), width: 2048, height: 2732 },
+      { id: 'ireland', image: snapchatFramesAsset('Ireland-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'spain', image: snapchatFramesAsset('spain-vertical.jpg'), width: 8533, height: 11383 },
+      { id: 'cuba', image: snapchatFramesAsset('cuba-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'netherlands', image: snapchatFramesAsset('Holanda-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'russia', image: snapchatFramesAsset('russia-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'united-states', image: snapchatFramesAsset('United-states-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'germany', image: snapchatFramesAsset('Germany-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'sweden', image: snapchatFramesAsset('Sweden-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'south-korea', image: snapchatFramesAsset('Korea-vertical.jpg'), width: 2048, height: 2732 },
+      { id: 'arab', image: snapchatFramesAsset('arab-vertical.jpg'), width: 4267, height: 5692 },
+      { id: 'muchokids', image: snapchatFramesAsset('muchokids-vertical.jpg'), width: 2048, height: 2732 },
     ],
   },
 }

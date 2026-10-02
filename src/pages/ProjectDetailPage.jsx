@@ -41,6 +41,20 @@ function ProjectFactIcon({ factIndex }) {
   return <svg {...commonProps}><path d="M21 7.5a6 6 0 0 1-8.7 5.3L6.1 19A2.1 2.1 0 1 1 3 16l6.2-6.2A6 6 0 0 1 16.5 3l-3.1 3.1 4.5 4.5L21 7.5Z" /></svg>
 }
 
+function ProjectFacts({ facts, withIcons = false }) {
+  return (
+    <dl className="project-detail-facts">
+      {facts.map(({ label, value }, factIndex) => (
+        <div key={label}>
+          {withIcons && <ProjectFactIcon factIndex={factIndex} />}
+          <dt className={withIcons ? 'project-detail-fact-label' : undefined}>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
 function ProjectDetailPlaceholder({ content, navigation, neighbors, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
@@ -58,7 +72,7 @@ function ProjectDetailPlaceholder({ content, navigation, neighbors, project, tex
           <p className="project-detail-categories">
             {project.categoryIds.map((categoryId) => text.categories[getProjectCategory(categoryId).id]).join(' · ')}
           </p>
-          <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="project-detail-pending">{text.comingSoon}</p>
         </div>
       </div>
@@ -145,6 +159,71 @@ function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
   )
 }
 
+function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article
+      className="project-detail project-detail--snapchat-frames"
+      aria-labelledby="project-detail-title"
+      style={{
+        '--project-accent-color': assets.accentColor,
+        '--project-title-secondary-color': assets.secondaryAccentColor,
+      }}
+    >
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="project-detail-frames-summary">
+          <p className="project-detail-categories">{content.type}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>
+            {detail.titleParts.map((part, index) => (
+              <span className={index === 1 ? 'project-detail-title-secondary' : undefined} key={`${index}-${part}`}>
+                {index > 0 ? ' ' : ''}{part}
+              </span>
+            ))}
+          </h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="project-detail-section project-detail-frames-section" aria-labelledby="project-frames-title">
+          <SectionIntroduction
+            id="project-frames-title"
+            number="01"
+            title={detail.galleryTitle}
+            description={detail.galleryDescription}
+          />
+          <div className="project-detail-frames-grid">
+            {assets.frames.map((frame, index) => (
+              <figure className="project-detail-frame" key={frame.id}>
+                <img
+                  src={frame.image}
+                  alt={detail.frames[frame.id].alt}
+                  width={frame.width}
+                  height={frame.height}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  decoding="async"
+                />
+                <figcaption>{detail.frames[frame.id].name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </article>
+  )
+}
+
 function CompleteProjectDetail({ assets, content, navigation, neighbors, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
@@ -187,17 +266,9 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
 
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
-            <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
-            <dl className="project-detail-facts">
-              {detail.facts.map(({ label, value }, factIndex) => (
-                <div key={label}>
-                  {assets.illustrationTreatment && <ProjectFactIcon factIndex={factIndex} />}
-                  <dt className={assets.illustrationTreatment ? 'project-detail-fact-label' : undefined}>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
+            <ProjectFacts facts={detail.facts} withIcons={assets.illustrationTreatment} />
           </header>
 
           {assets.heroSecondaryImage ? (
@@ -306,7 +377,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
           </section>
         )}
 
-        {assets.palette && !assets.referenceImages && assets.palettePlacement !== 'hero' && (
+        {assets.palette && !assets.referenceImages && !['hero', 'process'].includes(assets.palettePlacement) && (
           <section className="project-detail-section project-detail-palette-section" aria-labelledby="project-palette-title">
             <ColorPalette
               headingId="project-palette-title"
@@ -360,6 +431,16 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
                   </figure>
                 )
               })}
+              {assets.palettePlacement === 'process' && (
+                <aside className="project-detail-process-palette" aria-labelledby="project-process-palette-title">
+                  <ColorPalette
+                    headingId="project-process-palette-title"
+                    title={detail.paletteTitle}
+                    description={detail.paletteDescription}
+                    colors={assets.palette}
+                  />
+                </aside>
+              )}
             </div>
           ) : assets.processImages.map((image, index) => (
               <img
@@ -468,6 +549,18 @@ function ProjectDetailPage() {
         navigation={navigation}
         neighbors={neighbors}
         project={project}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'gallery') {
+    return (
+      <GalleryProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
         text={text}
       />
     )
