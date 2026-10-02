@@ -1,6 +1,7 @@
 const medusasAsset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donuts/${filename}`, import.meta.url).href
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
+const forestAsset = (filename) => new URL(`../assets/images/projects/illustrations/forest/${filename}`, import.meta.url).href
 const jungleAsset = (filename) => new URL(`../assets/images/projects/illustrations/jungle/${filename}`, import.meta.url).href
 const gameIconsAsset = (filename) => new URL(`../assets/images/projects/illustrations/game-icons/${filename}`, import.meta.url).href
 const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrations/reindeer/${filename}`, import.meta.url).href
@@ -42,7 +43,7 @@ export const projectDetails = {
       processArrowAsset('flecha-09.svg', 180, 90),
     ],
     detailImages: [
-      medusasAsset('detail-1-medusas.jpg'),
+      medusasAsset('detail-1-medusas.png'),
       medusasAsset('detail-2-medusas.jpg'),
       medusasAsset('detail-3-medusas.jpg'),
       medusasAsset('detail-4-medusas.jpg'),
@@ -83,7 +84,8 @@ export const projectDetails = {
       deepSeaAsset('little-fish-3.svg'),
       deepSeaAsset('adorno-fish.svg'),
     ],
-    referenceImages: [deepSeaAsset('inspo-1.jpg'), deepSeaAsset('inspo-2.jpg')],
+    heroReferenceImages: [deepSeaAsset('inspo-1.jpg'), deepSeaAsset('inspo-2.jpg')],
+    heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 760, height: 500 })),
     organicMasks: {
       hero: organicShapeAsset('organic-shape-02.svg'),
       heroSecondary: organicShapeAsset('organic-shape-05.svg'),
@@ -95,6 +97,7 @@ export const projectDetails = {
       ],
     },
     palette: ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'],
+    palettePlacement: 'hero',
     processImages: [
       deepSeaAsset('sketch-0-deep-sea.jpg'),
       deepSeaAsset('sketch-deepsea-1.jpg'),
@@ -117,6 +120,27 @@ export const projectDetails = {
       deepSeaAsset('detail-deepsea-2.jpg'),
       deepSeaAsset('detail-deepsea-3.jpg'),
       deepSeaAsset('detail-deepsea-4.jpg'),
+    ],
+  },
+  forest: {
+    heroImage: forestAsset('forest-finalwork.jpg'),
+    heroDimensions: { width: 1920, height: 2561 },
+    illustrationTreatment: true,
+    accentColor: '#0C2C31',
+    palette: ['#061314', '#0C2C31', '#24555B', '#5EB5C0', '#16451F', '#559B39'],
+    processImages: [
+      forestAsset('forest-process-1.png'),
+      forestAsset('forest-process-2.jpg'),
+      forestAsset('forest-process-3.jpg'),
+    ],
+    processImageDimensions: [
+      { width: 2048, height: 2732 },
+      { width: 1920, height: 2561 },
+      { width: 1920, height: 2561 },
+    ],
+    processArrows: [
+      processArrowAsset('flecha-01.svg', 90, 0),
+      processArrowAsset('flecha-06.svg', 90, 0),
     ],
   },
   jungle: {
@@ -184,22 +208,38 @@ export const projectDetails = {
     palettePlacement: 'process',
     processImages: [
       gameIconsAsset('game-icons-process-1.jpg'),
+      gameIconsAsset('game-icons-process-3.jpg'),
       gameIconsAsset('game-icons-process-2.jpg'),
     ],
-    processImageDimensions: Array.from({ length: 2 }, () => ({ width: 673, height: 542 })),
+    processImageDimensions: [
+      { width: 673, height: 542 },
+      { width: 1398, height: 1125 },
+      { width: 673, height: 542 },
+    ],
     processArrows: [
       processArrowAsset('flecha-01.svg', 90, 0),
+      processArrowAsset('flecha-06.svg', 90, 0),
     ],
     detailImages: [
-      gameIconsAsset('icons-detail-1.jpg'),
       gameIconsAsset('icons-detail-2.png'),
-      gameIconsAsset('icons-detail-3.jpg'),
-      gameIconsAsset('icons-detail-4.jpg'),
+      gameIconsAsset('coins-02.svg'),
+      gameIconsAsset('coins-03.svg'),
+      gameIconsAsset('coins-04.svg'),
+      gameIconsAsset('coins-05.svg'),
+      gameIconsAsset('coins-06.svg'),
+      gameIconsAsset('coins-07.svg'),
+      gameIconsAsset('estrella-candado.png'),
+      gameIconsAsset('icons-detail-4.png'),
     ],
     detailImageDimensions: [
-      { width: 535, height: 543 },
       { width: 617, height: 500 },
-      { width: 558, height: 640 },
+      { width: 177, height: 167 },
+      { width: 177, height: 167 },
+      { width: 177, height: 167 },
+      { width: 177, height: 167 },
+      { width: 177, height: 167 },
+      { width: 177, height: 167 },
+      { width: 1230, height: 1278 },
       { width: 1136, height: 1816 },
     ],
   },
@@ -223,8 +263,8 @@ export const projectDetails = {
       processArrowAsset('flecha-01.svg', 90, 0),
       processArrowAsset('flecha-06.svg', 90, 0),
     ],
-    detailImages: [reindeerAsset('complete-illustration-2.jpg')],
-    detailImageDimensions: [{ width: 4000, height: 3435 }],
+    detailImages: [reindeerAsset('complete-illustration-2.png')],
+    detailImageDimensions: [{ width: 1536, height: 1024 }],
     closeupImages: [
       reindeerAsset('reindeer-detail1.jpg'),
       reindeerAsset('reindeer-detail2.jpg'),
@@ -236,6 +276,21 @@ export const projectDetails = {
     layout: 'gallery',
     accentColor: '#E90051',
     secondaryAccentColor: '#008F87',
+    isolatedAssets: [
+      { image: snapchatFramesAsset('snapchat-assets-01.svg'), width: 67, height: 251 },
+      { image: snapchatFramesAsset('snapchat-assets-02.svg'), width: 229, height: 197 },
+      { image: snapchatFramesAsset('snapchat-assets-03.svg'), width: 209, height: 125 },
+      { image: snapchatFramesAsset('snapchat-assets-04.svg'), width: 168, height: 149 },
+      { image: snapchatFramesAsset('snapchat-assets-05.svg'), width: 174, height: 77 },
+      { image: snapchatFramesAsset('snapchat-assets-06.svg'), width: 157, height: 139 },
+      { image: snapchatFramesAsset('snapchat-assets-07.svg'), width: 58, height: 89 },
+      { image: snapchatFramesAsset('snapchat-assets-08.svg'), width: 52, height: 60 },
+      { image: snapchatFramesAsset('snapchat-assets-09.svg'), width: 231, height: 184 },
+      { image: snapchatFramesAsset('snapchat-assets-10.svg'), width: 129, height: 153 },
+      { image: snapchatFramesAsset('snapchat-assets-11.svg'), width: 123, height: 227 },
+      { image: snapchatFramesAsset('snapchat-assets-13.svg'), width: 131, height: 316 },
+      { image: snapchatFramesAsset('snapchat-assets-14.svg'), width: 145, height: 242 },
+    ],
     frames: [
       { id: 'china', image: snapchatFramesAsset('China-vertical.jpg'), width: 2048, height: 2732 },
       { id: 'egypt', image: snapchatFramesAsset('egypt-vertical.jpg'), width: 2048, height: 2732 },
@@ -259,8 +314,10 @@ export const projectDetails = {
   },
   'muchokids-nationalities': {
     layout: 'nationalities',
-    heroImage: muchokidsNationalitiesAsset('brazil-09.svg'),
-    heroDimensions: { width: 1280, height: 1401 },
+    heroImage: muchokidsNationalitiesAsset('nacionalidadesmapa-12.svg'),
+    heroDimensions: { width: 1390, height: 1553 },
+    backgroundImage: muchokidsNationalitiesAsset('fondo-brasil.png'),
+    backgroundDimensions: { width: 1200, height: 536 },
     flagImage: muchokidsNationalitiesAsset('brazil-10.svg'),
     characters: [
       { id: 'spain', image: muchokidsNationalitiesAsset('nacionalidad-frame-01.svg') },
@@ -271,6 +328,13 @@ export const projectDetails = {
       { id: 'kenya', image: muchokidsNationalitiesAsset('nacionalidad-frame-07.svg') },
       { id: 'cuba', image: muchokidsNationalitiesAsset('nacionalidad-frame-08.svg') },
       { id: 'australia', image: muchokidsNationalitiesAsset('nacionalidad-frame-11.svg') },
+      { id: 'japan', image: muchokidsNationalitiesAsset('nacionalidad-frame-14.svg') },
+      { id: 'france', image: muchokidsNationalitiesAsset('nacionalidad-frame-15.svg') },
+      { id: 'india', image: muchokidsNationalitiesAsset('nacionalidad-frame-18.svg') },
+      { id: 'united-arab-emirates', image: muchokidsNationalitiesAsset('nacionalidad-frame-19.svg') },
+      { id: 'netherlands-cap', image: muchokidsNationalitiesAsset('nacionalidad-frame-20.svg') },
+      { id: 'united-kingdom', image: muchokidsNationalitiesAsset('nacionalidad-frame-21.svg') },
+      { id: 'canada', image: muchokidsNationalitiesAsset('nacionalidad-frame-22.svg') },
     ],
   },
 }
