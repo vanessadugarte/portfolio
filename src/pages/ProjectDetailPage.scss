@@ -644,6 +644,412 @@
   padding-top: tokens.$space-2;
 }
 
+.project-detail--muchomix-biomas {
+  --biomes-ice: #075b78;
+  --biomes-forest: #356a2b;
+  --biomes-flower: #7c64c4;
+  --biomes-desert: #8f3514;
+
+  background:
+    radial-gradient(circle at 4% 18%, rgb(7 91 120 / 10%) 0 12rem, transparent 12.1rem),
+    radial-gradient(circle at 98% 42%, rgb(217 86 34 / 9%) 0 15rem, transparent 15.1rem),
+    radial-gradient(circle at 30% 84%, rgb(124 100 196 / 8%) 0 13rem, transparent 13.1rem),
+    tokens.$color-project-canvas;
+}
+
+.project-detail-biomes-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-biomes-summary > .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.project-detail-biomes-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(2.6rem, 11vw, 5rem);
+}
+
+.project-detail-biomes-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-biomes-summary > .project-detail-introduction {
+  grid-column: 1 / -1;
+  max-width: tokens.$width-project-detail-description-desktop;
+  margin: tokens.$space-4 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-biomes-summary > .project-detail-facts {
+  grid-column: 1 / -1;
+  margin-top: tokens.$space-4;
+}
+
+.project-detail-biomes-section {
+  display: grid;
+  gap: tokens.$space-5;
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-biomes-section .project-detail-section-intro {
+  max-width: 40rem;
+}
+
+.project-detail-biomes-grid {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4.5rem) tokens.$space-5;
+  width: min(100%, 70rem);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.project-detail-biomes-grid > li,
+.project-detail-biome {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-detail-biome img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.25rem;
+  box-shadow: 0 1rem 2.5rem rgb(7 49 68 / 17%);
+}
+
+.project-detail-biome figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: tokens.$space-2;
+  margin-top: tokens.$space-3;
+  color: var(--biomes-ice);
+  font-family: tokens.$font-heading;
+  font-size: tokens.$font-size-project-title;
+  font-weight: 700;
+}
+
+.project-detail-biome figcaption span {
+  color: var(--biomes-desert);
+  font-family: tokens.$font-body;
+  font-size: tokens.$font-size-body;
+  font-weight: 700;
+}
+
+.project-detail-biomes-grid > li:nth-child(3) figcaption {
+  color: var(--biomes-forest);
+}
+
+.project-detail-biomes-grid > li:nth-child(4) figcaption,
+.project-detail-biomes-grid > li:nth-child(8) figcaption {
+  color: var(--biomes-flower);
+}
+
+.project-detail-biomes-grid > li:nth-child(6) figcaption,
+.project-detail-biomes-grid > li:nth-child(7) figcaption {
+  color: var(--biomes-desert);
+}
+
+.project-detail--muchomix-game {
+  --muchomix-space: #04031f;
+  --muchomix-pink: #e90051;
+  --muchomix-aqua: #58c8be;
+
+  background:
+    radial-gradient(circle at 8% 13%, rgb(88 200 190 / 18%) 0 0.3rem, transparent 0.35rem),
+    radial-gradient(circle at 94% 28%, rgb(233 0 81 / 13%) 0 0.45rem, transparent 0.5rem),
+    tokens.$color-project-canvas;
+}
+
+.project-detail-game-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-game-summary > .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.project-detail-game-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(2.75rem, 12vw, 5rem);
+}
+
+.project-detail-game-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-game-summary > .project-detail-introduction {
+  grid-column: 1 / -1;
+  max-width: tokens.$width-project-detail-description-desktop;
+  margin: tokens.$space-4 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-game-summary > .project-detail-facts {
+  grid-column: 1 / -1;
+  margin-top: tokens.$space-4;
+}
+
+.project-detail-game-hero {
+  position: relative;
+  max-width: 32rem;
+  margin: tokens.$space-4 auto clamp(4rem, 10vw, 8rem);
+}
+
+.project-detail-game-hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: clamp(0.5rem, 2vw, 1rem) clamp(-1.5rem, -2vw, -0.75rem) clamp(-1.5rem, -2vw, -0.75rem);
+  border-radius: 1.75rem;
+  background: var(--muchomix-space);
+  box-shadow: 0 1rem 2.5rem rgb(4 3 31 / 20%);
+  content: '';
+}
+
+.project-detail-game-hero img,
+.project-detail-game-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-game-hero img {
+  border: 0.35rem solid var(--muchomix-aqua);
+  border-radius: 1.25rem;
+}
+
+.project-detail-game-sections {
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-game-section {
+  display: grid;
+  gap: tokens.$space-5;
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid tokens.$color-border;
+}
+
+.project-detail-game-section .project-detail-section-intro {
+  max-width: 40rem;
+}
+
+.project-detail-game-grid {
+  display: grid;
+  gap: tokens.$space-6;
+  width: min(100%, 68rem);
+  margin-inline: auto;
+}
+
+.project-detail-game-screen {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-detail-game-screen img {
+  border: 0.25rem solid var(--muchomix-aqua);
+  border-radius: 1rem;
+  box-shadow: 0 0.75rem 1.75rem rgb(4 3 31 / 14%);
+}
+
+.project-detail-game-screen figcaption {
+  margin-top: tokens.$space-3;
+  color: var(--muchomix-pink);
+  font-family: tokens.$font-heading;
+  font-size: tokens.$font-size-project-title;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-detail--angels-sighs {
+  --angels-ink: #4f3617;
+  --angels-rose: #a45764;
+  --angels-blush: #f3ded9;
+  --angels-cream: #f7eedf;
+
+  background:
+    radial-gradient(circle at 8% 16%, rgb(164 87 100 / 10%) 0 10rem, transparent 10.1rem),
+    radial-gradient(circle at 95% 42%, rgb(79 54 23 / 7%) 0 13rem, transparent 13.1rem),
+    tokens.$color-project-canvas;
+}
+
+.project-detail-candles-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
+  padding-block: tokens.$space-6;
+}
+
+.project-detail-candles-summary > .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
+.project-detail-candles-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(2.5rem, 11vw, 5rem);
+}
+
+.project-detail-candles-summary h1:focus {
+  outline: none;
+}
+
+.project-detail-candles-summary > .project-detail-introduction {
+  grid-column: 1 / -1;
+  max-width: tokens.$width-project-detail-description-desktop;
+  margin: tokens.$space-4 0 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.5;
+}
+
+.project-detail-candles-summary > .project-detail-facts {
+  grid-column: 1 / -1;
+  margin-top: tokens.$space-4;
+}
+
+.project-detail-candles-hero {
+  width: min(100%, 70rem);
+  margin: 0 auto clamp(4rem, 10vw, 8rem);
+}
+
+.project-detail-candles-hero img,
+.project-detail-candles-brand-grid img,
+.project-detail-candles-applications img,
+.project-detail-candles-collection img,
+.project-detail-candles-videos video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail-candles-hero img {
+  border-radius: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 1.25rem 3rem rgb(79 54 23 / 16%);
+}
+
+.project-detail-candles-section {
+  display: grid;
+  gap: tokens.$space-5;
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-top: 1px solid tokens.$color-border;
+}
+
+.project-detail-candles-section .project-detail-section-intro {
+  max-width: 44rem;
+}
+
+.project-detail-candles-brand-grid,
+.project-detail-candles-applications,
+.project-detail-candles-collection,
+.project-detail-candles-videos {
+  display: grid;
+  min-width: 0;
+  gap: tokens.$space-5;
+}
+
+.project-detail-candles-brand-grid figure,
+.project-detail-candles-applications figure,
+.project-detail-candles-collection figure,
+.project-detail-candles-videos figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-detail-candles-brand-grid img,
+.project-detail-candles-applications img,
+.project-detail-candles-videos video {
+  border-radius: 1rem;
+  box-shadow: 0 0.75rem 2rem rgb(79 54 23 / 13%);
+}
+
+.project-detail-candles-brand-grid > figure:not(.project-detail-candles-brand-guidelines) {
+  display: grid;
+  align-content: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid rgb(79 54 23 / 15%);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.project-detail-candles-brand-grid > figure:not(.project-detail-candles-brand-guidelines) img {
+  box-shadow: none;
+}
+
+.project-detail-candles-label img {
+  width: min(100%, 22rem);
+  justify-self: center;
+}
+
+.project-detail-candles-brand-grid figcaption,
+.project-detail-candles-applications figcaption,
+.project-detail-candles-collection figcaption,
+.project-detail-candles-videos figcaption {
+  margin-top: tokens.$space-2;
+  color: var(--angels-ink);
+  font-size: tokens.$font-size-body;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-detail-candles-applications img {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  object-fit: contain;
+}
+
+.project-detail-candles-collection {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-4 tokens.$space-2;
+}
+
+.project-detail-candles-illustration {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: clamp(0.35rem, 1vw, 0.75rem);
+  border: 1px solid rgb(79 54 23 / 14%);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff, var(--angels-cream));
+  overflow: hidden;
+}
+
+.project-detail-candles-illustration img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.project-detail-candles-videos video {
+  aspect-ratio: 16 / 9;
+  background: var(--angels-ink);
+  object-fit: cover;
+}
+
 .project-detail-palette-section {
   display: block;
 }
@@ -906,20 +1312,32 @@
 }
 
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
-  .project-detail--muchokids-nationalities .project-detail-navigation {
+  .project-detail--muchokids-nationalities .project-detail-navigation,
+  .project-detail--muchomix-biomas .project-detail-navigation,
+  .project-detail--muchomix-game .project-detail-navigation,
+  .project-detail--angels-sighs .project-detail-navigation {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-back {
+  .project-detail--muchokids-nationalities .project-detail-back,
+  .project-detail--muchomix-biomas .project-detail-back,
+  .project-detail--muchomix-game .project-detail-back,
+  .project-detail--angels-sighs .project-detail-back {
     flex: none;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-pager {
+  .project-detail--muchokids-nationalities .project-detail-pager,
+  .project-detail--muchomix-biomas .project-detail-pager,
+  .project-detail--muchomix-game .project-detail-pager,
+  .project-detail--angels-sighs .project-detail-pager {
     justify-content: space-between;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-pager a {
+  .project-detail--muchokids-nationalities .project-detail-pager a,
+  .project-detail--muchomix-biomas .project-detail-pager a,
+  .project-detail--muchomix-game .project-detail-pager a,
+  .project-detail--angels-sighs .project-detail-pager a {
     padding-inline: 0;
   }
 
@@ -952,6 +1370,50 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail-biomes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-biomes-grid > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 32rem);
+    justify-self: center;
+  }
+
+  .project-detail-candles-brand-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-candles-brand-guidelines {
+    grid-column: 1 / -1;
+  }
+
+  .project-detail-candles-applications,
+  .project-detail-candles-videos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-candles-applications > figure:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 32rem);
+    justify-self: center;
+  }
+
+  .project-detail-candles-collection {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: tokens.$space-4;
+  }
+
+  .project-detail-game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-detail-game-grid > .project-detail-game-screen:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 32rem);
+    justify-self: center;
+  }
+
   .project-detail-nationalities-artwork .project-detail-nationalities-background,
   .project-detail-nationalities-flags {
     left: 50%;
@@ -1031,6 +1493,144 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .project-detail-biomes-summary {
+    grid-template-columns:
+      2rem
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-5;
+  }
+
+  .project-detail-biomes-summary h1 {
+    grid-column: 2 / -1;
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+
+  .project-detail-biomes-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .project-detail-biomes-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 3;
+    width: 100%;
+    max-width: tokens.$width-project-detail-facts-desktop;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail-biomes-section {
+    grid-template-columns: minmax(13rem, 0.35fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+  }
+
+  .project-detail-biomes-grid {
+    grid-column: 2;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .project-detail-biomes-grid > li {
+    grid-column: span 2;
+  }
+
+  .project-detail-biomes-grid > li:nth-last-child(2) {
+    grid-column: 2 / span 2;
+  }
+
+  .project-detail-biomes-grid > li:last-child {
+    grid-column: 4 / span 2;
+    width: auto;
+  }
+
+  .project-detail-candles-summary {
+    grid-template-columns:
+      2rem
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-5;
+  }
+
+  .project-detail-candles-summary h1 {
+    grid-column: 2 / -1;
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+
+  .project-detail-candles-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .project-detail-candles-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 3;
+    width: 100%;
+    max-width: tokens.$width-project-detail-facts-desktop;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail-candles-section {
+    grid-template-columns: minmax(13rem, 0.35fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+  }
+
+  .project-detail-candles-brand-grid,
+  .project-detail-candles-applications,
+  .project-detail-candles-collection,
+  .project-detail-candles-videos {
+    grid-column: 2;
+  }
+
+  .project-detail-candles-applications {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-candles-applications > figure:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .project-detail-candles-collection {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .project-detail-game-summary {
+    grid-template-columns:
+      2rem
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-5;
+  }
+
+  .project-detail-game-summary h1 {
+    grid-column: 2 / -1;
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+
+  .project-detail-game-summary > .project-detail-introduction {
+    grid-row: 3;
+    grid-column: 2;
+  }
+
+  .project-detail-game-summary > .project-detail-facts {
+    grid-row: 3;
+    grid-column: 3;
+    width: 100%;
+    max-width: tokens.$width-project-detail-facts-desktop;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail-game-section {
+    grid-template-columns: minmax(13rem, 0.35fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+  }
+
+  .project-detail-game-grid {
+    grid-column: 2;
+  }
+
   .project-detail--muchokids-nationalities {
     padding-top: 4rem;
   }
@@ -1175,6 +1775,15 @@
 
   .project-detail-final-artwork {
     max-width: 81.25rem;
+  }
+
+  .project-detail--forest .project-detail-final-artwork {
+    max-width: 34rem;
+  }
+
+  .project-detail--reindeer .project-detail-hero > .project-detail-final-artwork {
+    max-width: 56.25rem;
+    margin-inline: auto;
   }
 
   .project-detail--jungle .project-detail-hero {

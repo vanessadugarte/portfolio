@@ -315,6 +315,311 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
   )
 }
 
+function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article
+      className="project-detail project-detail--muchomix-game"
+      aria-labelledby="project-detail-title"
+      style={{
+        '--project-accent-color': assets.accentColor,
+        '--project-title-secondary-color': assets.secondaryAccentColor,
+      }}
+    >
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="project-detail-game-summary">
+          <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <figure className="project-detail-game-hero">
+          <img
+            src={assets.heroImage}
+            alt={detail.heroAlt}
+            width={assets.heroDimensions.width}
+            height={assets.heroDimensions.height}
+            fetchPriority="high"
+          />
+        </figure>
+
+        <div className="project-detail-game-sections">
+          {assets.sections.map((section, sectionIndex) => {
+            const sectionContent = detail.sections[section.id]
+
+            return (
+              <section className="project-detail-game-section" aria-labelledby={`muchomix-${section.id}-title`} key={section.id}>
+                <SectionIntroduction
+                  id={`muchomix-${section.id}-title`}
+                  number={String(sectionIndex + 2).padStart(2, '0')}
+                  title={sectionContent.title}
+                  description={sectionContent.description}
+                />
+                <div className="project-detail-game-grid">
+                  {section.screens.map((screen) => {
+                    const screenContent = sectionContent.screens[screen.id]
+
+                    return (
+                      <figure className="project-detail-game-screen" key={screen.id}>
+                        <img
+                          src={screen.image}
+                          alt={screenContent.alt}
+                          width={screen.width}
+                          height={screen.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <figcaption>{screenContent.label}</figcaption>
+                      </figure>
+                    )
+                  })}
+                </div>
+              </section>
+            )
+          })}
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article
+      className="project-detail project-detail--muchomix-biomas"
+      aria-labelledby="project-detail-title"
+      style={{
+        '--project-accent-color': assets.accentColor,
+        '--project-title-secondary-color': assets.secondaryAccentColor,
+      }}
+    >
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="project-detail-biomes-summary">
+          <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="project-detail-biomes-section" aria-labelledby="muchomix-biomes-gallery-title">
+          <SectionIntroduction
+            id="muchomix-biomes-gallery-title"
+            number="02"
+            title={detail.galleryTitle}
+            description={detail.galleryDescription}
+          />
+          <ol className="project-detail-biomes-grid">
+            {assets.biomes.map((biome, index) => (
+              <li key={biome.id}>
+                <figure className="project-detail-biome">
+                  <img
+                    src={biome.image}
+                    alt={detail.biomes[biome.id].alt}
+                    width={biome.width}
+                    height={biome.height}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : undefined}
+                    decoding="async"
+                  />
+                  <figcaption>
+                    <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    {detail.biomes[biome.id].name}
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </div>
+    </article>
+  )
+}
+
+function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article
+      className="project-detail project-detail--angels-sighs"
+      aria-labelledby="project-detail-title"
+      style={{
+        '--project-accent-color': assets.accentColor,
+        '--project-title-secondary-color': assets.secondaryAccentColor,
+      }}
+    >
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="project-detail-candles-summary">
+          <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <figure className="project-detail-candles-hero">
+          <img
+            src={assets.heroImage}
+            alt={detail.heroAlt}
+            width={assets.heroDimensions.width}
+            height={assets.heroDimensions.height}
+            fetchPriority="high"
+          />
+        </figure>
+
+        <section className="project-detail-candles-section project-detail-candles-identity" aria-labelledby="angels-identity-title">
+          <SectionIntroduction
+            id="angels-identity-title"
+            number="02"
+            title={detail.identity.title}
+            description={detail.identity.description}
+          />
+          <div className="project-detail-candles-brand-grid">
+            <figure className="project-detail-candles-brand-guidelines">
+              <img
+                src={assets.brand.guidelinesImage}
+                alt={detail.identity.guidelinesAlt}
+                width={assets.brand.guidelinesDimensions.width}
+                height={assets.brand.guidelinesDimensions.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{detail.identity.guidelinesLabel}</figcaption>
+            </figure>
+            <figure>
+              <img
+                src={assets.brand.logoImage}
+                alt={detail.identity.logoAlt}
+                width={assets.brand.logoDimensions.width}
+                height={assets.brand.logoDimensions.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{detail.identity.logoLabel}</figcaption>
+            </figure>
+            <figure className="project-detail-candles-label">
+              <img
+                src={assets.brand.labelImage}
+                alt={detail.identity.labelAlt}
+                width={assets.brand.labelDimensions.width}
+                height={assets.brand.labelDimensions.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{detail.identity.labelLabel}</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section className="project-detail-candles-section" aria-labelledby="angels-applications-title">
+          <SectionIntroduction
+            id="angels-applications-title"
+            number="03"
+            title={detail.applications.title}
+            description={detail.applications.description}
+          />
+          <div className="project-detail-candles-applications">
+            {assets.applications.map((application) => (
+              <figure key={application.id}>
+                <img
+                  src={application.image}
+                  alt={detail.applications.items[application.id].alt}
+                  width={application.width}
+                  height={application.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{detail.applications.items[application.id].name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section className="project-detail-candles-section" aria-labelledby="angels-collection-title">
+          <SectionIntroduction
+            id="angels-collection-title"
+            number="04"
+            title={detail.collection.title}
+            description={detail.collection.description}
+          />
+          <div className="project-detail-candles-collection">
+            {assets.illustrations.map((illustration) => (
+              <figure key={illustration.id}>
+                <div className="project-detail-candles-illustration">
+                  <img
+                    src={illustration.image}
+                    alt={detail.collection.items[illustration.id].alt}
+                    width="1800"
+                    height="1800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section className="project-detail-candles-section project-detail-candles-process" aria-labelledby="angels-process-title">
+          <SectionIntroduction
+            id="angels-process-title"
+            number="05"
+            title={detail.process.title}
+            description={detail.process.description}
+          />
+          <div className="project-detail-candles-videos">
+            {assets.processVideos.map((video) => (
+              <figure key={video.id}>
+                <video
+                  aria-label={detail.process.videos[video.id].label}
+                  controls
+                  playsInline
+                  poster={video.poster}
+                  preload="metadata"
+                >
+                  <source src={video.src} type="video/mp4" />
+                  {detail.process.videoFallback}
+                </video>
+                <figcaption>{detail.process.videos[video.id].name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      </div>
+    </article>
+  )
+}
+
 function CompleteProjectDetail({ assets, content, navigation, neighbors, project, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
@@ -694,6 +999,42 @@ function ProjectDetailPage() {
   if (assets.layout === 'nationalities') {
     return (
       <NationalitiesProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'game') {
+    return (
+      <GameProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'biomes') {
+    return (
+      <BiomesProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'candles') {
+    return (
+      <CandlesProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}
