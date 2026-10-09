@@ -257,7 +257,8 @@
 
 .murana-replica-lookbook-grid .murana-lookbook-products,
 .murana-replica-lookbook-grid .murana-lookbook-lotion,
-.murana-replica-lookbook-grid .murana-lookbook-hair-products {
+.murana-replica-lookbook-grid .murana-lookbook-hairProducts,
+.murana-replica-lookbook-grid .murana-lookbook-hairModel {
   aspect-ratio: 1;
 }
 
@@ -371,25 +372,72 @@
   }
 
   .murana-replica-lookbook-grid {
-    grid-template-areas:
-      'facial facial facial facial products products products body body body body body'
-      'facial facial facial facial lotion lotion lotion body body body body body'
-      'lemon lemon lemon lemon hair hair hair hair hair hair-products hair-products hair-products'
-      'lemon lemon lemon lemon hair hair hair hair hair hair-products hair-products hair-products';
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-template-rows: repeat(4, clamp(8rem, 12vw, 11rem));
+    position: relative;
+    display: block;
+    aspect-ratio: 1270 / 1317;
   }
 
   .murana-replica-lookbook-grid img {
-    grid-row: auto;
+    position: absolute;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-products,
+  .murana-replica-lookbook-grid .murana-lookbook-lotion,
+  .murana-replica-lookbook-grid .murana-lookbook-hairProducts,
+  .murana-replica-lookbook-grid .murana-lookbook-hairModel {
     aspect-ratio: auto;
   }
 
-  .murana-lookbook-facial { grid-area: facial; }
-  .murana-lookbook-products { grid-area: products; }
-  .murana-lookbook-body { grid-area: body; }
-  .murana-lookbook-lemon { grid-area: lemon; }
-  .murana-lookbook-lotion { grid-area: lotion; }
-  .murana-lookbook-hair { grid-area: hair; }
-  .murana-lookbook-hair-products { grid-area: hair-products; }
+  .murana-replica-lookbook-grid .murana-lookbook-facial {
+    top: 0;
+    left: 0;
+    width: 36.85%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-products {
+    top: 0;
+    left: 38.43%;
+    width: 23.15%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-body {
+    top: 12.53%;
+    right: 0;
+    width: 36.85%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-lemon {
+    top: 44.42%;
+    left: 0;
+    width: 36.85%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-lotion {
+    top: 28.47%;
+    left: 38.43%;
+    width: 23.15%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-hair {
+    top: 56.95%;
+    left: 38.43%;
+    width: 36.85%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-hairProducts,
+  .murana-replica-lookbook-grid .murana-lookbook-hairModel {
+    left: 76.85%;
+    width: 17.87%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-hairProducts {
+    top: 57.1%;
+  }
+
+  .murana-replica-lookbook-grid .murana-lookbook-hairModel {
+    top: 79.27%;
+  }
 }

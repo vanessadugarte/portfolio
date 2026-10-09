@@ -142,6 +142,7 @@ export const translations = {
               lotion: 'Loción corporal Murana frente a hojas verdes.',
               hair: 'Mujer sosteniendo un producto de cuidado capilar Murana sobre un fondo azul.',
               hairProducts: 'Tres productos blancos de cuidado capilar Murana sobre una base de madera.',
+              hairModel: 'Mujer aplicando crema facial y sosteniendo un producto Murana Antiage.',
             },
             productsTitle: 'Sets destacados',
             products: {
@@ -732,6 +733,7 @@ export const translations = {
               lotion: 'Murana body lotion in front of green leaves.',
               hair: 'Woman holding a Murana hair care product against a blue background.',
               hairProducts: 'Three white Murana hair care products on a wooden base.',
+              hairModel: 'Woman applying face cream while holding a Murana Antiage product.',
             },
             productsTitle: 'Featured sets',
             products: {

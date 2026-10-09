@@ -42,6 +42,7 @@ export const projectDetails = {
       { id: 'lotion', image: muranaAsset('lookbook-body-lotion.webp'), width: 588, height: 710 },
       { id: 'hair', image: muranaAsset('lookbook-hair-care.webp'), width: 944, height: 1140 },
       { id: 'hairProducts', image: muranaAsset('lookbook-hair-products.webp'), width: 454, height: 548 },
+      { id: 'hairModel', image: muranaAsset('lookbook-hair-model.webp'), width: 454, height: 548 },
     ],
     products: [
       { id: 'argan', image: muranaAsset('product-argan.webp') },

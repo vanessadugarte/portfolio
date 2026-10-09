@@ -230,7 +230,7 @@ test('Murana preserves a localized, self-contained landing replica', () => {
   assert.deepEqual(assets.heroDimensions, { width: 2077, height: 734 })
   assert.equal(assets.categories.length, 6)
   assert.equal(assets.carePillars.length, 3)
-  assert.equal(assets.lookbook.length, 7)
+  assert.equal(assets.lookbook.length, 8)
   assert.equal(assets.products.length, 4)
 
   for (const text of Object.values(translations)) {
