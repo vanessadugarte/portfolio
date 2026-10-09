@@ -13,9 +13,9 @@ function WhoIsPayingApp({ copy }) {
   const [participants, setParticipants] = useState([])
   const [editingId, setEditingId] = useState(null)
   const [editingName, setEditingName] = useState('')
-  const [error, setError] = useState('')
-  const [editError, setEditError] = useState('')
-  const [status, setStatus] = useState('')
+  const [error, setError] = useState(false)
+  const [editError, setEditError] = useState(false)
+  const [status, setStatus] = useState(null)
   const [winner, setWinner] = useState(null)
   const inputId = useId()
   const errorId = useId()
@@ -32,7 +32,7 @@ function WhoIsPayingApp({ copy }) {
     const normalizedName = name.trim()
 
     if (!normalizedName) {
-      setError(copy.nameError)
+      setError(true)
       return
     }
 
@@ -40,24 +40,24 @@ function WhoIsPayingApp({ copy }) {
     nextParticipantId.current += 1
     setParticipants((currentParticipants) => [...currentParticipants, participant])
     setName('')
-    setError('')
+    setError(false)
     setWinner(null)
-    setStatus(formatMessage(copy.addedStatus, { name: normalizedName }))
+    setStatus({ key: 'addedStatus', replacements: { name: normalizedName } })
     nameInputRef.current?.focus()
   }
 
   const startEditing = (participant) => {
     setEditingId(participant.id)
     setEditingName(participant.name)
-    setEditError('')
-    setStatus('')
+    setEditError(false)
+    setStatus(null)
   }
 
   const cancelEditing = () => {
     const participantId = editingId
     setEditingId(null)
     setEditingName('')
-    setEditError('')
+    setEditError(false)
     focusEditButton(participantId)
   }
 
@@ -66,7 +66,7 @@ function WhoIsPayingApp({ copy }) {
     const normalizedName = editingName.trim()
 
     if (!normalizedName) {
-      setEditError(copy.nameError)
+      setEditError(true)
       return
     }
 
@@ -75,9 +75,9 @@ function WhoIsPayingApp({ copy }) {
     )))
     setEditingId(null)
     setEditingName('')
-    setEditError('')
+    setEditError(false)
     setWinner(null)
-    setStatus(formatMessage(copy.updatedStatus, { name: normalizedName }))
+    setStatus({ key: 'updatedStatus', replacements: { name: normalizedName } })
     focusEditButton(participantId)
   }
 
@@ -89,12 +89,12 @@ function WhoIsPayingApp({ copy }) {
 
     setParticipants(remainingParticipants)
     setWinner(null)
-    setStatus(formatMessage(copy.removedStatus, { name: participant.name }))
+    setStatus({ key: 'removedStatus', replacements: { name: participant.name } })
 
     if (editingId === participantId) {
       setEditingId(null)
       setEditingName('')
-      setEditError('')
+      setEditError(false)
     }
 
     if (nextFocusTarget) {
@@ -109,7 +109,7 @@ function WhoIsPayingApp({ copy }) {
 
     const participant = participants[Math.floor(Math.random() * participants.length)]
     setWinner(participant)
-    setStatus('')
+    setStatus(null)
   }
 
   return (
@@ -138,12 +138,12 @@ function WhoIsPayingApp({ copy }) {
                 placeholder={copy.namePlaceholder}
                 onChange={(event) => {
                   setName(event.target.value)
-                  if (error) setError('')
+                  if (error) setError(false)
                 }}
               />
               <button type="submit">{copy.addButton}</button>
             </div>
-            {error && <p className="who-is-paying-app__error" id={errorId} role="alert">{error}</p>}
+            {error && <p className="who-is-paying-app__error" id={errorId} role="alert">{copy.nameError}</p>}
           </form>
 
           <div className="who-is-paying-app__draw">
@@ -187,10 +187,10 @@ function WhoIsPayingApp({ copy }) {
                         autoFocus
                         onChange={(event) => {
                           setEditingName(event.target.value)
-                          if (editError) setEditError('')
+                          if (editError) setEditError(false)
                         }}
                       />
-                      {editError && <p className="who-is-paying-app__error" role="alert">{editError}</p>}
+                      {editError && <p className="who-is-paying-app__error" role="alert">{copy.nameError}</p>}
                       <div className="who-is-paying-app__edit-actions">
                         <button type="submit">{copy.saveButton}</button>
                         <button type="button" onClick={cancelEditing}>{copy.cancelButton}</button>
@@ -226,7 +226,9 @@ function WhoIsPayingApp({ copy }) {
             </ul>
           )}
 
-          <p className="who-is-paying-app__status" aria-live="polite" aria-atomic="true">{status}</p>
+          <p className="who-is-paying-app__status" aria-live="polite" aria-atomic="true">
+            {status ? formatMessage(copy[status.key], status.replacements) : ''}
+          </p>
         </div>
       </div>
     </section>
