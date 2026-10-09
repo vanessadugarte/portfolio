@@ -458,17 +458,203 @@ export const translations = {
             },
           },
         },
+        'muchomix-biomas': {
+          type: 'Ilustración',
+          title: 'Muchomix — Biomas',
+          description: 'Ocho fondos ilustrados que exploran climas, paisajes y atmósferas para el mundo de Muchomix.',
+          previewAlt: 'Cueva de hielo azul con un lago y una abertura luminosa al fondo.',
+          detail: {
+            number: '01',
+            introduction: 'Una colección de fondos creada para ampliar el mundo de Muchomix. Cada escenario propone una atmósfera propia —desde cuevas heladas hasta desiertos y campos de flores— sin perder la unidad visual del juego.',
+            facts: [
+              { label: 'Año', value: '2016–2017' },
+              { label: 'Técnica', value: 'Ilustración digital de escenarios' },
+              { label: 'Herramientas', value: 'Photoshop, Wacom Tablet' },
+            ],
+            galleryTitle: 'Ocho escenarios, un mismo mundo',
+            galleryDescription: 'Fondos verticales pensados para transformar el ambiente de cada nivel mediante el color, la profundidad y los elementos del paisaje.',
+            biomes: {
+              'ice-zone': {
+                name: 'Zona de hielo',
+                alt: 'Cueva de hielo azul con agua reflectante, una abertura rosada y una canoa en primer plano.',
+              },
+              'snow-mountains': {
+                name: 'Montañas nevadas',
+                alt: 'Paisaje nocturno de montañas y colinas nevadas bajo una luna llena y una nevada intensa.',
+              },
+              mountains: {
+                name: 'Montañas',
+                alt: 'Paisaje de montañas con cimas nevadas, bosque de pinos y una pradera verde en primer plano.',
+              },
+              'flower-field': {
+                name: 'Campo de flores',
+                alt: 'Pradera de flores rojas, naranjas y amarillas bajo un cielo violeta con nubes blancas.',
+              },
+              beach: {
+                name: 'Playa',
+                alt: 'Playa vista desde arriba con agua celeste, arena dorada, palmeras, rocas y un cangrejo rojo.',
+              },
+              'cactus-desert': {
+                name: 'Desierto de cactus',
+                alt: 'Desierto anaranjado con cactus en flor, formaciones rocosas, ramas secas y un cráneo de animal.',
+              },
+              'desert-dunes': {
+                name: 'Dunas del desierto',
+                alt: 'Dunas doradas con palmeras y siluetas de camellos bajo un cielo azul despejado.',
+              },
+              space: {
+                name: 'Espacio',
+                alt: 'Cielo espacial azul oscuro con estrellas, nubes blancas y un planeta violeta a la derecha.',
+              },
+            },
+          },
+        },
         'muchomix-game': {
           type: 'Ilustración',
           title: 'Muchomix Game',
-          description: 'Personajes e interfaz ilustrados para un juego espacial.',
+          description: 'Videojuego infantil de conexión de caritas, niveles y retos entre amigos.',
           previewAlt: 'Pantalla de juego Muchomix con personajes infantiles, indicadores de puntuación y un fondo espacial.',
+          detail: {
+            number: '01',
+            introduction: 'Muchomix es un videojuego infantil en el que se conectan tres o más caritas de la misma nacionalidad para sumar puntos. Una heroína acompaña la aventura frente a un villano mientras cada partida abre nuevos niveles, recompensas y formas de jugar con amigos.',
+            facts: [
+              { label: 'Año', value: '2017' },
+              { label: 'Técnica', value: 'Ilustración y diseño de interfaz' },
+              { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
+            ],
+            heroAlt: 'Tablero principal de Muchomix con caritas de distintas nacionalidades, puntuación, tiempo y medidor de progreso sobre un fondo espacial.',
+            sections: {
+              gameplay: {
+                title: 'Cómo se juega',
+                description: 'La mecánica invita a unir tres o más caritas iguales antes de que termine el tiempo. Alekko y sus aliados aparecen para quitar puntos, así que también hay que eliminarlos con rapidez.',
+                screens: {
+                  'how-to-play': {
+                    label: 'Instrucciones',
+                    alt: 'Pantalla de instrucciones de Muchomix que muestra cómo enlazar cuatro caritas iguales con el dedo para conseguir puntos.',
+                  },
+                  'villain-warning': {
+                    label: 'Alekko y sus aliados',
+                    alt: 'Segunda pantalla de instrucciones de Muchomix que indica cómo enlazar las caritas grises de Alekko y sus aliados antes de que resten puntos.',
+                  },
+                },
+              },
+              progression: {
+                title: 'Niveles y recompensas',
+                description: 'Los escenarios se desbloquean al avanzar. Las piedras de poder obtenidas en las partidas permiten conseguir ayudas y objetos especiales.',
+                screens: {
+                  levels: {
+                    label: 'Selección de niveles',
+                    alt: 'Pantalla de niveles de Muchomix con escenarios espaciales y de hielo, barras de progreso y dos niveles bloqueados.',
+                  },
+                  'power-stones': {
+                    label: 'Piedras de poder',
+                    alt: 'Catálogo de recompensas de Muchomix con reloj, fichas, reloj de arena y martillos que se canjean por piedras de poder.',
+                  },
+                },
+              },
+              results: {
+                title: 'Resultados y ranking',
+                description: 'Al finalizar una partida, el juego comunica el resultado, permite continuar o intentarlo de nuevo y compara el poder acumulado entre países.',
+                screens: {
+                  'good-job': {
+                    label: 'Misión cumplida',
+                    alt: 'Pantalla de nivel completado con la heroína y otro personaje, siete puntos, dos piedras de poder y botones para volver o continuar.',
+                  },
+                  'times-up': {
+                    label: 'Tiempo agotado',
+                    alt: 'Pantalla de tiempo agotado con el villano Alekko, un ave mecánica y botones para volver al inicio o intentarlo nuevamente.',
+                  },
+                  ranking: {
+                    label: 'Ranking por países',
+                    alt: 'Ranking de Muchomix que compara el poder total de distintos países mediante una lista con banderas y puntuaciones.',
+                  },
+                },
+              },
+              social: {
+                title: 'Jugar con amigos',
+                description: 'El perfil reúne la puntuación total, la posición en el ranking y la red de amistades. También permite buscar usuarios y añadir nuevos amigos.',
+                screens: {
+                  friends: {
+                    label: 'Perfil y ranking',
+                    alt: 'Perfil de Muchomix con avatar, poder total, posición en el ranking y una cuadrícula de ocho amigos.',
+                  },
+                  'your-friends': {
+                    label: 'Tus amigos',
+                    alt: 'Pantalla para recorrer la lista de amigos de Muchomix, buscar a una persona por nombre de usuario y añadirla.',
+                  },
+                },
+              },
+            },
+          },
         },
         'angels-sighs': {
           type: 'Ilustración',
           title: "Velas Angel's Sighs",
-          description: 'Ilustraciones para tapas y etiquetas, y selección de combinaciones de color para los vasos.',
+          description: 'Identidad visual, etiquetas e ilustraciones vectoriales para tapas de madera.',
           previewAlt: "Dos velas Angel's Sighs con etiquetas y una tapa de madera ilustrada con flores rosadas.",
+          detail: {
+            number: '01',
+            introduction: "El proyecto comenzó con el diseño del logo y las etiquetas de Angel's Sighs. Luego desarrollé una colección de ilustraciones vectoriales, cada una pensada para imprimirse sobre una tapa de madera y expresar visualmente una fragancia diferente.",
+            facts: [
+              { label: 'Año', value: '2025' },
+              { label: 'Técnica', value: 'Identidad visual e ilustración vectorial' },
+              { label: 'Herramientas', value: 'Adobe Illustrator, Wacom Tablet' },
+            ],
+            heroAlt: "Dos velas Angel's Sighs en vasos rosado y blanco junto a una tapa de madera con flores de cerezo.",
+            identity: {
+              title: 'Identidad visual',
+              description: 'El sistema combina un logotipo de trazos elegantes con una llama integrada y una etiqueta de estructura clásica, adaptable a los nombres y notas de cada fragancia.',
+              guidelinesLabel: 'Sistema de marca',
+              guidelinesAlt: "Lámina de identidad de Angel's Sighs con variaciones del logotipo, símbolo de llama, colores, tipografía y márgenes de seguridad.",
+              logoLabel: 'Logotipo',
+              logoAlt: "Logotipo negro de Angel's Sighs con una llama integrada sobre fondo blanco.",
+              labelLabel: 'Etiqueta',
+              labelAlt: "Etiqueta vectorial de Angel's Sighs para la fragancia Enchanted Blossom, con marco ornamental, notas aromáticas y logotipo.",
+            },
+            applications: {
+              title: 'La identidad aplicada',
+              description: 'Las etiquetas y las ilustraciones conviven sobre vasos de distintos colores y tapas de madera, manteniendo reconocible la marca en cada variante.',
+              items: {
+                dogs: {
+                  name: 'Sweet Vanilla',
+                  alt: "Vela negra Angel's Sighs Sweet Vanilla con etiqueta crema y una tapa de madera ilustrada con diez perros.",
+                },
+                'sacred-fire': {
+                  name: 'Sacred Fire',
+                  alt: "Velas roja y gris Angel's Sighs Sacred Fire junto a una tapa de madera con un dragón rojo entre nubes.",
+                },
+                'enchanted-blossom': {
+                  name: 'Enchanted Blossom',
+                  alt: "Vela blanca Angel's Sighs Enchanted Blossom junto a una tapa de madera ilustrada con flores rojas y rosadas.",
+                },
+              },
+            },
+            collection: {
+              title: 'Una tapa para cada fragancia',
+              description: 'La colección explora motivos botánicos, naturales, festivos y figurativos mediante composiciones circulares preparadas para impresión.',
+              items: {
+                'mountain-pine': { name: 'Mountain Pine', alt: 'Ilustración circular con tres pinos verdes, piñas y ramas en tonos tierra.' },
+                'aurora-dawn': { name: 'Aurora Dawn', alt: 'Ilustración floral circular en tonos rosados, lilas y verdes con un centro abierto.' },
+                'cherry-blossom': { name: 'Cherry Blossom', alt: 'Corona circular de flores de cerezo rosadas y hojas verdes.' },
+                'christmas-elements': { name: 'Christmas Elements', alt: 'Composición circular con árbol, campanas, copos, bastones de caramelo, ángel, muñeco de nieve y otros elementos navideños.' },
+                'enchanted-blossom': { name: 'Enchanted Blossom', alt: 'Composición circular con hibiscos, rosas y pequeñas flores rojas, rosadas y naranjas.' },
+                lavender: { name: 'Lavender', alt: 'Composición circular de lavanda y hojas en tonos morados.' },
+                mahogany: { name: 'Mahogany', alt: 'Composición circular con hojas marrones, bellotas y un tronco cortado visto desde arriba.' },
+                'sacred-fire': { name: 'Sacred Fire', alt: 'Dragón rojo y negro rodeado por nubes grises dentro de una composición circular.' },
+                'santa-and-gifts': { name: 'Santa & Gifts', alt: 'Composición navideña circular con Santa, reno, árbol, muñeco de nieve, regalos y dulces.' },
+                'ten-dogs': { name: 'Ten Dogs', alt: 'Retrato circular de diez perros de distintas razas y colores.' },
+              },
+            },
+            process: {
+              title: 'Proceso de ilustración',
+              description: 'Dos registros muestran la construcción vectorial de las piezas, desde las formas iniciales hasta el detalle y el color final.',
+              videoFallback: 'Tu navegador no puede reproducir este video.',
+              videos: {
+                lavender: { name: 'Lavender', label: 'Proceso de ilustración vectorial de Lavender' },
+                'sacred-fire': { name: 'Sacred Fire', label: 'Proceso de ilustración vectorial de Sacred Fire' },
+              },
+            },
+          },
         },
         'naval-infographics': {
           type: 'Infografía',
@@ -1049,17 +1235,203 @@ export const translations = {
             },
           },
         },
+        'muchomix-biomas': {
+          type: 'Illustration',
+          title: 'Muchomix — Biomes',
+          description: 'Eight illustrated backgrounds exploring climates, landscapes and atmospheres for the world of Muchomix.',
+          previewAlt: 'Blue ice cave with a lake and a glowing opening in the distance.',
+          detail: {
+            number: '01',
+            introduction: 'A collection of backgrounds created to expand the world of Muchomix. Each setting has its own atmosphere—from frozen caves to deserts and flower fields—while preserving the game’s visual unity.',
+            facts: [
+              { label: 'Year', value: '2016–2017' },
+              { label: 'Technique', value: 'Digital environment illustration' },
+              { label: 'Tools', value: 'Photoshop, Wacom Tablet' },
+            ],
+            galleryTitle: 'Eight settings, one world',
+            galleryDescription: 'Vertical backgrounds designed to transform each level through color, depth and landscape elements.',
+            biomes: {
+              'ice-zone': {
+                name: 'Ice zone',
+                alt: 'Blue ice cave with reflective water, a pink opening and a canoe in the foreground.',
+              },
+              'snow-mountains': {
+                name: 'Snow mountains',
+                alt: 'Night landscape of snowy mountains and hills beneath a full moon and heavy snowfall.',
+              },
+              mountains: {
+                name: 'Mountains',
+                alt: 'Mountain landscape with snowy peaks, a pine forest and a green meadow in the foreground.',
+              },
+              'flower-field': {
+                name: 'Flower field',
+                alt: 'Meadow of red, orange and yellow flowers beneath a violet sky with white clouds.',
+              },
+              beach: {
+                name: 'Beach',
+                alt: 'Beach seen from above with light blue water, golden sand, palm trees, rocks and a red crab.',
+              },
+              'cactus-desert': {
+                name: 'Cactus desert',
+                alt: 'Orange desert with flowering cacti, rock formations, dry branches and an animal skull.',
+              },
+              'desert-dunes': {
+                name: 'Desert dunes',
+                alt: 'Golden dunes with palm trees and camel silhouettes beneath a clear blue sky.',
+              },
+              space: {
+                name: 'Space',
+                alt: 'Dark blue outer space with stars, white clouds and a violet planet on the right.',
+              },
+            },
+          },
+        },
         'muchomix-game': {
           type: 'Illustration',
           title: 'Muchomix Game',
-          description: 'Illustrated characters and interface for a space game.',
+          description: 'A children’s matching game with levels and challenges shared with friends.',
           previewAlt: 'Muchomix game screen with children characters, score indicators and a space background.',
+          detail: {
+            number: '01',
+            introduction: 'Muchomix is a children’s game where players connect three or more faces from the same nationality to score points. A heroine leads the adventure against a villain as each match unlocks new levels, rewards and ways to play with friends.',
+            facts: [
+              { label: 'Year', value: '2017' },
+              { label: 'Technique', value: 'Illustration and interface design' },
+              { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
+            ],
+            heroAlt: 'Main Muchomix board with faces from different nationalities, score, timer and progress meter over a space background.',
+            sections: {
+              gameplay: {
+                title: 'How to play',
+                description: 'Players connect three or more matching faces before time runs out. Alekko and his crew appear to steal points, so they must also be removed quickly.',
+                screens: {
+                  'how-to-play': {
+                    label: 'Instructions',
+                    alt: 'Muchomix instructions showing how to connect four matching faces with a finger to score points.',
+                  },
+                  'villain-warning': {
+                    label: 'Alekko and his crew',
+                    alt: 'Second Muchomix instruction screen showing how to connect the gray faces of Alekko and his crew before they take away points.',
+                  },
+                },
+              },
+              progression: {
+                title: 'Levels and rewards',
+                description: 'New settings unlock as players advance. Power stones earned during matches can be exchanged for boosts and special objects.',
+                screens: {
+                  levels: {
+                    label: 'Level selection',
+                    alt: 'Muchomix level screen with space and ice settings, progress bars and two locked levels.',
+                  },
+                  'power-stones': {
+                    label: 'Power stones',
+                    alt: 'Muchomix rewards catalog with a clock, tokens, hourglass and hammers that can be exchanged for power stones.',
+                  },
+                },
+              },
+              results: {
+                title: 'Results and ranking',
+                description: 'At the end of a match, the game communicates the result, lets players continue or try again and compares accumulated power across countries.',
+                screens: {
+                  'good-job': {
+                    label: 'Mission complete',
+                    alt: 'Completed level screen with the heroine and another character, seven points, two power stones and buttons to go home or continue.',
+                  },
+                  'times-up': {
+                    label: 'Time is up',
+                    alt: 'Time-up screen with the villain Alekko, a mechanical bird and buttons to return home or try again.',
+                  },
+                  ranking: {
+                    label: 'Country ranking',
+                    alt: 'Muchomix ranking comparing the total power of different countries in a list with flags and scores.',
+                  },
+                },
+              },
+              social: {
+                title: 'Play with friends',
+                description: 'The profile brings together total score, ranking and a network of friends. Players can also search by username and add new friends.',
+                screens: {
+                  friends: {
+                    label: 'Profile and ranking',
+                    alt: 'Muchomix profile with an avatar, total power, ranking position and a grid of eight friends.',
+                  },
+                  'your-friends': {
+                    label: 'Your friends',
+                    alt: 'Screen for browsing Muchomix friends, searching for someone by username and adding them.',
+                  },
+                },
+              },
+            },
+          },
         },
         'angels-sighs': {
           type: 'Illustration',
           title: "Angel's Sighs Candles",
-          description: 'Illustrations for lids and labels, plus color-palette selection for the candle vessels.',
+          description: 'Visual identity, labels and vector illustrations for wooden lids.',
           previewAlt: "Two Angel's Sighs candles with labels and a wooden lid illustrated with pink flowers.",
+          detail: {
+            number: '01',
+            introduction: "The project began with the design of the Angel's Sighs logo and labels. I then developed a collection of vector illustrations, each created to be printed on a wooden lid and visually express a different fragrance.",
+            facts: [
+              { label: 'Year', value: '2025' },
+              { label: 'Technique', value: 'Visual identity and vector illustration' },
+              { label: 'Tools', value: 'Adobe Illustrator, Wacom Tablet' },
+            ],
+            heroAlt: "Two Angel's Sighs candles in pink and white vessels beside a wooden lid illustrated with cherry blossoms.",
+            identity: {
+              title: 'Visual identity',
+              description: 'The system pairs an elegant line-based wordmark with an integrated flame and a classic label structure that adapts to each fragrance name and its notes.',
+              guidelinesLabel: 'Brand system',
+              guidelinesAlt: "Angel's Sighs identity sheet with logo variations, flame symbol, colors, typography and clear-space guidance.",
+              logoLabel: 'Logo',
+              logoAlt: "Black Angel's Sighs logo with an integrated flame on a white background.",
+              labelLabel: 'Label',
+              labelAlt: "Angel's Sighs vector label for the Enchanted Blossom fragrance, with an ornamental border, fragrance notes and logo.",
+            },
+            applications: {
+              title: 'The identity in use',
+              description: 'Labels and illustrations come together across vessels in different colors and wooden lids while keeping the brand recognizable in every variation.',
+              items: {
+                dogs: {
+                  name: 'Sweet Vanilla',
+                  alt: "Black Angel's Sighs Sweet Vanilla candle with a cream label and a wooden lid illustrated with ten dogs.",
+                },
+                'sacred-fire': {
+                  name: 'Sacred Fire',
+                  alt: "Red and gray Angel's Sighs Sacred Fire candles beside a wooden lid with a red dragon among clouds.",
+                },
+                'enchanted-blossom': {
+                  name: 'Enchanted Blossom',
+                  alt: "White Angel's Sighs Enchanted Blossom candle beside a wooden lid illustrated with red and pink flowers.",
+                },
+              },
+            },
+            collection: {
+              title: 'A lid for every fragrance',
+              description: 'The collection explores botanical, natural, festive and figurative motifs through circular compositions prepared for print.',
+              items: {
+                'mountain-pine': { name: 'Mountain Pine', alt: 'Circular illustration with three green pine trees, pinecones and branches in earth tones.' },
+                'aurora-dawn': { name: 'Aurora Dawn', alt: 'Circular floral illustration in pink, lilac and green with an open center.' },
+                'cherry-blossom': { name: 'Cherry Blossom', alt: 'Circular wreath of pink cherry blossoms and green leaves.' },
+                'christmas-elements': { name: 'Christmas Elements', alt: 'Circular composition with a tree, bells, snowflakes, candy canes, an angel, a snowman and other Christmas elements.' },
+                'enchanted-blossom': { name: 'Enchanted Blossom', alt: 'Circular composition with hibiscus, roses and small red, pink and orange flowers.' },
+                lavender: { name: 'Lavender', alt: 'Circular composition of lavender and leaves in purple tones.' },
+                mahogany: { name: 'Mahogany', alt: 'Circular composition with brown leaves, acorns and a cut log viewed from above.' },
+                'sacred-fire': { name: 'Sacred Fire', alt: 'Red and black dragon surrounded by gray clouds in a circular composition.' },
+                'santa-and-gifts': { name: 'Santa & Gifts', alt: 'Circular Christmas composition with Santa, a reindeer, tree, snowman, presents and sweets.' },
+                'ten-dogs': { name: 'Ten Dogs', alt: 'Circular portrait of ten dogs from different breeds and colors.' },
+              },
+            },
+            process: {
+              title: 'Illustration process',
+              description: 'Two recordings show how the vector pieces were built, from the first shapes through detail and final color.',
+              videoFallback: 'Your browser cannot play this video.',
+              videos: {
+                lavender: { name: 'Lavender', label: 'Vector illustration process for Lavender' },
+                'sacred-fire': { name: 'Sacred Fire', label: 'Vector illustration process for Sacred Fire' },
+              },
+            },
+          },
         },
         'naval-infographics': {
           type: 'Infographic',

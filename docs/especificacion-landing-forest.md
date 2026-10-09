@@ -21,6 +21,7 @@ Completar la ficha bilingüe de Forest para presentar la ilustración de fondo c
 
 - La ruta deja de mostrar «Próximamente» / «Coming soon» y presenta un único `h1` localizado.
 - `forest-finalwork.jpg` y las tres imágenes `forest-process-*` se cargan sin deformación y con alternativas útiles localizadas.
+- Desde el breakpoint de escritorio (`64rem`), la obra final se centra y limita su ancho a `34rem`; en móvil y tablet conserva el ancho responsive existente.
 - La ficha técnica muestra año 2017, ilustración digital e Illustrator, Photoshop y Wacom Tablet, con etiquetas localizadas.
 - La paleta muestra únicamente muestras de color y sus códigos hexadecimales, sin texto explicativo adicional.
 - No se muestran secciones de referencias o detalles, porque no se entregaron recursos para ellas.
@@ -39,6 +40,6 @@ Completar la ficha bilingüe de Forest para presentar la ilustración de fondo c
 ## Validación
 
 - `npm run test:content` (18 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos.
-- Navegador integrado (Chromium): a 1280 y 320 CSS px la ficha muestra una única `h1`, la obra final, las tres etapas de proceso y las seis muestras de color sin desplazamiento horizontal. No se muestra una sección de detalles.
+- Navegador integrado (Chromium): a 1280 CSS px la obra final queda centrada con `34rem` (544 px) de ancho; a 320 CSS px conserva su ancho responsive de 304 px. En ambos casos la ficha muestra una única `h1`, las tres etapas de proceso y las seis muestras de color sin desplazamiento horizontal. No se muestra una sección de detalles.
 - Navegador integrado (Chromium): al abrir Forest desde Ilustración, el foco llega al `h1` sin desplazamiento. El cambio a español actualiza `html[lang]`, título, introducción y alternativas de imagen.
 - La revisión de accesibilidad se limitó al contenido informativo, reflujo, idioma y foco de la ruta; no se modificaron los controles ni la navegación compartida.

@@ -40,6 +40,14 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 - No añadir imágenes, etapas de producción ni información biográfica no proporcionadas.
 - No cambiar la ruta, el orden del catálogo ni los demás proyectos.
 
+## Ajuste del hero en escritorio
+
+- Objetivo: reducir la primera ilustración de Super reno en escritorio sin alterar su contenido ni su posición centrada.
+- Alcance: desde el breakpoint de escritorio, el hero `complete-illustration.jpg` usa un ancho máximo de `56.25rem` y permanece centrado; móvil y tablet conservan su tamaño actual.
+- Criterio de aceptación: a `1280 CSS px`, la primera ilustración no supera `900 px`, mantiene su proporción completa y queda centrada horizontalmente sin provocar desplazamiento horizontal.
+- Requisito no funcional: resolver el ajuste con el Sass específico de Super reno, sin afectar otras fichas ni cambiar la semántica o el texto alternativo.
+- Exclusiones: no cambiar las imágenes de proceso, la lámina de poses finales, los detalles ni la paleta.
+
 ## Actualización de la lámina final
 
 - Se sustituye únicamente la imagen final de los dos renos por el PNG proporcionado; la ilustración principal, las etapas y los recortes conservan sus archivos.
@@ -70,3 +78,9 @@ Completar la ficha del personaje ilustrado para un cuento infantil con las imág
 - Visor local de imágenes y `file`: el PNG mide 1536 × 1024 px y muestra completos a los dos renos y sus capas. La alternativa existente describe las dos versiones en español e inglés.
 - `npm run test:content` (17 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos. La compilación incluye `complete-illustration-2.png` y la prueba de contenido verifica su nombre y dimensiones.
 - La revisión de accesibilidad se limitó a la imagen informativa y su proporción declarada. No se repitió una prueba de navegador ni una auditoría WCAG global para este reemplazo.
+
+## Validación del hero en escritorio
+
+- `npm run lint`, `npm run build` y `git diff --check`: correctos.
+- Navegador integrado de Codex (Chromium), a 1280 × 900 CSS px: la figura y la imagen calculan `900 px` de ancho, con `126 px` libres a cada lado dentro del hero; el documento conserva `scrollWidth` y `clientWidth` en `1280 px`, sin desplazamiento horizontal.
+- La revisión de accesibilidad se limitó al reflujo y la legibilidad visual del hero. No cambiaron su semántica, texto alternativo, foco ni movimiento.
