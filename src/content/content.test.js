@@ -236,6 +236,9 @@ test('Murana preserves a localized, self-contained landing replica', () => {
   for (const text of Object.values(translations)) {
     const detail = text.projects.items.murana.detail
 
+    assert.equal('archiveEyebrow' in detail, false)
+    assert.equal('archiveTitle' in detail, false)
+    assert.equal('archiveDescription' in detail, false)
     assert.equal(detail.categoriesTitle.length > 0, true)
     assert.deepEqual(sortedKeys(detail.categories), sortedKeys(Object.fromEntries(assets.categories.map(({ id }) => [id, true]))))
     assert.deepEqual(sortedKeys(detail.carePillars), sortedKeys(Object.fromEntries(assets.carePillars.map(({ id }) => [id, true]))))
