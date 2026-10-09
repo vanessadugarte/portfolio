@@ -6,10 +6,14 @@ function ProjectPreviewCard({ project, actionLabel, categoryId, index, headingLe
   const projectLabel = `${actionLabel}: ${project.title}`
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
   const projectPath = paths.projectDetail(project.id, categoryId)
+  const previewClassName = `project-preview${project.previewFit === 'contain' ? ' project-preview--contain' : ''}`
+  const previewStyle = project.previewBackground
+    ? { '--project-preview-background': project.previewBackground }
+    : undefined
 
   return (
     <article className="project-card">
-      <Link className="project-preview" to={projectPath} aria-label={projectLabel}>
+      <Link className={previewClassName} style={previewStyle} to={projectPath} aria-label={projectLabel}>
         <img src={project.previewImage} alt={project.previewAlt} />
         {index != null && <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>}
       </Link>

@@ -8,6 +8,17 @@
   color: tokens.$color-text;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .project-detail-external-links a {
+    transition: none;
+  }
+
+  .project-detail-external-links a:hover,
+  .project-detail-external-links a:focus-visible {
+    transform: none;
+  }
+}
+
 .project-detail-placeholder-inner {
   display: flex;
   width: 100%;
@@ -308,6 +319,43 @@
   flex: none;
 }
 
+.project-detail-external-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: tokens.$space-2;
+  margin-top: tokens.$space-3;
+}
+
+.project-detail-external-links a {
+  display: inline-flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: tokens.$color-text;
+  font-size: tokens.$font-size-body;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color tokens.$transition-fast,
+    color tokens.$transition-fast,
+    transform tokens.$transition-fast;
+}
+
+.project-detail-external-links a:hover,
+.project-detail-external-links a:focus-visible {
+  background: tokens.$color-text;
+  color: tokens.$color-project-canvas;
+  transform: translateY(-0.125rem);
+}
+
+.project-detail-external-links a:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-text;
+  outline-offset: tokens.$focus-ring-offset;
+}
+
 .project-detail-fact-label {
   position: absolute;
   width: 1px;
@@ -358,6 +406,22 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project-detail--donut-shop .project-detail-final-artwork {
+  max-width: 37.5rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  border-radius: 1.5rem;
+  background: #fdf3f5;
+}
+
+.project-detail--donut-shop .project-detail-detail-image {
+  aspect-ratio: 1;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  border-radius: 1rem;
+  background: #fdf3f5;
+  object-fit: contain;
 }
 
 .project-detail-organic-image {
@@ -1881,6 +1945,12 @@
     margin-top: tokens.$space-4;
     padding-inline-start: tokens.$space-6;
     border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .project-detail-summary > .project-detail-external-links {
+    grid-row: 4;
+    grid-column: 1 / 3;
+    margin-top: tokens.$space-4;
   }
 
   .project-detail-summary > .project-detail-introduction,

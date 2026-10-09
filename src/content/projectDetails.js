@@ -9,6 +9,7 @@ const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrat
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
+const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
   guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
@@ -51,6 +52,29 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'who-is-paying': {
+    layout: 'who-is-paying',
+    palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],
+    links: [
+      { id: 'repository', href: 'https://github.com/vanessadugarte/who-is-paying' },
+    ],
+  },
+  'donut-shop': {
+    heroImage: donutShopAsset('chocolate.png'),
+    heroDimensions: { width: 700, height: 700 },
+    palette: ['#FDF3F5', '#E70D0D', '#FF66A6', '#FFFFFF'],
+    detailImages: [
+      donutShopAsset('chocolate.png'),
+      donutShopAsset('arequipe.png'),
+      donutShopAsset('fresa.png'),
+      donutShopAsset('cookies-and-cream.png'),
+    ],
+    detailImageDimensions: Array.from({ length: 4 }, () => ({ width: 700, height: 700 })),
+    links: [
+      { id: 'demo', href: 'https://vanessadugarte.github.io/carrito-donas-coderhouse/' },
+      { id: 'repository', href: 'https://github.com/vanessadugarte/carrito-donas-coderhouse' },
+    ],
+  },
   murana: {
     layout: 'murana',
     heroImage: muranaAsset('hero.webp'),

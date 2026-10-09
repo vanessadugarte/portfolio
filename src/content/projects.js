@@ -1,6 +1,8 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
 const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/murana/facial-care.webp', import.meta.url).href
+const donutShopImage = new URL('../assets/images/projects/front-end-ux/donut-shop/chocolate.png', import.meta.url).href
+const whoIsPayingImage = new URL('../assets/images/projects/front-end-ux/who-is-paying/whos-paying.svg', import.meta.url).href
 const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
 const venttiImage = new URL('../assets/images/selected-work/ventti-760x500.jpg', import.meta.url).href
 const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
@@ -20,6 +22,20 @@ export const projects = [
   { id: 'donas-3d', categoryIds: ['three-d'], previewImage: donasImage, selectedOrder: 1 },
   { id: 'jardin-web', categoryIds: ['uxui'], previewImage: jardinWebImage, selectedOrder: 2 },
   { id: 'murana', categoryIds: ['uxui'], previewImage: muranaThumbnailImage },
+  {
+    id: 'donut-shop',
+    categoryIds: ['uxui'],
+    previewImage: donutShopImage,
+    previewFit: 'contain',
+    previewBackground: '#FDF3F5',
+  },
+  {
+    id: 'who-is-paying',
+    categoryIds: ['uxui'],
+    previewImage: whoIsPayingImage,
+    previewFit: 'contain',
+    previewBackground: '#D9CDD7',
+  },
   { id: 'medusas', categoryIds: ['illustration'], previewImage: medusasImage, selectedOrder: 3 },
   { id: 'ventti', categoryIds: ['graphic-design'], previewImage: venttiImage, selectedOrder: 4 },
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },

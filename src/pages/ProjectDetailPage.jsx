@@ -4,6 +4,7 @@ import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getProjec
 import { getProjectCategory, projectCategories } from '../content/projectCategories.js'
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
+import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import './MuranaProjectDetail.scss'
 import './ProjectDetailPage.scss'
@@ -53,6 +54,25 @@ function ProjectFacts({ facts }) {
         </div>
       ))}
     </dl>
+  )
+}
+
+function ProjectExternalLinks({ links, localizedLinks }) {
+  return (
+    <div className="project-detail-external-links" aria-label={localizedLinks.label}>
+      {links.map(({ id, href }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={localizedLinks.items[id].ariaLabel}
+          key={id}
+        >
+          {localizedLinks.items[id].label}
+          <span aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
   )
 }
 
@@ -153,6 +173,44 @@ function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
       <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
       <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
     </div>
+  )
+}
+
+function WhoIsPayingProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--who-is-paying" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="project-detail-summary">
+          <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+          <ProjectExternalLinks links={assets.links} localizedLinks={detail.links} />
+        </header>
+
+        <WhoIsPayingApp copy={detail.interactive} />
+
+        <section className="who-is-paying-project-palette" aria-labelledby="who-is-paying-palette-title">
+          <ColorPalette
+            headingId="who-is-paying-palette-title"
+            headingLevel="h2"
+            title={detail.paletteTitle}
+            colors={assets.palette}
+          />
+        </section>
+      </div>
+    </article>
   )
 }
 
@@ -810,6 +868,9 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
             <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <ProjectFacts facts={detail.facts} />
+            {assets.links && (
+              <ProjectExternalLinks links={assets.links} localizedLinks={detail.links} />
+            )}
           </header>
 
           {assets.heroSecondaryImage ? (
@@ -1023,7 +1084,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
           <section className="project-detail-section project-detail-gallery project-detail-details-section" aria-labelledby="project-details-title">
           <SectionIntroduction
             id="project-details-title"
-            number={assets.referenceImages ? '04' : '03'}
+            number={assets.referenceImages ? (assets.processImages ? '04' : '03') : (assets.processImages ? '03' : '02')}
             title={detail.detailsTitle}
             description={detail.detailsDescription}
           />
@@ -1121,6 +1182,18 @@ function ProjectDetailPage() {
   if (!assets || !content.detail) {
     return (
       <ProjectDetailPlaceholder
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'who-is-paying') {
+    return (
+      <WhoIsPayingProjectDetail
+        assets={assets}
         content={content}
         navigation={navigation}
         neighbors={neighbors}
