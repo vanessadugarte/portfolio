@@ -24,7 +24,7 @@ test('category IDs connect routes, hero figures and every language', () => {
 })
 
 test('one catalog supplies all projects and preserves selected order', () => {
-  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'murana', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'murana', 'donut-shop', 'who-is-paying', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
   assert.deepEqual(
     getSelectedProjects([...projects].reverse()).map(({ id }) => id),
     ['donas-3d', 'jardin-web', 'medusas', 'ventti'],
@@ -62,12 +62,14 @@ test('project detail URLs are generated from the catalog without category collis
 test('complete project details expose localized content, media and catalog navigation', () => {
   const assets = getProjectDetails('medusas')
   const donutAssets = getProjectDetails('donas-3d')
+  const donutShopAssets = getProjectDetails('donut-shop')
+  const whoIsPayingAssets = getProjectDetails('who-is-paying')
   const deepSeaAssets = getProjectDetails('deep-sea')
   const jungleAssets = getProjectDetails('jungle')
   const gameIconsAssets = getProjectDetails('game-icons')
   const neighbors = getProjectNeighbors('medusas')
 
-  assert.equal(neighbors.previous.id, 'murana')
+  assert.equal(neighbors.previous.id, 'who-is-paying')
   assert.equal(neighbors.next.id, 'ventti')
   assert.equal(assets.referenceImages.length, 2)
   assert.equal(assets.processImages.length, 4)
@@ -84,6 +86,15 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(donutAssets.processImages.length, 4)
   assert.equal(donutAssets.processWideImages.length, 2)
   assert.equal(donutAssets.detailImages.length, 4)
+  assert.equal(donutShopAssets.layout, 'donuts-home')
+  assert.equal(donutShopAssets.logoImage.endsWith('/logo-donuts.png'), true)
+  assert.equal(donutShopAssets.heroImage.endsWith('/donuts-hero.png'), true)
+  assert.equal(donutShopAssets.storyImage.endsWith('/story-donut.png'), true)
+  assert.deepEqual(donutShopAssets.recipes.map(({ id }) => id), ['strawberry', 'cookies', 'manjar', 'chocolate', 'passionFruit', 'marshmallow'])
+  assert.deepEqual(donutShopAssets.favorites.map(({ id }) => id), ['green', 'chocolate', 'strawberry', 'colorful'])
+  assert.equal(whoIsPayingAssets.layout, 'who-is-paying')
+  assert.deepEqual(whoIsPayingAssets.palette, ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'])
+  assert.deepEqual(whoIsPayingAssets.links.map(({ id }) => id), ['repository'])
   assert.deepEqual(deepSeaAssets.heroDimensions, { width: 1200, height: 891 })
   assert.deepEqual(deepSeaAssets.heroSecondaryDimensions, { width: 1200, height: 1618 })
   assert.ok(deepSeaAssets.heroSecondaryImage)
@@ -171,6 +182,25 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(donutDetail.imageAlt.processWide.length, donutAssets.processWideImages.length)
     assert.equal(donutDetail.imageAlt.details.length, donutAssets.detailImages.length)
 
+    const donutShopDetail = text.projects.items['donut-shop'].detail
+    assert.ok(donutShopDetail.landing.welcome)
+    assert.ok(donutShopDetail.landing.storyDescription)
+    assert.ok(donutShopDetail.landing.closingDescription)
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.nav), ['contact', 'favorites', 'home', 'recipes', 'story'])
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.recipes), donutShopAssets.recipes.map(({ id }) => id).sort())
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.favorites), donutShopAssets.favorites.map(({ id }) => id).sort())
+
+    const whoIsPayingDetail = text.projects.items['who-is-paying'].detail
+    assert.equal(whoIsPayingDetail.number, '01')
+    assert.equal(whoIsPayingDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
+    assert.deepEqual(sortedKeys(whoIsPayingDetail.links.items), whoIsPayingAssets.links.map(({ id }) => id).sort())
+    assert.match(whoIsPayingDetail.interactive.winnerMessage, /\{name\}/)
+    assert.match(whoIsPayingDetail.interactive.participantCountOne, /\{count\}/)
+    assert.match(whoIsPayingDetail.interactive.participantCountOther, /\{count\}/)
+    for (const field of ['title', 'nameLabel', 'addButton', 'drawButton', 'editButton', 'removeButton', 'saveButton', 'cancelButton']) {
+      assert.ok(whoIsPayingDetail.interactive[field])
+    }
+
     const deepSeaDetail = text.projects.items['deep-sea'].detail
     assert.equal(deepSeaDetail.number, '01')
     assert.equal(deepSeaDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
@@ -212,12 +242,14 @@ test('project navigation follows its category or the menu category order', () =>
   assert.equal(illustrationNeighbors.next.id, 'jungle')
   assert.deepEqual(allProjects.map(({ id }) => id), [
     'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs',
-    'jardin-web', 'murana', 'donas-3d', 'ventti', 'naval-infographics',
+    'jardin-web', 'murana', 'donut-shop', 'who-is-paying', 'donas-3d', 'ventti', 'naval-infographics',
   ])
   assert.equal(getProjectNeighbors('muchomix-game', allProjects).next.id, 'angels-sighs')
   assert.equal(getProjectNeighbors('angels-sighs', allProjects).next.id, 'jardin-web')
   assert.equal(getProjectNeighbors('jardin-web', allProjects).next.id, 'murana')
-  assert.equal(getProjectNeighbors('murana', allProjects).next.id, 'donas-3d')
+  assert.equal(getProjectNeighbors('murana', allProjects).next.id, 'donut-shop')
+  assert.equal(getProjectNeighbors('donut-shop', allProjects).next.id, 'who-is-paying')
+  assert.equal(getProjectNeighbors('who-is-paying', allProjects).next.id, 'donas-3d')
 })
 
 test('Murana preserves a localized, self-contained landing replica', () => {
@@ -551,6 +583,7 @@ test('every language defines the complete catalog and its metadata', () => {
   }
 
   assert.doesNotThrow(() => validateProjectCatalog(projects, projectCategories, translations))
+  assert.equal(projects.find(({ id }) => id === 'donut-shop').previewZoom, 1.3)
 })
 
 test('a project can be listed in multiple categories without duplicate records', () => {
@@ -567,9 +600,9 @@ test('a project can be listed in multiple categories without duplicate records',
 })
 
 test('project category listings derive from the catalog and preserve expected project IDs', () => {
-  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'murana', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
+  assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'jardin-web', 'murana', 'donut-shop', 'who-is-paying', 'medusas', 'ventti', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
   assert.deepEqual(getProjectsByCategory('three-d').map(({ id }) => id), ['donas-3d'])
-  assert.deepEqual(getProjectsByCategory('uxui').map(({ id }) => id), ['jardin-web', 'murana'])
+  assert.deepEqual(getProjectsByCategory('uxui').map(({ id }) => id), ['jardin-web', 'murana', 'donut-shop', 'who-is-paying'])
   assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs'])
   assert.deepEqual(getProjectsByCategory('graphic-design').map(({ id }) => id), ['ventti'])
   assert.deepEqual(getProjectsByCategory('animations').map(({ id }) => id), ['naval-infographics'])
