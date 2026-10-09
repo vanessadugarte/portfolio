@@ -8,6 +8,7 @@ const gameIconsAsset = (filename) => new URL(`../assets/images/projects/illustra
 const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrations/reindeer/${filename}`, import.meta.url).href
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
+const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
   guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
@@ -50,6 +51,40 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  murana: {
+    layout: 'murana',
+    heroImage: muranaAsset('hero.webp'),
+    heroDimensions: { width: 2077, height: 734 },
+    categories: [
+      { id: 'shampoo', image: muranaAsset('category-shampoo.webp') },
+      { id: 'bodyGel', image: muranaAsset('category-body-gel.webp') },
+      { id: 'hairMasks', image: muranaAsset('category-hair-masks.webp') },
+      { id: 'facialCleansers', image: muranaAsset('category-facial-cleansers.webp') },
+      { id: 'skinCare', image: muranaAsset('category-skin-care.webp') },
+      { id: 'giftSets', image: muranaAsset('category-gift-sets.webp') },
+    ],
+    carePillars: [
+      { id: 'hair', image: muranaAsset('hair-care.webp') },
+      { id: 'face', image: muranaAsset('facial-care.webp') },
+      { id: 'body', image: muranaAsset('body-care.webp') },
+    ],
+    lookbook: [
+      { id: 'facial', image: muranaAsset('lookbook-facial.webp'), width: 944, height: 1140 },
+      { id: 'products', image: muranaAsset('lookbook-products.webp'), width: 588, height: 710 },
+      { id: 'body', image: muranaAsset('lookbook-body-care.webp'), width: 944, height: 1140 },
+      { id: 'lemon', image: muranaAsset('lookbook-lemon.webp'), width: 944, height: 1140 },
+      { id: 'lotion', image: muranaAsset('lookbook-body-lotion.webp'), width: 588, height: 710 },
+      { id: 'hair', image: muranaAsset('lookbook-hair-care.webp'), width: 944, height: 1140 },
+      { id: 'hairProducts', image: muranaAsset('lookbook-hair-products.webp'), width: 454, height: 548 },
+      { id: 'hairModel', image: muranaAsset('lookbook-hair-model.webp'), width: 454, height: 548 },
+    ],
+    products: [
+      { id: 'argan', image: muranaAsset('product-argan.webp') },
+      { id: 'antiage', image: muranaAsset('product-antiage.webp') },
+      { id: 'hydration', image: muranaAsset('product-hydration.webp') },
+      { id: 'dailyCleanse', image: muranaAsset('product-daily-cleanse.webp') },
+    ],
+  },
   medusas: {
     heroImage: medusasAsset('finalwork-medusas.jpg'),
     illustrationTreatment: true,
