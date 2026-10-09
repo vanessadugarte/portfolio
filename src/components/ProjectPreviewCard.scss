@@ -15,12 +15,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(var(--project-preview-zoom, 1));
   transition: transform tokens.$transition-fast;
+}
+
+.project-preview--contain {
+  background: var(--project-preview-background, tokens.$color-surface);
+}
+
+.project-preview--contain img {
+  padding: clamp(0.75rem, 4vw, 2rem);
+  object-fit: contain;
 }
 
 .project-preview:hover img,
 .project-preview:focus-visible img {
-  transform: scale(1.03);
+  transform: scale(calc(var(--project-preview-zoom, 1) * 1.03));
 }
 
 .project-preview:focus-visible {
@@ -149,6 +159,6 @@
 
   .project-preview:hover img,
   .project-preview:focus-visible img {
-    transform: none;
+    transform: scale(var(--project-preview-zoom, 1));
   }
 }

@@ -9,6 +9,7 @@ const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrat
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
+const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
   guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
@@ -51,6 +52,36 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'who-is-paying': {
+    layout: 'who-is-paying',
+    palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],
+    links: [
+      { id: 'repository', href: 'https://github.com/vanessadugarte/who-is-paying' },
+    ],
+  },
+  'donut-shop': {
+    layout: 'donuts-home',
+    logoImage: donutShopAsset('logo-donuts.png'),
+    logoDimensions: { width: 247, height: 373 },
+    heroImage: donutShopAsset('donuts-hero.png'),
+    heroDimensions: { width: 1600, height: 784 },
+    storyImage: donutShopAsset('story-donut.png'),
+    storyDimensions: { width: 687, height: 705 },
+    recipes: [
+      { id: 'strawberry', image: donutShopAsset('recipe-strawberry.png') },
+      { id: 'cookies', image: donutShopAsset('recipe-cookies.png') },
+      { id: 'manjar', image: donutShopAsset('recipe-manjar.png') },
+      { id: 'chocolate', image: donutShopAsset('recipe-chocolate.png') },
+      { id: 'passionFruit', image: donutShopAsset('recipe-strawberry.png') },
+      { id: 'marshmallow', image: donutShopAsset('recipe-marshmallow.png') },
+    ],
+    favorites: [
+      { id: 'green', image: donutShopAsset('favorite-green.jpg'), width: 322, height: 218 },
+      { id: 'chocolate', image: donutShopAsset('favorite-chocolate.jpg'), width: 318, height: 223 },
+      { id: 'strawberry', image: donutShopAsset('favorite-strawberry.jpg'), width: 318, height: 223 },
+      { id: 'colorful', image: donutShopAsset('favorite-colorful.jpg'), width: 326, height: 231 },
+    ],
+  },
   murana: {
     layout: 'murana',
     heroImage: muranaAsset('hero.webp'),
