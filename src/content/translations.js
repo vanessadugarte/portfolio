@@ -90,7 +90,7 @@ export const translations = {
           type: 'Front-end / UX/UI',
           title: 'Murana',
           description: 'Landing e-commerce responsive para la marca de cuidado personal de Tottus.',
-          previewAlt: 'Landing Murana con su identidad gráfica rosada y una modelo sosteniendo productos de cuidado personal.',
+          previewAlt: 'Modelo usando una mascarilla facial y sosteniendo un producto de cuidado Murana.',
           detail: {
             introduction: 'Landing de marca desarrollada durante mi etapa en Tottus para presentar el universo de cuidado personal de Murana mediante una experiencia visual, clara y responsive.',
             facts: [
@@ -680,7 +680,7 @@ export const translations = {
           type: 'Front-end / UX/UI',
           title: 'Murana',
           description: 'Responsive e-commerce landing page for Tottus’ personal care brand.',
-          previewAlt: 'Murana landing page with its pink visual identity and a model holding personal care products.',
+          previewAlt: 'Model wearing a face mask and holding a Murana skin care product.',
           detail: {
             introduction: 'A brand landing page developed during my time at Tottus to present Murana’s personal care universe through a visual, clear and responsive experience.',
             facts: [
