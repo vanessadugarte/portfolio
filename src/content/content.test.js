@@ -257,7 +257,7 @@ test('Murana preserves a localized, self-contained landing replica', () => {
   const project = getProjectBySlug('murana')
 
   assert.deepEqual(project.categoryIds, ['uxui'])
-  assert.equal(project.previewImage.endsWith('/facial-care.webp'), true)
+  assert.equal(project.previewImage.endsWith('/murana-thumbnail.jpg'), true)
   assert.equal(assets.layout, 'murana')
   assert.deepEqual(assets.heroDimensions, { width: 2077, height: 734 })
   assert.equal(assets.categories.length, 6)
