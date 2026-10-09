@@ -88,41 +88,55 @@ export const translations = {
         'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.', previewAlt: '' },
         'donut-shop': {
           type: 'Front-end / UX/UI',
-          title: 'Donut Shop',
-          description: 'Tienda interactiva de donas con selección de cantidades y cálculo de compra.',
-          previewAlt: 'Dona de chocolate con cobertura, nueces y chispas sobre un fondo rosado.',
+          title: 'Donuts',
+          description: 'Sitio editorial responsive sobre cultura, recetas y lugares de donas.',
+          previewAlt: 'Composición de cinco donas con coberturas de distintos colores y chispas.',
           detail: {
-            number: '01',
-            introduction: 'Proyecto académico individual desarrollado para practicar interacción con JavaScript: una tienda responsive donde cada producto permite ajustar su cantidad y calcular el total de la compra.',
-            facts: [
-              { label: 'Año', value: '2024' },
-              { label: 'Aporte', value: 'Diseño visual y desarrollo front-end' },
-              { label: 'Herramientas', value: 'HTML, CSS, JavaScript, jQuery y Bootstrap' },
-            ],
-            links: {
-              label: 'Enlaces del proyecto',
-              items: {
-                demo: {
-                  label: 'Ver demo',
-                  ariaLabel: 'Abrir la demo de Donut Shop en una pestaña nueva',
+            landing: {
+              navLabel: 'Secciones de Donuts',
+              nav: {
+                home: 'Inicio',
+                story: 'Historia',
+                recipes: 'Recetas',
+                favorites: 'Favoritas',
+                contact: 'Contacto',
+              },
+              welcome: '¡Bienvenidos a Donuts, el destino definitivo para quienes aman las donas! Este rincón de dulzura reúne sabores, colores e historias para explorar, disfrutar y dejarse tentar.',
+              heroAlt: 'Composición de cinco donas con coberturas de chocolate, fresa y vainilla, rodeadas de chispas de colores.',
+              storyTitle: 'Donas, dulces momentos',
+              storyDescription: 'La historia comienza en Holanda, donde se preparaban unos bollos llamados Olykoek, o “pan aceitoso”, que se freían en manteca. La receta llegó durante el siglo XVIII a Nueva Ámsterdam, hoy Manhattan, y fue transformándose con nuevas especias e ingredientes hasta convertirse en la dona que conocemos.',
+              storyAlt: 'Dona rosada con glaseado y chispas de colores.',
+              recipesTitle: 'Recetas',
+              recipes: {
+                strawberry: { name: 'Fresas', alt: 'Dona con glaseado rosado, fresas y frutos rojos.' },
+                cookies: { name: 'Cookies & Cream', alt: 'Dona con crema y galletas de chocolate.' },
+                manjar: { name: 'Manjar', alt: 'Dona rellena de manjar con cobertura y nueces.' },
+                chocolate: { name: 'Chocolate', alt: 'Dona con cobertura de chocolate, chispas y nueces.' },
+                passionFruit: { name: 'Maracuyá', alt: 'Dona de maracuyá con glaseado rosado y frutas.' },
+                marshmallow: { name: 'Marshmallow', alt: 'Dona con cobertura rosada, gomitas y marshmallows.' },
+              },
+              favoritesTitle: 'Nuestras favoritas',
+              favorites: {
+                green: {
+                  alt: 'Donas verdes decoradas con líneas blancas.',
+                  description: 'Pura fantasía: deliciosas por dentro y llamativas por fuera gracias a sus glaseados y toppings de colores.',
                 },
-                repository: {
-                  label: 'Ver código',
-                  ariaLabel: 'Abrir el repositorio de Donut Shop en una pestaña nueva',
+                chocolate: {
+                  alt: 'Donas con cobertura de chocolate.',
+                  description: 'Las donas de chocolate son una elección perfecta para compartir y celebrar en familia.',
+                },
+                strawberry: {
+                  alt: 'Donas rosadas de fresa.',
+                  description: 'Una combinación alegre para cualquier evento, inspirada en el amor universal por las donas.',
+                },
+                colorful: {
+                  alt: 'Selección de donas multicolores.',
+                  description: 'Hay recetas para todos los gustos: las donas pueden tener infinitos colores y sabores.',
                 },
               },
-            },
-            paletteTitle: 'Paleta de color',
-            detailsTitle: 'Productos',
-            detailsDescription: 'El catálogo presenta cuatro sabores con controles independientes de cantidad y una identidad visual basada en tonos rosados, rojos y fondos claros.',
-            imageAlt: {
-              hero: 'Dona de chocolate con cobertura, nueces y chispas utilizada en Donut Shop.',
-              details: [
-                'Dona de chocolate con cobertura, nueces y chispas.',
-                'Dona rellena de arequipe con cobertura y nueces.',
-                'Dona de fresa con cobertura rosada y berries.',
-                'Dona de cookies and cream con galletas de chocolate.',
-              ],
+              closingTitle: 'Dulzura sin límites',
+              closingDescription: 'Una experiencia visual creada para celebrar la variedad, el color y esos pequeños momentos que saben mejor con una dona.',
+              projectMeta: 'Proyecto académico · 2023 · HTML, Sass/CSS y Bootstrap',
             },
           },
         },
@@ -955,41 +969,55 @@ export const translations = {
         'jardin-web': { type: 'Web design / UX/UI', title: 'Web garden', description: 'Design and development of an e-commerce experience.', previewAlt: '' },
         'donut-shop': {
           type: 'Front-end / UX/UI',
-          title: 'Donut Shop',
-          description: 'Interactive donut store with quantity selection and purchase total calculation.',
-          previewAlt: 'Chocolate donut with icing, nuts and sprinkles on a pink background.',
+          title: 'Donuts',
+          description: 'A responsive editorial website about donut culture, recipes and places.',
+          previewAlt: 'Composition of five donuts with different colorful toppings and sprinkles.',
           detail: {
-            number: '01',
-            introduction: 'An individual academic project created to practice JavaScript interactions: a responsive store where visitors can adjust each product quantity and calculate the purchase total.',
-            facts: [
-              { label: 'Year', value: '2024' },
-              { label: 'Contribution', value: 'Visual design and front-end development' },
-              { label: 'Tools', value: 'HTML, CSS, JavaScript, jQuery and Bootstrap' },
-            ],
-            links: {
-              label: 'Project links',
-              items: {
-                demo: {
-                  label: 'View demo',
-                  ariaLabel: 'Open the Donut Shop demo in a new tab',
+            landing: {
+              navLabel: 'Donuts sections',
+              nav: {
+                home: 'Home',
+                story: 'Story',
+                recipes: 'Recipes',
+                favorites: 'Favorites',
+                contact: 'Contact',
+              },
+              welcome: 'Welcome to Donuts, the ultimate destination for donut lovers! This sweet corner brings flavors, colors and stories together, inviting everyone to explore, enjoy and give in to temptation.',
+              heroAlt: 'Composition of five donuts with chocolate, strawberry and vanilla toppings, surrounded by colorful sprinkles.',
+              storyTitle: 'Donuts, sweet moments',
+              storyDescription: 'The story begins in Holland, where people prepared buns called Olykoek, or “oily cake”, fried in lard. The recipe arrived in New Amsterdam, now Manhattan, during the eighteenth century and evolved with new spices and ingredients into the donut we know today.',
+              storyAlt: 'Pink donut with icing and colorful sprinkles.',
+              recipesTitle: 'Recipes',
+              recipes: {
+                strawberry: { name: 'Strawberry', alt: 'Pink-iced donut with strawberries and red berries.' },
+                cookies: { name: 'Cookies & Cream', alt: 'Cream-topped donut with chocolate cookies.' },
+                manjar: { name: 'Dulce de leche', alt: 'Dulce de leche filled donut with icing and nuts.' },
+                chocolate: { name: 'Chocolate', alt: 'Chocolate-iced donut with sprinkles and nuts.' },
+                passionFruit: { name: 'Passion fruit', alt: 'Passion fruit donut with pink icing and fruit.' },
+                marshmallow: { name: 'Marshmallow', alt: 'Pink-iced donut with gummies and marshmallows.' },
+              },
+              favoritesTitle: 'Our favorites',
+              favorites: {
+                green: {
+                  alt: 'Green donuts decorated with white icing lines.',
+                  description: 'Pure fantasy: delicious inside and playful outside thanks to colorful icing and toppings.',
                 },
-                repository: {
-                  label: 'View code',
-                  ariaLabel: 'Open the Donut Shop repository in a new tab',
+                chocolate: {
+                  alt: 'Chocolate-iced donuts.',
+                  description: 'Chocolate donuts are a perfect choice for sharing and celebrating with family.',
+                },
+                strawberry: {
+                  alt: 'Pink strawberry donuts.',
+                  description: 'A joyful combination for any occasion, inspired by the universal love of donuts.',
+                },
+                colorful: {
+                  alt: 'Selection of colorful donuts.',
+                  description: 'There are recipes for every taste: donuts can come in endless colors and flavors.',
                 },
               },
-            },
-            paletteTitle: 'Color palette',
-            detailsTitle: 'Products',
-            detailsDescription: 'The catalog features four flavors with independent quantity controls and a visual identity based on pink, red and light backgrounds.',
-            imageAlt: {
-              hero: 'Chocolate donut with icing, nuts and sprinkles used in Donut Shop.',
-              details: [
-                'Chocolate donut with icing, nuts and sprinkles.',
-                'Dulce de leche filled donut with icing and nuts.',
-                'Strawberry donut with pink icing and berries.',
-                'Cookies and cream donut with chocolate cookies.',
-              ],
+              closingTitle: 'Sweetness without limits',
+              closingDescription: 'A visual experience created to celebrate variety, color and the small moments that taste better with a donut.',
+              projectMeta: 'Academic project · 2023 · HTML, Sass/CSS and Bootstrap',
             },
           },
         },

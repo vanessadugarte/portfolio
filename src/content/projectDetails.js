@@ -60,19 +60,26 @@ export const projectDetails = {
     ],
   },
   'donut-shop': {
-    heroImage: donutShopAsset('chocolate.png'),
-    heroDimensions: { width: 700, height: 700 },
-    palette: ['#FDF3F5', '#E70D0D', '#FF66A6', '#FFFFFF'],
-    detailImages: [
-      donutShopAsset('chocolate.png'),
-      donutShopAsset('arequipe.png'),
-      donutShopAsset('fresa.png'),
-      donutShopAsset('cookies-and-cream.png'),
+    layout: 'donuts-home',
+    logoImage: donutShopAsset('logo-donuts.png'),
+    logoDimensions: { width: 247, height: 373 },
+    heroImage: donutShopAsset('donuts-hero.png'),
+    heroDimensions: { width: 1600, height: 784 },
+    storyImage: donutShopAsset('story-donut.png'),
+    storyDimensions: { width: 687, height: 705 },
+    recipes: [
+      { id: 'strawberry', image: donutShopAsset('recipe-strawberry.png') },
+      { id: 'cookies', image: donutShopAsset('recipe-cookies.png') },
+      { id: 'manjar', image: donutShopAsset('recipe-manjar.png') },
+      { id: 'chocolate', image: donutShopAsset('recipe-chocolate.png') },
+      { id: 'passionFruit', image: donutShopAsset('recipe-strawberry.png') },
+      { id: 'marshmallow', image: donutShopAsset('recipe-marshmallow.png') },
     ],
-    detailImageDimensions: Array.from({ length: 4 }, () => ({ width: 700, height: 700 })),
-    links: [
-      { id: 'demo', href: 'https://vanessadugarte.github.io/carrito-donas-coderhouse/' },
-      { id: 'repository', href: 'https://github.com/vanessadugarte/carrito-donas-coderhouse' },
+    favorites: [
+      { id: 'green', image: donutShopAsset('favorite-green.jpg'), width: 322, height: 218 },
+      { id: 'chocolate', image: donutShopAsset('favorite-chocolate.jpg'), width: 318, height: 223 },
+      { id: 'strawberry', image: donutShopAsset('favorite-strawberry.jpg'), width: 318, height: 223 },
+      { id: 'colorful', image: donutShopAsset('favorite-colorful.jpg'), width: 326, height: 231 },
     ],
   },
   murana: {

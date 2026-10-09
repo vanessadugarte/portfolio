@@ -7,8 +7,11 @@ function ProjectPreviewCard({ project, actionLabel, categoryId, index, headingLe
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
   const projectPath = paths.projectDetail(project.id, categoryId)
   const previewClassName = `project-preview${project.previewFit === 'contain' ? ' project-preview--contain' : ''}`
-  const previewStyle = project.previewBackground
-    ? { '--project-preview-background': project.previewBackground }
+  const previewStyle = project.previewBackground || project.previewZoom
+    ? {
+        '--project-preview-background': project.previewBackground,
+        '--project-preview-zoom': project.previewZoom,
+      }
     : undefined
 
   return (

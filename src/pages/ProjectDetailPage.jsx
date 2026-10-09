@@ -6,6 +6,7 @@ import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
+import './DonutsProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './ProjectDetailPage.scss'
 
@@ -505,6 +506,152 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
 
           <p className="murana-project-note">{detail.portfolioNote}</p>
         </section>
+      </div>
+    </article>
+  )
+}
+
+function scrollToDonutsSection(sectionId) {
+  const section = document.getElementById(sectionId)
+
+  if (!section) return
+
+  section.scrollIntoView({ block: 'start' })
+  section.focus({ preventScroll: true })
+}
+
+function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const landing = content.detail.landing
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+  const navigationItems = [
+    { id: 'project-detail-title', label: landing.nav.home },
+    { id: 'donuts-story-title', label: landing.nav.story },
+    { id: 'donuts-recipes-title', label: landing.nav.recipes },
+    { id: 'donuts-favorites-title', label: landing.nav.favorites },
+    { id: 'donuts-contact-title', label: landing.nav.contact },
+  ]
+
+  return (
+    <article className="project-detail donuts-project" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner donuts-project-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <div className="donuts-landing">
+          <header className="donuts-landing-header">
+            <span className="donuts-landing-brand" aria-hidden="true">DONUTS</span>
+            <nav aria-label={landing.navLabel}>
+              <ul>
+                {navigationItems.map((item) => (
+                  <li key={item.id}>
+                    <button type="button" onClick={() => scrollToDonutsSection(item.id)}>{item.label}</button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </header>
+
+          <section className="donuts-landing-hero" aria-labelledby="project-detail-title">
+            <span className="donuts-landing-blob donuts-landing-blob--hero" aria-hidden="true" />
+            <h1 id="project-detail-title" ref={headingRef} tabIndex={-1}>
+              <img
+                src={assets.logoImage}
+                alt={content.title}
+                width={assets.logoDimensions.width}
+                height={assets.logoDimensions.height}
+                fetchPriority="high"
+              />
+            </h1>
+            <p>{landing.welcome}</p>
+            <img
+              className="donuts-landing-hero-image"
+              src={assets.heroImage}
+              alt={landing.heroAlt}
+              width={assets.heroDimensions.width}
+              height={assets.heroDimensions.height}
+              fetchPriority="high"
+            />
+          </section>
+
+          <section className="donuts-landing-story" aria-labelledby="donuts-story-title">
+            <span className="donuts-landing-blob donuts-landing-blob--story" aria-hidden="true" />
+            <div>
+              <p className="donuts-landing-eyebrow" aria-hidden="true">01</p>
+              <h2 id="donuts-story-title" tabIndex={-1}>{landing.storyTitle}</h2>
+              <p>{landing.storyDescription}</p>
+            </div>
+            <img
+              src={assets.storyImage}
+              alt={landing.storyAlt}
+              width={assets.storyDimensions.width}
+              height={assets.storyDimensions.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </section>
+
+          <section className="donuts-landing-recipes" aria-labelledby="donuts-recipes-title">
+            <header>
+              <p className="donuts-landing-eyebrow" aria-hidden="true">02</p>
+              <h2 id="donuts-recipes-title" tabIndex={-1}>{landing.recipesTitle}</h2>
+            </header>
+            <ul>
+              {assets.recipes.map((recipe) => (
+                <li key={recipe.id}>
+                  <figure>
+                    <div>
+                      <img
+                        src={recipe.image}
+                        alt={landing.recipes[recipe.id].alt}
+                        width="700"
+                        height="700"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption>{landing.recipes[recipe.id].name}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="donuts-landing-favorites" aria-labelledby="donuts-favorites-title">
+            <header>
+              <p className="donuts-landing-eyebrow" aria-hidden="true">03</p>
+              <h2 id="donuts-favorites-title" tabIndex={-1}>{landing.favoritesTitle}</h2>
+            </header>
+            <div className="donuts-landing-favorites-grid">
+              {assets.favorites.map((favorite) => (
+                <article key={favorite.id}>
+                  <img
+                    src={favorite.image}
+                    alt={landing.favorites[favorite.id].alt}
+                    width={favorite.width}
+                    height={favorite.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p>{landing.favorites[favorite.id].description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <footer className="donuts-landing-closing" aria-labelledby="donuts-contact-title">
+            <div>
+              <p className="donuts-landing-eyebrow" aria-hidden="true">04</p>
+              <h2 id="donuts-contact-title" tabIndex={-1}>{landing.closingTitle}</h2>
+              <p>{landing.closingDescription}</p>
+            </div>
+            <p className="donuts-landing-meta">{landing.projectMeta}</p>
+          </footer>
+        </div>
       </div>
     </article>
   )
@@ -1221,6 +1368,18 @@ function ProjectDetailPage() {
   if (assets.layout === 'murana') {
     return (
       <MuranaProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'donuts-home') {
+    return (
+      <DonutsProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}

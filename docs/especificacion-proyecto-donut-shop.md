@@ -1,56 +1,67 @@
-# Especificación: proyecto Donut Shop
+# Especificación: landing integrada de Donuts
 
 ## Objetivo
 
-Incorporar Donut Shop al portafolio como un proyecto de la categoría Front-end + UX/UI, presentando de forma clara su alcance académico, su interacción principal y los recursos originales del proyecto.
+Convertir la ruta interna de Donuts en una recreación responsive de la página de inicio del proyecto `coderhouse-donuts`, para que la persona experimente el proyecto visual dentro del portafolio sin ser redirigida a la demo externa.
 
 ## Alcance
 
-- Añadir Donut Shop al catálogo central de proyectos y a la landing Front-end + UX/UI.
-- Crear una ficha de proyecto bilingüe en español e inglés.
-- Mostrar una imagen principal, la paleta utilizada y una galería de los cuatro productos originales.
-- Enlazar la demo publicada en GitHub Pages y el repositorio público de GitHub.
-- Integrar el proyecto en la navegación anterior/siguiente de su categoría.
+- Mantener Donuts en la categoría Front-end + UX/UI y conservar la ruta `/proyectos/donut-shop`.
+- Mantener la navegación anterior, siguiente y de regreso a la categoría antes de la experiencia integrada.
+- Recrear el home original con identidad rosada, marca Donuts, bienvenida, historia, recetas, favoritas y cierre.
+- Servir localmente los recursos visuales originales del repositorio `coderhouse-donuts`.
+- Incorporar navegación propia de la landing que desplaza a sus secciones sin cambiar de ruta.
+- Localizar textos, nombres accesibles y alternativas de imagen en español e inglés.
+- Mantener el zoom de `1.3` aplicado únicamente a la miniatura de categoría.
 
 ## Flujos de usuario
 
-1. La persona visita la categoría Front-end + UX/UI y encuentra la tarjeta Donut Shop.
-2. Abre la ficha interna del proyecto desde la imagen, el título o el enlace de la tarjeta.
-3. Revisa el contexto, aporte, herramientas, paleta y productos incluidos.
-4. Puede abrir la demo o el código fuente en una pestaña nueva.
-5. Puede regresar a la categoría o continuar al proyecto anterior/siguiente.
+1. La persona visita Front-end + UX/UI y encuentra la tarjeta Donuts con un encuadre cercano de las donas.
+2. Abre `/proyectos/donut-shop` desde la imagen, el título o el enlace de la tarjeta.
+3. Tras la navegación del portafolio, recorre el home integrado de Donuts sin abrir otro sitio.
+4. Usa la navegación interna para desplazarse a Inicio, Historia, Recetas, Favoritas o Contacto.
+5. Puede volver a la categoría o continuar al proyecto anterior/siguiente.
 
 ## Criterios de aceptación
 
-- Donut Shop aparece en `/proyectos/frontend-uxui` en ambos idiomas.
-- La ruta `/proyectos/donut-shop` muestra contenido completo y no el estado “próximamente”.
-- El título visible del proyecto es `Donut Shop`.
-- La ficha identifica el trabajo como proyecto académico individual y no lo presenta como React.
-- Las tecnologías indicadas son HTML, CSS, JavaScript, jQuery y Bootstrap.
-- Los enlaces a la demo y al repositorio son distinguibles, operables con teclado y se abren de forma segura.
-- Las cuatro imágenes informativas cuentan con alternativas localizadas.
-- La paleta contiene únicamente muestras y códigos de color.
+- La ruta muestra un único `h1` con la identidad Donuts y no la ficha genérica anterior.
+- La landing conserva los colores, el carácter tipográfico y los recursos visuales principales del home original.
+- La portada combina logo, mensaje de bienvenida y composición principal de donas.
+- Historia presenta el texto editorial y la dona rosada del proyecto original.
+- Recetas muestra seis tarjetas con nombre e imagen; no incluye botones sin una acción real.
+- Favoritas muestra cuatro composiciones y sus textos editoriales.
+- La navegación interna usa controles nativos, funciona con teclado y no cambia la ruta.
+- No se muestra un enlace obligatorio a la demo: la experiencia principal ya vive dentro del portafolio.
+- Todas las imágenes informativas tienen alternativas equivalentes en español e inglés; los adornos quedan ocultos para tecnologías de asistencia.
+- La landing mantiene reflujo a 320 CSS px, no provoca desplazamiento horizontal y conserva foco visible.
+- La miniatura de categoría mantiene su zoom sin afectar el hero de la landing.
 - El catálogo y las traducciones superan sus pruebas de consistencia.
 
 ## Requisitos no funcionales
 
 - Mantener React, React Router y la arquitectura de contenido centralizada del portafolio.
-- Conservar el diseño responsive existente desde 320 CSS px y con zoom de 200 %.
-- Mantener un único `h1`, jerarquía de encabezados coherente, foco visible y contraste suficiente.
-- Respetar `prefers-reduced-motion` mediante los estilos compartidos existentes.
+- Implementar estilos nuevos en un parcial Sass cercano a la página y reutilizar los tokens del proyecto.
+- Mantener un único `main` proporcionado por el layout y un único `h1` en la ruta.
+- Conservar títulos de documento localizados y orientación de foco al navegar por SPA.
+- Respetar `prefers-reduced-motion`; la navegación interna no fuerza desplazamiento animado.
+- Evitar dependencias remotas para fuentes e imágenes de la landing.
 - No afectar las fichas ni las rutas de otros proyectos.
 
 ## Exclusiones
 
-- No reescribir ni modernizar el repositorio original de Donut Shop.
-- No integrar el carrito original dentro del portafolio.
-- No modificar el despliegue externo de GitHub Pages.
-- No añadir Donut Shop a Trabajos seleccionados de la página de inicio en este cambio.
+- No integrar las páginas secundarias originales de Galería, Lugares, Recetas o Contacto como rutas nuevas.
+- No reescribir ni desplegar el repositorio original `coderhouse-donuts`.
+- No incorporar el proyecto `carrito-donas-coderhouse`.
+- No añadir Donuts a Trabajos seleccionados del inicio.
+- No cambiar el slug interno existente.
 
-## Validación prevista
+## Validación realizada
 
-- `npm run lint`
-- `npm run build`
-- Pruebas del catálogo de contenido.
-- Revisión visual responsive de la categoría y la ficha.
-- Comprobación de teclado, foco, enlaces externos, encabezados y textos alternativos en el alcance modificado.
+- `npm run test:content`: 21 pruebas superadas.
+- `npm run test:branch-policy`: 4 pruebas superadas.
+- `npm run lint`: sin errores.
+- `npm run build`: compilación de producción completada; Vite mantiene su aviso informativo por el tamaño del paquete JavaScript.
+- Chromium a 320 × 844, 768 × 1024 y 1280 × 900 CSS px: composición responsive verificada sin desplazamiento horizontal.
+- Navegación interna: mantiene `/proyectos/donut-shop`, desplaza a cada sección y entrega el foco a su encabezado visible.
+- Accesibilidad en el alcance modificado: un único `h1`, jerarquía de encabezados, controles nativos, foco visible y alternativas localizadas comprobados en español e inglés mediante el árbol de accesibilidad de Chromium.
+- Limitación: esta validación es proporcional al cambio y no sustituye una auditoría WCAG completa del sitio.

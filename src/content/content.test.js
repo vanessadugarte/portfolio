@@ -86,9 +86,12 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(donutAssets.processImages.length, 4)
   assert.equal(donutAssets.processWideImages.length, 2)
   assert.equal(donutAssets.detailImages.length, 4)
-  assert.deepEqual(donutShopAssets.palette, ['#FDF3F5', '#E70D0D', '#FF66A6', '#FFFFFF'])
-  assert.equal(donutShopAssets.detailImages.length, 4)
-  assert.deepEqual(donutShopAssets.links.map(({ id }) => id), ['demo', 'repository'])
+  assert.equal(donutShopAssets.layout, 'donuts-home')
+  assert.equal(donutShopAssets.logoImage.endsWith('/logo-donuts.png'), true)
+  assert.equal(donutShopAssets.heroImage.endsWith('/donuts-hero.png'), true)
+  assert.equal(donutShopAssets.storyImage.endsWith('/story-donut.png'), true)
+  assert.deepEqual(donutShopAssets.recipes.map(({ id }) => id), ['strawberry', 'cookies', 'manjar', 'chocolate', 'passionFruit', 'marshmallow'])
+  assert.deepEqual(donutShopAssets.favorites.map(({ id }) => id), ['green', 'chocolate', 'strawberry', 'colorful'])
   assert.equal(whoIsPayingAssets.layout, 'who-is-paying')
   assert.deepEqual(whoIsPayingAssets.palette, ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'])
   assert.deepEqual(whoIsPayingAssets.links.map(({ id }) => id), ['repository'])
@@ -180,10 +183,12 @@ test('complete project details expose localized content, media and catalog navig
     assert.equal(donutDetail.imageAlt.details.length, donutAssets.detailImages.length)
 
     const donutShopDetail = text.projects.items['donut-shop'].detail
-    assert.equal(donutShopDetail.number, '01')
-    assert.equal(donutShopDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
-    assert.equal(donutShopDetail.imageAlt.details.length, donutShopAssets.detailImages.length)
-    assert.deepEqual(sortedKeys(donutShopDetail.links.items), donutShopAssets.links.map(({ id }) => id).sort())
+    assert.ok(donutShopDetail.landing.welcome)
+    assert.ok(donutShopDetail.landing.storyDescription)
+    assert.ok(donutShopDetail.landing.closingDescription)
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.nav), ['contact', 'favorites', 'home', 'recipes', 'story'])
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.recipes), donutShopAssets.recipes.map(({ id }) => id).sort())
+    assert.deepEqual(sortedKeys(donutShopDetail.landing.favorites), donutShopAssets.favorites.map(({ id }) => id).sort())
 
     const whoIsPayingDetail = text.projects.items['who-is-paying'].detail
     assert.equal(whoIsPayingDetail.number, '01')
@@ -578,6 +583,7 @@ test('every language defines the complete catalog and its metadata', () => {
   }
 
   assert.doesNotThrow(() => validateProjectCatalog(projects, projectCategories, translations))
+  assert.equal(projects.find(({ id }) => id === 'donut-shop').previewZoom, 1.3)
 })
 
 test('a project can be listed in multiple categories without duplicate records', () => {
