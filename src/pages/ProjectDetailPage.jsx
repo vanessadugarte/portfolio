@@ -5,6 +5,7 @@ import { getProjectCategory, projectCategories } from '../content/projectCategor
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import NotFoundPage from './NotFoundPage.jsx'
+import './MuranaProjectDetail.scss'
 import './ProjectDetailPage.scss'
 
 function formatTemplate(template, replacements) {
@@ -309,6 +310,150 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
               </figure>
             ))}
           </div>
+        </section>
+      </div>
+    </article>
+  )
+}
+
+function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--murana" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="murana-project-summary">
+          <p className="murana-project-kicker">{content.type}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="murana-project-archive" aria-labelledby="murana-archive-title">
+          <p>{detail.archiveEyebrow}</p>
+          <div>
+            <h2 id="murana-archive-title">{detail.archiveTitle}</h2>
+            <p>{detail.archiveDescription}</p>
+          </div>
+        </section>
+
+        <section className="murana-replica-section" aria-labelledby="murana-replica-title">
+          <header className="murana-replica-intro">
+            <h2 id="murana-replica-title">{detail.replicaTitle}</h2>
+            <p>{detail.replicaDescription}</p>
+          </header>
+
+          <div className="murana-replica">
+            <img
+              className="murana-replica-hero"
+              src={assets.heroImage}
+              alt={detail.heroAlt}
+              width={assets.heroDimensions.width}
+              height={assets.heroDimensions.height}
+              fetchPriority="high"
+            />
+
+            <section className="murana-replica-categories" aria-labelledby="murana-categories-title">
+              <h3 id="murana-categories-title">{detail.categoriesTitle}</h3>
+              <ul>
+                {assets.categories.map((category) => (
+                  <li key={category.id}>
+                    <img
+                      src={category.image}
+                      alt={detail.categories[category.id].alt}
+                      width="300"
+                      height="300"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span>{detail.categories[category.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="murana-replica-care" aria-labelledby="murana-care-title">
+              <h3 id="murana-care-title">{detail.carePillarsTitle}</h3>
+              <div className="murana-replica-care-grid">
+                {assets.carePillars.map((pillar) => (
+                  <article key={pillar.id}>
+                    <img
+                      src={pillar.image}
+                      alt={detail.carePillars[pillar.id].alt}
+                      width="945"
+                      height="529"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div>
+                      <h4>{detail.carePillars[pillar.id].title}</h4>
+                      <p>{detail.carePillars[pillar.id].description}</p>
+                      <span>{detail.lineLabel}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="murana-replica-lookbook" aria-labelledby="murana-lookbook-title">
+              <header>
+                <h3 id="murana-lookbook-title">{detail.lookbookTitle}</h3>
+                <p>{detail.lookbookDescription}</p>
+              </header>
+              <div className="murana-replica-lookbook-grid">
+                {assets.lookbook.map((image) => (
+                  <img
+                    className={`murana-lookbook-${image.id}`}
+                    src={image.image}
+                    alt={detail.lookbook[image.id]}
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    decoding="async"
+                    key={image.id}
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="murana-replica-products" aria-labelledby="murana-products-title">
+              <h3 id="murana-products-title">{detail.productsTitle}</h3>
+              <ul>
+                {assets.products.map((product) => (
+                  <li key={product.id}>
+                    <img
+                      src={product.image}
+                      alt={detail.products[product.id].alt}
+                      width="550"
+                      height="550"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span>{detail.products[product.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <footer className="murana-replica-closing">
+              <div>
+                <h3>{detail.closingTitle}</h3>
+                <p>{detail.closingDescription}</p>
+              </div>
+              <span aria-hidden="true">MU<br />RA<br />NA</span>
+            </footer>
+          </div>
+
+          <p className="murana-project-note">{detail.portfolioNote}</p>
         </section>
       </div>
     </article>
@@ -694,6 +839,18 @@ function ProjectDetailPage() {
   if (assets.layout === 'nationalities') {
     return (
       <NationalitiesProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'murana') {
+    return (
+      <MuranaProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}

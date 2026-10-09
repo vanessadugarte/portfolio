@@ -1,5 +1,6 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
+const muranaImage = new URL('../assets/images/projects/uxui/murana/hero.webp', import.meta.url).href
 const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
 const venttiImage = new URL('../assets/images/selected-work/ventti-760x500.jpg', import.meta.url).href
 const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
@@ -17,6 +18,7 @@ const navalInfographicsImage = new URL('../assets/images/projects/other/ship-inf
 export const projects = [
   { id: 'donas-3d', categoryIds: ['three-d'], previewImage: donasImage, selectedOrder: 1 },
   { id: 'jardin-web', categoryIds: ['uxui'], previewImage: jardinWebImage, selectedOrder: 2 },
+  { id: 'murana', categoryIds: ['uxui'], previewImage: muranaImage },
   { id: 'medusas', categoryIds: ['illustration'], previewImage: medusasImage, selectedOrder: 3 },
   { id: 'ventti', categoryIds: ['graphic-design'], previewImage: venttiImage, selectedOrder: 4 },
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },

@@ -1,0 +1,395 @@
+@use '../styles/abstracts' as tokens;
+
+.project-detail--murana {
+  --murana-ink: #171414;
+  --murana-pink: #f3c6c0;
+  --murana-pink-soft: #fff1ee;
+  --murana-wine: #681c44;
+
+  background:
+    radial-gradient(circle at 92% 12%, rgb(243 198 192 / 45%), transparent 28rem),
+    tokens.$color-project-canvas;
+}
+
+.murana-project-summary {
+  display: grid;
+  max-width: 58rem;
+  gap: tokens.$space-4;
+  padding-block: clamp(2.5rem, 8vw, 7rem);
+}
+
+.murana-project-kicker,
+.murana-project-archive > p {
+  margin: 0;
+  color: var(--murana-wine);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.murana-project-summary h1 {
+  max-width: 10ch;
+  margin: 0;
+  color: var(--murana-ink);
+  font-size: clamp(3.75rem, 19vw, 7rem);
+  letter-spacing: -0.08em;
+}
+
+.murana-project-summary h1:focus {
+  outline: none;
+}
+
+.murana-project-summary .project-detail-introduction {
+  max-width: 44rem;
+  margin: 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.6;
+}
+
+.murana-project-summary .project-detail-facts {
+  margin-top: tokens.$space-2;
+}
+
+.murana-project-archive {
+  display: grid;
+  gap: tokens.$space-5;
+  margin-bottom: clamp(3rem, 8vw, 7rem);
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border-radius: 1.5rem;
+  background: var(--murana-ink);
+  color: #fffaf7;
+}
+
+.murana-project-archive > p {
+  color: var(--murana-pink);
+}
+
+.murana-project-archive h2,
+.murana-replica-intro h2 {
+  margin: 0;
+  font-family: tokens.$font-heading;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.murana-project-archive div > p,
+.murana-replica-intro p {
+  max-width: 44rem;
+  margin: tokens.$space-4 0 0;
+  line-height: 1.65;
+}
+
+.murana-replica-section {
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+}
+
+.murana-replica-intro {
+  display: grid;
+  gap: tokens.$space-4;
+  margin-bottom: tokens.$space-6;
+}
+
+.murana-replica-intro p {
+  margin: 0;
+}
+
+.murana-replica {
+  overflow: hidden;
+  border: 1px solid rgb(23 20 20 / 10%);
+  border-radius: clamp(1rem, 3vw, 2rem);
+  background: #fff;
+  box-shadow: 0 1.5rem 4rem rgb(50 24 36 / 12%);
+  color: var(--murana-ink);
+}
+
+.murana-replica img {
+  display: block;
+  max-width: 100%;
+}
+
+.murana-replica-hero {
+  width: 100%;
+  height: auto;
+}
+
+.murana-replica h3,
+.murana-replica h4 {
+  font-family: tokens.$font-heading;
+}
+
+.murana-replica h3 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.murana-replica-categories,
+.murana-replica-care,
+.murana-replica-lookbook,
+.murana-replica-products {
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4rem);
+}
+
+.murana-replica-categories {
+  text-align: center;
+}
+
+.murana-replica-categories ul,
+.murana-replica-products ul {
+  display: grid;
+  margin: clamp(1.5rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.murana-replica-categories ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-5 tokens.$space-3;
+}
+
+.murana-replica-categories li,
+.murana-replica-products li {
+  min-width: 0;
+}
+
+.murana-replica-categories img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.murana-replica-categories span,
+.murana-replica-products span {
+  display: block;
+  margin-top: tokens.$space-3;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.murana-replica-care {
+  background: var(--murana-pink-soft);
+}
+
+.murana-replica-care > h3 {
+  text-align: center;
+}
+
+.murana-replica-care-grid {
+  display: grid;
+  gap: tokens.$space-5;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.murana-replica-care article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 0.75rem 2rem rgb(104 28 68 / 8%);
+}
+
+.murana-replica-care article > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 945 / 529;
+  object-fit: cover;
+}
+
+.murana-replica-care article > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: tokens.$space-5;
+}
+
+.murana-replica-care h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.murana-replica-care p {
+  margin: tokens.$space-3 0 tokens.$space-5;
+  line-height: 1.55;
+}
+
+.murana-replica-care span {
+  margin-top: auto;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: var(--murana-pink);
+  color: #3b1628;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.murana-replica-lookbook > header {
+  display: grid;
+  gap: tokens.$space-3;
+  max-width: 44rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.murana-replica-lookbook > header p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.murana-replica-lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-2;
+}
+
+.murana-replica-lookbook-grid img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.murana-replica-lookbook-grid .murana-lookbook-products,
+.murana-replica-lookbook-grid .murana-lookbook-lotion,
+.murana-replica-lookbook-grid .murana-lookbook-hair-products {
+  aspect-ratio: 1;
+}
+
+.murana-lookbook-facial,
+.murana-lookbook-body,
+.murana-lookbook-hair {
+  grid-row: span 2;
+}
+
+.murana-replica-products {
+  border-top: 1px solid rgb(23 20 20 / 10%);
+}
+
+.murana-replica-products > h3 {
+  text-align: center;
+}
+
+.murana-replica-products ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: tokens.$space-6 tokens.$space-3;
+  text-align: center;
+}
+
+.murana-replica-products img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.murana-replica-closing {
+  display: grid;
+  gap: tokens.$space-5;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 6vw, 5rem);
+  background: var(--murana-pink);
+}
+
+.murana-replica-closing h3 {
+  max-width: 16ch;
+}
+
+.murana-replica-closing p {
+  max-width: 38rem;
+  margin: tokens.$space-3 0 0;
+  line-height: 1.6;
+}
+
+.murana-replica-closing > span {
+  justify-self: start;
+  padding: 1rem 1.35rem;
+  background: var(--murana-ink);
+  color: #fff;
+  font-size: clamp(1.5rem, 7vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  line-height: 0.95;
+}
+
+.murana-project-note {
+  max-width: 52rem;
+  margin: tokens.$space-5 auto 0;
+  color: tokens.$color-text-muted;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .murana-project-archive {
+    grid-template-columns: minmax(9rem, 0.3fr) minmax(0, 1fr);
+  }
+
+  .murana-replica-intro {
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+    align-items: end;
+  }
+
+  .murana-replica-categories ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .murana-replica-care-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .murana-replica-care article > div {
+    padding: tokens.$space-4;
+  }
+
+  .murana-replica-products ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .murana-replica-closing {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .murana-replica-closing > span {
+    justify-self: end;
+  }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .murana-project-summary h1 {
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+
+  .murana-replica-categories ul {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .murana-replica-lookbook-grid {
+    grid-template-areas:
+      'facial facial facial facial products products products body body body body body'
+      'facial facial facial facial lotion lotion lotion body body body body body'
+      'lemon lemon lemon lemon hair hair hair hair hair hair-products hair-products hair-products'
+      'lemon lemon lemon lemon hair hair hair hair hair hair-products hair-products hair-products';
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(4, clamp(8rem, 12vw, 11rem));
+  }
+
+  .murana-replica-lookbook-grid img {
+    grid-row: auto;
+    aspect-ratio: auto;
+  }
+
+  .murana-lookbook-facial { grid-area: facial; }
+  .murana-lookbook-products { grid-area: products; }
+  .murana-lookbook-body { grid-area: body; }
+  .murana-lookbook-lemon { grid-area: lemon; }
+  .murana-lookbook-lotion { grid-area: lotion; }
+  .murana-lookbook-hair { grid-area: hair; }
+  .murana-lookbook-hair-products { grid-area: hair-products; }
+}
