@@ -7,7 +7,7 @@ const gameIconsAsset = (filename) => new URL(`../assets/images/projects/illustra
 const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrations/reindeer/${filename}`, import.meta.url).href
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
-const muranaAsset = (filename) => new URL(`../assets/images/projects/uxui/murana/${filename}`, import.meta.url).href
+const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
 const organicShapeAsset = (filename) => new URL(`../assets/images/shapes/organic/${filename}`, import.meta.url).href
 const arrowShapeAsset = (filename) => new URL(`../assets/images/shapes/flechas/${filename}`, import.meta.url).href
 const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
