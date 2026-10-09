@@ -18,8 +18,7 @@
   padding-block: clamp(2.5rem, 8vw, 7rem);
 }
 
-.murana-project-kicker,
-.murana-project-archive > p {
+.murana-project-kicker {
   margin: 0;
   color: var(--murana-wine);
   font-size: 0.875rem;
@@ -51,21 +50,6 @@
   margin-top: tokens.$space-2;
 }
 
-.murana-project-archive {
-  display: grid;
-  gap: tokens.$space-5;
-  margin-bottom: clamp(3rem, 8vw, 7rem);
-  padding: clamp(1.5rem, 5vw, 3.5rem);
-  border-radius: 1.5rem;
-  background: var(--murana-ink);
-  color: #fffaf7;
-}
-
-.murana-project-archive > p {
-  color: var(--murana-pink);
-}
-
-.murana-project-archive h2,
 .murana-replica-intro h2 {
   margin: 0;
   font-family: tokens.$font-heading;
@@ -75,7 +59,6 @@
   line-height: 1;
 }
 
-.murana-project-archive div > p,
 .murana-replica-intro p {
   max-width: 44rem;
   margin: tokens.$space-4 0 0;
@@ -328,10 +311,6 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
-  .murana-project-archive {
-    grid-template-columns: minmax(9rem, 0.3fr) minmax(0, 1fr);
-  }
-
   .murana-replica-intro {
     grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
     align-items: end;

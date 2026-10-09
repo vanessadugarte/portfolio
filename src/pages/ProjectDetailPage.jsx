@@ -396,14 +396,6 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="murana-project-archive" aria-labelledby="murana-archive-title">
-          <p>{detail.archiveEyebrow}</p>
-          <div>
-            <h2 id="murana-archive-title">{detail.archiveTitle}</h2>
-            <p>{detail.archiveDescription}</p>
-          </div>
-        </section>
-
         <section className="murana-replica-section" aria-labelledby="murana-replica-title">
           <header className="murana-replica-intro">
             <h2 id="murana-replica-title">{detail.replicaTitle}</h2>
