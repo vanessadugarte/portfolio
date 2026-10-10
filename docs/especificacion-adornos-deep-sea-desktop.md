@@ -2,11 +2,11 @@
 
 ## Objetivo
 
-Incorporar los tres recursos `little-fish` y `adorno-fish` como adornos de la obra principal de Deep Sea en escritorio.
+Incorporar `little-fish-2` y `little-fish-3` como adornos de la obra principal de Deep Sea en escritorio.
 
 ## Alcance
 
-- Mostrar los cuatro SVG existentes alrededor de las dos imágenes finales del hero de Deep Sea desde el punto de quiebre de escritorio (64 rem).
+- Mostrar los dos SVG seleccionados sobre los espacios libres del fondo del hero de Deep Sea desde el punto de quiebre de escritorio (64 rem), excluyendo `little-fish-1` y `adorno-fish` para evitar adornos aislados. No se superponen a la ilustración final, la paleta ni las referencias.
 - Conservar la composición actual en tablet y móvil y mantener intactas las demás fichas de proyecto.
 
 ## Flujo de usuario
@@ -17,7 +17,7 @@ Incorporar los tres recursos `little-fish` y `adorno-fish` como adornos de la ob
 
 ## Criterios de aceptación
 
-- Los cuatro SVG aparecen en la composición principal de Deep Sea a partir de 64 rem y no se muestran por debajo de ese ancho.
+- Los dos SVG seleccionados aparecen sobre el fondo libre de la composición de Deep Sea a partir de 64 rem y no se muestran por debajo de ese ancho; `little-fish-1` y `adorno-fish` no aparecen en escritorio.
 - Los adornos no cubren el título, la descripción ni los controles de navegación y no producen desplazamiento horizontal.
 - Los adornos carecen de texto alternativo y quedan ocultos a tecnologías de asistencia; tampoco capturan eventos del puntero.
 - La página conserva las obras finales y el contenido localizable en español e inglés.

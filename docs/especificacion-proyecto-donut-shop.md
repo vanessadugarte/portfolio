@@ -13,6 +13,8 @@ Convertir la ruta interna de Donuts en una recreación responsive de la página 
 - Incorporar navegación propia de la landing que desplaza a sus secciones sin cambiar de ruta.
 - Localizar textos, nombres accesibles y alternativas de imagen en español e inglés.
 - Mantener el zoom de `1.3` aplicado únicamente a la miniatura de categoría.
+- Omitir los indicadores decorativos `01`, `02`, `03` y `04` de Historia, Recetas, Favoritas y Contacto.
+- Reducir en `1rem` la escala tipográfica de los `h2` de las secciones de la landing, en todos sus tamaños responsivos.
 
 ## Flujos de usuario
 
@@ -35,6 +37,8 @@ Convertir la ruta interna de Donuts en una recreación responsive de la página 
 - Todas las imágenes informativas tienen alternativas equivalentes en español e inglés; los adornos quedan ocultos para tecnologías de asistencia.
 - La landing mantiene reflujo a 320 CSS px, no provoca desplazamiento horizontal y conserva foco visible.
 - La miniatura de categoría mantiene su zoom sin afectar el hero de la landing.
+- Las secciones Historia, Recetas, Favoritas y Contacto no muestran numeración decorativa.
+- Los `h2` de las secciones de la landing se muestran `1rem` por debajo de su escala anterior, sin perder su comportamiento responsive.
 - El catálogo y las traducciones superan sus pruebas de consistencia.
 
 ## Requisitos no funcionales

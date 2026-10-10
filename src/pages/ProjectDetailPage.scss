@@ -1376,6 +1376,24 @@
 }
 
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .project-detail--game-icons .project-detail-details-section {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail--game-icons .project-detail-details-section :is(
+    .project-detail-section-intro,
+    .project-detail-detail-image[src*="icons-detail-2"],
+    .project-detail-detail-image[src*="estrella-candado"],
+    .project-detail-detail-image[src*="icons-detail-4"]
+  ) {
+    grid-column: 1 / -1;
+  }
+
+  .project-detail--game-icons .project-detail-details-section .project-detail-detail-image[src*="coins-"] {
+    justify-self: center;
+    width: 80%;
+  }
+
   .project-detail--muchokids-nationalities .project-detail-navigation,
   .project-detail--muchomix-biomas .project-detail-navigation,
   .project-detail--muchomix-game .project-detail-navigation,
@@ -1756,14 +1774,14 @@
 
   .project-detail--deep-sea .project-detail-hero-ornament--2 {
     top: 37%;
-    right: -3%;
+    right: -10%;
     width: 9%;
     transform: rotate(12deg);
   }
 
   .project-detail--deep-sea .project-detail-hero-ornament--3 {
     bottom: 13%;
-    left: 57%;
+    left: -10%;
     width: 9%;
     transform: rotate(-10deg);
   }
@@ -1896,7 +1914,13 @@
 
   .project-detail--game-icons .project-detail-final-artworks {
     grid-template-columns: minmax(0, 1.34fr) minmax(0, 1fr);
+    width: min(94%, 75rem);
     align-items: center;
+    margin-inline: auto;
+  }
+
+  .project-detail--game-icons .project-detail-hero {
+    row-gap: tokens.$space-5;
   }
 
   .project-detail-summary h1 {
@@ -2111,13 +2135,18 @@
   }
 
   .project-detail--game-icons .project-detail-details-section {
-    grid-template-columns: repeat(9, minmax(0, 1fr));
+    grid-template-columns: 1.45fr repeat(6, 0.75fr) repeat(2, 0.9fr);
     align-items: center;
+  }
+
+  .project-detail--game-icons .project-detail-details-section .project-detail-detail-image[src*="icons-detail-2"] {
+    justify-self: center;
+    width: 100%;
   }
 
   .project-detail--game-icons .project-detail-details-section .project-detail-detail-image[src*="coins-"] {
     justify-self: center;
-    width: 55%;
+    width: 66%;
   }
 
   .project-detail--illustration-treatment .project-detail-details-section .project-detail-section-intro {
@@ -2155,8 +2184,8 @@
   }
 
   .project-detail--deep-sea .project-detail-hero {
-    grid-template-columns: minmax(18rem, 0.85fr) minmax(30rem, 1.15fr);
-    column-gap: clamp(2rem, 3vw, 4rem);
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 34rem) max-content minmax(0, 1fr);
+    column-gap: 0;
     align-items: start;
   }
 
@@ -2165,7 +2194,7 @@
   }
 
   .project-detail--deep-sea .project-detail-final-artworks {
-    grid-column: 1;
+    grid-column: 2;
     grid-template-columns: minmax(0, 1fr);
     max-width: 34rem;
   }
@@ -2180,13 +2209,19 @@
   }
 
   .project-detail--deep-sea .project-detail-hero-palette {
-    grid-column: 2;
+    grid-column: 3;
     align-self: center;
+    margin-inline-start: clamp(2rem, 5vw, 5rem);
     justify-self: center;
   }
 
+  .project-detail--deep-sea .project-detail-final-artworks > :is(.project-detail-hero-ornament--1, .project-detail-hero-ornament--4) {
+    display: none;
+  }
+
   .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette ul {
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
     gap: clamp(0.5rem, 1vw, 1rem);
   }
 

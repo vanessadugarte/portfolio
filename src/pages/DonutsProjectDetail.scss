@@ -205,7 +205,7 @@
 .donuts-landing-closing h2 {
   margin: 0;
   color: var(--donuts-red);
-  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-size: clamp(1.25rem, calc(7vw - 1rem), 3.5rem);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 0.98;

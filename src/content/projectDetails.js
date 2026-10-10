@@ -196,7 +196,7 @@ export const projectDetails = {
         organicShapeAsset('organic-shape-03.svg'),
       ],
     },
-    palette: ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#593D58', '#C098C2'],
+    palette: ['#041A3D', '#0A2836', '#23384D', '#578288', '#94CCD1', '#52E5E8', '#593D58', '#C098C2'],
     palettePlacement: 'hero',
     processImages: [
       deepSeaAsset('sketch-0-deep-sea.jpg'),
