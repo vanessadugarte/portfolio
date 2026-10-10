@@ -1,5 +1,8 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
+const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/murana/murana-thumbnail.jpg', import.meta.url).href
+const donutShopImage = new URL('../assets/images/projects/front-end-ux/donut-shop/donuts-hero.png', import.meta.url).href
+const whoIsPayingImage = new URL('../assets/images/projects/front-end-ux/who-is-paying/whos-paying.svg', import.meta.url).href
 const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
 const venttiImage = new URL('../assets/images/selected-work/ventti-760x500.jpg', import.meta.url).href
 const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
@@ -9,6 +12,7 @@ const snapchatFramesImage = new URL('../assets/images/projects/illustrations/sna
 const reindeerImage = new URL('../assets/images/projects/illustrations/reindeer/reindeer-760x500.jpg', import.meta.url).href
 const muchokidsNationalitiesImage = new URL('../assets/images/projects/illustrations/muchokids-nationalities/muchokids-nationalities-760x500.jpg', import.meta.url).href
 const forestImage = new URL('../assets/images/projects/illustrations/forest/forest-760x500.jpg', import.meta.url).href
+const muchomixBiomesImage = new URL('../assets/images/projects/illustrations/biomas/biomas-thumbnail.jpg', import.meta.url).href
 const muchomixGameImage = new URL('../assets/images/projects/illustrations/muchomix-game/muchomix-game.jpg', import.meta.url).href
 const angelsSighsImage = new URL('../assets/images/projects/illustrations/candles/angels-sighs-thumbnail.png', import.meta.url).href
 const navalInfographicsImage = new URL('../assets/images/projects/other/ship-infographic-thumbnail.jpg', import.meta.url).href
@@ -17,6 +21,22 @@ const navalInfographicsImage = new URL('../assets/images/projects/other/ship-inf
 export const projects = [
   { id: 'donas-3d', categoryIds: ['three-d'], previewImage: donasImage, selectedOrder: 1 },
   { id: 'jardin-web', categoryIds: ['uxui'], previewImage: jardinWebImage, selectedOrder: 2 },
+  { id: 'murana', categoryIds: ['uxui'], previewImage: muranaThumbnailImage },
+  {
+    id: 'donut-shop',
+    categoryIds: ['uxui'],
+    previewImage: donutShopImage,
+    previewFit: 'contain',
+    previewBackground: '#F7BFC9',
+    previewZoom: 1.3,
+  },
+  {
+    id: 'who-is-paying',
+    categoryIds: ['uxui'],
+    previewImage: whoIsPayingImage,
+    previewFit: 'contain',
+    previewBackground: '#D9CDD7',
+  },
   { id: 'medusas', categoryIds: ['illustration'], previewImage: medusasImage, selectedOrder: 3 },
   { id: 'ventti', categoryIds: ['graphic-design'], previewImage: venttiImage, selectedOrder: 4 },
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
@@ -26,6 +46,7 @@ export const projects = [
   { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
   { id: 'forest', categoryIds: ['illustration'], previewImage: forestImage },
+  { id: 'muchomix-biomas', categoryIds: ['illustration'], previewImage: muchomixBiomesImage },
   { id: 'muchomix-game', categoryIds: ['illustration'], previewImage: muchomixGameImage },
   { id: 'angels-sighs', categoryIds: ['illustration'], previewImage: angelsSighsImage },
   { id: 'naval-infographics', categoryIds: ['animations'], previewImage: navalInfographicsImage },
@@ -114,6 +135,9 @@ export function validateProjectCatalog(catalog, categories, translationsByLangua
     }
     if (!project.previewImage) {
       throw new Error(`Missing preview image for project ${project.id}`)
+    }
+    if (project.previewZoom != null && (!Number.isFinite(project.previewZoom) || project.previewZoom <= 0)) {
+      throw new Error(`Invalid preview zoom for project ${project.id}`)
     }
 
     if (project.selectedOrder != null) {
