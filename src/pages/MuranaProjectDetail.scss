@@ -185,18 +185,6 @@
   font-weight: 800;
 }
 
-.murana-replica-lookbook > header {
-  display: grid;
-  gap: tokens.$space-3;
-  max-width: 44rem;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-}
-
-.murana-replica-lookbook > header p {
-  margin: 0;
-  line-height: 1.6;
-}
-
 .murana-replica-lookbook-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

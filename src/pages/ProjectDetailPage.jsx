@@ -449,11 +449,7 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
               </div>
             </section>
 
-            <section className="murana-replica-lookbook" aria-labelledby="murana-lookbook-title">
-              <header>
-                <h3 id="murana-lookbook-title">{detail.lookbookTitle}</h3>
-                <p>{detail.lookbookDescription}</p>
-              </header>
+            <section className="murana-replica-lookbook" aria-label={content.title}>
               <div className="murana-replica-lookbook-grid">
                 {assets.lookbook.map((image) => (
                   <img
