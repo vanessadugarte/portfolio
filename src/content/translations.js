@@ -234,8 +234,6 @@ export const translations = {
               },
             },
             lineLabel: 'Línea de producto',
-            lookbookTitle: 'El universo visual de Murana',
-            lookbookDescription: 'Una composición modular combina escenas de uso, bodegones de producto y el código cromático de cada línea.',
             lookbook: {
               facial: 'Mujer sonriendo y mostrando una crema facial Murana.',
               products: 'Selección de productos Murana dispuesta sobre una superficie de madera.',
@@ -1111,8 +1109,6 @@ export const translations = {
               },
             },
             lineLabel: 'Product line',
-            lookbookTitle: 'Murana’s visual universe',
-            lookbookDescription: 'A modular composition combines usage scenes, product still lifes and the color language of each line.',
             lookbook: {
               facial: 'Smiling woman showing a Murana facial cream.',
               products: 'A selection of Murana products arranged on a wooden surface.',
