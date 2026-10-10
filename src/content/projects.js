@@ -1,6 +1,6 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
-const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/murana/facial-care.webp', import.meta.url).href
+const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/murana/murana-thumbnail.jpg', import.meta.url).href
 const donutShopImage = new URL('../assets/images/projects/front-end-ux/donut-shop/donuts-hero.png', import.meta.url).href
 const whoIsPayingImage = new URL('../assets/images/projects/front-end-ux/who-is-paying/whos-paying.svg', import.meta.url).href
 const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
