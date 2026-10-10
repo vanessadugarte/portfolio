@@ -391,18 +391,12 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
         />
 
         <header className="murana-project-summary">
-          <p className="murana-project-kicker">{content.type}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="project-detail-introduction">{detail.introduction}</p>
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="murana-replica-section" aria-labelledby="murana-replica-title">
-          <header className="murana-replica-intro">
-            <h2 id="murana-replica-title">{detail.replicaTitle}</h2>
-            <p>{detail.replicaDescription}</p>
-          </header>
-
+        <section className="murana-replica-section" aria-label={content.title}>
           <div className="murana-replica">
             <img
               className="murana-replica-hero"
@@ -496,10 +490,6 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
             </section>
 
             <footer className="murana-replica-closing">
-              <div>
-                <h3>{detail.closingTitle}</h3>
-                <p>{detail.closingDescription}</p>
-              </div>
               <span aria-hidden="true">MU<br />RA<br />NA</span>
             </footer>
           </div>
@@ -581,7 +571,6 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
           <section className="donuts-landing-story" aria-labelledby="donuts-story-title">
             <span className="donuts-landing-blob donuts-landing-blob--story" aria-hidden="true" />
             <div>
-              <p className="donuts-landing-eyebrow" aria-hidden="true">01</p>
               <h2 id="donuts-story-title" tabIndex={-1}>{landing.storyTitle}</h2>
               <p>{landing.storyDescription}</p>
             </div>
@@ -597,7 +586,6 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
 
           <section className="donuts-landing-recipes" aria-labelledby="donuts-recipes-title">
             <header>
-              <p className="donuts-landing-eyebrow" aria-hidden="true">02</p>
               <h2 id="donuts-recipes-title" tabIndex={-1}>{landing.recipesTitle}</h2>
             </header>
             <ul>
@@ -623,7 +611,6 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
 
           <section className="donuts-landing-favorites" aria-labelledby="donuts-favorites-title">
             <header>
-              <p className="donuts-landing-eyebrow" aria-hidden="true">03</p>
               <h2 id="donuts-favorites-title" tabIndex={-1}>{landing.favoritesTitle}</h2>
             </header>
             <div className="donuts-landing-favorites-grid">
@@ -645,7 +632,6 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
 
           <footer className="donuts-landing-closing" aria-labelledby="donuts-contact-title">
             <div>
-              <p className="donuts-landing-eyebrow" aria-hidden="true">04</p>
               <h2 id="donuts-contact-title" tabIndex={-1}>{landing.closingTitle}</h2>
               <p>{landing.closingDescription}</p>
             </div>
