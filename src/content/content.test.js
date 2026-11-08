@@ -566,9 +566,9 @@ test('naval infographics expose four illustrated series with ordered pages in bo
   const detail = getProjectDetails(project.id)
   const expectedSeries = [
     ['submarinos', 14, 9],
-    ['portaaviones', 12, 11],
+    ['portaaviones', 12, 9],
     ['cruceros', 10, 7],
-    ['primeras-embarcaciones', 14, 9],
+    ['primeras-embarcaciones', 14, 11],
   ]
 
   assert.deepEqual(project.categoryIds, ['animations'])

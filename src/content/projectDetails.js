@@ -66,9 +66,9 @@ export const projectDetails = {
     layout: 'naval-infographics',
     series: [
       { id: 'submarinos', coverPage: 9, pages: navalPages(14, 'submarinosx3', submarineAsset) },
-      { id: 'portaaviones', coverPage: 11, pages: navalPages(12, 'portaaviones', carrierAsset) },
+      { id: 'portaaviones', coverPage: 9, pages: navalPages(12, 'portaaviones', carrierAsset) },
       { id: 'cruceros', coverPage: 7, pages: navalPages(10, 'cruceros', cruiseAsset) },
-      { id: 'primeras-embarcaciones', coverPage: 9, pages: navalPages(14, 'primeras-embarcaciones', earlyVesselAsset) },
+      { id: 'primeras-embarcaciones', coverPage: 11, pages: navalPages(14, 'primeras-embarcaciones', earlyVesselAsset) },
     ],
   },
   'who-is-paying': {
