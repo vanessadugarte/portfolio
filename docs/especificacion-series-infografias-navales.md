@@ -9,7 +9,7 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - La ficha «Infografías navales» muestra cuatro portadas: Submarinos, Portaaviones, Cruceros y Primeras embarcaciones.
 - Cada portada enlaza a una ruta propia dentro del proyecto.
 - Cada ruta muestra el nombre de la serie, un enlace de regreso a la ficha y todas sus páginas seguidas, en orden numérico, sin títulos ni enlaces individuales entre imágenes.
-- Las portadas usan ilustraciones ya presentes en las series: páginas 9, 11, 7 y 9, respectivamente.
+- Las portadas usan ilustraciones ya presentes en las series: páginas 9, 9, 7 y 11, respectivamente.
 
 ## Criterios de aceptación
 
