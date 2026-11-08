@@ -561,16 +561,27 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
   assert.equal(getProjectNeighbors('muchomix-game').next.id, 'angels-sighs')
 })
 
-test('naval infographics show each distinct submarine page in both languages', () => {
+test('naval infographics expose four illustrated series with ordered pages in both languages', () => {
   const project = getProjectBySlug('naval-infographics')
   const detail = getProjectDetails(project.id)
-  const expectedPageIds = Array.from({ length: 14 }, (_, index) => `page-${index + 1}`)
+  const expectedSeries = [
+    ['submarinos', 14, 9],
+    ['portaaviones', 12, 11],
+    ['cruceros', 10, 7],
+    ['primeras-embarcaciones', 14, 9],
+  ]
 
   assert.deepEqual(project.categoryIds, ['animations'])
   assert.equal(project.selectedOrder, undefined)
   assert.equal(detail.layout, 'naval-infographics')
-  assert.deepEqual(detail.pages.map(({ id }) => id), expectedPageIds)
-  assert.ok(detail.pages.every(({ image, width, height }) => image.endsWith('.webp') && width === 2376 && height === 1836))
+  assert.deepEqual(detail.series.map(({ id, pages, coverPage }) => [id, pages.length, coverPage]), expectedSeries)
+
+  for (const series of detail.series) {
+    const expectedPageIds = Array.from({ length: series.pages.length }, (_, index) => `page-${index + 1}`)
+    assert.deepEqual(series.pages.map(({ id }) => id), expectedPageIds)
+    assert.ok(series.pages.every(({ image, width, height }) => image.endsWith('.webp') && width === 2376 && height === 1836))
+    assert.ok(series.pages[series.coverPage - 1].image)
+  }
 
   for (const text of Object.values(translations)) {
     const content = text.projects.items[project.id]
@@ -581,8 +592,13 @@ test('naval infographics show each distinct submarine page in both languages', (
     assert.ok(content.detail.introduction)
     assert.ok(content.detail.galleryTitle)
     assert.equal(content.detail.openPageText, undefined)
-    assert.deepEqual(sortedKeys(content.detail.pages), [...expectedPageIds].sort())
-    assert.ok(Object.values(content.detail.pages).every(({ alt }) => alt))
+    for (const series of detail.series) {
+      const seriesText = content.detail.series[series.id]
+      const pageText = seriesText.pages ?? content.detail.pages
+      assert.ok(seriesText.title)
+      assert.deepEqual(sortedKeys(pageText), series.pages.map(({ id }) => id).sort())
+      assert.ok(Object.values(pageText).every(({ alt }) => alt))
+    }
   }
 })
 

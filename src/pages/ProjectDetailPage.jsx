@@ -200,26 +200,28 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
         </header>
 
         <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
-          <div className="naval-infographics-gallery-intro">
-            <h2 id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
-            <p>{detail.galleryDescription}</p>
-          </div>
+          <h2 className="naval-infographics-gallery-title" id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
+          <ul className="naval-infographics-covers">
+            {assets.series.map((series, index) => {
+              const cover = series.pages[series.coverPage - 1]
 
-          <ol className="naval-infographics-pages">
-            {assets.pages.map((page, index) => (
-              <li className="naval-infographics-page" key={page.id}>
-                <img
-                  src={page.image}
-                  alt={detail.pages[page.id].alt}
-                  width={page.width}
-                  height={page.height}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : undefined}
-                  decoding="async"
-                />
-              </li>
-            ))}
-          </ol>
+              return (
+                <li key={series.id}>
+                  <Link className="naval-infographics-cover" to={paths.navalSeries(series.id)}>
+                    <img
+                      src={cover.image}
+                      alt=""
+                      width={cover.width}
+                      height={cover.height}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                    <span>{detail.series[series.id].title}</span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </section>
       </div>
     </article>

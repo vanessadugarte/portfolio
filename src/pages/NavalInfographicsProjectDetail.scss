@@ -30,11 +30,7 @@
   line-height: 1.6;
 }
 
-.naval-infographics-gallery-intro {
-  margin-bottom: tokens.$space-6;
-}
-
-.naval-infographics-gallery-intro h2 {
+.naval-infographics-gallery-title {
   margin: 0;
   color: tokens.$color-hero;
   font-family: tokens.$font-display;
@@ -42,11 +38,62 @@
   line-height: 1.1;
 }
 
-.naval-infographics-gallery-intro p {
-  max-width: tokens.$width-project-detail-description-desktop;
-  margin: tokens.$space-4 0 0;
+.naval-infographics-covers {
+  display: grid;
+  gap: tokens.$space-6;
+  margin: tokens.$space-6 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.naval-infographics-cover {
+  display: block;
+  color: tokens.$color-hero;
+  font-family: tokens.$font-display;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-decoration: none;
+}
+
+.naval-infographics-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2376 / 1836;
+  object-fit: cover;
+}
+
+.naval-infographics-cover span {
+  display: block;
+  padding-block: tokens.$space-3;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+}
+
+.naval-infographics-cover:hover span,
+.naval-infographics-cover:focus-visible span {
+  text-decoration-color: currentColor;
+}
+
+.naval-infographics-cover:focus-visible,
+.naval-infographics-back:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-hero;
+  outline-offset: tokens.$focus-ring-offset;
+}
+
+.naval-infographics-back {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: tokens.$space-2;
+  color: tokens.$color-hero;
   font-size: tokens.$font-size-body;
-  line-height: 1.6;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.naval-infographics-summary--series {
+  padding-block: tokens.$space-6;
 }
 
 .naval-infographics-pages {
@@ -68,8 +115,16 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .naval-infographics-covers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .naval-infographics-summary {
     padding-block: 4rem 5rem;
+  }
+
+  .naval-infographics-summary--series {
+    padding-block: tokens.$space-6 4rem;
   }
 
   .naval-infographics-summary .project-detail-title {
