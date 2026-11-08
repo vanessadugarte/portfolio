@@ -10,6 +10,7 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - La ficha presenta año 2016, técnica Infografía y herramienta Illustrator junto a su descripción.
 - Cada portada enlaza a una ruta propia dentro del proyecto.
 - Cada ruta muestra el nombre de la serie, un enlace de regreso a la ficha y todas sus páginas seguidas, en orden numérico, sin títulos ni enlaces individuales entre imágenes.
+- Las páginas WebP de cada serie se separan verticalmente por un espacio pequeño de `1rem`.
 - Las portadas usan ilustraciones ya presentes en las series: páginas 9, 9, 7 y 11, respectivamente.
 
 ## Criterios de aceptación
@@ -17,6 +18,7 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - Las cuatro portadas cargan y abren su serie mediante teclado y puntero.
 - Los tres datos técnicos aparecen en español e inglés con la misma estructura semántica que las otras fichas de proyecto.
 - Se muestran 14, 12, 10 y 14 páginas, respectivamente, sin omisiones ni repeticiones.
+- Cada par de páginas consecutivas tiene una separación vertical uniforme, sin agregar texto entre ellas.
 - Las rutas directas funcionan en español e inglés; una serie desconocida muestra la página 404.
 - El título del documento y el foco se actualizan al navegar.
 - Las imágenes informativas tienen texto alternativo útil; las imágenes de portada son decorativas dentro de enlaces con nombre visible.
@@ -42,3 +44,4 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - Límite: la revisión visual y de teclado se hizo en el navegador integrado; no se probó con lector de pantalla.
 - Actualización de la ficha técnica: `npm run test:content`, `npm run lint` y `npm run build` aprobados; en el navegador integrado se comprobó la lista de definición, la fuente Inter y la ausencia de desbordamiento a 320 y 1280 px.
 - Homologación tipográfica: `npm run lint` y `npm run build` aprobados; el navegador integrado confirmó Google Sans en «Publicaciones», Inter en los nombres de las portadas y ausencia de desbordamiento a 320 y 1280 px.
+- Separación de páginas: `npm run lint` y `npm run build` aprobados; el navegador integrado midió `16px` entre dos WebP consecutivos, sin desbordamiento a 320 y 1280 px.
