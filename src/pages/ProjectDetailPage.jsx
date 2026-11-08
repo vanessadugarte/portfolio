@@ -212,23 +212,15 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
               return (
                 <li className="naval-infographics-page" key={page.id}>
                   <figure>
-                    <a
-                      className="naval-infographics-page-link"
-                      href={page.image}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={page.image}
-                        alt={pageContent.alt}
-                        width={page.width}
-                        height={page.height}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        fetchPriority={index === 0 ? 'high' : undefined}
-                        decoding="async"
-                      />
-                      <span className="naval-infographics-page-action">{detail.openPageText}<span aria-hidden="true"> ↗</span></span>
-                    </a>
+                    <img
+                      src={page.image}
+                      alt={pageContent.alt}
+                      width={page.width}
+                      height={page.height}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      fetchPriority={index === 0 ? 'high' : undefined}
+                      decoding="async"
+                    />
                     <figcaption>
                       <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                       {pageContent.title}
