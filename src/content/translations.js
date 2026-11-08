@@ -763,6 +763,11 @@ export const translations = {
           previewAlt: 'Infografía azul con vistas lateral y superior de un submarino, cifras y etiquetas de sus componentes.',
           detail: {
             introduction: 'Cuatro publicaciones ilustradas para explorar la historia y la diversidad de las embarcaciones.',
+            facts: [
+              { label: 'Año', value: '2016' },
+              { label: 'Técnica', value: 'Infografía' },
+              { label: 'Herramientas', value: 'Illustrator' },
+            ],
             galleryTitle: 'Publicaciones',
             backToCollection: 'Volver a Infografías navales',
             series: navalSeriesText.es,
@@ -1688,6 +1693,11 @@ export const translations = {
           previewAlt: 'Blue infographic with side and top views of a submarine, figures and labeled components.',
           detail: {
             introduction: 'Four illustrated publications exploring the history and diversity of vessels.',
+            facts: [
+              { label: 'Year', value: '2016' },
+              { label: 'Technique', value: 'Infographic' },
+              { label: 'Tools', value: 'Illustrator' },
+            ],
             galleryTitle: 'Publications',
             backToCollection: 'Back to Naval Infographics',
             series: navalSeriesText.en,
