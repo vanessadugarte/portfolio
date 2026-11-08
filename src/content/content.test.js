@@ -561,10 +561,10 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
   assert.equal(getProjectNeighbors('muchomix-game').next.id, 'angels-sighs')
 })
 
-test('naval infographics show the first five submarine pages in both languages', () => {
+test('naval infographics show each distinct submarine page in both languages', () => {
   const project = getProjectBySlug('naval-infographics')
   const detail = getProjectDetails(project.id)
-  const expectedPageIds = ['page-1', 'page-2', 'page-3', 'page-4', 'page-5']
+  const expectedPageIds = Array.from({ length: 14 }, (_, index) => `page-${index + 1}`)
 
   assert.deepEqual(project.categoryIds, ['animations'])
   assert.equal(project.selectedOrder, undefined)
@@ -580,8 +580,8 @@ test('naval infographics show the first five submarine pages in both languages',
     assert.ok(content.previewAlt)
     assert.ok(content.detail.introduction)
     assert.ok(content.detail.galleryTitle)
-    assert.ok(content.detail.openPageText)
-    assert.deepEqual(sortedKeys(content.detail.pages), expectedPageIds)
+    assert.equal(content.detail.openPageText, undefined)
+    assert.deepEqual(sortedKeys(content.detail.pages), [...expectedPageIds].sort())
     assert.ok(Object.values(content.detail.pages).every(({ title, alt }) => title && alt))
   }
 })

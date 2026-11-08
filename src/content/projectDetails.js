@@ -55,7 +55,7 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 export const projectDetails = {
   'naval-infographics': {
     layout: 'naval-infographics',
-    pages: [1, 2, 3, 4, 5].map((number) => ({
+    pages: Array.from({ length: 14 }, (_, index) => index + 1).map((number) => ({
       id: `page-${number}`,
       image: submarineAsset(`submarinosx3-${number}.webp`),
       width: 2376,
