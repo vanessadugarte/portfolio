@@ -759,6 +759,34 @@ export const translations = {
           title: 'Infografías navales',
           description: 'Ilustraciones informativas de un submarino y sus componentes.',
           previewAlt: 'Infografía azul con vistas lateral y superior de un submarino, cifras y etiquetas de sus componentes.',
+          detail: {
+            introduction: 'Una mirada a las primeras páginas de Submarinos, una serie editorial de infografías navales.',
+            galleryTitle: 'Submarinos',
+            galleryDescription: 'Patrón visual, portada, índice y prólogo de la publicación.',
+            openPageText: 'Ver a tamaño completo (nueva pestaña)',
+            pages: {
+              'page-1': {
+                title: 'Patrón visual',
+                alt: 'Patrón azul con ilustraciones repetidas de embarcaciones vistas de frente.',
+              },
+              'page-2': {
+                title: 'Portada',
+                alt: 'Portada azul de Infografías navales con una embarcación frontal y los nombres de Gina Amesty y Vanessa Dugarte.',
+              },
+              'page-3': {
+                title: 'Índice',
+                alt: 'Índice azul que enumera los submarinos Scorpene, Virginia, Typhoon y S-80 junto a sus páginas.',
+              },
+              'page-4': {
+                title: 'Título del prólogo',
+                alt: 'Página azul con el título Prólogo en blanco y una franja de embarcaciones ilustradas.',
+              },
+              'page-5': {
+                title: 'Texto del prólogo',
+                alt: 'Prólogo en español sobre la historia y evolución de los submarinos, sobre fondo azul con ilustraciones en la parte inferior.',
+              },
+            },
+          },
         },
       },
     },
@@ -1634,6 +1662,34 @@ export const translations = {
           title: 'Naval Infographics',
           description: 'Informative illustrations of a submarine and its components.',
           previewAlt: 'Blue infographic with side and top views of a submarine, figures and labeled components.',
+          detail: {
+            introduction: 'A look at the opening pages of Submarines, an editorial series of naval infographics.',
+            galleryTitle: 'Submarines',
+            galleryDescription: 'Visual pattern, cover, contents and foreword of the publication.',
+            openPageText: 'View at full size (new tab)',
+            pages: {
+              'page-1': {
+                title: 'Visual pattern',
+                alt: 'Blue pattern with repeated illustrations of vessels seen from the front.',
+              },
+              'page-2': {
+                title: 'Cover',
+                alt: 'Blue Naval Infographics cover with a front-facing vessel and the names Gina Amesty and Vanessa Dugarte.',
+              },
+              'page-3': {
+                title: 'Contents',
+                alt: 'Blue contents page listing the Scorpene, Virginia, Typhoon and S-80 submarines with their page numbers.',
+              },
+              'page-4': {
+                title: 'Foreword title',
+                alt: 'Blue page with the Spanish title Prólogo in white and a strip of illustrated vessels.',
+              },
+              'page-5': {
+                title: 'Foreword text',
+                alt: 'Spanish foreword about the history and development of submarines on a blue background, with illustrations along the bottom.',
+              },
+            },
+          },
         },
       },
     },

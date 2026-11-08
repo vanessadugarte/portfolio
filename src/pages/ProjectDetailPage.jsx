@@ -8,6 +8,7 @@ import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import './DonutsProjectDetail.scss'
 import './MuranaProjectDetail.scss'
+import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
 
 function formatTemplate(template, replacements) {
@@ -174,6 +175,72 @@ function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
       <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
       <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
     </div>
+  )
+}
+
+function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--naval-infographics" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="naval-infographics-summary">
+          <p className="naval-infographics-type">{content.type}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="naval-infographics-introduction">{detail.introduction}</p>
+        </header>
+
+        <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
+          <div className="naval-infographics-gallery-intro">
+            <h2 id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
+            <p>{detail.galleryDescription}</p>
+          </div>
+
+          <ol className="naval-infographics-pages">
+            {assets.pages.map((page, index) => {
+              const pageContent = detail.pages[page.id]
+
+              return (
+                <li className="naval-infographics-page" key={page.id}>
+                  <figure>
+                    <a
+                      className="naval-infographics-page-link"
+                      href={page.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={page.image}
+                        alt={pageContent.alt}
+                        width={page.width}
+                        height={page.height}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        fetchPriority={index === 0 ? 'high' : undefined}
+                        decoding="async"
+                      />
+                      <span className="naval-infographics-page-action">{detail.openPageText}<span aria-hidden="true"> ↗</span></span>
+                    </a>
+                    <figcaption>
+                      <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                      {pageContent.title}
+                    </figcaption>
+                  </figure>
+                </li>
+              )
+            })}
+          </ol>
+        </section>
+      </div>
+    </article>
   )
 }
 
@@ -1303,6 +1370,18 @@ function ProjectDetailPage() {
   if (!assets || !content.detail) {
     return (
       <ProjectDetailPlaceholder
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'naval-infographics') {
+    return (
+      <NavalInfographicsProjectDetail
+        assets={assets}
         content={content}
         navigation={navigation}
         neighbors={neighbors}
