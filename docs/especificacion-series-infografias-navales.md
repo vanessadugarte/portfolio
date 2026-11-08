@@ -26,6 +26,7 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 
 - Mantener React Router, Sass, carga diferida de páginas posteriores y los formatos WebP entregados.
 - El texto de cuerpo de la ficha conserva la fuente base Inter del portafolio.
+- «Publicaciones» usa la fuente de encabezados del portafolio y los nombres de las portadas usan la fuente de cuerpo; no se utiliza Georgia en esta ficha.
 - Conservar WCAG 2.2 A y AA en las rutas y controles modificados.
 
 ## Exclusiones
@@ -40,3 +41,4 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - Reflujo: en viewport de 320 px no hubo desbordamiento horizontal; en escritorio una página de 504 px de alto cupo en un viewport de 720 px.
 - Límite: la revisión visual y de teclado se hizo en el navegador integrado; no se probó con lector de pantalla.
 - Actualización de la ficha técnica: `npm run test:content`, `npm run lint` y `npm run build` aprobados; en el navegador integrado se comprobó la lista de definición, la fuente Inter y la ausencia de desbordamiento a 320 y 1280 px.
+- Homologación tipográfica: `npm run lint` y `npm run build` aprobados; el navegador integrado confirmó Google Sans en «Publicaciones», Inter en los nombres de las portadas y ausencia de desbordamiento a 320 y 1280 px.
