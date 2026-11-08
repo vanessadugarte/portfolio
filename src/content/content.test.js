@@ -561,12 +561,16 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
   assert.equal(getProjectNeighbors('muchomix-game').next.id, 'angels-sighs')
 })
 
-test('naval infographics appear only in Other with localized pending detail', () => {
+test('naval infographics show the first five submarine pages in both languages', () => {
   const project = getProjectBySlug('naval-infographics')
+  const detail = getProjectDetails(project.id)
+  const expectedPageIds = ['page-1', 'page-2', 'page-3', 'page-4', 'page-5']
 
   assert.deepEqual(project.categoryIds, ['animations'])
   assert.equal(project.selectedOrder, undefined)
-  assert.equal(getProjectDetails(project.id), undefined)
+  assert.equal(detail.layout, 'naval-infographics')
+  assert.deepEqual(detail.pages.map(({ id }) => id), expectedPageIds)
+  assert.ok(detail.pages.every(({ image, width, height }) => image.endsWith('.webp') && width === 2376 && height === 1836))
 
   for (const text of Object.values(translations)) {
     const content = text.projects.items[project.id]
@@ -574,7 +578,11 @@ test('naval infographics appear only in Other with localized pending detail', ()
     assert.ok(content.title)
     assert.ok(content.description)
     assert.ok(content.previewAlt)
-    assert.equal(content.detail, undefined)
+    assert.ok(content.detail.introduction)
+    assert.ok(content.detail.galleryTitle)
+    assert.ok(content.detail.openPageText)
+    assert.deepEqual(sortedKeys(content.detail.pages), expectedPageIds)
+    assert.ok(Object.values(content.detail.pages).every(({ title, alt }) => title && alt))
   }
 })
 

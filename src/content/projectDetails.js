@@ -10,6 +10,7 @@ const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/ill
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
 const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
+const submarineAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/submarines/${filename}`, import.meta.url).href
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
   guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
@@ -52,6 +53,15 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'naval-infographics': {
+    layout: 'naval-infographics',
+    pages: [1, 2, 3, 4, 5].map((number) => ({
+      id: `page-${number}`,
+      image: submarineAsset(`submarinosx3-${number}.webp`),
+      width: 2376,
+      height: 1836,
+    })),
+  },
   'who-is-paying': {
     layout: 'who-is-paying',
     palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],
