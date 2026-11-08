@@ -206,29 +206,19 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
           </div>
 
           <ol className="naval-infographics-pages">
-            {assets.pages.map((page, index) => {
-              const pageContent = detail.pages[page.id]
-
-              return (
-                <li className="naval-infographics-page" key={page.id}>
-                  <figure>
-                    <img
-                      src={page.image}
-                      alt={pageContent.alt}
-                      width={page.width}
-                      height={page.height}
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      fetchPriority={index === 0 ? 'high' : undefined}
-                      decoding="async"
-                    />
-                    <figcaption>
-                      <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                      {pageContent.title}
-                    </figcaption>
-                  </figure>
-                </li>
-              )
-            })}
+            {assets.pages.map((page, index) => (
+              <li className="naval-infographics-page" key={page.id}>
+                <img
+                  src={page.image}
+                  alt={detail.pages[page.id].alt}
+                  width={page.width}
+                  height={page.height}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  decoding="async"
+                />
+              </li>
+            ))}
           </ol>
         </section>
       </div>

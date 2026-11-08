@@ -582,7 +582,7 @@ test('naval infographics show each distinct submarine page in both languages', (
     assert.ok(content.detail.galleryTitle)
     assert.equal(content.detail.openPageText, undefined)
     assert.deepEqual(sortedKeys(content.detail.pages), [...expectedPageIds].sort())
-    assert.ok(Object.values(content.detail.pages).every(({ title, alt }) => title && alt))
+    assert.ok(Object.values(content.detail.pages).every(({ alt }) => alt))
   }
 })
 

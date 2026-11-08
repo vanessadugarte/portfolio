@@ -765,59 +765,45 @@ export const translations = {
             galleryDescription: 'De la portada y el prólogo a las características de las clases Scorpene, Virginia, Typhoon y S-80.',
             pages: {
               'page-1': {
-                title: 'Patrón visual',
                 alt: 'Patrón azul con ilustraciones repetidas de embarcaciones vistas de frente.',
               },
               'page-2': {
-                title: 'Portada',
                 alt: 'Portada azul de Infografías navales con una embarcación frontal y los nombres de Gina Amesty y Vanessa Dugarte.',
               },
               'page-3': {
-                title: 'Índice',
                 alt: 'Índice azul que enumera los submarinos Scorpene, Virginia, Typhoon y S-80 junto a sus páginas.',
               },
               'page-4': {
-                title: 'Título del prólogo',
                 alt: 'Página azul con el título Prólogo en blanco y una franja de embarcaciones ilustradas.',
               },
               'page-5': {
-                title: 'Texto del prólogo',
                 alt: 'Prólogo en español sobre la historia y evolución de los submarinos, sobre fondo azul con ilustraciones en la parte inferior.',
               },
               'page-6': {
-                title: 'Clase Scorpene: introducción',
                 alt: 'Página de texto en tres columnas sobre la historia, el equipamiento y las operaciones del submarino clase Scorpene.',
               },
               'page-7': {
-                title: 'Clase Scorpene: infografía',
                 alt: 'Corte lateral del submarino Scorpene con componentes señalados, dimensiones, armamento y datos de tripulación.',
               },
               'page-8': {
-                title: 'Clase Virginia: introducción',
                 alt: 'Página de texto en tres columnas sobre la estructura, las comunicaciones y los sistemas del submarino clase Virginia.',
               },
               'page-9': {
-                title: 'Clase Virginia: infografía',
                 alt: 'Esquema de un submarino clase Virginia con corte interior, componentes señalados y características generales.',
               },
               'page-10': {
-                title: 'Clase Typhoon: introducción',
                 alt: 'Página de texto en tres columnas sobre la construcción, el diseño y el armamento del submarino clase Typhoon.',
               },
               'page-11': {
-                title: 'Clase Typhoon: infografía',
                 alt: 'Vistas lateral y superior de un submarino Typhoon con partes señaladas, medidas y datos de tripulación y armamento.',
               },
               'page-12': {
-                title: 'Clase S-80: introducción',
                 alt: 'Página de texto en tres columnas sobre la estructura, la propulsión y los sistemas del submarino S-80.',
               },
               'page-13': {
-                title: 'Clase S-80: infografía',
                 alt: 'Corte lateral del submarino S-80 con componentes señalados, dimensiones, armamento y dotación.',
               },
               'page-14': {
-                title: 'Cierre de la publicación',
                 alt: 'Ilustración de una embarcación vista de frente dentro de un círculo azul sobre un fondo de franjas verticales.',
               },
             },
@@ -1703,59 +1689,45 @@ export const translations = {
             galleryDescription: 'From the cover and foreword to the features of the Scorpene, Virginia, Typhoon and S-80 classes.',
             pages: {
               'page-1': {
-                title: 'Visual pattern',
                 alt: 'Blue pattern with repeated illustrations of vessels seen from the front.',
               },
               'page-2': {
-                title: 'Cover',
                 alt: 'Blue Naval Infographics cover with a front-facing vessel and the names Gina Amesty and Vanessa Dugarte.',
               },
               'page-3': {
-                title: 'Contents',
                 alt: 'Blue contents page listing the Scorpene, Virginia, Typhoon and S-80 submarines with their page numbers.',
               },
               'page-4': {
-                title: 'Foreword title',
                 alt: 'Blue page with the Spanish title Prólogo in white and a strip of illustrated vessels.',
               },
               'page-5': {
-                title: 'Foreword text',
                 alt: 'Spanish foreword about the history and development of submarines on a blue background, with illustrations along the bottom.',
               },
               'page-6': {
-                title: 'Scorpene class: introduction',
                 alt: 'Three-column text page about the history, equipment and operations of the Scorpene-class submarine.',
               },
               'page-7': {
-                title: 'Scorpene class: infographic',
                 alt: 'Side cutaway of a Scorpene submarine with labeled components, dimensions, weapons and crew figures.',
               },
               'page-8': {
-                title: 'Virginia class: introduction',
                 alt: 'Three-column text page about the structure, communications and systems of the Virginia-class submarine.',
               },
               'page-9': {
-                title: 'Virginia class: infographic',
                 alt: 'Virginia-class submarine diagram with an interior cutaway, labeled components and general characteristics.',
               },
               'page-10': {
-                title: 'Typhoon class: introduction',
                 alt: 'Three-column text page about the construction, design and weapons of the Typhoon-class submarine.',
               },
               'page-11': {
-                title: 'Typhoon class: infographic',
                 alt: 'Side and top views of a Typhoon submarine with labeled parts, dimensions, crew and weapons figures.',
               },
               'page-12': {
-                title: 'S-80 class: introduction',
                 alt: 'Three-column text page about the structure, propulsion and systems of the S-80 submarine.',
               },
               'page-13': {
-                title: 'S-80 class: infographic',
                 alt: 'Side cutaway of the S-80 submarine with labeled components, dimensions, weapons and crew.',
               },
               'page-14': {
-                title: 'Closing page',
                 alt: 'Front-facing illustration of a vessel inside a blue circle against a background of vertical stripes.',
               },
             },
