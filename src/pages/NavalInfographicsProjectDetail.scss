@@ -39,8 +39,10 @@
 .naval-infographics-gallery-title {
   margin: 0;
   color: tokens.$color-hero;
-  font-family: tokens.$font-display;
+  font-family: tokens.$font-heading;
   font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 400;
+  letter-spacing: tokens.$letter-spacing-section-heading;
   line-height: 1.1;
 }
 
@@ -55,8 +57,10 @@
 .naval-infographics-cover {
   display: block;
   color: tokens.$color-hero;
-  font-family: tokens.$font-display;
+  font-family: tokens.$font-body;
   font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
   text-decoration: none;
 }
 
