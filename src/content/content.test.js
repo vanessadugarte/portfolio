@@ -583,13 +583,24 @@ test('naval infographics expose four illustrated series with ordered pages in bo
     assert.ok(series.pages[series.coverPage - 1].image)
   }
 
-  for (const text of Object.values(translations)) {
+  for (const [language, text] of Object.entries(translations)) {
     const content = text.projects.items[project.id]
 
     assert.ok(content.title)
     assert.ok(content.description)
     assert.ok(content.previewAlt)
     assert.ok(content.detail.introduction)
+    assert.deepEqual(content.detail.facts, language === 'es'
+      ? [
+          { label: 'Año', value: '2016' },
+          { label: 'Técnica', value: 'Infografía' },
+          { label: 'Herramientas', value: 'Illustrator' },
+        ]
+      : [
+          { label: 'Year', value: '2016' },
+          { label: 'Technique', value: 'Infographic' },
+          { label: 'Tools', value: 'Illustrator' },
+        ])
     assert.ok(content.detail.galleryTitle)
     assert.equal(content.detail.openPageText, undefined)
     for (const series of detail.series) {

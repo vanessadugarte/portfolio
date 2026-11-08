@@ -2,6 +2,7 @@
 
 .project-detail--naval-infographics {
   background: tokens.$color-project-canvas;
+  font-family: tokens.$font-body;
 }
 
 .naval-infographics-summary {
@@ -28,6 +29,11 @@
   margin: tokens.$space-6 0 0;
   font-size: tokens.$font-size-body-emphasis;
   line-height: 1.6;
+}
+
+.naval-infographics-summary > .project-detail-facts {
+  max-width: tokens.$width-project-detail-facts-desktop;
+  margin-top: tokens.$space-4;
 }
 
 .naval-infographics-gallery-title {
@@ -133,6 +139,31 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .naval-infographics-summary:not(.naval-infographics-summary--series) {
+    display: grid;
+    grid-template-columns:
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-6;
+  }
+
+  .naval-infographics-summary:not(.naval-infographics-summary--series) > .naval-infographics-type,
+  .naval-infographics-summary:not(.naval-infographics-summary--series) > .project-detail-title {
+    grid-column: 1 / -1;
+  }
+
+  .naval-infographics-summary > .project-detail-facts {
+    width: 100%;
+    margin-top: tokens.$space-6;
+    padding-inline-start: tokens.$space-6;
+    border-inline-start: 1px solid tokens.$color-border;
+  }
+
+  .naval-infographics-summary > .naval-infographics-introduction,
+  .naval-infographics-summary > .project-detail-facts {
+    align-self: start;
+  }
+
   .naval-infographics-summary .project-detail-title {
     font-size: tokens.$font-size-project-detail-title-desktop;
   }

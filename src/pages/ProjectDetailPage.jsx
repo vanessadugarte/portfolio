@@ -197,6 +197,7 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
           <p className="naval-infographics-type">{content.type}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="naval-infographics-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
         </header>
 
         <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
