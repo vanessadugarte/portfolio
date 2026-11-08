@@ -804,19 +804,19 @@ export const translations = {
                 title: 'Clase Typhoon: introducción',
                 alt: 'Página de texto en tres columnas sobre la construcción, el diseño y el armamento del submarino clase Typhoon.',
               },
-              'page-13': {
+              'page-11': {
                 title: 'Clase Typhoon: infografía',
                 alt: 'Vistas lateral y superior de un submarino Typhoon con partes señaladas, medidas y datos de tripulación y armamento.',
               },
-              'page-14': {
+              'page-12': {
                 title: 'Clase S-80: introducción',
                 alt: 'Página de texto en tres columnas sobre la estructura, la propulsión y los sistemas del submarino S-80.',
               },
-              'page-15': {
+              'page-13': {
                 title: 'Clase S-80: infografía',
                 alt: 'Corte lateral del submarino S-80 con componentes señalados, dimensiones, armamento y dotación.',
               },
-              'page-16': {
+              'page-14': {
                 title: 'Cierre de la publicación',
                 alt: 'Ilustración de una embarcación vista de frente dentro de un círculo azul sobre un fondo de franjas verticales.',
               },
@@ -1742,19 +1742,19 @@ export const translations = {
                 title: 'Typhoon class: introduction',
                 alt: 'Three-column text page about the construction, design and weapons of the Typhoon-class submarine.',
               },
-              'page-13': {
+              'page-11': {
                 title: 'Typhoon class: infographic',
                 alt: 'Side and top views of a Typhoon submarine with labeled parts, dimensions, crew and weapons figures.',
               },
-              'page-14': {
+              'page-12': {
                 title: 'S-80 class: introduction',
                 alt: 'Three-column text page about the structure, propulsion and systems of the S-80 submarine.',
               },
-              'page-15': {
+              'page-13': {
                 title: 'S-80 class: infographic',
                 alt: 'Side cutaway of the S-80 submarine with labeled components, dimensions, weapons and crew.',
               },
-              'page-16': {
+              'page-14': {
                 title: 'Closing page',
                 alt: 'Front-facing illustration of a vessel inside a blue circle against a background of vertical stripes.',
               },

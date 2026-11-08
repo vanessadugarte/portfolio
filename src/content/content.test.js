@@ -564,7 +564,7 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
 test('naval infographics show each distinct submarine page in both languages', () => {
   const project = getProjectBySlug('naval-infographics')
   const detail = getProjectDetails(project.id)
-  const expectedPageIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16].map((number) => `page-${number}`)
+  const expectedPageIds = Array.from({ length: 14 }, (_, index) => `page-${index + 1}`)
 
   assert.deepEqual(project.categoryIds, ['animations'])
   assert.equal(project.selectedOrder, undefined)

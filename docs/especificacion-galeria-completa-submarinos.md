@@ -13,7 +13,7 @@ Mostrar en la ficha de Infografías navales las páginas adicionales de Submarin
 
 ## Criterios de aceptación
 
-- Se incorporan los nuevos WebP distintos de la serie sin mostrar dos veces una misma imagen exportada.
+- Se incorporan los nuevos WebP distintos de la serie como 14 páginas consecutivas, sin mostrar dos veces una misma imagen exportada.
 - La galería conserva una sola secuencia ordenada de figuras, con textos localizados en español e inglés.
 - Ninguna figura incluye un enlace de ampliación ni una acción de «ver a tamaño completo».
 - A 1280 × 800 CSS px, cada imagen con su pie mide menos que la altura de la ventana; a 320 CSS px no hay desplazamiento horizontal.
