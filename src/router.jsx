@@ -4,6 +4,7 @@ import PortfolioLayout from './layouts/PortfolioLayout.jsx'
 import ExperiencePage from './pages/ExperiencePage.jsx'
 import HomePage from './pages/HomePage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import NavalSeriesPage from './pages/NavalSeriesPage.jsx'
 import ProjectCategoryPage from './pages/ProjectCategoryPage.jsx'
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
@@ -35,6 +36,7 @@ export const routeConfig = [
         path: paths.projectCategory(slug).slice(1),
         element: <ProjectCategoryPage categoryId={id} />,
       })),
+      { path: `${paths.projectDetail('naval-infographics').slice(1)}/:series`, element: <NavalSeriesPage /> },
       { path: `${paths.projects.slice(1)}/:slug`, element: <ProjectDetailPage /> },
       { path: paths.experience.slice(1), element: <ExperiencePage /> },
       { path: '*', element: <NotFoundPage /> },

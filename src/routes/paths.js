@@ -3,6 +3,7 @@ export const paths = {
   projects: '/proyectos',
   experience: '/experiencia',
   projectCategory: (slug) => `/proyectos/${slug}`,
+  navalSeries: (series) => `/proyectos/naval-infographics/${series}`,
   projectDetail: (slug, categoryId) => {
     const path = `/proyectos/${slug}`
 

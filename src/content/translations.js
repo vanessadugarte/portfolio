@@ -1,3 +1,5 @@
+import { navalSeriesText } from './navalSeriesText.js'
+
 export const translations = {
   es: {
     language: 'EN',
@@ -757,12 +759,13 @@ export const translations = {
         'naval-infographics': {
           type: 'Infografía',
           title: 'Infografías navales',
-          description: 'Ilustraciones informativas de un submarino y sus componentes.',
+          description: 'Cuatro series ilustradas sobre submarinos, portaaviones, cruceros y las primeras embarcaciones.',
           previewAlt: 'Infografía azul con vistas lateral y superior de un submarino, cifras y etiquetas de sus componentes.',
           detail: {
-            introduction: 'Una mirada a Submarinos, una serie editorial de infografías navales.',
-            galleryTitle: 'Submarinos',
-            galleryDescription: 'De la portada y el prólogo a las características de las clases Scorpene, Virginia, Typhoon y S-80.',
+            introduction: 'Cuatro publicaciones ilustradas para explorar la historia y la diversidad de las embarcaciones.',
+            galleryTitle: 'Publicaciones',
+            backToCollection: 'Volver a Infografías navales',
+            series: navalSeriesText.es,
             pages: {
               'page-1': {
                 alt: 'Patrón azul con ilustraciones repetidas de embarcaciones vistas de frente.',
@@ -1681,12 +1684,13 @@ export const translations = {
         'naval-infographics': {
           type: 'Infographic',
           title: 'Naval Infographics',
-          description: 'Informative illustrations of a submarine and its components.',
+          description: 'Four illustrated series on submarines, aircraft carriers, cruise ships and early vessels.',
           previewAlt: 'Blue infographic with side and top views of a submarine, figures and labeled components.',
           detail: {
-            introduction: 'A look at Submarines, an editorial series of naval infographics.',
-            galleryTitle: 'Submarines',
-            galleryDescription: 'From the cover and foreword to the features of the Scorpene, Virginia, Typhoon and S-80 classes.',
+            introduction: 'Four illustrated publications exploring the history and diversity of vessels.',
+            galleryTitle: 'Publications',
+            backToCollection: 'Back to Naval Infographics',
+            series: navalSeriesText.en,
             pages: {
               'page-1': {
                 alt: 'Blue pattern with repeated illustrations of vessels seen from the front.',
