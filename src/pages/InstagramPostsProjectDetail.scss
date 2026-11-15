@@ -1,0 +1,119 @@
+@use '../styles/abstracts' as tokens;
+
+.instagram-summary {
+  margin-block: tokens.$space-6 calc(tokens.$space-6 * 2);
+}
+
+.instagram-eyebrow {
+  margin: 0 0 tokens.$space-4;
+  color: tokens.$color-project-type;
+  font-weight: 600;
+}
+
+.instagram-facts div {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.instagram-brands {
+  display: grid;
+  gap: calc(tokens.$space-6 * 2);
+}
+
+.instagram-brand {
+  padding-top: tokens.$space-6;
+  border-top: 1px solid tokens.$color-border;
+}
+
+.instagram-brand-heading {
+  display: flex;
+  align-items: baseline;
+  gap: tokens.$space-4;
+  margin-bottom: tokens.$space-5;
+}
+
+.instagram-brand-number {
+  color: tokens.$color-text-muted;
+  font-variant-numeric: tabular-nums;
+}
+
+.instagram-brand-heading h2 {
+  margin: 0;
+  font-family: tokens.$font-heading;
+  font-size: tokens.$font-size-section-heading;
+  letter-spacing: tokens.$letter-spacing-section-heading;
+  line-height: 1.15;
+}
+
+.instagram-brand-heading p {
+  max-width: tokens.$width-project-detail-description-desktop;
+  margin: tokens.$space-3 0 0;
+  color: tokens.$color-text-muted;
+  line-height: 1.5;
+}
+
+.instagram-posts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: tokens.$space-5;
+}
+
+.instagram-post {
+  min-width: 0;
+  margin: 0;
+}
+
+.instagram-post :is(img, video) {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: tokens.$color-surface;
+}
+
+.instagram-post video:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-text;
+  outline-offset: tokens.$focus-ring-offset;
+}
+
+.instagram-post figcaption {
+  margin-top: tokens.$space-3;
+  color: tokens.$color-text-muted;
+  font-size: tokens.$font-size-body;
+  line-height: 1.5;
+}
+
+.instagram-post figcaption span {
+  display: block;
+  margin-bottom: tokens.$space-1;
+  color: tokens.$color-text;
+  font-weight: 600;
+}
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .instagram-posts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .instagram-summary {
+    margin-block: calc(tokens.$space-6 * 2) calc(tokens.$space-6 * 3);
+  }
+
+  .instagram-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .instagram-brands {
+    gap: calc(tokens.$space-6 * 3);
+  }
+
+  .instagram-posts-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -4,7 +4,7 @@ const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/mur
 const donutShopImage = new URL('../assets/images/projects/front-end-ux/donut-shop/donuts-hero.png', import.meta.url).href
 const whoIsPayingImage = new URL('../assets/images/projects/front-end-ux/who-is-paying/whos-paying.svg', import.meta.url).href
 const medusasImage = new URL('../assets/images/projects/illustrations/medusas/medusas-760x500.jpg', import.meta.url).href
-const venttiImage = new URL('../assets/images/selected-work/ventti-760x500.jpg', import.meta.url).href
+const instagramPostsImage = new URL('../assets/images/projects/graphic-design/instagram posts/web/rrss-thumbnail.webp', import.meta.url).href
 const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
 const jungleImage = new URL('../assets/images/projects/illustrations/jungle/jungle-illustration-thumbnail.jpg', import.meta.url).href
 const gameIconsImage = new URL('../assets/images/projects/illustrations/game-icons/iconos-760x500.jpg', import.meta.url).href
@@ -38,7 +38,7 @@ export const projects = [
     previewBackground: '#D9CDD7',
   },
   { id: 'medusas', categoryIds: ['illustration'], previewImage: medusasImage, selectedOrder: 3 },
-  { id: 'ventti', categoryIds: ['graphic-design'], previewImage: venttiImage, selectedOrder: 4 },
+  { id: 'instagram-posts', categoryIds: ['graphic-design'], previewImage: instagramPostsImage, selectedOrder: 4 },
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
   { id: 'jungle', categoryIds: ['illustration'], previewImage: jungleImage },
   { id: 'game-icons', categoryIds: ['illustration'], previewImage: gameIconsImage },

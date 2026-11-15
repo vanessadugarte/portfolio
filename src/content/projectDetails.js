@@ -1,3 +1,5 @@
+import { instagramPostsAssets } from './instagramPosts.js'
+
 const medusasAsset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donuts/${filename}`, import.meta.url).href
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
@@ -62,6 +64,7 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'instagram-posts': instagramPostsAssets,
   'naval-infographics': {
     layout: 'naval-infographics',
     series: [
