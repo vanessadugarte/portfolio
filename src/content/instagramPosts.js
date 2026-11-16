@@ -212,12 +212,16 @@ export const instagramPostsContent = {
       "introduction": "Una colección de publicaciones y animaciones creadas para Instagram. Cada marca tiene su propio lenguaje visual: desde composiciones de producto y propuestas de estilo hasta promociones y montajes con un toque de humor.",
       "facts": [
         {
-          "label": "Formato",
-          "value": "Posts y animaciones"
+          "label": "Año",
+          "value": "2015–2016"
         },
         {
-          "label": "Marcas",
-          "value": "4"
+          "label": "Software",
+          "value": "Photoshop"
+        },
+        {
+          "label": "Formato",
+          "value": "Instagram posts y GIFs"
         }
       ],
       "animationLabel": "Animación sin audio",
@@ -344,12 +348,16 @@ export const instagramPostsContent = {
       "introduction": "A collection of posts and animations created for Instagram. Each brand has its own visual language, from product compositions and styling ideas to promotions and playful photo montages.",
       "facts": [
         {
-          "label": "Format",
-          "value": "Posts and animations"
+          "label": "Year",
+          "value": "2015–2016"
         },
         {
-          "label": "Brands",
-          "value": "4"
+          "label": "Software",
+          "value": "Photoshop"
+        },
+        {
+          "label": "Format",
+          "value": "Instagram posts and GIFs"
         }
       ],
       "animationLabel": "Silent animation",

@@ -22,6 +22,7 @@ Convertir la ficha pendiente de Ventti en una colección de diseño para Instagr
 6. Se conserva un `main`, un `h1`, encabezados de marca `h2`, títulos de documento y foco de navegación existentes, alternativas útiles y foco visible.
 7. No hay desbordamiento horizontal a 320 CSS px; el título mide 5rem desde escritorio y la descripción/ficha técnica respetan los tokens existentes.
 8. Pasan `npm run build`, `npm run lint` y las pruebas de contenido pertinentes.
+9. La ficha técnica muestra los datos confirmados por Vanessa: año 2015–2016, software Photoshop y formato Instagram posts y GIFs, con etiquetas y formato localizados en español e inglés.
 
 ## Requisitos no funcionales
 
