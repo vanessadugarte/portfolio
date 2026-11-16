@@ -1,3 +1,5 @@
+import { instagramPostsAssets } from './instagramPosts.js'
+
 const medusasAsset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donuts/${filename}`, import.meta.url).href
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
@@ -10,6 +12,16 @@ const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/ill
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
 const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
+const submarineAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/submarines/${filename}`, import.meta.url).href
+const carrierAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/portaaviones/${filename}`, import.meta.url).href
+const cruiseAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/cruceros/${filename}`, import.meta.url).href
+const earlyVesselAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/primeras-embarcaciones/${filename}`, import.meta.url).href
+const navalPages = (count, filename, asset) => Array.from({ length: count }, (_, index) => ({
+  id: `page-${index + 1}`,
+  image: asset(`${filename}-${index + 1}.webp`),
+  width: 2376,
+  height: 1836,
+}))
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
   guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
@@ -52,6 +64,16 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'instagram-posts': instagramPostsAssets,
+  'naval-infographics': {
+    layout: 'naval-infographics',
+    series: [
+      { id: 'submarinos', coverPage: 9, pages: navalPages(14, 'submarinosx3', submarineAsset) },
+      { id: 'portaaviones', coverPage: 9, pages: navalPages(12, 'portaaviones', carrierAsset) },
+      { id: 'cruceros', coverPage: 7, pages: navalPages(10, 'cruceros', cruiseAsset) },
+      { id: 'primeras-embarcaciones', coverPage: 11, pages: navalPages(14, 'primeras-embarcaciones', earlyVesselAsset) },
+    ],
+  },
   'who-is-paying': {
     layout: 'who-is-paying',
     palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],

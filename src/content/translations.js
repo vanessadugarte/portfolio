@@ -1,3 +1,7 @@
+import { instagramPostsContent } from './instagramPosts.js'
+
+import { navalSeriesText } from './navalSeriesText.js'
+
 export const translations = {
   es: {
     language: 'EN',
@@ -295,7 +299,7 @@ export const translations = {
             },
           },
         },
-        ventti: { type: 'Diseño gráfico', title: 'Ventti', description: 'Diseño gráfico para e-commerce y campañas.', previewAlt: '' },
+        'instagram-posts': instagramPostsContent.es,
         'deep-sea': {
           type: 'Ilustración',
           title: 'Deep Sea',
@@ -757,8 +761,63 @@ export const translations = {
         'naval-infographics': {
           type: 'Infografía',
           title: 'Infografías navales',
-          description: 'Ilustraciones informativas de un submarino y sus componentes.',
+          description: 'Cuatro series ilustradas sobre submarinos, portaaviones, cruceros y las primeras embarcaciones.',
           previewAlt: 'Infografía azul con vistas lateral y superior de un submarino, cifras y etiquetas de sus componentes.',
+          detail: {
+            introduction: 'Cuatro publicaciones ilustradas para explorar la historia y la diversidad de las embarcaciones.',
+            facts: [
+              { label: 'Año', value: '2016' },
+              { label: 'Técnica', value: 'Infografía' },
+              { label: 'Herramientas', value: 'Illustrator' },
+            ],
+            galleryTitle: 'Publicaciones',
+            backToCollection: 'Volver a Infografías navales',
+            series: navalSeriesText.es,
+            pages: {
+              'page-1': {
+                alt: 'Patrón azul con ilustraciones repetidas de embarcaciones vistas de frente.',
+              },
+              'page-2': {
+                alt: 'Portada azul de Infografías navales con una embarcación frontal y los nombres de Gina Amesty y Vanessa Dugarte.',
+              },
+              'page-3': {
+                alt: 'Índice azul que enumera los submarinos Scorpene, Virginia, Typhoon y S-80 junto a sus páginas.',
+              },
+              'page-4': {
+                alt: 'Página azul con el título Prólogo en blanco y una franja de embarcaciones ilustradas.',
+              },
+              'page-5': {
+                alt: 'Prólogo en español sobre la historia y evolución de los submarinos, sobre fondo azul con ilustraciones en la parte inferior.',
+              },
+              'page-6': {
+                alt: 'Página de texto en tres columnas sobre la historia, el equipamiento y las operaciones del submarino clase Scorpene.',
+              },
+              'page-7': {
+                alt: 'Corte lateral del submarino Scorpene con componentes señalados, dimensiones, armamento y datos de tripulación.',
+              },
+              'page-8': {
+                alt: 'Página de texto en tres columnas sobre la estructura, las comunicaciones y los sistemas del submarino clase Virginia.',
+              },
+              'page-9': {
+                alt: 'Esquema de un submarino clase Virginia con corte interior, componentes señalados y características generales.',
+              },
+              'page-10': {
+                alt: 'Página de texto en tres columnas sobre la construcción, el diseño y el armamento del submarino clase Typhoon.',
+              },
+              'page-11': {
+                alt: 'Vistas lateral y superior de un submarino Typhoon con partes señaladas, medidas y datos de tripulación y armamento.',
+              },
+              'page-12': {
+                alt: 'Página de texto en tres columnas sobre la estructura, la propulsión y los sistemas del submarino S-80.',
+              },
+              'page-13': {
+                alt: 'Corte lateral del submarino S-80 con componentes señalados, dimensiones, armamento y dotación.',
+              },
+              'page-14': {
+                alt: 'Ilustración de una embarcación vista de frente dentro de un círculo azul sobre un fondo de franjas verticales.',
+              },
+            },
+          },
         },
       },
     },
@@ -1170,7 +1229,7 @@ export const translations = {
             },
           },
         },
-        ventti: { type: 'Graphic design', title: 'Ventti', description: 'Graphic design for e-commerce and campaigns.', previewAlt: '' },
+        'instagram-posts': instagramPostsContent.en,
         'deep-sea': {
           type: 'Illustration',
           title: 'Deep Sea',
@@ -1632,8 +1691,63 @@ export const translations = {
         'naval-infographics': {
           type: 'Infographic',
           title: 'Naval Infographics',
-          description: 'Informative illustrations of a submarine and its components.',
+          description: 'Four illustrated series on submarines, aircraft carriers, cruise ships and early vessels.',
           previewAlt: 'Blue infographic with side and top views of a submarine, figures and labeled components.',
+          detail: {
+            introduction: 'Four illustrated publications exploring the history and diversity of vessels.',
+            facts: [
+              { label: 'Year', value: '2016' },
+              { label: 'Technique', value: 'Infographic' },
+              { label: 'Tools', value: 'Illustrator' },
+            ],
+            galleryTitle: 'Publications',
+            backToCollection: 'Back to Naval Infographics',
+            series: navalSeriesText.en,
+            pages: {
+              'page-1': {
+                alt: 'Blue pattern with repeated illustrations of vessels seen from the front.',
+              },
+              'page-2': {
+                alt: 'Blue Naval Infographics cover with a front-facing vessel and the names Gina Amesty and Vanessa Dugarte.',
+              },
+              'page-3': {
+                alt: 'Blue contents page listing the Scorpene, Virginia, Typhoon and S-80 submarines with their page numbers.',
+              },
+              'page-4': {
+                alt: 'Blue page with the Spanish title Prólogo in white and a strip of illustrated vessels.',
+              },
+              'page-5': {
+                alt: 'Spanish foreword about the history and development of submarines on a blue background, with illustrations along the bottom.',
+              },
+              'page-6': {
+                alt: 'Three-column text page about the history, equipment and operations of the Scorpene-class submarine.',
+              },
+              'page-7': {
+                alt: 'Side cutaway of a Scorpene submarine with labeled components, dimensions, weapons and crew figures.',
+              },
+              'page-8': {
+                alt: 'Three-column text page about the structure, communications and systems of the Virginia-class submarine.',
+              },
+              'page-9': {
+                alt: 'Virginia-class submarine diagram with an interior cutaway, labeled components and general characteristics.',
+              },
+              'page-10': {
+                alt: 'Three-column text page about the construction, design and weapons of the Typhoon-class submarine.',
+              },
+              'page-11': {
+                alt: 'Side and top views of a Typhoon submarine with labeled parts, dimensions, crew and weapons figures.',
+              },
+              'page-12': {
+                alt: 'Three-column text page about the structure, propulsion and systems of the S-80 submarine.',
+              },
+              'page-13': {
+                alt: 'Side cutaway of the S-80 submarine with labeled components, dimensions, weapons and crew.',
+              },
+              'page-14': {
+                alt: 'Front-facing illustration of a vessel inside a blue circle against a background of vertical stripes.',
+              },
+            },
+          },
         },
       },
     },

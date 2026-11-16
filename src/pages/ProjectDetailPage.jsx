@@ -6,8 +6,10 @@ import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
+import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
 import './MuranaProjectDetail.scss'
+import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
 
 function formatTemplate(template, replacements) {
@@ -174,6 +176,57 @@ function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
       <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
       <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
     </div>
+  )
+}
+
+function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--naval-infographics" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="naval-infographics-summary">
+          <p className="naval-infographics-type">{content.type}</p>
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="naval-infographics-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
+          <h2 className="naval-infographics-gallery-title" id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
+          <ul className="naval-infographics-covers">
+            {assets.series.map((series, index) => {
+              const cover = series.pages[series.coverPage - 1]
+
+              return (
+                <li key={series.id}>
+                  <Link className="naval-infographics-cover" to={paths.navalSeries(series.id)}>
+                    <img
+                      src={cover.image}
+                      alt=""
+                      width={cover.width}
+                      height={cover.height}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                    <span>{detail.series[series.id].title}</span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      </div>
+    </article>
   )
 }
 
@@ -1303,6 +1356,35 @@ function ProjectDetailPage() {
   if (!assets || !content.detail) {
     return (
       <ProjectDetailPlaceholder
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'instagram-posts') {
+    return (
+      <InstagramPostsProjectDetail
+        assets={assets}
+        content={content}
+        navigation={(
+          <ProjectNavigation
+            categoryName={text.categories[navigation.categoryId]}
+            navigation={navigation}
+            neighbors={neighbors}
+            text={text}
+          />
+        )}
+      />
+    )
+  }
+
+  if (assets.layout === 'naval-infographics') {
+    return (
+      <NavalInfographicsProjectDetail
+        assets={assets}
         content={content}
         navigation={navigation}
         neighbors={neighbors}
