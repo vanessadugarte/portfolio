@@ -6,6 +6,7 @@ import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
+import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
@@ -1359,6 +1360,23 @@ function ProjectDetailPage() {
         navigation={navigation}
         neighbors={neighbors}
         text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'instagram-posts') {
+    return (
+      <InstagramPostsProjectDetail
+        assets={assets}
+        content={content}
+        navigation={(
+          <ProjectNavigation
+            categoryName={text.categories[navigation.categoryId]}
+            navigation={navigation}
+            neighbors={neighbors}
+            text={text}
+          />
+        )}
       />
     )
   }

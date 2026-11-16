@@ -1,3 +1,5 @@
+import { instagramPostsContent } from './instagramPosts.js'
+
 import { navalSeriesText } from './navalSeriesText.js'
 
 export const translations = {
@@ -297,7 +299,7 @@ export const translations = {
             },
           },
         },
-        ventti: { type: 'Diseño gráfico', title: 'Ventti', description: 'Diseño gráfico para e-commerce y campañas.', previewAlt: '' },
+        'instagram-posts': instagramPostsContent.es,
         'deep-sea': {
           type: 'Ilustración',
           title: 'Deep Sea',
@@ -1227,7 +1229,7 @@ export const translations = {
             },
           },
         },
-        ventti: { type: 'Graphic design', title: 'Ventti', description: 'Graphic design for e-commerce and campaigns.', previewAlt: '' },
+        'instagram-posts': instagramPostsContent.en,
         'deep-sea': {
           type: 'Illustration',
           title: 'Deep Sea',

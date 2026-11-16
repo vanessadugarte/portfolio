@@ -1,0 +1,75 @@
+{
+  "browser": "157.0.8103.78",
+  "sizes": [
+    {
+      "width": 1440,
+      "grid": "416px 416px 416px",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "grid": "348px 348px",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "grid": "280px",
+      "overflow": false
+    }
+  ],
+  "checks": [
+    "Legacy redirect preserves category, ES title, main/h1/h2 structure, 22 images + 5 paused videos, 80px desktop heading",
+    "320/768/1440 px, 200% text sizing and text spacing without horizontal overflow",
+    "Tab reaches native video; Space plays and pauses; Tab/Shift+Tab leave and return without a trap",
+    "EN document, alternatives and video labels; category entry, SPA heading focus, browser back/forward",
+    "Updated thumbnail and title in home, complete catalog and graphic design"
+  ],
+  "axeES": {
+    "violations": [],
+    "incomplete": [
+      "color-contrast",
+      "video-caption"
+    ]
+  },
+  "videos": [
+    {
+      "label": "Ventti: Nueva tienda online",
+      "width": 600,
+      "height": 600,
+      "duration": 4.7
+    },
+    {
+      "label": "Ventti: Botines con flecos",
+      "width": 600,
+      "height": 600,
+      "duration": 3
+    },
+    {
+      "label": "Urban Burgess: Abducción de una hamburguesa",
+      "width": 600,
+      "height": 600,
+      "duration": 3
+    },
+    {
+      "label": "Urban Burgess: Hamburguesas en la pista",
+      "width": 600,
+      "height": 600,
+      "duration": 3.7
+    },
+    {
+      "label": "Laura Constanza: Botines Cora",
+      "width": 540,
+      "height": 540,
+      "duration": 2
+    }
+  ],
+  "axeEN": {
+    "violations": [],
+    "incomplete": [
+      "color-contrast",
+      "video-caption"
+    ]
+  },
+  "errors": [],
+  "failures": []
+}
