@@ -5,6 +5,7 @@ import { getProjectCategory, projectCategories } from '../content/projectCategor
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
+import ProjectFacts from '../components/ProjectFacts.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
@@ -21,43 +22,6 @@ function formatTemplate(template, replacements) {
 
 function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
-}
-
-function ProjectFactIcon({ factIndex }) {
-  const commonProps = {
-    'aria-hidden': true,
-    className: 'project-detail-fact-icon',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    strokeWidth: 1.75,
-    viewBox: '0 0 24 24',
-  }
-
-  if (factIndex === 0) {
-    return <svg {...commonProps}><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /></svg>
-  }
-
-  if (factIndex === 1) {
-    return <svg {...commonProps}><path d="m14.7 6.3 3 3M4 20l4.6-1.1L18.2 9.3a2.1 2.1 0 0 0-3-3l-9.6 9.6L4 20Z" /><path d="m12.8 8.2 3 3" /></svg>
-  }
-
-  return <svg {...commonProps}><path d="M21 7.5a6 6 0 0 1-8.7 5.3L6.1 19A2.1 2.1 0 1 1 3 16l6.2-6.2A6 6 0 0 1 16.5 3l-3.1 3.1 4.5 4.5L21 7.5Z" /></svg>
-}
-
-function ProjectFacts({ facts }) {
-  return (
-    <dl className="project-detail-facts">
-      {facts.map(({ label, value }, factIndex) => (
-        <div key={label}>
-          <ProjectFactIcon factIndex={factIndex} />
-          <dt className="project-detail-fact-label">{label}</dt>
-          <dd>{value}</dd>
-        </div>
-      ))}
-    </dl>
-  )
 }
 
 function ProjectExternalLinks({ links, localizedLinks }) {
@@ -873,47 +837,29 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           />
         </figure>
 
-        <section className="project-detail-candles-section project-detail-candles-identity" aria-labelledby="angels-identity-title">
+        <section className="project-detail-candles-section project-detail-candles-collection-section" aria-labelledby="angels-collection-title">
           <SectionIntroduction
-            id="angels-identity-title"
+            id="angels-collection-title"
             number="02"
-            title={detail.identity.title}
-            description={detail.identity.description}
+            title={detail.collection.title}
+            description={detail.collection.description}
           />
-          <div className="project-detail-candles-brand-grid">
-            <figure className="project-detail-candles-brand-guidelines">
-              <img
-                src={assets.brand.guidelinesImage}
-                alt={detail.identity.guidelinesAlt}
-                width={assets.brand.guidelinesDimensions.width}
-                height={assets.brand.guidelinesDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.guidelinesLabel}</figcaption>
-            </figure>
-            <figure>
-              <img
-                src={assets.brand.logoImage}
-                alt={detail.identity.logoAlt}
-                width={assets.brand.logoDimensions.width}
-                height={assets.brand.logoDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.logoLabel}</figcaption>
-            </figure>
-            <figure className="project-detail-candles-label">
-              <img
-                src={assets.brand.labelImage}
-                alt={detail.identity.labelAlt}
-                width={assets.brand.labelDimensions.width}
-                height={assets.brand.labelDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.labelLabel}</figcaption>
-            </figure>
+          <div className="project-detail-candles-collection">
+            {assets.illustrations.map((illustration) => (
+              <figure key={illustration.id}>
+                <div className="project-detail-candles-illustration">
+                  <img
+                    src={illustration.image}
+                    alt={detail.collection.items[illustration.id].alt}
+                    width="1800"
+                    height="1800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
@@ -941,36 +887,10 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           </div>
         </section>
 
-        <section className="project-detail-candles-section" aria-labelledby="angels-collection-title">
-          <SectionIntroduction
-            id="angels-collection-title"
-            number="04"
-            title={detail.collection.title}
-            description={detail.collection.description}
-          />
-          <div className="project-detail-candles-collection">
-            {assets.illustrations.map((illustration) => (
-              <figure key={illustration.id}>
-                <div className="project-detail-candles-illustration">
-                  <img
-                    src={illustration.image}
-                    alt={detail.collection.items[illustration.id].alt}
-                    width="1800"
-                    height="1800"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
         <section className="project-detail-candles-section project-detail-candles-process" aria-labelledby="angels-process-title">
           <SectionIntroduction
             id="angels-process-title"
-            number="05"
+            number="04"
             title={detail.process.title}
             description={detail.process.description}
           />

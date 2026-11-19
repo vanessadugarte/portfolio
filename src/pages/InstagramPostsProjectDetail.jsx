@@ -1,3 +1,4 @@
+import ProjectFacts from '../components/ProjectFacts.jsx'
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import './InstagramPostsProjectDetail.scss'
 
@@ -10,19 +11,11 @@ export default function InstagramPostsProjectDetail({ assets, content, navigatio
       <div className="project-detail-inner">
         {navigation}
         <header className="project-detail-summary instagram-summary">
-          <p className="instagram-eyebrow">{content.type}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>
             {content.title}
           </h1>
           <p className="project-detail-introduction">{detail.introduction}</p>
-          <dl className="project-detail-facts instagram-facts">
-            {detail.facts.map(({ label, value }) => (
-              <div key={label}>
-                <dt>{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <ProjectFacts facts={detail.facts} />
         </header>
 
         <div className="instagram-brands">

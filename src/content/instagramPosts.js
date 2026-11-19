@@ -35,13 +35,6 @@ const brands = [
         "height": 600
       },
       {
-        "id": "new-shop",
-        "image": "ventti-new-shop.webp",
-        "width": 600,
-        "height": 600,
-        "video": "ventti-new-shop.mp4"
-      },
-      {
         "id": "fringe",
         "image": "ventti-fringe.webp",
         "width": 600,
@@ -150,12 +143,6 @@ const brands = [
         "height": 540
       },
       {
-        "id": "boots",
-        "image": "laura-constanza-boots.webp",
-        "width": 540,
-        "height": 540
-      },
-      {
         "id": "monochrome",
         "image": "laura-constanza-monochrome.webp",
         "width": 540,
@@ -178,13 +165,6 @@ const brands = [
         "image": "laura-constanza-burgundy.webp",
         "width": 540,
         "height": 540
-      },
-      {
-        "id": "cora",
-        "image": "laura-constanza-cora.webp",
-        "width": 540,
-        "height": 540,
-        "video": "laura-constanza-cora.mp4"
       }
     ]
   }
@@ -228,7 +208,7 @@ export const instagramPostsContent = {
       "brands": {
         "ventti": {
           "title": "Ventti",
-          "description": "Publicaciones de calzado, promociones y lanzamiento de la tienda online, con composiciones sobre fondos blancos y acentos de color.",
+          "description": "Publicaciones de calzado y promociones, con composiciones sobre fondos blancos y acentos de color.",
           "posts": {
             "holiday": {
               "alt": "Botas negras junto al anuncio «Feriados open» de Ventti y la dirección Av. Santa Fe 2888."
@@ -244,10 +224,6 @@ export const instagramPostsContent = {
             },
             "promotion": {
               "alt": "Composición de jeans y botines negros con la promoción Ahora 12, de jueves a sábados, de Ventti."
-            },
-            "new-shop": {
-              "title": "Nueva tienda online",
-              "alt": "Secuencia tipográfica que anuncia la nueva tienda, invita a comprar desde casa, muestra distintos modelos de botas y termina con www.ventti.com.ar."
             },
             "fringe": {
               "title": "Botines con flecos",
@@ -315,9 +291,6 @@ export const instagramPostsContent = {
             "isadora": {
               "alt": "Botín negro Isadora con hebillas y lápices de colores alrededor del tobillo, sobre fondo blanco."
             },
-            "boots": {
-              "alt": "Composición dividida entre una modelo con chaqueta de jean y falda camel, y una bota negra de caña alta."
-            },
             "monochrome": {
               "alt": "Collage #LAURATIP con camiseta de rayas, abrigo negro, gafas, cámara, bolso y botas negras."
             },
@@ -329,10 +302,6 @@ export const instagramPostsContent = {
             },
             "burgundy": {
               "alt": "Collage #LAURATIP con vestido y botas burdeos, chaqueta y cartera camel, reloj y accesorios."
-            },
-            "cora": {
-              "title": "Botines Cora",
-              "alt": "Los botines Cora aparecen uno a uno en burdeos, negro y camel hasta completar una composición de tres modelos."
             }
           }
         }
@@ -364,7 +333,7 @@ export const instagramPostsContent = {
       "brands": {
         "ventti": {
           "title": "Ventti",
-          "description": "Footwear posts, promotions and an online store launch, using white backgrounds and accents of color.",
+          "description": "Footwear posts and promotions, using white backgrounds and accents of color.",
           "posts": {
             "holiday": {
               "alt": "Black boots beside a Ventti holiday opening announcement and the address Av. Santa Fe 2888."
@@ -380,10 +349,6 @@ export const instagramPostsContent = {
             },
             "promotion": {
               "alt": "Jeans and black ankle boots with Ventti’s Ahora 12 installment promotion, Thursday through Saturday."
-            },
-            "new-shop": {
-              "title": "New online store",
-              "alt": "An animated typographic sequence announces the new store, invites shoppers to buy from home, shows several boots and ends with www.ventti.com.ar."
             },
             "fringe": {
               "title": "Fringed ankle boots",
@@ -451,9 +416,6 @@ export const instagramPostsContent = {
             "isadora": {
               "alt": "A black Isadora ankle boot with buckles and colored pencils around the ankle, on a white background."
             },
-            "boots": {
-              "alt": "A split composition showing a model in a denim jacket and tan skirt beside a tall black boot."
-            },
             "monochrome": {
               "alt": "A #LAURATIP outfit collage with a striped shirt, black coat, sunglasses, camera, handbag and black boots."
             },
@@ -465,10 +427,6 @@ export const instagramPostsContent = {
             },
             "burgundy": {
               "alt": "A #LAURATIP outfit collage with a burgundy dress and boots, a tan jacket and handbag, a watch and accessories."
-            },
-            "cora": {
-              "title": "Cora ankle boots",
-              "alt": "Cora ankle boots appear one at a time in burgundy, black and tan, building a composition of three styles."
             }
           }
         }

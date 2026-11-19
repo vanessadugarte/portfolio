@@ -24,10 +24,6 @@ const navalPages = (count, filename, asset) => Array.from({ length: count }, (_,
 }))
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
-  guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
-  logo: new URL('../assets/images/projects/illustrations/candles/logo-cuadrado.jpg', import.meta.url).href,
-  label: new URL('../assets/images/projects/illustrations/candles/label.svg', import.meta.url).href,
-  dogsApplication: new URL('../assets/images/projects/illustrations/candles/vela-dogs.png', import.meta.url).href,
   sacredFireApplication: new URL('../assets/images/projects/illustrations/candles/vela-dragon.png', import.meta.url).href,
   enchantedBlossomApplication: new URL('../assets/images/projects/illustrations/candles/vela-enchanted.png', import.meta.url).href,
   mountainPine: new URL('../assets/images/projects/illustrations/candles/MountainPine-22-5x22-5.png', import.meta.url).href,
@@ -40,6 +36,8 @@ const candlesAssets = {
   sacredFire: new URL('../assets/images/projects/illustrations/candles/sacred-fire-25x25-center.png', import.meta.url).href,
   santaAndGifts: new URL('../assets/images/projects/illustrations/candles/santa-and-gifts-25x25-white-smaller.png', import.meta.url).href,
   tenDogs: new URL('../assets/images/projects/illustrations/candles/ten-dogs-smaller.png', import.meta.url).href,
+  lavenderProcessPoster: new URL('../assets/images/projects/illustrations/candles/lavender-process-poster.jpg', import.meta.url).href,
+  sacredFireProcessPoster: new URL('../assets/images/projects/illustrations/candles/sacred-fire-process-poster.jpg', import.meta.url).href,
   lavenderProcess: new URL('../assets/images/projects/illustrations/candles/lavender-process-web.m4v', import.meta.url).href,
   sacredFireProcess: new URL('../assets/images/projects/illustrations/candles/sacred-fire-process-web.m4v', import.meta.url).href,
 }
@@ -272,12 +270,10 @@ export const projectDetails = {
     biomes: [
       { id: 'ice-zone', image: muchomixBiomesAsset('ice zone.jpg'), width: 2048, height: 2732 },
       { id: 'snow-mountains', image: muchomixBiomesAsset('snow mountains.jpg'), width: 2048, height: 2732 },
-      { id: 'mountains', image: muchomixBiomesAsset('mountains.jpg'), width: 2048, height: 2732 },
       { id: 'flower-field', image: muchomixBiomesAsset('flower field.jpg'), width: 2048, height: 2732 },
       { id: 'beach', image: muchomixBiomesAsset('beach.jpg'), width: 2048, height: 2732 },
       { id: 'cactus-desert', image: muchomixBiomesAsset('cactus desert.jpg'), width: 2048, height: 2732 },
       { id: 'desert-dunes', image: muchomixBiomesAsset('dunes desert.jpg'), width: 2048, height: 2732 },
-      { id: 'space', image: muchomixBiomesAsset('space.jpg'), width: 2048, height: 2732 },
     ],
   },
   jungle: {
@@ -518,16 +514,7 @@ export const projectDetails = {
     secondaryAccentColor: '#A45764',
     heroImage: candlesAssets.hero,
     heroDimensions: { width: 1404, height: 1120 },
-    brand: {
-      guidelinesImage: candlesAssets.guidelines,
-      guidelinesDimensions: { width: 1366, height: 1141 },
-      logoImage: candlesAssets.logo,
-      logoDimensions: { width: 567, height: 567 },
-      labelImage: candlesAssets.label,
-      labelDimensions: { width: 239, height: 224 },
-    },
     applications: [
-      { id: 'dogs', image: candlesAssets.dogsApplication, width: 1086, height: 1448 },
       { id: 'sacred-fire', image: candlesAssets.sacredFireApplication, width: 1465, height: 1074 },
       { id: 'enchanted-blossom', image: candlesAssets.enchantedBlossomApplication, width: 1212, height: 1298 },
     ],
@@ -547,12 +534,12 @@ export const projectDetails = {
       {
         id: 'lavender',
         src: candlesAssets.lavenderProcess,
-        poster: candlesAssets.lavender,
+        poster: candlesAssets.lavenderProcessPoster,
       },
       {
         id: 'sacred-fire',
         src: candlesAssets.sacredFireProcess,
-        poster: candlesAssets.sacredFire,
+        poster: candlesAssets.sacredFireProcessPoster,
       },
     ],
   },

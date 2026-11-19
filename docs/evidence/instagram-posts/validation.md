@@ -4,9 +4,9 @@ Especificación: [Diseño para Instagram](../../especificacion-instagram-posts.m
 
 ## Resultado
 
-La colección incluye 27 piezas de cuatro marcas: 22 imágenes WebP y cinco animaciones MP4 con portadas estáticas y controles nativos. La miniatura suministrada se conserva como original y su derivado pesa 173.046 bytes. Los medios web completos pesan aproximadamente 2,2 MB; los originales no se modificaron.
+La colección muestra actualmente 24 piezas de cuatro marcas: 21 imágenes WebP y tres animaciones MP4 con portadas estáticas y controles nativos. Ventti contiene seis piezas tras retirar «Nueva tienda online». Laura Constanza contiene seis imágenes tras retirar `boots` y el vídeo `cora`. Los archivos originales y derivados se conservan; la miniatura suministrada mantiene su derivado de 173.046 bytes.
 
-## Comprobaciones
+## Comprobaciones iniciales (versión de 27 piezas)
 
 Entorno: macOS, Google Chrome 157.0.8103.78 mediante Playwright, Vite local y comprobación adicional sobre la compilación de producción con `vite preview`.
 
@@ -33,6 +33,26 @@ Resultados de navegador: [browser-checks.json](browser-checks.json). Capturas: [
 - La comprobación de ampliación usa tamaño de texto y ancho de reflujo equivalentes; no es una prueba del comando de zoom de la interfaz de Chrome. No se probó con lector de pantalla real, Safari ni dispositivos físicos. El árbol accesible y axe no demuestran conformidad WCAG completa.
 - Vite informa un aviso no bloqueante por el bundle JavaScript superior a 500 kB. No se modifica la estrategia global de carga en este alcance.
 - No se realizó auditoría global ni se actualizó la matriz del issue #30.
+
+## Ajuste de chips de la ficha técnica — 2026-11-16
+
+- Se extrae `ProjectFacts` sin cambiar su marcado para compartirlo entre Instagram y las demás fichas; se elimina la excepción Sass que quitaba bordes, redondeado y espaciado.
+- Navegador integrado de Codex, inspección visual y DOM: chips comprobados a 320 y 1440 CSS px; a 320 px el documento mide 320 px de ancho en ES y EN. En escritorio se conserva el separador vertical.
+- Árbol de accesibilidad: lista de definiciones con Año/Year, Software y Formato/Format; los tres iconos decorativos tienen `aria-hidden="true"`. Se mantienen los estilos comunes de texto. No se añaden controles ni cambios de foco; no se realizó una auditoría global ni una prueba con lector de pantalla.
+- `npm run build`, `npm run lint` y las 22 pruebas de `npm run test:content` pasan. Persiste el aviso previo de tamaño del bundle.
+
+## Cabecera de ilustración y selección de Ventti — 2026-11-16
+
+- La cabecera elimina el rótulo de categoría y el margen superior adicional; usa la tipografía compartida y la escala de ilustración para móvil/tablet, conservando 80 px en escritorio. Continúan los chips y el separador de la ficha técnica.
+- Se retiran la pieza `new-shop` y sus textos ES/EN del catálogo visible, conservando los archivos. Ventti muestra seis piezas y solo el vídeo `fringe`; la colección tiene 26 piezas y cuatro vídeos. Las pruebas de contenido verifican estos recuentos y la correspondencia de traducciones.
+- Navegador integrado de Codex, inspección visual, DOM y árbol de accesibilidad: un h1; título de 80 px a 1440 CSS px y de 40 px a 320 CSS px; margen superior de la cabecera de 0 px. Documento sin desbordamiento horizontal a 320 CSS px en ES/EN. Se mantienen las etiquetas de los chips y los nombres y descripciones localizados de los vídeos restantes.
+- Pasan build, lint y las 22 pruebas de contenido. El cambio conserva los controles nativos y no altera su implementación; la revisión se limita a cabecera y selección de medios, sin auditoría global ni lector de pantalla real.
+
+## Selección de Laura Constanza — 2026-11-17
+
+- Se retiran de la galería `boots` y el vídeo `cora`, junto con sus textos ES/EN; quedan seis imágenes en Laura Constanza y 24 piezas en la colección (21 imágenes y tres vídeos). Se conservan los archivos fuente.
+- Navegador integrado de Codex, inspección del DOM: seis imágenes con alternativas descriptivas en la sección y cero vídeos; ausentes las dos piezas retiradas. La prueba de contenido comprueba la selección exacta y la correspondencia ES/EN. No se modifica el estilo ni la implementación de los controles; no se repite la auditoría global ni se prueba con lector de pantalla.
+- Pasan `npm run build`, `npm run lint` y las 22 pruebas de contenido. Persiste el aviso previo del tamaño del bundle.
 
 ## Derivados de medios
 

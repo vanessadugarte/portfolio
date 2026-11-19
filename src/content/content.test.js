@@ -15,8 +15,13 @@ test('Instagram collection resolves every supplied brand and media item in both 
   const assets = getProjectDetails('instagram-posts')
   const brandIds = ['ventti', 'diva-approved', 'urban-burgess', 'laura-constanza']
   assert.deepEqual(assets.brands.map(({ id }) => id), brandIds)
-  assert.equal(assets.brands.flatMap(({ posts }) => posts).length, 27)
-  assert.equal(assets.brands.flatMap(({ posts }) => posts).filter(({ video }) => video).length, 5)
+  assert.equal(assets.brands.flatMap(({ posts }) => posts).length, 24)
+  assert.equal(assets.brands.flatMap(({ posts }) => posts).filter(({ video }) => video).length, 3)
+  assert.equal(assets.brands[0].posts.length, 6)
+  assert.deepEqual(assets.brands[0].posts.filter(({ video }) => video).map(({ id }) => id), ['fringe'])
+  const lauraPosts = assets.brands.find(({ id }) => id === 'laura-constanza').posts
+  assert.deepEqual(lauraPosts.map(({ id }) => id), ['eva', 'isadora', 'monochrome', 'perfect-pair', 'kathy', 'burgundy'])
+  assert.ok(lauraPosts.every(({ video }) => !video))
   assert.equal(getProjectBySlug('ventti'), undefined)
   assert.ok(existsSync(new URL(getProjectBySlug('instagram-posts').previewImage)))
 
@@ -469,10 +474,10 @@ test('Forest exposes its localized final illustration, palette and process', () 
   }
 })
 
-test('Muchomix Biomes exposes eight localized environment backgrounds', () => {
+test('Muchomix Biomes exposes six localized environment backgrounds', () => {
   const project = getProjectBySlug('muchomix-biomas')
   const assets = getProjectDetails(project.id)
-  const expectedBiomeIds = ['ice-zone', 'snow-mountains', 'mountains', 'flower-field', 'beach', 'cactus-desert', 'desert-dunes', 'space']
+  const expectedBiomeIds = ['ice-zone', 'snow-mountains', 'flower-field', 'beach', 'cactus-desert', 'desert-dunes']
 
   assert.deepEqual(project.categoryIds, ['illustration'])
   assert.equal(project.selectedOrder, undefined)
@@ -543,10 +548,10 @@ test('Muchomix Game exposes gameplay, progression, results and social screens in
   }
 })
 
-test("Angel's Sighs exposes its identity, applications, lid collection and process videos in both languages", () => {
+test("Angel's Sighs exposes its applications, lid collection and process videos in both languages", () => {
   const project = getProjectBySlug('angels-sighs')
   const assets = getProjectDetails(project.id)
-  const expectedApplicationIds = ['dogs', 'sacred-fire', 'enchanted-blossom']
+  const expectedApplicationIds = ['sacred-fire', 'enchanted-blossom']
   const expectedIllustrationIds = ['mountain-pine', 'aurora-dawn', 'cherry-blossom', 'christmas-elements', 'enchanted-blossom', 'lavender', 'mahogany', 'sacred-fire', 'santa-and-gifts', 'ten-dogs']
   const expectedVideoIds = ['lavender', 'sacred-fire']
 
@@ -555,9 +560,6 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
   assert.equal(assets.layout, 'candles')
   assert.ok(assets.heroImage.endsWith('/velas.png'))
   assert.deepEqual(assets.heroDimensions, { width: 1404, height: 1120 })
-  assert.ok(assets.brand.guidelinesImage.endsWith('/logo-angel.jpg'))
-  assert.ok(assets.brand.logoImage.endsWith('/logo-cuadrado.jpg'))
-  assert.ok(assets.brand.labelImage.endsWith('/label.svg'))
   assert.deepEqual(assets.applications.map(({ id }) => id), expectedApplicationIds)
   assert.deepEqual(assets.illustrations.map(({ id }) => id), expectedIllustrationIds)
   assert.deepEqual(assets.processVideos.map(({ id }) => id), expectedVideoIds)
@@ -572,8 +574,8 @@ test("Angel's Sighs exposes its identity, applications, lid collection and proce
     assert.ok(content.previewAlt)
     assert.ok(detail.introduction)
     assert.deepEqual(detail.facts.map(({ value }) => value), language === 'es'
-      ? ['2025', 'Identidad visual e ilustración vectorial', 'Adobe Illustrator, Wacom Tablet']
-      : ['2025', 'Visual identity and vector illustration', 'Adobe Illustrator, Wacom Tablet'])
+      ? ['2025', 'Ilustración vectorial', 'Adobe Illustrator, Wacom Tablet']
+      : ['2025', 'Vector illustration', 'Adobe Illustrator, Wacom Tablet'])
     assert.ok(detail.heroAlt)
     assert.deepEqual(sortedKeys(detail.applications.items), [...expectedApplicationIds].sort())
     assert.deepEqual(sortedKeys(detail.collection.items), [...expectedIllustrationIds].sort())
