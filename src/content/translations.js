@@ -562,8 +562,8 @@ export const translations = {
         },
         'muchomix-biomas': {
           type: 'Ilustración',
-          title: 'Muchomix — Biomas',
-          description: 'Ocho fondos ilustrados que exploran climas, paisajes y atmósferas para el mundo de Muchomix.',
+          title: 'Biomas Muchomix',
+          description: 'Seis fondos ilustrados que exploran climas, paisajes y atmósferas para el mundo de Muchomix.',
           previewAlt: 'Cueva de hielo azul con un lago y una abertura luminosa al fondo.',
           detail: {
             number: '01',
@@ -573,7 +573,7 @@ export const translations = {
               { label: 'Técnica', value: 'Ilustración digital de escenarios' },
               { label: 'Herramientas', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Ocho escenarios, un mismo mundo',
+            galleryTitle: 'Seis escenarios, un mismo mundo',
             galleryDescription: 'Fondos verticales pensados para transformar el ambiente de cada nivel mediante el color, la profundidad y los elementos del paisaje.',
             biomes: {
               'ice-zone': {
@@ -583,10 +583,6 @@ export const translations = {
               'snow-mountains': {
                 name: 'Montañas nevadas',
                 alt: 'Paisaje nocturno de montañas y colinas nevadas bajo una luna llena y una nevada intensa.',
-              },
-              mountains: {
-                name: 'Montañas',
-                alt: 'Paisaje de montañas con cimas nevadas, bosque de pinos y una pradera verde en primer plano.',
               },
               'flower-field': {
                 name: 'Campo de flores',
@@ -603,10 +599,6 @@ export const translations = {
               'desert-dunes': {
                 name: 'Dunas del desierto',
                 alt: 'Dunas doradas con palmeras y siluetas de camellos bajo un cielo azul despejado.',
-              },
-              space: {
-                name: 'Espacio',
-                alt: 'Cielo espacial azul oscuro con estrellas, nubes blancas y un planeta violeta a la derecha.',
               },
             },
           },
@@ -692,35 +684,21 @@ export const translations = {
         'angels-sighs': {
           type: 'Ilustración',
           title: "Velas Angel's Sighs",
-          description: 'Identidad visual, etiquetas e ilustraciones vectoriales para tapas de madera.',
+          description: 'Ilustraciones vectoriales para tapas de madera de velas aromáticas.',
           previewAlt: "Dos velas Angel's Sighs con etiquetas y una tapa de madera ilustrada con flores rosadas.",
           detail: {
             number: '01',
-            introduction: "El proyecto comenzó con el diseño del logo y las etiquetas de Angel's Sighs. Luego desarrollé una colección de ilustraciones vectoriales, cada una pensada para imprimirse sobre una tapa de madera y expresar visualmente una fragancia diferente.",
+            introduction: "Para Angel's Sighs desarrollé una colección de ilustraciones vectoriales, cada una pensada para imprimirse sobre una tapa de madera y expresar visualmente una fragancia diferente.",
             facts: [
               { label: 'Año', value: '2025' },
-              { label: 'Técnica', value: 'Identidad visual e ilustración vectorial' },
+              { label: 'Técnica', value: 'Ilustración vectorial' },
               { label: 'Herramientas', value: 'Adobe Illustrator, Wacom Tablet' },
             ],
             heroAlt: "Dos velas Angel's Sighs en vasos rosado y blanco junto a una tapa de madera con flores de cerezo.",
-            identity: {
-              title: 'Identidad visual',
-              description: 'El sistema combina un logotipo de trazos elegantes con una llama integrada y una etiqueta de estructura clásica, adaptable a los nombres y notas de cada fragancia.',
-              guidelinesLabel: 'Sistema de marca',
-              guidelinesAlt: "Lámina de identidad de Angel's Sighs con variaciones del logotipo, símbolo de llama, colores, tipografía y márgenes de seguridad.",
-              logoLabel: 'Logotipo',
-              logoAlt: "Logotipo negro de Angel's Sighs con una llama integrada sobre fondo blanco.",
-              labelLabel: 'Etiqueta',
-              labelAlt: "Etiqueta vectorial de Angel's Sighs para la fragancia Enchanted Blossom, con marco ornamental, notas aromáticas y logotipo.",
-            },
             applications: {
-              title: 'La identidad aplicada',
-              description: 'Las etiquetas y las ilustraciones conviven sobre vasos de distintos colores y tapas de madera, manteniendo reconocible la marca en cada variante.',
+              title: 'Ilustraciones en las velas',
+              description: 'Las ilustraciones se imprimen sobre tapas de madera y acompañan las velas de cada fragancia.',
               items: {
-                dogs: {
-                  name: 'Sweet Vanilla',
-                  alt: "Vela negra Angel's Sighs Sweet Vanilla con etiqueta crema y una tapa de madera ilustrada con diez perros.",
-                },
                 'sacred-fire': {
                   name: 'Sacred Fire',
                   alt: "Velas roja y gris Angel's Sighs Sacred Fire junto a una tapa de madera con un dragón rojo entre nubes.",
@@ -1492,8 +1470,8 @@ export const translations = {
         },
         'muchomix-biomas': {
           type: 'Illustration',
-          title: 'Muchomix — Biomes',
-          description: 'Eight illustrated backgrounds exploring climates, landscapes and atmospheres for the world of Muchomix.',
+          title: 'Muchomix Biomes',
+          description: 'Six illustrated backgrounds exploring climates, landscapes and atmospheres for the world of Muchomix.',
           previewAlt: 'Blue ice cave with a lake and a glowing opening in the distance.',
           detail: {
             number: '01',
@@ -1503,7 +1481,7 @@ export const translations = {
               { label: 'Technique', value: 'Digital environment illustration' },
               { label: 'Tools', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Eight settings, one world',
+            galleryTitle: 'Six settings, one world',
             galleryDescription: 'Vertical backgrounds designed to transform each level through color, depth and landscape elements.',
             biomes: {
               'ice-zone': {
@@ -1513,10 +1491,6 @@ export const translations = {
               'snow-mountains': {
                 name: 'Snow mountains',
                 alt: 'Night landscape of snowy mountains and hills beneath a full moon and heavy snowfall.',
-              },
-              mountains: {
-                name: 'Mountains',
-                alt: 'Mountain landscape with snowy peaks, a pine forest and a green meadow in the foreground.',
               },
               'flower-field': {
                 name: 'Flower field',
@@ -1533,10 +1507,6 @@ export const translations = {
               'desert-dunes': {
                 name: 'Desert dunes',
                 alt: 'Golden dunes with palm trees and camel silhouettes beneath a clear blue sky.',
-              },
-              space: {
-                name: 'Space',
-                alt: 'Dark blue outer space with stars, white clouds and a violet planet on the right.',
               },
             },
           },
@@ -1622,35 +1592,21 @@ export const translations = {
         'angels-sighs': {
           type: 'Illustration',
           title: "Angel's Sighs Candles",
-          description: 'Visual identity, labels and vector illustrations for wooden lids.',
+          description: 'Vector illustrations for scented candle wooden lids.',
           previewAlt: "Two Angel's Sighs candles with labels and a wooden lid illustrated with pink flowers.",
           detail: {
             number: '01',
-            introduction: "The project began with the design of the Angel's Sighs logo and labels. I then developed a collection of vector illustrations, each created to be printed on a wooden lid and visually express a different fragrance.",
+            introduction: "For Angel's Sighs, I developed a collection of vector illustrations, each created to be printed on a wooden lid and visually express a different fragrance.",
             facts: [
               { label: 'Year', value: '2025' },
-              { label: 'Technique', value: 'Visual identity and vector illustration' },
+              { label: 'Technique', value: 'Vector illustration' },
               { label: 'Tools', value: 'Adobe Illustrator, Wacom Tablet' },
             ],
             heroAlt: "Two Angel's Sighs candles in pink and white vessels beside a wooden lid illustrated with cherry blossoms.",
-            identity: {
-              title: 'Visual identity',
-              description: 'The system pairs an elegant line-based wordmark with an integrated flame and a classic label structure that adapts to each fragrance name and its notes.',
-              guidelinesLabel: 'Brand system',
-              guidelinesAlt: "Angel's Sighs identity sheet with logo variations, flame symbol, colors, typography and clear-space guidance.",
-              logoLabel: 'Logo',
-              logoAlt: "Black Angel's Sighs logo with an integrated flame on a white background.",
-              labelLabel: 'Label',
-              labelAlt: "Angel's Sighs vector label for the Enchanted Blossom fragrance, with an ornamental border, fragrance notes and logo.",
-            },
             applications: {
-              title: 'The identity in use',
-              description: 'Labels and illustrations come together across vessels in different colors and wooden lids while keeping the brand recognizable in every variation.',
+              title: 'Illustrations on the candles',
+              description: 'The illustrations are printed on wooden lids and paired with the candles for each fragrance.',
               items: {
-                dogs: {
-                  name: 'Sweet Vanilla',
-                  alt: "Black Angel's Sighs Sweet Vanilla candle with a cream label and a wooden lid illustrated with ten dogs.",
-                },
                 'sacred-fire': {
                   name: 'Sacred Fire',
                   alt: "Red and gray Angel's Sighs Sacred Fire candles beside a wooden lid with a red dragon among clouds.",
