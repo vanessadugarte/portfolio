@@ -48,6 +48,11 @@
   color: var(--project-title-secondary-color, currentColor);
 }
 
+.project-detail--donas-3d .project-detail-title {
+  position: relative;
+  color: #e96486;
+}
+
 .project-detail-placeholder h1 {
   max-width: 46.25rem;
   margin: 0;
@@ -289,7 +294,7 @@
   min-width: 0;
   align-items: flex-start;
   gap: 0.4rem;
-  padding: 0.375rem 0.625rem;
+  padding: 0.25rem 0.625rem;
   border: 1px solid tokens.$color-border;
   border-radius: 999px;
 }
@@ -389,6 +394,10 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+.project-detail--game-icons .project-detail-final-artwork img {
+  border-radius: 1rem;
+}
+
 .project-detail--deep-sea .project-detail-final-artworks .project-detail-final-artwork {
   width: 100%;
   max-width: none;
@@ -396,6 +405,7 @@
 
 .project-detail--deep-sea .project-detail-final-artworks {
   grid-template-columns: 1.81594fr 1fr;
+  margin-top: tokens.$space-5;
 }
 
 .project-detail--deep-sea .project-detail-final-artworks > .project-detail-hero-ornament {
@@ -406,6 +416,14 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project-detail--medusas .project-detail-hero > .project-detail-final-artwork > img {
+  border-radius: 16px;
+}
+
+.project-detail--reindeer .project-detail-hero > .project-detail-final-artwork > img {
+  border-radius: 16px;
 }
 
 .project-detail--donut-shop .project-detail-final-artwork {
@@ -422,6 +440,14 @@
   border-radius: 1rem;
   background: #fdf3f5;
   object-fit: contain;
+}
+
+.project-detail--deep-sea .project-detail-final-artwork img {
+  border-radius: 16px;
+}
+
+.project-detail--forest .project-detail-final-artwork > img {
+  border-radius: 16px;
 }
 
 .project-detail-organic-image {
@@ -789,35 +815,16 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 1.25rem;
+  border-radius: 16px;
   box-shadow: 0 1rem 2.5rem rgb(7 49 68 / 17%);
 }
 
 .project-detail-biome figcaption {
-  display: flex;
-  align-items: baseline;
-  gap: tokens.$space-2;
-  margin-top: tokens.$space-3;
+  margin-bottom: tokens.$space-3;
   color: var(--biomes-ice);
   font-family: tokens.$font-heading;
   font-size: tokens.$font-size-project-title;
   font-weight: 700;
-}
-
-.project-detail-biome figcaption span {
-  color: var(--biomes-desert);
-  font-family: tokens.$font-body;
-  font-size: tokens.$font-size-body;
-  font-weight: 700;
-}
-
-.project-detail-biomes-grid > li:nth-child(3) figcaption {
-  color: var(--biomes-flower);
-}
-
-.project-detail-biomes-grid > li:nth-child(5) figcaption,
-.project-detail-biomes-grid > li:nth-child(6) figcaption {
-  color: var(--biomes-desert);
 }
 
 .project-detail--muchomix-game {
@@ -870,20 +877,21 @@
   margin-top: tokens.$space-4;
 }
 
-.project-detail-game-hero {
-  position: relative;
-  max-width: 32rem;
+.project-detail-game-hero-grid {
+  display: grid;
+  gap: tokens.$space-5;
+  width: min(100%, 68rem);
   margin: tokens.$space-4 auto clamp(4rem, 10vw, 8rem);
 }
 
-.project-detail-game-hero::before {
-  position: absolute;
-  z-index: -1;
-  inset: clamp(0.5rem, 2vw, 1rem) clamp(-1.5rem, -2vw, -0.75rem) clamp(-1.5rem, -2vw, -0.75rem);
-  border-radius: 1.75rem;
-  background: var(--muchomix-space);
-  box-shadow: 0 1rem 2.5rem rgb(4 3 31 / 20%);
-  content: '';
+.project-detail-game-palette {
+  width: min(100%, 68rem);
+  margin: 0 auto tokens.$space-6;
+}
+
+.project-detail-game-hero {
+  min-width: 0;
+  margin: 0;
 }
 
 .project-detail-game-hero img,
@@ -894,8 +902,7 @@
 }
 
 .project-detail-game-hero img {
-  border: 0.35rem solid var(--muchomix-aqua);
-  border-radius: 1.25rem;
+  border-radius: 1rem;
 }
 
 .project-detail-game-sections {
@@ -907,6 +914,10 @@
   gap: tokens.$space-5;
   padding-block: clamp(3rem, 8vw, 6rem);
   border-bottom: 1px solid tokens.$color-border;
+}
+
+.project-detail-game-section:last-child {
+  border-bottom: 0;
 }
 
 .project-detail-game-section .project-detail-section-intro {
@@ -932,8 +943,8 @@
 }
 
 .project-detail-game-screen figcaption {
-  margin-top: tokens.$space-3;
-  color: var(--muchomix-pink);
+  margin-bottom: tokens.$space-3;
+  color: var(--muchomix-space);
   font-family: tokens.$font-heading;
   font-size: tokens.$font-size-project-title;
   font-weight: 700;
@@ -1230,6 +1241,11 @@
   margin-inline: auto;
 }
 
+.project-detail--deep-sea .project-detail-hero-references {
+  width: min(24rem, calc(100vw - 2rem));
+  max-width: none;
+}
+
 .project-detail--jungle .project-detail-hero-references h3,
 .project-detail--deep-sea .project-detail-hero-references h3 {
   grid-column: 1 / -1;
@@ -1261,6 +1277,31 @@
 
   .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
     justify-content: start;
+  }
+}
+
+@media (min-width: tokens.$breakpoint-tablet) and (max-width: calc(tokens.$breakpoint-desktop - 0.0625rem)) {
+  .project-detail--deep-sea .project-detail-final-artworks {
+    width: min(34rem, 100%);
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-palette {
+    width: min(34rem, 100%);
+    max-width: 34rem;
+    margin-inline: auto;
+    justify-self: center;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette {
+    margin-inline: 0;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-references {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
   }
 }
 
@@ -1346,6 +1387,13 @@
   gap: tokens.$space-1;
 }
 
+@media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail--angels-sighs .project-detail-pager {
+    width: 13rem;
+    justify-content: space-between;
+  }
+}
+
 @media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
   .project-detail--game-icons .project-detail-details-section {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1367,30 +1415,26 @@
 
   .project-detail--muchokids-nationalities .project-detail-navigation,
   .project-detail--muchomix-biomas .project-detail-navigation,
-  .project-detail--muchomix-game .project-detail-navigation,
-  .project-detail--angels-sighs .project-detail-navigation {
+  .project-detail--muchomix-game .project-detail-navigation {
     flex-direction: column;
     align-items: stretch;
   }
 
   .project-detail--muchokids-nationalities .project-detail-back,
   .project-detail--muchomix-biomas .project-detail-back,
-  .project-detail--muchomix-game .project-detail-back,
-  .project-detail--angels-sighs .project-detail-back {
+  .project-detail--muchomix-game .project-detail-back {
     flex: none;
   }
 
   .project-detail--muchokids-nationalities .project-detail-pager,
   .project-detail--muchomix-biomas .project-detail-pager,
-  .project-detail--muchomix-game .project-detail-pager,
-  .project-detail--angels-sighs .project-detail-pager {
+  .project-detail--muchomix-game .project-detail-pager {
     justify-content: space-between;
   }
 
   .project-detail--muchokids-nationalities .project-detail-pager a,
   .project-detail--muchomix-biomas .project-detail-pager a,
-  .project-detail--muchomix-game .project-detail-pager a,
-  .project-detail--angels-sighs .project-detail-pager a {
+  .project-detail--muchomix-game .project-detail-pager a {
     padding-inline: 0;
   }
 
@@ -1423,6 +1467,10 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
+  .project-detail-game-hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .project-detail-biomes-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1439,12 +1487,6 @@
 
   .project-detail-game-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .project-detail-game-grid > .project-detail-game-screen:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: min(100%, 32rem);
-    justify-self: center;
   }
 
   .project-detail-nationalities-artwork .project-detail-nationalities-background,
@@ -1519,6 +1561,12 @@
     grid-column: 1 / -1;
   }
 
+  .project-detail--deep-sea .project-detail-process-section {
+    margin-top: tokens.$space-6;
+    padding-top: tokens.$space-6;
+    border-top: 1px solid tokens.$color-border;
+  }
+
   .project-detail-section-intro,
   .project-detail-palette {
     grid-column: 1 / -1;
@@ -1526,6 +1574,26 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .project-detail-game-hero-grid {
+    margin-bottom: 0;
+  }
+
+  .project-detail-game-palette {
+    padding-top: 0;
+  }
+
+  .project-detail-game-sections {
+    border-top: 0;
+  }
+
+  .project-detail-game-section {
+    padding-top: tokens.$space-5;
+  }
+
+  .project-detail-biomes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .project-detail-biomes-summary {
     grid-template-columns:
       2rem
@@ -1649,12 +1717,12 @@
   }
 
   .project-detail-game-section {
-    grid-template-columns: minmax(13rem, 0.35fr) minmax(0, 1fr);
-    column-gap: clamp(2rem, 5vw, 6rem);
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .project-detail-game-grid {
-    grid-column: 2;
+    grid-column: 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .project-detail--reindeer .project-detail-detail-image {
@@ -1790,6 +1858,10 @@
     row-gap: 0.5rem;
   }
 
+  .project-detail--medusas .project-detail-hero > .project-detail-final-artwork {
+    margin-top: tokens.$space-xxl;
+  }
+
   .project-detail-hero {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
@@ -1803,9 +1875,35 @@
     max-width: 34rem;
   }
 
+  .project-detail--forest .project-detail-hero {
+    row-gap: tokens.$space-6;
+  }
+
+  .project-detail--forest .project-detail-palette-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-detail--forest .project-detail-palette-section .project-detail-palette {
+    justify-self: center;
+    width: fit-content;
+  }
+
   .project-detail--reindeer .project-detail-hero > .project-detail-final-artwork {
     max-width: 56.25rem;
     margin-inline: auto;
+  }
+
+  .project-detail--reindeer .project-detail-hero {
+    row-gap: tokens.$space-6;
+  }
+
+  .project-detail--reindeer .project-detail-palette-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-detail--reindeer .project-detail-palette-section .project-detail-palette {
+    justify-self: center;
+    width: fit-content;
   }
 
   .project-detail--jungle .project-detail-hero {
@@ -1927,6 +2025,11 @@
   .project-detail-frames-summary > .project-detail-facts {
     width: 100%;
     max-width: tokens.$width-project-detail-facts-desktop;
+  }
+
+  .project-detail--donas-3d .project-detail-summary > .project-detail-facts {
+    grid-column: 2 / -1;
+    max-width: none;
   }
 
   .project-detail-nationalities-summary .project-detail-introduction,
@@ -2152,7 +2255,11 @@
     grid-column: 3;
     align-self: center;
     margin-inline-start: clamp(2rem, 5vw, 5rem);
-    justify-self: center;
+    justify-self: start;
+  }
+
+  .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette {
+    margin-inline: 0;
   }
 
   .project-detail--deep-sea .project-detail-final-artworks > :is(.project-detail-hero-ornament--1, .project-detail-hero-ornament--4) {

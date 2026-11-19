@@ -89,6 +89,34 @@ export const translations = {
             },
           },
         },
+        ajedrez: {
+          type: '3D',
+          title: 'Ajedrez',
+          description: 'Modelado y composición 3D de piezas de ajedrez.',
+          previewAlt: 'Composición 3D de piezas de ajedrez.',
+          detail: {
+            number: '02',
+            introduction: 'Una composición 3D inspirada en el ajedrez, enfocada en las formas de sus piezas y el contraste entre luces y sombras.',
+            facts: [
+              { label: 'Año', value: '2024' },
+              { label: 'Técnica', value: 'Modelado y renderizado 3D' },
+              { label: 'Herramientas', value: 'Blender' },
+            ],
+            paletteTitle: 'Paleta de color',
+            processTitle: 'Proceso',
+            processDescription: 'El proceso explora el modelado de las piezas, la composición de la escena y los ajustes de iluminación para obtener el render final.',
+            detailsTitle: 'Detalles',
+            detailsDescription: 'Vistas de la composición y del proceso de modelado de las piezas.',
+            imageAlt: {
+              hero: 'Composición 3D de piezas de ajedrez.',
+              process: [
+                'Proceso de modelado de piezas de ajedrez en 3D.',
+                'Vista del proceso de composición de la escena de ajedrez.',
+              ],
+              details: ['Detalle de la composición 3D de piezas de ajedrez.'],
+            },
+          },
+        },
         'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.', previewAlt: '' },
         'donut-shop': {
           type: 'Front-end / UX/UI',
@@ -617,25 +645,17 @@ export const translations = {
               { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
             heroAlt: 'Tablero principal de Muchomix con caritas de distintas nacionalidades, puntuación, tiempo y medidor de progreso sobre un fondo espacial.',
+            heroForestAlt: 'Tablero de Muchomix durante una partida en Forest, con caritas de distintas nacionalidades, puntuación y tiempo restante.',
+            paletteTitle: 'Paleta de color',
             sections: {
-              gameplay: {
-                title: 'Cómo se juega',
-                description: 'La mecánica invita a unir tres o más caritas iguales antes de que termine el tiempo. Alekko y sus aliados aparecen para quitar puntos, así que también hay que eliminarlos con rapidez.',
+              screens: {
+                title: 'Pantallas del juego',
+                description: 'Una mirada a las instrucciones, los niveles, las recompensas, los resultados y las opciones para jugar con amigos.',
                 screens: {
                   'how-to-play': {
                     label: 'Instrucciones',
                     alt: 'Pantalla de instrucciones de Muchomix que muestra cómo enlazar cuatro caritas iguales con el dedo para conseguir puntos.',
                   },
-                  'villain-warning': {
-                    label: 'Alekko y sus aliados',
-                    alt: 'Segunda pantalla de instrucciones de Muchomix que indica cómo enlazar las caritas grises de Alekko y sus aliados antes de que resten puntos.',
-                  },
-                },
-              },
-              progression: {
-                title: 'Niveles y recompensas',
-                description: 'Los escenarios se desbloquean al avanzar. Las piedras de poder obtenidas en las partidas permiten conseguir ayudas y objetos especiales.',
-                screens: {
                   levels: {
                     label: 'Selección de niveles',
                     alt: 'Pantalla de niveles de Muchomix con escenarios espaciales y de hielo, barras de progreso y dos niveles bloqueados.',
@@ -644,33 +664,13 @@ export const translations = {
                     label: 'Piedras de poder',
                     alt: 'Catálogo de recompensas de Muchomix con reloj, fichas, reloj de arena y martillos que se canjean por piedras de poder.',
                   },
-                },
-              },
-              results: {
-                title: 'Resultados y ranking',
-                description: 'Al finalizar una partida, el juego comunica el resultado, permite continuar o intentarlo de nuevo y compara el poder acumulado entre países.',
-                screens: {
                   'good-job': {
                     label: 'Misión cumplida',
                     alt: 'Pantalla de nivel completado con la heroína y otro personaje, siete puntos, dos piedras de poder y botones para volver o continuar.',
                   },
-                  'times-up': {
-                    label: 'Tiempo agotado',
-                    alt: 'Pantalla de tiempo agotado con el villano Alekko, un ave mecánica y botones para volver al inicio o intentarlo nuevamente.',
-                  },
-                  ranking: {
-                    label: 'Ranking por países',
-                    alt: 'Ranking de Muchomix que compara el poder total de distintos países mediante una lista con banderas y puntuaciones.',
-                  },
-                },
-              },
-              social: {
-                title: 'Jugar con amigos',
-                description: 'El perfil reúne la puntuación total, la posición en el ranking y la red de amistades. También permite buscar usuarios y añadir nuevos amigos.',
-                screens: {
                   friends: {
-                    label: 'Perfil y ranking',
-                    alt: 'Perfil de Muchomix con avatar, poder total, posición en el ranking y una cuadrícula de ocho amigos.',
+                    label: 'Perfil y amistades',
+                    alt: 'Perfil de Muchomix con avatar, poder total y una cuadrícula de ocho amigos.',
                   },
                   'your-friends': {
                     label: 'Tus amigos',
@@ -994,6 +994,34 @@ export const translations = {
                 'Detail of a donut with colorful topping.',
                 'Detail of the composition’s lighting and textures.',
               ],
+            },
+          },
+        },
+        ajedrez: {
+          type: '3D',
+          title: 'Chess',
+          description: '3D modeling and composition of chess pieces.',
+          previewAlt: '3D composition of chess pieces.',
+          detail: {
+            number: '02',
+            introduction: 'A 3D composition inspired by chess, focused on the shapes of its pieces and the contrast between light and shadow.',
+            facts: [
+              { label: 'Year', value: '2024' },
+              { label: 'Technique', value: '3D modeling and rendering' },
+              { label: 'Tools', value: 'Blender' },
+            ],
+            paletteTitle: 'Color palette',
+            processTitle: 'Process',
+            processDescription: 'The process explores modeling the pieces, composing the scene and adjusting the lighting for the final render.',
+            detailsTitle: 'Details',
+            detailsDescription: 'Views of the composition and the piece modeling process.',
+            imageAlt: {
+              hero: '3D composition of chess pieces.',
+              process: [
+                '3D chess piece modeling process.',
+                'View of the chess scene composition process.',
+              ],
+              details: ['Detail of the 3D chess piece composition.'],
             },
           },
         },
@@ -1525,25 +1553,17 @@ export const translations = {
               { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
             heroAlt: 'Main Muchomix board with faces from different nationalities, score, timer and progress meter over a space background.',
+            heroForestAlt: 'Muchomix board during a game in Forest, with faces from different nationalities, score and remaining time.',
+            paletteTitle: 'Color palette',
             sections: {
-              gameplay: {
-                title: 'How to play',
-                description: 'Players connect three or more matching faces before time runs out. Alekko and his crew appear to steal points, so they must also be removed quickly.',
+              screens: {
+                title: 'Game screens',
+                description: 'A look at the instructions, levels, rewards, results and options for playing with friends.',
                 screens: {
                   'how-to-play': {
                     label: 'Instructions',
                     alt: 'Muchomix instructions showing how to connect four matching faces with a finger to score points.',
                   },
-                  'villain-warning': {
-                    label: 'Alekko and his crew',
-                    alt: 'Second Muchomix instruction screen showing how to connect the gray faces of Alekko and his crew before they take away points.',
-                  },
-                },
-              },
-              progression: {
-                title: 'Levels and rewards',
-                description: 'New settings unlock as players advance. Power stones earned during matches can be exchanged for boosts and special objects.',
-                screens: {
                   levels: {
                     label: 'Level selection',
                     alt: 'Muchomix level screen with space and ice settings, progress bars and two locked levels.',
@@ -1552,33 +1572,13 @@ export const translations = {
                     label: 'Power stones',
                     alt: 'Muchomix rewards catalog with a clock, tokens, hourglass and hammers that can be exchanged for power stones.',
                   },
-                },
-              },
-              results: {
-                title: 'Results and ranking',
-                description: 'At the end of a match, the game communicates the result, lets players continue or try again and compares accumulated power across countries.',
-                screens: {
                   'good-job': {
                     label: 'Mission complete',
                     alt: 'Completed level screen with the heroine and another character, seven points, two power stones and buttons to go home or continue.',
                   },
-                  'times-up': {
-                    label: 'Time is up',
-                    alt: 'Time-up screen with the villain Alekko, a mechanical bird and buttons to return home or try again.',
-                  },
-                  ranking: {
-                    label: 'Country ranking',
-                    alt: 'Muchomix ranking comparing the total power of different countries in a list with flags and scores.',
-                  },
-                },
-              },
-              social: {
-                title: 'Play with friends',
-                description: 'The profile brings together total score, ranking and a network of friends. Players can also search by username and add new friends.',
-                screens: {
                   friends: {
-                    label: 'Profile and ranking',
-                    alt: 'Muchomix profile with an avatar, total power, ranking position and a grid of eight friends.',
+                    label: 'Profile and friends',
+                    alt: 'Muchomix profile with an avatar, total power and a grid of eight friends.',
                   },
                   'your-friends': {
                     label: 'Your friends',

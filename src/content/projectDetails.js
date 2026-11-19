@@ -2,6 +2,7 @@ import { instagramPostsAssets } from './instagramPosts.js'
 
 const medusasAsset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donuts/${filename}`, import.meta.url).href
+const chessAsset = (filename) => new URL(`../assets/images/projects/3d/chess/${filename}`, import.meta.url).href
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
 const forestAsset = (filename) => new URL(`../assets/images/projects/illustrations/forest/${filename}`, import.meta.url).href
 const muchomixBiomesAsset = (filename) => new URL(`../assets/images/projects/illustrations/biomas/${filename}`, import.meta.url).href
@@ -45,13 +46,11 @@ const muchomixGameAssets = {
   gameplay: new URL('../assets/images/projects/illustrations/muchomix-game/gameplay.jpg', import.meta.url).href,
   goodJob: new URL('../assets/images/projects/illustrations/muchomix-game/good-job-screen.jpg', import.meta.url).href,
   howToPlay: new URL('../assets/images/projects/illustrations/muchomix-game/how-to-play.jpg', import.meta.url).href,
-  villainWarning: new URL('../assets/images/projects/illustrations/muchomix-game/howto.jpg', import.meta.url).href,
   levels: new URL('../assets/images/projects/illustrations/muchomix-game/levels.jpg', import.meta.url).href,
   powerStones: new URL('../assets/images/projects/illustrations/muchomix-game/power-stones.jpg', import.meta.url).href,
-  ranking: new URL('../assets/images/projects/illustrations/muchomix-game/ranking.jpg', import.meta.url).href,
-  timesUp: new URL('../assets/images/projects/illustrations/muchomix-game/timesup.jpg', import.meta.url).href,
   friends: new URL('../assets/images/projects/illustrations/muchomix-game/friends.jpg', import.meta.url).href,
   yourFriends: new URL('../assets/images/projects/illustrations/muchomix-game/your-friends.jpg', import.meta.url).href,
+  forestGame: new URL('../assets/images/projects/illustrations/muchomix-game/forest game area.webp', import.meta.url).href,
 }
 const organicShapeAsset = (filename) => new URL(`../assets/images/shapes/organic/${filename}`, import.meta.url).href
 const arrowShapeAsset = (filename) => new URL(`../assets/images/shapes/flechas/${filename}`, import.meta.url).href
@@ -141,7 +140,6 @@ export const projectDetails = {
     illustrationTreatment: true,
     accentColor: '#004461',
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-horiz.svg'),
       details: [
         organicShapeAsset('organic-shape-05.svg'),
         organicShapeAsset('organic-shape-02.svg'),
@@ -190,6 +188,17 @@ export const projectDetails = {
       donutsAsset('detail-donut-4.jpg'),
     ],
   },
+  ajedrez: {
+    heroImage: chessAsset('ajedrez-1.webp'),
+    palette: ['#101010', '#333333', '#777777', '#B7B7B7', '#E8E4DD'],
+    processImages: [
+      chessAsset('ajedrez-proceso1.webp'),
+      chessAsset('chess-proceso2.webp'),
+    ],
+    detailImages: [
+      chessAsset('ajedrez-1.webp'),
+    ],
+  },
   'deep-sea': {
     heroImage: deepSeaAsset('finalwork-deepsea.jpg'),
     heroDimensions: { width: 1200, height: 891 },
@@ -207,8 +216,6 @@ export const projectDetails = {
     heroReferenceImages: [deepSeaAsset('inspo-1.jpg'), deepSeaAsset('inspo-2.jpg')],
     heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 760, height: 500 })),
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-02.svg'),
-      heroSecondary: organicShapeAsset('organic-shape-05.svg'),
       details: [
         organicShapeAsset('organic-shape-01.svg'),
         organicShapeAsset('organic-shape-05.svg'),
@@ -476,32 +483,17 @@ export const projectDetails = {
     secondaryAccentColor: '#008F87',
     heroImage: muchomixGameAssets.gameplay,
     heroDimensions: { width: 1920, height: 2561 },
+    heroForestImage: muchomixGameAssets.forestGame,
+    heroForestDimensions: { width: 2048, height: 2732 },
+    palette: ['#008F87', '#2BBFAF', '#52E5E8', '#590023', '#E90051', '#FF5B99'],
     sections: [
       {
-        id: 'gameplay',
+        id: 'screens',
         screens: [
           { id: 'how-to-play', image: muchomixGameAssets.howToPlay, width: 1920, height: 2561 },
-          { id: 'villain-warning', image: muchomixGameAssets.villainWarning, width: 750, height: 1334 },
-        ],
-      },
-      {
-        id: 'progression',
-        screens: [
           { id: 'levels', image: muchomixGameAssets.levels, width: 1920, height: 2561 },
           { id: 'power-stones', image: muchomixGameAssets.powerStones, width: 1920, height: 2561 },
-        ],
-      },
-      {
-        id: 'results',
-        screens: [
           { id: 'good-job', image: muchomixGameAssets.goodJob, width: 1920, height: 2561 },
-          { id: 'times-up', image: muchomixGameAssets.timesUp, width: 2048, height: 2732 },
-          { id: 'ranking', image: muchomixGameAssets.ranking, width: 750, height: 1334 },
-        ],
-      },
-      {
-        id: 'social',
-        screens: [
           { id: 'friends', image: muchomixGameAssets.friends, width: 1920, height: 2561 },
           { id: 'your-friends', image: muchomixGameAssets.yourFriends, width: 1920, height: 2561 },
         ],
