@@ -112,7 +112,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(assets.palette.length, 6)
   assert.equal(assets.illustrationTreatment, true)
   assert.equal(assets.accentColor, '#004461')
-  assert.equal(assets.organicMasks.hero.endsWith('/organic-shape-horiz.svg'), true)
+  assert.equal(assets.organicMasks.hero, undefined)
   assert.equal(assets.organicMasks.details.length, assets.detailImages.length)
   assert.equal(assets.processArrows.length, assets.processImages.length - 1)
   assert.deepEqual(assets.processArrows.map(({ mobileRotation, desktopRotation }) => [mobileRotation, desktopRotation]), [[90, 0], [90, 0], [180, 90]])
@@ -144,8 +144,8 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(deepSeaAssets.processImageDimensions.length, deepSeaAssets.processImages.length)
   assert.equal(deepSeaAssets.processImages.at(-1).endsWith('/sketch-deepsea-3.png'), true)
   assert.equal(deepSeaAssets.detailImages.length, 4)
-    assert.equal(deepSeaAssets.organicMasks.hero.endsWith('/organic-shape-02.svg'), true)
-    assert.equal(deepSeaAssets.organicMasks.heroSecondary.endsWith('/organic-shape-05.svg'), true)
+    assert.equal(deepSeaAssets.organicMasks.hero, undefined)
+    assert.equal(deepSeaAssets.organicMasks.heroSecondary, undefined)
     assert.equal(deepSeaAssets.organicMasks.details.length, deepSeaAssets.detailImages.length)
   assert.equal(deepSeaAssets.processArrows.length, deepSeaAssets.processImages.length - 1)
   assert.deepEqual(deepSeaAssets.processArrows.map(({ mobileRotation, desktopRotation }) => [mobileRotation, desktopRotation]), [[180, 90], [0, -90], [0, -90]])
@@ -508,10 +508,10 @@ test('Muchomix Biomes exposes six localized environment backgrounds', () => {
   }
 })
 
-test('Muchomix Game exposes gameplay, progression, results and social screens in both languages', () => {
+test('Muchomix Game exposes its remaining screens in one localized section', () => {
   const assets = getProjectDetails('muchomix-game')
-  const expectedSectionIds = ['gameplay', 'progression', 'results', 'social']
-  const expectedScreenIds = ['how-to-play', 'villain-warning', 'levels', 'power-stones', 'good-job', 'times-up', 'ranking', 'friends', 'your-friends']
+  const expectedSectionIds = ['screens']
+  const expectedScreenIds = ['how-to-play', 'levels', 'power-stones', 'good-job', 'friends', 'your-friends']
   const screens = assets.sections.flatMap(({ screens: sectionScreens }) => sectionScreens)
 
   assert.equal(assets.layout, 'game')
@@ -520,8 +520,11 @@ test('Muchomix Game exposes gameplay, progression, results and social screens in
   assert.deepEqual(assets.heroDimensions, { width: 1920, height: 2561 })
   assert.deepEqual(assets.sections.map(({ id }) => id), expectedSectionIds)
   assert.deepEqual(screens.map(({ id }) => id), expectedScreenIds)
-  assert.equal(new Set([assets.heroImage, ...screens.map(({ image }) => image)]).size, 10)
-  assert.equal(screens.every(({ image, width, height }) => image.endsWith('.jpg') && width > 0 && height > 0), true)
+  assert.ok(assets.heroForestImage.endsWith('/forest%20game%20area.webp') || assets.heroForestImage.endsWith('/forest game area.webp'))
+  assert.deepEqual(assets.heroForestDimensions, { width: 2048, height: 2732 })
+  assert.deepEqual(assets.palette, ['#008F87', '#2BBFAF', '#52E5E8', '#590023', '#E90051', '#FF5B99'])
+  assert.equal(new Set([assets.heroImage, assets.heroForestImage, ...screens.map(({ image }) => image)]).size, 8)
+  assert.equal(screens.every(({ image, width, height }) => /\.(jpg|webp)$/.test(image) && width > 0 && height > 0), true)
 
   for (const [language, text] of Object.entries(translations)) {
     const content = text.projects.items['muchomix-game']
@@ -532,6 +535,8 @@ test('Muchomix Game exposes gameplay, progression, results and social screens in
       ? ['2017', 'Ilustración y diseño de interfaz', 'Illustrator, Photoshop, Wacom Tablet']
       : ['2017', 'Illustration and interface design', 'Illustrator, Photoshop, Wacom Tablet'])
     assert.ok(detail.heroAlt)
+    assert.ok(detail.heroForestAlt)
+    assert.ok(detail.paletteTitle)
     assert.deepEqual(sortedKeys(detail.sections), [...expectedSectionIds].sort())
 
     for (const section of assets.sections) {

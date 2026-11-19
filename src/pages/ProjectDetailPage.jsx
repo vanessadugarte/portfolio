@@ -685,15 +685,36 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <figure className="project-detail-game-hero">
-          <img
-            src={assets.heroImage}
-            alt={detail.heroAlt}
-            width={assets.heroDimensions.width}
-            height={assets.heroDimensions.height}
-            fetchPriority="high"
+        <div className="project-detail-game-hero-grid">
+          <figure className="project-detail-game-hero">
+            <img
+              src={assets.heroImage}
+              alt={detail.heroAlt}
+              width={assets.heroDimensions.width}
+              height={assets.heroDimensions.height}
+              fetchPriority="high"
+            />
+          </figure>
+          <figure className="project-detail-game-hero project-detail-game-forest">
+            <img
+              src={assets.heroForestImage}
+              alt={detail.heroForestAlt}
+              width={assets.heroForestDimensions.width}
+              height={assets.heroForestDimensions.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+
+        <section className="project-detail-section project-detail-palette-section project-detail-game-palette" aria-labelledby="muchomix-palette-title">
+          <ColorPalette
+            headingId="muchomix-palette-title"
+            headingLevel="h2"
+            title={detail.paletteTitle}
+            colors={assets.palette}
           />
-        </figure>
+        </section>
 
         <div className="project-detail-game-sections">
           {assets.sections.map((section, sectionIndex) => {
@@ -713,6 +734,7 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
 
                     return (
                       <figure className="project-detail-game-screen" key={screen.id}>
+                        <figcaption>{screenContent.label}</figcaption>
                         <img
                           src={screen.image}
                           alt={screenContent.alt}
@@ -721,7 +743,6 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
                           loading="lazy"
                           decoding="async"
                         />
-                        <figcaption>{screenContent.label}</figcaption>
                       </figure>
                     )
                   })}
@@ -775,6 +796,9 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
             {assets.biomes.map((biome, index) => (
               <li key={biome.id}>
                 <figure className="project-detail-biome">
+                  <figcaption>
+                    {detail.biomes[biome.id].name}
+                  </figcaption>
                   <img
                     src={biome.image}
                     alt={detail.biomes[biome.id].alt}
@@ -784,10 +808,6 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
                     fetchPriority={index === 0 ? 'high' : undefined}
                     decoding="async"
                   />
-                  <figcaption>
-                    <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    {detail.biomes[biome.id].name}
-                  </figcaption>
                 </figure>
               </li>
             ))}
@@ -959,7 +979,9 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
 
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
-            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>
+              {content.title}
+            </h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <ProjectFacts facts={detail.facts} />
             {assets.links && (
