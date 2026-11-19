@@ -9,6 +9,7 @@ const instagramPostsImage = new URL('../assets/images/projects/graphic-design/in
 const deepSeaImage = new URL('../assets/images/projects/illustrations/deep-sea/deep-sea-thumbnail.jpg', import.meta.url).href
 const jungleImage = new URL('../assets/images/projects/illustrations/jungle/jungle-illustration-thumbnail.jpg', import.meta.url).href
 const gameIconsImage = new URL('../assets/images/projects/illustrations/game-icons/iconos-760x500.jpg', import.meta.url).href
+const snapchatFramesImage = new URL('../assets/images/projects/illustrations/snapchat-frames/snapchat-frames-thumbnail.jpg', import.meta.url).href
 const reindeerImage = new URL('../assets/images/projects/illustrations/reindeer/reindeer-760x500.jpg', import.meta.url).href
 const muchokidsNationalitiesImage = new URL('../assets/images/projects/illustrations/muchokids-nationalities/muchokids-nationalities-760x500.jpg', import.meta.url).href
 const forestImage = new URL('../assets/images/projects/illustrations/forest/forest-760x500.jpg', import.meta.url).href
@@ -43,6 +44,7 @@ export const projects = [
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
   { id: 'jungle', categoryIds: ['illustration'], previewImage: jungleImage },
   { id: 'game-icons', categoryIds: ['illustration'], previewImage: gameIconsImage },
+  { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage },
   { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
   { id: 'forest', categoryIds: ['illustration'], previewImage: forestImage },
