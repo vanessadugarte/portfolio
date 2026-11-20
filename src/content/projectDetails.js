@@ -214,13 +214,15 @@ export const projectDetails = {
   },
   ajedrez: {
     heroImage: chessAsset('ajedrez-1.webp'),
-    palette: ['#101010', '#333333', '#777777', '#B7B7B7', '#E8E4DD'],
+    palette: ['#101010', '#07176F', '#333333', '#777777', '#B7B7B7', '#E8E4DD'],
     processImages: [
       chessAsset('ajedrez-proceso1.webp'),
       chessAsset('chess-proceso2.webp'),
     ],
     detailImages: [
-      chessAsset('ajedrez-1.webp'),
+      chessAsset('chess-detail.webp'),
+      chessAsset('chess-detail2.webp'),
+      chessAsset('chess-detail3.webp'),
     ],
   },
   'deep-sea': {

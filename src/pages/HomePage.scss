@@ -290,6 +290,10 @@
   font-weight: 600;
 }
 
+.recent-job-meta {
+  color: tokens.$color-text-muted;
+}
+
 .recent-job h3 {
   margin: 0;
   font-family: tokens.$font-body;
@@ -305,12 +309,9 @@
 }
 
 .recent-job-highlights {
-  padding: 0;
-  list-style: none;
-}
-
-.recent-job-dashed .recent-job-highlights li::before {
-  content: '-';
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
 }
 
 .experience-figures {
@@ -527,11 +528,11 @@
 
   .experience-figure-large {
     right: 5%;
-    width: min(35vw, 34rem);
+    width: min(33vw, 32rem);
   }
 
   .experience-figure-small {
-    left: 49%;
+    left: 52%;
     width: min(12vw, 11.5rem);
   }
 }

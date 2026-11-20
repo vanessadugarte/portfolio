@@ -3,6 +3,7 @@
 .project-detail--murana {
   --murana-ink: #171414;
   --murana-pink: #f3c6c0;
+  --murana-pink-title: #a83e67;
   --murana-pink-soft: #fff1ee;
   --murana-wine: #681c44;
 
@@ -21,7 +22,7 @@
 .murana-project-summary h1 {
   max-width: 10ch;
   margin: 0;
-  color: var(--murana-ink);
+  color: var(--murana-pink-title);
   font-size: clamp(3.75rem, 19vw, 7rem);
   letter-spacing: -0.08em;
 }
