@@ -5,6 +5,8 @@ import { getProjectCategory, projectCategories } from '../content/projectCategor
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
+import GardenProductGrid from '../components/GardenProductGrid.jsx'
+import GardenSiteHeader from '../components/GardenSiteHeader.jsx'
 import ProjectFacts from '../components/ProjectFacts.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
@@ -393,7 +395,7 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
   )
 }
 
-function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
+function GardenProjectDetail({ assets, content, language, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
@@ -416,10 +418,7 @@ function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
 
         <section className="garden-replica-section" aria-label={detail.showcaseLabel}>
           <div className="garden-replica">
-            <div className="garden-replica-bar">
-              <img src={assets.logo} alt="" width="112" height="64" />
-              <span aria-hidden="true">{detail.menu.join('　 ')}</span>
-            </div>
+            <GardenSiteHeader detail={detail} logo={assets.logo} />
 
             <img
               className="garden-replica-hero"
@@ -456,26 +455,14 @@ function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
             <section className="garden-replica-catalog" aria-labelledby="garden-plants-title">
               <h3 id="garden-plants-title">{detail.plantsTitle}</h3>
               <p>{detail.plantsDescription}</p>
-              <ul>
-                {assets.plants.map((plant) => (
-                  <li key={plant.id}>
-                    <img src={plant.image} alt={detail.plants[plant.id].alt} width="255" height="226" loading="lazy" decoding="async" />
-                    <span>{detail.plants[plant.id].name}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="garden-archive-price-note">{detail.priceNotice}</p>
+              <GardenProductGrid kind="plants" products={assets.plants} localizedProducts={detail.plants} language={language} priceLabel={detail.priceLabel} />
             </section>
 
             <section className="garden-replica-catalog garden-replica-catalog--pots" aria-labelledby="garden-pots-title">
               <h3 id="garden-pots-title">{detail.potsTitle}</h3>
-              <ul>
-                {assets.pots.map((pot) => (
-                  <li key={pot.id}>
-                    <img src={pot.image} alt={detail.pots[pot.id].alt} width="255" height="226" loading="lazy" decoding="async" />
-                    <span>{detail.pots[pot.id].name}</span>
-                  </li>
-                ))}
-              </ul>
+              <p>{detail.potsDescription}</p>
+              <GardenProductGrid kind="pots" products={assets.pots} localizedProducts={detail.pots} language={language} priceLabel={detail.priceLabel} />
             </section>
 
             <div className="garden-replica-footer" aria-hidden="true">{detail.brandTitle}</div>
@@ -1359,7 +1346,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
 }
 
 function ProjectDetailPage() {
-  const { text } = useOutletContext()
+  const { text, language } = useOutletContext()
   const { slug } = useParams()
   const [searchParams] = useSearchParams()
   const project = getProjectBySlug(slug)
@@ -1483,6 +1470,7 @@ function ProjectDetailPage() {
       <GardenProjectDetail
         assets={assets}
         content={content}
+        language={language}
         navigation={navigation}
         neighbors={neighbors}
         text={text}

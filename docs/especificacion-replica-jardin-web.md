@@ -33,12 +33,13 @@ Presentar el proyecto Jardín Virtual dentro de su ficha del portafolio, con una
 
 ## Exclusiones
 
-- No se replica el proceso de compra, catálogo dinámico, contacto, carrito ni la integración con Firebase o Trefle.
+- No se replica el proceso de compra, el catálogo dinámico, el contacto activo, el carrito ni la integración con Firebase o Trefle.
 - La muestra no actualiza precios ni disponibilidad comercial.
 
 ## Fuente
 
 - Repositorio original: https://github.com/vanessadugarte/virtual-garden (rama `main`, consultada el 19 de noviembre de 2026).
+- La navegación, los catálogos de archivo y las fichas de producto se amplían en [Páginas internas de Jardín Virtual](especificacion-paginas-internas-jardin-web.md).
 
 ## Validación de accesibilidad del alcance
 

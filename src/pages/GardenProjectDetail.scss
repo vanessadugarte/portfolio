@@ -53,22 +53,59 @@
 .garden-replica-bar {
   display: flex;
   min-height: 5.25rem;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
   gap: tokens.$space-4;
   padding: 0.6rem clamp(1rem, 4vw, 3rem);
   background: tokens.$color-garden-mint;
 }
 
-.garden-replica-bar img {
+.garden-replica-logo {
+  display: inline-flex;
+  min-width: tokens.$target-size-comfortable;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
+}
+
+.garden-replica-logo img {
   width: 6rem;
   height: auto;
 }
 
-.garden-replica-bar span {
-  display: none;
+.garden-replica-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.garden-replica-nav a {
+  display: flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: tokens.$color-garden-ink;
   font-size: 1rem;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.garden-replica-nav a:hover,
+.garden-replica-nav a[aria-current='page'] {
+  background: rgb(255 255 255 / 65%);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.garden-replica-nav a:focus-visible,
+.garden-replica-logo:focus-visible,
+.garden-replica-products a:focus-visible,
+.garden-back-to-portfolio:focus-visible,
+.garden-back-to-catalog:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-garden-ink;
+  outline-offset: tokens.$focus-ring-offset;
 }
 
 .garden-replica-hero {
@@ -156,7 +193,7 @@
   background: #fff;
 }
 
-.garden-replica-catalog ul {
+.garden-replica-products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   gap: tokens.$space-5;
@@ -166,7 +203,7 @@
   list-style: none;
 }
 
-.garden-replica-catalog li {
+.garden-replica-products li {
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgb(23 63 51 / 15%);
@@ -175,18 +212,175 @@
   text-align: left;
 }
 
-.garden-replica-catalog img {
+.garden-replica-products a {
+  display: block;
+  height: 100%;
+  color: tokens.$color-garden-ink;
+  text-decoration: none;
+}
+
+.garden-replica-products a:hover .garden-replica-product-name,
+.garden-replica-products a:focus-visible .garden-replica-product-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.garden-replica-products img {
   width: 100%;
   height: auto;
   aspect-ratio: 255 / 226;
   object-fit: cover;
 }
 
-.garden-replica-catalog li span {
+.garden-replica-product-name {
   display: block;
-  padding: tokens.$space-4;
+  padding: tokens.$space-4 tokens.$space-4 0;
   font-size: 1rem;
   font-weight: 700;
+}
+
+.garden-replica-product-price {
+  display: block;
+  padding: 0.25rem tokens.$space-4 tokens.$space-4;
+  font-size: 1rem;
+}
+
+.garden-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.garden-archive-price-note {
+  color: tokens.$color-garden-ink;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.garden-replica-catalog > .garden-archive-price-note {
+  margin-top: tokens.$space-2;
+}
+
+.garden-internal-page .project-detail-inner {
+  padding-bottom: clamp(2rem, 6vw, 5rem);
+}
+
+.garden-back-to-portfolio,
+.garden-back-to-catalog {
+  display: inline-flex;
+  min-height: tokens.$target-size-comfortable;
+  align-items: center;
+  color: tokens.$color-garden-ink;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.garden-back-to-portfolio {
+  margin-bottom: tokens.$space-5;
+}
+
+.garden-internal-content {
+  min-height: 25rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 4rem);
+}
+
+.garden-internal-content h1,
+.garden-internal-content h2 {
+  margin: 0;
+  color: tokens.$color-garden-ink;
+  font-family: tokens.$font-heading;
+  line-height: 1.1;
+}
+
+.garden-internal-content h1 {
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  letter-spacing: -0.055em;
+}
+
+.garden-internal-content h1:focus {
+  outline: none;
+}
+
+.garden-internal-content h2 {
+  margin-top: tokens.$space-6;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.garden-internal-content p {
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.garden-internal-catalog,
+.garden-internal-contact {
+  text-align: center;
+}
+
+.garden-internal-catalog p,
+.garden-internal-contact p {
+  margin-inline: auto;
+}
+
+.garden-internal-catalog .garden-replica-products {
+  text-align: left;
+}
+
+.garden-internal-product-layout {
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: tokens.$space-5;
+}
+
+.garden-internal-product-layout > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 255 / 226;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.garden-internal-product-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: tokens.$space-5 0 0;
+}
+
+.garden-internal-product-price strong {
+  font-size: 1.5rem;
+}
+
+.garden-internal-product-facts {
+  padding-top: tokens.$space-4;
+  border-top: 1px solid rgb(23 63 51 / 20%);
+}
+
+.garden-internal-product-facts div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.garden-internal-product-facts dt {
+  font-weight: 700;
+}
+
+.garden-internal-product-facts dd {
+  margin: 0;
+}
+
+.garden-internal-contact img {
+  width: 100%;
+  height: auto;
+  margin-top: tokens.$space-5;
+  border-radius: 0.75rem;
 }
 
 .garden-replica-footer {
@@ -206,8 +400,16 @@
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
-  .garden-replica-bar span {
-    display: block;
+  .garden-replica-bar {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .garden-replica-nav {
+    display: flex;
+    width: auto;
+    flex-wrap: wrap;
   }
 
   .garden-replica-mosaic {
@@ -248,6 +450,10 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
+  .garden-internal-product-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
   .garden-project-summary {
     grid-template-columns: minmax(0, 1fr) minmax(0, tokens.$width-project-detail-facts-desktop);
     column-gap: tokens.$space-6;

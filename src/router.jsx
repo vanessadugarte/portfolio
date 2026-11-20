@@ -3,6 +3,7 @@ import { projectCategories } from './content/projectCategories.js'
 import PortfolioLayout from './layouts/PortfolioLayout.jsx'
 import ExperiencePage from './pages/ExperiencePage.jsx'
 import HomePage from './pages/HomePage.jsx'
+import { GardenCatalogPage, GardenContactPage, GardenProductPage } from './pages/GardenInternalPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import NavalSeriesPage from './pages/NavalSeriesPage.jsx'
 import ProjectCategoryPage from './pages/ProjectCategoryPage.jsx'
@@ -37,6 +38,11 @@ export const routeConfig = [
         path: paths.projectCategory(slug).slice(1),
         element: <ProjectCategoryPage categoryId={id} />,
       })),
+      { path: paths.gardenPlants.slice(1), element: <GardenCatalogPage kind="plants" /> },
+      { path: paths.gardenPots.slice(1), element: <GardenCatalogPage kind="pots" /> },
+      { path: `${paths.gardenPlants.slice(1)}/:productSlug`, element: <GardenProductPage kind="plants" /> },
+      { path: `${paths.gardenPots.slice(1)}/:productSlug`, element: <GardenProductPage kind="pots" /> },
+      { path: paths.gardenContact.slice(1), element: <GardenContactPage /> },
       { path: `${paths.projectDetail('naval-infographics').slice(1)}/:series`, element: <NavalSeriesPage /> },
       { path: paths.projectDetail('ventti').slice(1), element: <LegacyProjectRedirect slug="instagram-posts" /> },
       { path: `${paths.projects.slice(1)}/:slug`, element: <ProjectDetailPage /> },
