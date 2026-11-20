@@ -1,4 +1,5 @@
 const donasImage = new URL('../assets/images/selected-work/donas3d-760x500.jpg', import.meta.url).href
+const ajedrezImage = new URL('../assets/images/projects/3d/chess/ajedrez-1.webp', import.meta.url).href
 const jardinWebImage = new URL('../assets/images/selected-work/webjardin-760x500.jpg', import.meta.url).href
 const muranaThumbnailImage = new URL('../assets/images/projects/front-end-ux/murana/murana-thumbnail.jpg', import.meta.url).href
 const donutShopImage = new URL('../assets/images/projects/front-end-ux/donut-shop/donuts-hero.png', import.meta.url).href
@@ -20,6 +21,7 @@ const navalInfographicsImage = new URL('../assets/images/projects/other/ship-inf
 // Project IDs also serve as the stable, category-independent URL slugs.
 export const projects = [
   { id: 'donas-3d', categoryIds: ['three-d'], previewImage: donasImage, selectedOrder: 1 },
+  { id: 'ajedrez', categoryIds: ['three-d'], previewImage: ajedrezImage },
   { id: 'jardin-web', categoryIds: ['uxui'], previewImage: jardinWebImage, selectedOrder: 2 },
   { id: 'murana', categoryIds: ['uxui'], previewImage: muranaThumbnailImage },
   {

@@ -8,7 +8,8 @@ Convertir la ruta existente de Muchomix Game en una ficha bilingüe que explique
 
 - Mantener el proyecto dentro de la categoría Ilustración y conservar su slug `muchomix-game`.
 - Sustituir el estado «Próximamente» por una ficha completa en español e inglés.
-- Presentar la pantalla principal y agrupar las nueve pantallas restantes en cuatro bloques: mecánica de juego, progresión y recompensas, resultados y ranking, y experiencia social.
+- Presentar la pantalla principal junto a la partida en Forest y reunir las seis pantallas complementarias restantes en una sola sección.
+- Excluir las pantallas «Alekko y sus aliados», «Ranking por países» y «Time’s up».
 - Explicar la premisa de unir tres o más caritas de la misma nacionalidad, la presencia de una heroína y un villano, el avance por niveles y la conexión con amigos.
 - Reutilizar exclusivamente los assets existentes en `src/assets/images/projects/illustrations/muchomix-game/`.
 
@@ -16,18 +17,23 @@ Convertir la ruta existente de Muchomix Game en una ficha bilingüe que explique
 
 1. La persona abre Muchomix Game desde la categoría Ilustración y llega a una ficha con título, descripción y datos técnicos localizados.
 2. Recorre la pantalla principal y comprende la mecánica de unir caritas para sumar puntos.
-3. Continúa por las pantallas del villano, niveles, recompensas, resultados, ranking y amistades, cada una con un rótulo y una alternativa útil.
+3. Recorre en una sola sección las pantallas de instrucciones, niveles, recompensas, resultados y amistades, cada una con un rótulo y una alternativa útil.
 4. Puede volver a Ilustración o navegar al proyecto anterior o siguiente sin perder el contexto de categoría.
 5. Al cambiar el idioma, se actualizan el título del documento, los textos, los rótulos y las alternativas de imagen.
 
 ## Criterios de aceptación
 
 - La ruta `/proyectos/muchomix-game` deja de mostrar el estado pendiente y contiene un único `h1` localizado.
-- Se muestran `gameplay.jpg` y las nueve pantallas complementarias sin deformación, con dimensiones intrínsecas y carga diferida salvo la imagen principal.
+- Se muestran `gameplay.jpg` junto a `forest game area.webp`, sin deformación ni rótulo para Forest; ambas imágenes quedan alineadas.
+- Debajo de ambas imágenes se muestra una paleta de turquesas y magentas con sus muestras y códigos.
+- Las seis pantallas complementarias se muestran sin deformación, con dimensiones intrínsecas y carga diferida.
+- La imagen principal no tiene borde ni marco decorativo.
+- El título de cada pantalla aparece encima de su imagen y usa el color espacio.
+- Las pantallas complementarias aparecen en una sola sección con una columna en móvil, dos en tablet y tres en escritorio.
 - La ficha comunica que el objetivo es unir tres o más caritas de la misma nacionalidad para sumar puntos, que existen una heroína y un villano, que se avanza por niveles y que es posible conectar con amigos.
 - En escritorio, la introducción no supera `44rem`, la ficha técnica no supera `23rem` y ambas quedan separadas visualmente; el `h1` mide `5rem`.
 - En móvil, el contenido refluye a 320 CSS px sin desplazamiento horizontal y las imágenes mantienen su proporción.
-- Todo el contenido editorial y las alternativas de imagen existen en español e inglés.
+- «Alekko y sus aliados», «Ranking por países» y «Time’s up» no se muestran; el contenido restante y las alternativas de imagen existen en español e inglés.
 - La navegación anterior/siguiente conserva Muchokids: nacionalidades, Forest, Muchomix Game y Velas Angel's Sighs en el orden actual.
 
 ## Requisitos no funcionales

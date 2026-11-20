@@ -2,6 +2,7 @@ import { instagramPostsAssets } from './instagramPosts.js'
 
 const medusasAsset = (filename) => new URL(`../assets/images/projects/illustrations/medusas/${filename}`, import.meta.url).href
 const donutsAsset = (filename) => new URL(`../assets/images/projects/3d/3d-donuts/${filename}`, import.meta.url).href
+const chessAsset = (filename) => new URL(`../assets/images/projects/3d/chess/${filename}`, import.meta.url).href
 const deepSeaAsset = (filename) => new URL(`../assets/images/projects/illustrations/deep-sea/${filename}`, import.meta.url).href
 const forestAsset = (filename) => new URL(`../assets/images/projects/illustrations/forest/${filename}`, import.meta.url).href
 const muchomixBiomesAsset = (filename) => new URL(`../assets/images/projects/illustrations/biomas/${filename}`, import.meta.url).href
@@ -11,6 +12,7 @@ const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrat
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
+const gardenAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/jardin-web/${filename}`, import.meta.url).href
 const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
 const submarineAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/submarines/${filename}`, import.meta.url).href
 const carrierAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/portaaviones/${filename}`, import.meta.url).href
@@ -24,10 +26,6 @@ const navalPages = (count, filename, asset) => Array.from({ length: count }, (_,
 }))
 const candlesAssets = {
   hero: new URL('../assets/images/projects/illustrations/candles/velas.png', import.meta.url).href,
-  guidelines: new URL('../assets/images/projects/illustrations/candles/logo-angel.jpg', import.meta.url).href,
-  logo: new URL('../assets/images/projects/illustrations/candles/logo-cuadrado.jpg', import.meta.url).href,
-  label: new URL('../assets/images/projects/illustrations/candles/label.svg', import.meta.url).href,
-  dogsApplication: new URL('../assets/images/projects/illustrations/candles/vela-dogs.png', import.meta.url).href,
   sacredFireApplication: new URL('../assets/images/projects/illustrations/candles/vela-dragon.png', import.meta.url).href,
   enchantedBlossomApplication: new URL('../assets/images/projects/illustrations/candles/vela-enchanted.png', import.meta.url).href,
   mountainPine: new URL('../assets/images/projects/illustrations/candles/MountainPine-22-5x22-5.png', import.meta.url).href,
@@ -40,6 +38,8 @@ const candlesAssets = {
   sacredFire: new URL('../assets/images/projects/illustrations/candles/sacred-fire-25x25-center.png', import.meta.url).href,
   santaAndGifts: new URL('../assets/images/projects/illustrations/candles/santa-and-gifts-25x25-white-smaller.png', import.meta.url).href,
   tenDogs: new URL('../assets/images/projects/illustrations/candles/ten-dogs-smaller.png', import.meta.url).href,
+  lavenderProcessPoster: new URL('../assets/images/projects/illustrations/candles/lavender-process-poster.jpg', import.meta.url).href,
+  sacredFireProcessPoster: new URL('../assets/images/projects/illustrations/candles/sacred-fire-process-poster.jpg', import.meta.url).href,
   lavenderProcess: new URL('../assets/images/projects/illustrations/candles/lavender-process-web.m4v', import.meta.url).href,
   sacredFireProcess: new URL('../assets/images/projects/illustrations/candles/sacred-fire-process-web.m4v', import.meta.url).href,
 }
@@ -47,13 +47,11 @@ const muchomixGameAssets = {
   gameplay: new URL('../assets/images/projects/illustrations/muchomix-game/gameplay.jpg', import.meta.url).href,
   goodJob: new URL('../assets/images/projects/illustrations/muchomix-game/good-job-screen.jpg', import.meta.url).href,
   howToPlay: new URL('../assets/images/projects/illustrations/muchomix-game/how-to-play.jpg', import.meta.url).href,
-  villainWarning: new URL('../assets/images/projects/illustrations/muchomix-game/howto.jpg', import.meta.url).href,
   levels: new URL('../assets/images/projects/illustrations/muchomix-game/levels.jpg', import.meta.url).href,
   powerStones: new URL('../assets/images/projects/illustrations/muchomix-game/power-stones.jpg', import.meta.url).href,
-  ranking: new URL('../assets/images/projects/illustrations/muchomix-game/ranking.jpg', import.meta.url).href,
-  timesUp: new URL('../assets/images/projects/illustrations/muchomix-game/timesup.jpg', import.meta.url).href,
   friends: new URL('../assets/images/projects/illustrations/muchomix-game/friends.jpg', import.meta.url).href,
   yourFriends: new URL('../assets/images/projects/illustrations/muchomix-game/your-friends.jpg', import.meta.url).href,
+  forestGame: new URL('../assets/images/projects/illustrations/muchomix-game/forest game area.webp', import.meta.url).href,
 }
 const organicShapeAsset = (filename) => new URL(`../assets/images/shapes/organic/${filename}`, import.meta.url).href
 const arrowShapeAsset = (filename) => new URL(`../assets/images/shapes/flechas/${filename}`, import.meta.url).href
@@ -104,6 +102,29 @@ export const projectDetails = {
       { id: 'colorful', image: donutShopAsset('favorite-colorful.jpg'), width: 326, height: 231 },
     ],
   },
+  'jardin-web': {
+    layout: 'garden',
+    logo: gardenAsset('logo.png'),
+    hero: { image: gardenAsset('hero.jpg'), width: 1728, height: 508 },
+    mosaic: [
+      { id: 'flower', image: gardenAsset('flower-circle.jpg'), width: 836, height: 836 },
+      { id: 'gomero', image: gardenAsset('gomero.jpg'), width: 1263, height: 446 },
+      { id: 'jungle', image: gardenAsset('jungle-at-home.jpg'), width: 624, height: 562 },
+      { id: 'bear', image: gardenAsset('oreja-oso.jpg'), width: 801, height: 973 },
+      { id: 'succulents', image: gardenAsset('succulents.jpg'), width: 939, height: 297 },
+      { id: 'mushrooms', image: gardenAsset('red-mushroom.jpg'), width: 971, height: 759 },
+    ],
+    plants: [
+      { id: 'monstera', image: gardenAsset('img-monstera.jpg') },
+      { id: 'lyrata', image: gardenAsset('img-lyrata.jpg') },
+      { id: 'pinkPrincess', image: gardenAsset('img-pink-princess.jpg') },
+    ],
+    pots: [
+      { id: 'wicker', image: gardenAsset('macetero-mimbre.jpg') },
+      { id: 'cement', image: gardenAsset('macetero-cemento.jpg') },
+      { id: 'clay', image: gardenAsset('macetero-arcilla.jpg') },
+    ],
+  },
   murana: {
     layout: 'murana',
     heroImage: muranaAsset('hero.webp'),
@@ -143,7 +164,6 @@ export const projectDetails = {
     illustrationTreatment: true,
     accentColor: '#004461',
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-horiz.svg'),
       details: [
         organicShapeAsset('organic-shape-05.svg'),
         organicShapeAsset('organic-shape-02.svg'),
@@ -192,6 +212,19 @@ export const projectDetails = {
       donutsAsset('detail-donut-4.jpg'),
     ],
   },
+  ajedrez: {
+    heroImage: chessAsset('ajedrez-1.webp'),
+    palette: ['#101010', '#07176F', '#333333', '#777777', '#B7B7B7', '#E8E4DD'],
+    processImages: [
+      chessAsset('ajedrez-proceso1.webp'),
+      chessAsset('chess-proceso2.webp'),
+    ],
+    detailImages: [
+      chessAsset('chess-detail.webp'),
+      chessAsset('chess-detail2.webp'),
+      chessAsset('chess-detail3.webp'),
+    ],
+  },
   'deep-sea': {
     heroImage: deepSeaAsset('finalwork-deepsea.jpg'),
     heroDimensions: { width: 1200, height: 891 },
@@ -209,8 +242,6 @@ export const projectDetails = {
     heroReferenceImages: [deepSeaAsset('inspo-1.jpg'), deepSeaAsset('inspo-2.jpg')],
     heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 760, height: 500 })),
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-02.svg'),
-      heroSecondary: organicShapeAsset('organic-shape-05.svg'),
       details: [
         organicShapeAsset('organic-shape-01.svg'),
         organicShapeAsset('organic-shape-05.svg'),
@@ -272,12 +303,10 @@ export const projectDetails = {
     biomes: [
       { id: 'ice-zone', image: muchomixBiomesAsset('ice zone.jpg'), width: 2048, height: 2732 },
       { id: 'snow-mountains', image: muchomixBiomesAsset('snow mountains.jpg'), width: 2048, height: 2732 },
-      { id: 'mountains', image: muchomixBiomesAsset('mountains.jpg'), width: 2048, height: 2732 },
       { id: 'flower-field', image: muchomixBiomesAsset('flower field.jpg'), width: 2048, height: 2732 },
       { id: 'beach', image: muchomixBiomesAsset('beach.jpg'), width: 2048, height: 2732 },
       { id: 'cactus-desert', image: muchomixBiomesAsset('cactus desert.jpg'), width: 2048, height: 2732 },
       { id: 'desert-dunes', image: muchomixBiomesAsset('dunes desert.jpg'), width: 2048, height: 2732 },
-      { id: 'space', image: muchomixBiomesAsset('space.jpg'), width: 2048, height: 2732 },
     ],
   },
   jungle: {
@@ -480,32 +509,17 @@ export const projectDetails = {
     secondaryAccentColor: '#008F87',
     heroImage: muchomixGameAssets.gameplay,
     heroDimensions: { width: 1920, height: 2561 },
+    heroForestImage: muchomixGameAssets.forestGame,
+    heroForestDimensions: { width: 2048, height: 2732 },
+    palette: ['#008F87', '#2BBFAF', '#52E5E8', '#590023', '#E90051', '#FF5B99'],
     sections: [
       {
-        id: 'gameplay',
+        id: 'screens',
         screens: [
           { id: 'how-to-play', image: muchomixGameAssets.howToPlay, width: 1920, height: 2561 },
-          { id: 'villain-warning', image: muchomixGameAssets.villainWarning, width: 750, height: 1334 },
-        ],
-      },
-      {
-        id: 'progression',
-        screens: [
           { id: 'levels', image: muchomixGameAssets.levels, width: 1920, height: 2561 },
           { id: 'power-stones', image: muchomixGameAssets.powerStones, width: 1920, height: 2561 },
-        ],
-      },
-      {
-        id: 'results',
-        screens: [
           { id: 'good-job', image: muchomixGameAssets.goodJob, width: 1920, height: 2561 },
-          { id: 'times-up', image: muchomixGameAssets.timesUp, width: 2048, height: 2732 },
-          { id: 'ranking', image: muchomixGameAssets.ranking, width: 750, height: 1334 },
-        ],
-      },
-      {
-        id: 'social',
-        screens: [
           { id: 'friends', image: muchomixGameAssets.friends, width: 1920, height: 2561 },
           { id: 'your-friends', image: muchomixGameAssets.yourFriends, width: 1920, height: 2561 },
         ],
@@ -518,16 +532,7 @@ export const projectDetails = {
     secondaryAccentColor: '#A45764',
     heroImage: candlesAssets.hero,
     heroDimensions: { width: 1404, height: 1120 },
-    brand: {
-      guidelinesImage: candlesAssets.guidelines,
-      guidelinesDimensions: { width: 1366, height: 1141 },
-      logoImage: candlesAssets.logo,
-      logoDimensions: { width: 567, height: 567 },
-      labelImage: candlesAssets.label,
-      labelDimensions: { width: 239, height: 224 },
-    },
     applications: [
-      { id: 'dogs', image: candlesAssets.dogsApplication, width: 1086, height: 1448 },
       { id: 'sacred-fire', image: candlesAssets.sacredFireApplication, width: 1465, height: 1074 },
       { id: 'enchanted-blossom', image: candlesAssets.enchantedBlossomApplication, width: 1212, height: 1298 },
     ],
@@ -547,12 +552,12 @@ export const projectDetails = {
       {
         id: 'lavender',
         src: candlesAssets.lavenderProcess,
-        poster: candlesAssets.lavender,
+        poster: candlesAssets.lavenderProcessPoster,
       },
       {
         id: 'sacred-fire',
         src: candlesAssets.sacredFireProcess,
-        poster: candlesAssets.sacredFire,
+        poster: candlesAssets.sacredFireProcessPoster,
       },
     ],
   },

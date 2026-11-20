@@ -18,6 +18,7 @@ Al abrir `#/proyectos/donas-3d`, la persona encuentra una portada, ficha técnic
 - Las galerías se presentan como pasos 02 y 03, sin un paso ni una columna de inspiración.
 - En el paso 02, `modelado-1` y `modelado-2` se muestran debajo de las cuatro imágenes de proceso: en tablet abarcan las dos columnas y en escritorio cada una abarca dos imágenes de la fila superior.
 - Los sprinkles de fondo usan los colores de la paleta, tienen una presencia visible, tamaño bajo y se organizan en pequeños grupos compactos; permanecen decorativos y no reciben foco ni eventos de puntero.
+- El título «Donas» se muestra sin sprinkles superpuestos a sus letras.
 - La información, los títulos de imagen y metadatos se localizan en español e inglés.
 - La composición no genera desplazamiento horizontal a 320 px y conserva las rutas, foco y navegación existentes.
 

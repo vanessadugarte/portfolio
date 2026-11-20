@@ -89,7 +89,80 @@ export const translations = {
             },
           },
         },
-        'jardin-web': { type: 'Diseño web / UX/UI', title: 'Jardín web', description: 'Diseño y desarrollo de una experiencia de e-commerce.', previewAlt: '' },
+        ajedrez: {
+          type: '3D',
+          title: 'Ajedrez',
+          description: 'Modelado y composición 3D de piezas de ajedrez.',
+          previewAlt: 'Composición 3D de piezas de ajedrez.',
+          detail: {
+            number: '01',
+            introduction: 'Una composición 3D inspirada en el ajedrez, enfocada en las formas de sus piezas y el contraste entre luces y sombras.',
+            facts: [
+              { label: 'Año', value: '2024' },
+              { label: 'Técnica', value: 'Modelado y renderizado 3D' },
+              { label: 'Herramientas', value: 'Blender' },
+            ],
+            paletteTitle: 'Paleta de color',
+            processTitle: 'Proceso',
+            processDescription: 'El proceso explora el modelado de las piezas, la composición de la escena y los ajustes de iluminación para obtener el render final.',
+            detailsTitle: 'Detalles',
+            detailsDescription: 'Vistas de la composición y del proceso de modelado de las piezas.',
+            imageAlt: {
+              hero: 'Composición 3D de piezas de ajedrez.',
+              process: [
+                'Proceso de modelado de piezas de ajedrez en 3D.',
+                'Vista del proceso de composición de la escena de ajedrez.',
+              ],
+              details: [
+                'Detalle de una pieza de ajedrez modelada en 3D.',
+                'Detalle de las piezas de ajedrez en la escena 3D.',
+                'Acercamiento a la composición 3D de ajedrez.',
+              ],
+            },
+          },
+        },
+        'jardin-web': {
+          type: 'Diseño web / UX/UI',
+          title: 'Jardín web',
+          description: 'Diseño y desarrollo de una experiencia de e-commerce.',
+          previewAlt: '',
+          detail: {
+            introduction: 'Jardín Virtual es una tienda de plantas y maceteros creada para explorar cómo una experiencia de compra puede acercar la naturaleza a los espacios cotidianos.',
+            facts: [
+              { label: 'Año', value: '2024' },
+              { label: 'Rol', value: 'Diseño y desarrollo front-end' },
+              { label: 'Tecnologías', value: 'React, Material UI, Firebase' },
+            ],
+            showcaseLabel: 'Muestra del sitio Jardín Virtual',
+            menu: ['Inicio', 'Plantas', 'Maceteros', 'Contacto'],
+            heroAlt: 'Plantas de interior en maceteros frente a una pared clara.',
+            brandTitle: 'Jardín Virtual',
+            welcome: '¡Bienvenido! Explora nuestra selección de plantas para llenar de vida tu hogar u oficina.',
+            galleryTitle: 'Un jardín para inspirarse',
+            mosaic: {
+              flower: 'Flores blancas, amarillas, rosadas y violetas distribuidas sobre un fondo claro.',
+              gomero: 'Primer plano de hojas verdes de un gomero.',
+              jungle: 'Colección de plantas de interior junto a una ventana.',
+              bear: 'Suculenta verde con bordes rojizos vista desde arriba.',
+              succulents: 'Cinco suculentas en pequeños frascos de vidrio.',
+              mushrooms: 'Hongo rojo con puntos blancos entre el musgo del bosque.',
+            },
+            plantsTitle: 'Nuestras plantas',
+            plantsDescription: 'Una selección de especies para interiores que formaban parte del catálogo original.',
+            plants: {
+              monstera: { name: 'Monstera deliciosa', alt: 'Monstera deliciosa de hojas grandes en un macetero.' },
+              lyrata: { name: 'Ficus lyrata', alt: 'Ficus lyrata con hojas amplias en un macetero.' },
+              pinkPrincess: { name: 'Pink Princess', alt: 'Filodendro Pink Princess de hojas verdes y rosadas.' },
+            },
+            potsTitle: 'Maceteros',
+            pots: {
+              wicker: { name: 'Mimbre', alt: 'Macetero tejido de mimbre.' },
+              cement: { name: 'Cemento', alt: 'Macetero de cemento.' },
+              clay: { name: 'Arcilla', alt: 'Macetero de arcilla.' },
+            },
+            portfolioNote: 'Muestra de archivo creada para este portafolio con imágenes del proyecto original Jardín Virtual. El catálogo y las compras no están activos en esta presentación.',
+          },
+        },
         'donut-shop': {
           type: 'Front-end / UX/UI',
           title: 'Donuts',
@@ -146,7 +219,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who Is Paying',
+          title: 'Who is paying',
           description: 'Aplicación para sortear quién paga entre un grupo de personas.',
           previewAlt: 'Icono de una bandeja de comida que representa la aplicación Who Is Paying.',
           detail: {
@@ -154,7 +227,7 @@ export const translations = {
             introduction: 'Versión funcional reconstruida con React y Sass y alojada en el portafolio. Permite crear y editar una lista de participantes y realizar un sorteo aleatorio para decidir quién paga el almuerzo.',
             facts: [
               { label: 'Año', value: '2024' },
-              { label: 'Aporte', value: 'Diseño de interfaz y desarrollo front-end' },
+              { label: 'Aporte', value: 'Interfaz y Desarrollo front-end' },
               { label: 'Herramientas', value: 'HTML, CSS, JavaScript, React y Sass' },
             ],
             links: {
@@ -205,7 +278,7 @@ export const translations = {
           detail: {
             introduction: 'Landing de marca desarrollada durante mi etapa en Tottus para presentar el universo de cuidado personal de Murana mediante una experiencia visual, clara y responsive.',
             facts: [
-              { label: 'Contexto', value: 'Tottus' },
+              { label: 'Fecha', value: '2021' },
               { label: 'Aporte', value: 'Desarrollo front-end' },
               { label: 'Entrega', value: 'Landing e-commerce responsive' },
             ],
@@ -562,8 +635,8 @@ export const translations = {
         },
         'muchomix-biomas': {
           type: 'Ilustración',
-          title: 'Muchomix — Biomas',
-          description: 'Ocho fondos ilustrados que exploran climas, paisajes y atmósferas para el mundo de Muchomix.',
+          title: 'Biomas Muchomix',
+          description: 'Seis fondos ilustrados que exploran climas, paisajes y atmósferas para el mundo de Muchomix.',
           previewAlt: 'Cueva de hielo azul con un lago y una abertura luminosa al fondo.',
           detail: {
             number: '01',
@@ -573,7 +646,7 @@ export const translations = {
               { label: 'Técnica', value: 'Ilustración digital de escenarios' },
               { label: 'Herramientas', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Ocho escenarios, un mismo mundo',
+            galleryTitle: 'Seis escenarios, un mismo mundo',
             galleryDescription: 'Fondos verticales pensados para transformar el ambiente de cada nivel mediante el color, la profundidad y los elementos del paisaje.',
             biomes: {
               'ice-zone': {
@@ -583,10 +656,6 @@ export const translations = {
               'snow-mountains': {
                 name: 'Montañas nevadas',
                 alt: 'Paisaje nocturno de montañas y colinas nevadas bajo una luna llena y una nevada intensa.',
-              },
-              mountains: {
-                name: 'Montañas',
-                alt: 'Paisaje de montañas con cimas nevadas, bosque de pinos y una pradera verde en primer plano.',
               },
               'flower-field': {
                 name: 'Campo de flores',
@@ -603,10 +672,6 @@ export const translations = {
               'desert-dunes': {
                 name: 'Dunas del desierto',
                 alt: 'Dunas doradas con palmeras y siluetas de camellos bajo un cielo azul despejado.',
-              },
-              space: {
-                name: 'Espacio',
-                alt: 'Cielo espacial azul oscuro con estrellas, nubes blancas y un planeta violeta a la derecha.',
               },
             },
           },
@@ -625,25 +690,17 @@ export const translations = {
               { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
             heroAlt: 'Tablero principal de Muchomix con caritas de distintas nacionalidades, puntuación, tiempo y medidor de progreso sobre un fondo espacial.',
+            heroForestAlt: 'Tablero de Muchomix durante una partida en Forest, con caritas de distintas nacionalidades, puntuación y tiempo restante.',
+            paletteTitle: 'Paleta de color',
             sections: {
-              gameplay: {
-                title: 'Cómo se juega',
-                description: 'La mecánica invita a unir tres o más caritas iguales antes de que termine el tiempo. Alekko y sus aliados aparecen para quitar puntos, así que también hay que eliminarlos con rapidez.',
+              screens: {
+                title: 'Pantallas del juego',
+                description: 'Una mirada a las instrucciones, los niveles, las recompensas, los resultados y las opciones para jugar con amigos.',
                 screens: {
                   'how-to-play': {
                     label: 'Instrucciones',
                     alt: 'Pantalla de instrucciones de Muchomix que muestra cómo enlazar cuatro caritas iguales con el dedo para conseguir puntos.',
                   },
-                  'villain-warning': {
-                    label: 'Alekko y sus aliados',
-                    alt: 'Segunda pantalla de instrucciones de Muchomix que indica cómo enlazar las caritas grises de Alekko y sus aliados antes de que resten puntos.',
-                  },
-                },
-              },
-              progression: {
-                title: 'Niveles y recompensas',
-                description: 'Los escenarios se desbloquean al avanzar. Las piedras de poder obtenidas en las partidas permiten conseguir ayudas y objetos especiales.',
-                screens: {
                   levels: {
                     label: 'Selección de niveles',
                     alt: 'Pantalla de niveles de Muchomix con escenarios espaciales y de hielo, barras de progreso y dos niveles bloqueados.',
@@ -652,33 +709,13 @@ export const translations = {
                     label: 'Piedras de poder',
                     alt: 'Catálogo de recompensas de Muchomix con reloj, fichas, reloj de arena y martillos que se canjean por piedras de poder.',
                   },
-                },
-              },
-              results: {
-                title: 'Resultados y ranking',
-                description: 'Al finalizar una partida, el juego comunica el resultado, permite continuar o intentarlo de nuevo y compara el poder acumulado entre países.',
-                screens: {
                   'good-job': {
                     label: 'Misión cumplida',
                     alt: 'Pantalla de nivel completado con la heroína y otro personaje, siete puntos, dos piedras de poder y botones para volver o continuar.',
                   },
-                  'times-up': {
-                    label: 'Tiempo agotado',
-                    alt: 'Pantalla de tiempo agotado con el villano Alekko, un ave mecánica y botones para volver al inicio o intentarlo nuevamente.',
-                  },
-                  ranking: {
-                    label: 'Ranking por países',
-                    alt: 'Ranking de Muchomix que compara el poder total de distintos países mediante una lista con banderas y puntuaciones.',
-                  },
-                },
-              },
-              social: {
-                title: 'Jugar con amigos',
-                description: 'El perfil reúne la puntuación total, la posición en el ranking y la red de amistades. También permite buscar usuarios y añadir nuevos amigos.',
-                screens: {
                   friends: {
-                    label: 'Perfil y ranking',
-                    alt: 'Perfil de Muchomix con avatar, poder total, posición en el ranking y una cuadrícula de ocho amigos.',
+                    label: 'Perfil y amistades',
+                    alt: 'Perfil de Muchomix con avatar, poder total y una cuadrícula de ocho amigos.',
                   },
                   'your-friends': {
                     label: 'Tus amigos',
@@ -692,35 +729,21 @@ export const translations = {
         'angels-sighs': {
           type: 'Ilustración',
           title: "Velas Angel's Sighs",
-          description: 'Identidad visual, etiquetas e ilustraciones vectoriales para tapas de madera.',
+          description: 'Ilustraciones vectoriales para tapas de madera de velas aromáticas.',
           previewAlt: "Dos velas Angel's Sighs con etiquetas y una tapa de madera ilustrada con flores rosadas.",
           detail: {
             number: '01',
-            introduction: "El proyecto comenzó con el diseño del logo y las etiquetas de Angel's Sighs. Luego desarrollé una colección de ilustraciones vectoriales, cada una pensada para imprimirse sobre una tapa de madera y expresar visualmente una fragancia diferente.",
+            introduction: "Para Angel's Sighs desarrollé una colección de ilustraciones vectoriales, cada una pensada para imprimirse sobre una tapa de madera y expresar visualmente una fragancia diferente.",
             facts: [
               { label: 'Año', value: '2025' },
-              { label: 'Técnica', value: 'Identidad visual e ilustración vectorial' },
+              { label: 'Técnica', value: 'Ilustración vectorial' },
               { label: 'Herramientas', value: 'Adobe Illustrator, Wacom Tablet' },
             ],
             heroAlt: "Dos velas Angel's Sighs en vasos rosado y blanco junto a una tapa de madera con flores de cerezo.",
-            identity: {
-              title: 'Identidad visual',
-              description: 'El sistema combina un logotipo de trazos elegantes con una llama integrada y una etiqueta de estructura clásica, adaptable a los nombres y notas de cada fragancia.',
-              guidelinesLabel: 'Sistema de marca',
-              guidelinesAlt: "Lámina de identidad de Angel's Sighs con variaciones del logotipo, símbolo de llama, colores, tipografía y márgenes de seguridad.",
-              logoLabel: 'Logotipo',
-              logoAlt: "Logotipo negro de Angel's Sighs con una llama integrada sobre fondo blanco.",
-              labelLabel: 'Etiqueta',
-              labelAlt: "Etiqueta vectorial de Angel's Sighs para la fragancia Enchanted Blossom, con marco ornamental, notas aromáticas y logotipo.",
-            },
             applications: {
-              title: 'La identidad aplicada',
-              description: 'Las etiquetas y las ilustraciones conviven sobre vasos de distintos colores y tapas de madera, manteniendo reconocible la marca en cada variante.',
+              title: 'Ilustraciones en las velas',
+              description: 'Las ilustraciones se imprimen sobre tapas de madera y acompañan las velas de cada fragancia.',
               items: {
-                dogs: {
-                  name: 'Sweet Vanilla',
-                  alt: "Vela negra Angel's Sighs Sweet Vanilla con etiqueta crema y una tapa de madera ilustrada con diez perros.",
-                },
                 'sacred-fire': {
                   name: 'Sacred Fire',
                   alt: "Velas roja y gris Angel's Sighs Sacred Fire junto a una tapa de madera con un dragón rojo entre nubes.",
@@ -832,15 +855,14 @@ export const translations = {
           role: 'Diseñador web UX/UI & Front-end (Vue)',
           highlights: [
             'Diseño de interfaces completas en Figma, utilizando como base el design system interno basado en Ant Design.',
-            'Desarrollo del front-end en Vue.js, asegurando coherencia visual, accesibilidad y alto rendimiento.',
             'Creación y mantenimiento de componentes reutilizables en Figma, aplicando autolayout para lograr consistencia y escalabilidad.',
+            'Desarrollo del front-end en Vue.js, asegurando coherencia visual, accesibilidad y alto rendimiento.',
           ],
         },
         {
-          meta: 'Septiembre 2025- Agosto 2026',
+          meta: 'Marzo 2024 - Agosto 2025',
           company: 'Solunova SPA',
           role: 'Diseñador web UX/UI & Front-end (React)',
-          showDashes: true,
           highlights: [
             'Diseño e implementeación de interfaces completas desde Figma, utilizando como base el sistema de componentes de Material UI (MUI).',
             'Liderazgo del ciclo completo de producto, desde discovery hasta producción: investigación rápida, definición de Design System y handoff.',
@@ -1019,7 +1041,80 @@ export const translations = {
             },
           },
         },
-        'jardin-web': { type: 'Web design / UX/UI', title: 'Web garden', description: 'Design and development of an e-commerce experience.', previewAlt: '' },
+        ajedrez: {
+          type: '3D',
+          title: 'Chess',
+          description: '3D modeling and composition of chess pieces.',
+          previewAlt: '3D composition of chess pieces.',
+          detail: {
+            number: '01',
+            introduction: 'A 3D composition inspired by chess, focused on the shapes of its pieces and the contrast between light and shadow.',
+            facts: [
+              { label: 'Year', value: '2024' },
+              { label: 'Technique', value: '3D modeling and rendering' },
+              { label: 'Tools', value: 'Blender' },
+            ],
+            paletteTitle: 'Color palette',
+            processTitle: 'Process',
+            processDescription: 'The process explores modeling the pieces, composing the scene and adjusting the lighting for the final render.',
+            detailsTitle: 'Details',
+            detailsDescription: 'Views of the composition and the piece modeling process.',
+            imageAlt: {
+              hero: '3D composition of chess pieces.',
+              process: [
+                '3D chess piece modeling process.',
+                'View of the chess scene composition process.',
+              ],
+              details: [
+                'Detail of a 3D modeled chess piece.',
+                'Detail of the chess pieces in the 3D scene.',
+                'Close-up of the 3D chess composition.',
+              ],
+            },
+          },
+        },
+        'jardin-web': {
+          type: 'Web design / UX/UI',
+          title: 'Web garden',
+          description: 'Design and development of an e-commerce experience.',
+          previewAlt: '',
+          detail: {
+            introduction: 'Jardín Virtual is a plant and planter shop created to explore how a shopping experience can bring nature into everyday spaces.',
+            facts: [
+              { label: 'Year', value: '2024' },
+              { label: 'Role', value: 'Front-end design and development' },
+              { label: 'Technology', value: 'React, Material UI, Firebase' },
+            ],
+            showcaseLabel: 'Jardín Virtual website showcase',
+            menu: ['Home', 'Plants', 'Planters', 'Contact'],
+            heroAlt: 'Indoor plants in pots against a light wall.',
+            brandTitle: 'Jardín Virtual',
+            welcome: 'Welcome! Explore our selection of plants to bring life into your home or office.',
+            galleryTitle: 'A garden for inspiration',
+            mosaic: {
+              flower: 'White, yellow, pink and purple flowers arranged on a light background.',
+              gomero: 'Close-up of green rubber plant leaves.',
+              jungle: 'Collection of indoor plants beside a window.',
+              bear: 'Green succulent with reddish edges seen from above.',
+              succulents: 'Five succulents in small glass jars.',
+              mushrooms: 'Red mushroom with white spots growing among forest moss.',
+            },
+            plantsTitle: 'Our plants',
+            plantsDescription: 'A selection of indoor species from the original catalog.',
+            plants: {
+              monstera: { name: 'Monstera deliciosa', alt: 'Large-leaf monstera deliciosa in a planter.' },
+              lyrata: { name: 'Ficus lyrata', alt: 'Broad-leaf ficus lyrata in a planter.' },
+              pinkPrincess: { name: 'Pink Princess', alt: 'Pink Princess philodendron with green and pink leaves.' },
+            },
+            potsTitle: 'Planters',
+            pots: {
+              wicker: { name: 'Wicker', alt: 'Woven wicker planter.' },
+              cement: { name: 'Cement', alt: 'Cement planter.' },
+              clay: { name: 'Clay', alt: 'Clay planter.' },
+            },
+            portfolioNote: 'Archive showcase created for this portfolio using images from the original Jardín Virtual project. The catalog and checkout are inactive in this presentation.',
+          },
+        },
         'donut-shop': {
           type: 'Front-end / UX/UI',
           title: 'Donuts',
@@ -1076,7 +1171,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who Is Paying',
+          title: 'Who is paying',
           description: 'An app that randomly chooses who pays from a group of people.',
           previewAlt: 'Food serving tray icon representing the Who Is Paying application.',
           detail: {
@@ -1084,7 +1179,7 @@ export const translations = {
             introduction: 'A functional version rebuilt with React and Sass and hosted in the portfolio. It creates and edits a participant list and runs a random draw to decide who pays for lunch.',
             facts: [
               { label: 'Year', value: '2024' },
-              { label: 'Contribution', value: 'Interface design and front-end development' },
+              { label: 'Contribution', value: 'Interface and front-end development' },
               { label: 'Tools', value: 'HTML, CSS, JavaScript, React and Sass' },
             ],
             links: {
@@ -1135,7 +1230,7 @@ export const translations = {
           detail: {
             introduction: 'A brand landing page developed during my time at Tottus to present Murana’s personal care universe through a visual, clear and responsive experience.',
             facts: [
-              { label: 'Context', value: 'Tottus' },
+              { label: 'Date', value: '2021' },
               { label: 'Contribution', value: 'Front-end development' },
               { label: 'Deliverable', value: 'Responsive e-commerce landing page' },
             ],
@@ -1492,8 +1587,8 @@ export const translations = {
         },
         'muchomix-biomas': {
           type: 'Illustration',
-          title: 'Muchomix — Biomes',
-          description: 'Eight illustrated backgrounds exploring climates, landscapes and atmospheres for the world of Muchomix.',
+          title: 'Muchomix Biomes',
+          description: 'Six illustrated backgrounds exploring climates, landscapes and atmospheres for the world of Muchomix.',
           previewAlt: 'Blue ice cave with a lake and a glowing opening in the distance.',
           detail: {
             number: '01',
@@ -1503,7 +1598,7 @@ export const translations = {
               { label: 'Technique', value: 'Digital environment illustration' },
               { label: 'Tools', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Eight settings, one world',
+            galleryTitle: 'Six settings, one world',
             galleryDescription: 'Vertical backgrounds designed to transform each level through color, depth and landscape elements.',
             biomes: {
               'ice-zone': {
@@ -1513,10 +1608,6 @@ export const translations = {
               'snow-mountains': {
                 name: 'Snow mountains',
                 alt: 'Night landscape of snowy mountains and hills beneath a full moon and heavy snowfall.',
-              },
-              mountains: {
-                name: 'Mountains',
-                alt: 'Mountain landscape with snowy peaks, a pine forest and a green meadow in the foreground.',
               },
               'flower-field': {
                 name: 'Flower field',
@@ -1533,10 +1624,6 @@ export const translations = {
               'desert-dunes': {
                 name: 'Desert dunes',
                 alt: 'Golden dunes with palm trees and camel silhouettes beneath a clear blue sky.',
-              },
-              space: {
-                name: 'Space',
-                alt: 'Dark blue outer space with stars, white clouds and a violet planet on the right.',
               },
             },
           },
@@ -1555,25 +1642,17 @@ export const translations = {
               { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
             heroAlt: 'Main Muchomix board with faces from different nationalities, score, timer and progress meter over a space background.',
+            heroForestAlt: 'Muchomix board during a game in Forest, with faces from different nationalities, score and remaining time.',
+            paletteTitle: 'Color palette',
             sections: {
-              gameplay: {
-                title: 'How to play',
-                description: 'Players connect three or more matching faces before time runs out. Alekko and his crew appear to steal points, so they must also be removed quickly.',
+              screens: {
+                title: 'Game screens',
+                description: 'A look at the instructions, levels, rewards, results and options for playing with friends.',
                 screens: {
                   'how-to-play': {
                     label: 'Instructions',
                     alt: 'Muchomix instructions showing how to connect four matching faces with a finger to score points.',
                   },
-                  'villain-warning': {
-                    label: 'Alekko and his crew',
-                    alt: 'Second Muchomix instruction screen showing how to connect the gray faces of Alekko and his crew before they take away points.',
-                  },
-                },
-              },
-              progression: {
-                title: 'Levels and rewards',
-                description: 'New settings unlock as players advance. Power stones earned during matches can be exchanged for boosts and special objects.',
-                screens: {
                   levels: {
                     label: 'Level selection',
                     alt: 'Muchomix level screen with space and ice settings, progress bars and two locked levels.',
@@ -1582,33 +1661,13 @@ export const translations = {
                     label: 'Power stones',
                     alt: 'Muchomix rewards catalog with a clock, tokens, hourglass and hammers that can be exchanged for power stones.',
                   },
-                },
-              },
-              results: {
-                title: 'Results and ranking',
-                description: 'At the end of a match, the game communicates the result, lets players continue or try again and compares accumulated power across countries.',
-                screens: {
                   'good-job': {
                     label: 'Mission complete',
                     alt: 'Completed level screen with the heroine and another character, seven points, two power stones and buttons to go home or continue.',
                   },
-                  'times-up': {
-                    label: 'Time is up',
-                    alt: 'Time-up screen with the villain Alekko, a mechanical bird and buttons to return home or try again.',
-                  },
-                  ranking: {
-                    label: 'Country ranking',
-                    alt: 'Muchomix ranking comparing the total power of different countries in a list with flags and scores.',
-                  },
-                },
-              },
-              social: {
-                title: 'Play with friends',
-                description: 'The profile brings together total score, ranking and a network of friends. Players can also search by username and add new friends.',
-                screens: {
                   friends: {
-                    label: 'Profile and ranking',
-                    alt: 'Muchomix profile with an avatar, total power, ranking position and a grid of eight friends.',
+                    label: 'Profile and friends',
+                    alt: 'Muchomix profile with an avatar, total power and a grid of eight friends.',
                   },
                   'your-friends': {
                     label: 'Your friends',
@@ -1622,35 +1681,21 @@ export const translations = {
         'angels-sighs': {
           type: 'Illustration',
           title: "Angel's Sighs Candles",
-          description: 'Visual identity, labels and vector illustrations for wooden lids.',
+          description: 'Vector illustrations for scented candle wooden lids.',
           previewAlt: "Two Angel's Sighs candles with labels and a wooden lid illustrated with pink flowers.",
           detail: {
             number: '01',
-            introduction: "The project began with the design of the Angel's Sighs logo and labels. I then developed a collection of vector illustrations, each created to be printed on a wooden lid and visually express a different fragrance.",
+            introduction: "For Angel's Sighs, I developed a collection of vector illustrations, each created to be printed on a wooden lid and visually express a different fragrance.",
             facts: [
               { label: 'Year', value: '2025' },
-              { label: 'Technique', value: 'Visual identity and vector illustration' },
+              { label: 'Technique', value: 'Vector illustration' },
               { label: 'Tools', value: 'Adobe Illustrator, Wacom Tablet' },
             ],
             heroAlt: "Two Angel's Sighs candles in pink and white vessels beside a wooden lid illustrated with cherry blossoms.",
-            identity: {
-              title: 'Visual identity',
-              description: 'The system pairs an elegant line-based wordmark with an integrated flame and a classic label structure that adapts to each fragrance name and its notes.',
-              guidelinesLabel: 'Brand system',
-              guidelinesAlt: "Angel's Sighs identity sheet with logo variations, flame symbol, colors, typography and clear-space guidance.",
-              logoLabel: 'Logo',
-              logoAlt: "Black Angel's Sighs logo with an integrated flame on a white background.",
-              labelLabel: 'Label',
-              labelAlt: "Angel's Sighs vector label for the Enchanted Blossom fragrance, with an ornamental border, fragrance notes and logo.",
-            },
             applications: {
-              title: 'The identity in use',
-              description: 'Labels and illustrations come together across vessels in different colors and wooden lids while keeping the brand recognizable in every variation.',
+              title: 'Illustrations on the candles',
+              description: 'The illustrations are printed on wooden lids and paired with the candles for each fragrance.',
               items: {
-                dogs: {
-                  name: 'Sweet Vanilla',
-                  alt: "Black Angel's Sighs Sweet Vanilla candle with a cream label and a wooden lid illustrated with ten dogs.",
-                },
                 'sacred-fire': {
                   name: 'Sacred Fire',
                   alt: "Red and gray Angel's Sighs Sacred Fire candles beside a wooden lid with a red dragon among clouds.",
@@ -1762,15 +1807,14 @@ export const translations = {
           role: 'Web UX/UI Designer & Front-end Developer (Vue)',
           highlights: [
             'Design of complete interfaces in Figma, using the internal Ant Design-based design system.',
-            'Front-end development in Vue.js, ensuring visual consistency, accessibility and high performance.',
             'Creation and maintenance of reusable Figma components with Auto Layout for consistency and scalability.',
+            'Front-end development in Vue.js, ensuring visual consistency, accessibility and high performance.',
           ],
         },
         {
-          meta: 'September 2025- August 2026',
+          meta: 'March 2024 - August 2025',
           company: 'Solunova SPA',
           role: 'Web UX/UI Designer & Front-end Developer (React)',
-          showDashes: true,
           highlights: [
             'Design and implementation of complete interfaces from Figma, using the Material UI (MUI) component system.',
             'Leadership of the complete product cycle, from discovery to production: rapid research, Design System definition and handoff.',

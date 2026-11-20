@@ -5,9 +5,11 @@ import { getProjectCategory, projectCategories } from '../content/projectCategor
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
+import ProjectFacts from '../components/ProjectFacts.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
+import './GardenProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
@@ -21,43 +23,6 @@ function formatTemplate(template, replacements) {
 
 function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
-}
-
-function ProjectFactIcon({ factIndex }) {
-  const commonProps = {
-    'aria-hidden': true,
-    className: 'project-detail-fact-icon',
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    strokeWidth: 1.75,
-    viewBox: '0 0 24 24',
-  }
-
-  if (factIndex === 0) {
-    return <svg {...commonProps}><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /></svg>
-  }
-
-  if (factIndex === 1) {
-    return <svg {...commonProps}><path d="m14.7 6.3 3 3M4 20l4.6-1.1L18.2 9.3a2.1 2.1 0 0 0-3-3l-9.6 9.6L4 20Z" /><path d="m12.8 8.2 3 3" /></svg>
-  }
-
-  return <svg {...commonProps}><path d="M21 7.5a6 6 0 0 1-8.7 5.3L6.1 19A2.1 2.1 0 1 1 3 16l6.2-6.2A6 6 0 0 1 16.5 3l-3.1 3.1 4.5 4.5L21 7.5Z" /></svg>
-}
-
-function ProjectFacts({ facts }) {
-  return (
-    <dl className="project-detail-facts">
-      {facts.map(({ label, value }, factIndex) => (
-        <div key={label}>
-          <ProjectFactIcon factIndex={factIndex} />
-          <dt className="project-detail-fact-label">{label}</dt>
-          <dd>{value}</dd>
-        </div>
-      ))}
-    </dl>
-  )
 }
 
 function ProjectExternalLinks({ links, localizedLinks }) {
@@ -428,6 +393,100 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
   )
 }
 
+function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--garden" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="garden-project-summary">
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="garden-replica-section" aria-label={detail.showcaseLabel}>
+          <div className="garden-replica">
+            <div className="garden-replica-bar">
+              <img src={assets.logo} alt="" width="112" height="64" />
+              <span aria-hidden="true">{detail.menu.join('　 ')}</span>
+            </div>
+
+            <img
+              className="garden-replica-hero"
+              src={assets.hero.image}
+              alt={detail.heroAlt}
+              width={assets.hero.width}
+              height={assets.hero.height}
+              fetchPriority="high"
+            />
+
+            <div className="garden-replica-intro">
+              <h2>{detail.brandTitle}</h2>
+              <p>{detail.welcome}</p>
+            </div>
+
+            <section className="garden-replica-gallery" aria-labelledby="garden-gallery-title">
+              <h3 id="garden-gallery-title">{detail.galleryTitle}</h3>
+              <div className="garden-replica-mosaic">
+                {assets.mosaic.map((item) => (
+                  <img
+                    key={item.id}
+                    className={`garden-replica-mosaic-${item.id}`}
+                    src={item.image}
+                    alt={detail.mosaic[item.id]}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="garden-replica-catalog" aria-labelledby="garden-plants-title">
+              <h3 id="garden-plants-title">{detail.plantsTitle}</h3>
+              <p>{detail.plantsDescription}</p>
+              <ul>
+                {assets.plants.map((plant) => (
+                  <li key={plant.id}>
+                    <img src={plant.image} alt={detail.plants[plant.id].alt} width="255" height="226" loading="lazy" decoding="async" />
+                    <span>{detail.plants[plant.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="garden-replica-catalog garden-replica-catalog--pots" aria-labelledby="garden-pots-title">
+              <h3 id="garden-pots-title">{detail.potsTitle}</h3>
+              <ul>
+                {assets.pots.map((pot) => (
+                  <li key={pot.id}>
+                    <img src={pot.image} alt={detail.pots[pot.id].alt} width="255" height="226" loading="lazy" decoding="async" />
+                    <span>{detail.pots[pot.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <div className="garden-replica-footer" aria-hidden="true">{detail.brandTitle}</div>
+          </div>
+          <p className="garden-project-note">{detail.portfolioNote}</p>
+        </section>
+      </div>
+    </article>
+  )
+}
+
 function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
@@ -721,15 +780,36 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <figure className="project-detail-game-hero">
-          <img
-            src={assets.heroImage}
-            alt={detail.heroAlt}
-            width={assets.heroDimensions.width}
-            height={assets.heroDimensions.height}
-            fetchPriority="high"
+        <div className="project-detail-game-hero-grid">
+          <figure className="project-detail-game-hero">
+            <img
+              src={assets.heroImage}
+              alt={detail.heroAlt}
+              width={assets.heroDimensions.width}
+              height={assets.heroDimensions.height}
+              fetchPriority="high"
+            />
+          </figure>
+          <figure className="project-detail-game-hero project-detail-game-forest">
+            <img
+              src={assets.heroForestImage}
+              alt={detail.heroForestAlt}
+              width={assets.heroForestDimensions.width}
+              height={assets.heroForestDimensions.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+
+        <section className="project-detail-section project-detail-palette-section project-detail-game-palette" aria-labelledby="muchomix-palette-title">
+          <ColorPalette
+            headingId="muchomix-palette-title"
+            headingLevel="h2"
+            title={detail.paletteTitle}
+            colors={assets.palette}
           />
-        </figure>
+        </section>
 
         <div className="project-detail-game-sections">
           {assets.sections.map((section, sectionIndex) => {
@@ -749,6 +829,7 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
 
                     return (
                       <figure className="project-detail-game-screen" key={screen.id}>
+                        <figcaption>{screenContent.label}</figcaption>
                         <img
                           src={screen.image}
                           alt={screenContent.alt}
@@ -757,7 +838,6 @@ function GameProjectDetail({ assets, content, navigation, neighbors, text }) {
                           loading="lazy"
                           decoding="async"
                         />
-                        <figcaption>{screenContent.label}</figcaption>
                       </figure>
                     )
                   })}
@@ -811,6 +891,9 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
             {assets.biomes.map((biome, index) => (
               <li key={biome.id}>
                 <figure className="project-detail-biome">
+                  <figcaption>
+                    {detail.biomes[biome.id].name}
+                  </figcaption>
                   <img
                     src={biome.image}
                     alt={detail.biomes[biome.id].alt}
@@ -820,10 +903,6 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
                     fetchPriority={index === 0 ? 'high' : undefined}
                     decoding="async"
                   />
-                  <figcaption>
-                    <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    {detail.biomes[biome.id].name}
-                  </figcaption>
                 </figure>
               </li>
             ))}
@@ -873,47 +952,29 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           />
         </figure>
 
-        <section className="project-detail-candles-section project-detail-candles-identity" aria-labelledby="angels-identity-title">
+        <section className="project-detail-candles-section project-detail-candles-collection-section" aria-labelledby="angels-collection-title">
           <SectionIntroduction
-            id="angels-identity-title"
+            id="angels-collection-title"
             number="02"
-            title={detail.identity.title}
-            description={detail.identity.description}
+            title={detail.collection.title}
+            description={detail.collection.description}
           />
-          <div className="project-detail-candles-brand-grid">
-            <figure className="project-detail-candles-brand-guidelines">
-              <img
-                src={assets.brand.guidelinesImage}
-                alt={detail.identity.guidelinesAlt}
-                width={assets.brand.guidelinesDimensions.width}
-                height={assets.brand.guidelinesDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.guidelinesLabel}</figcaption>
-            </figure>
-            <figure>
-              <img
-                src={assets.brand.logoImage}
-                alt={detail.identity.logoAlt}
-                width={assets.brand.logoDimensions.width}
-                height={assets.brand.logoDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.logoLabel}</figcaption>
-            </figure>
-            <figure className="project-detail-candles-label">
-              <img
-                src={assets.brand.labelImage}
-                alt={detail.identity.labelAlt}
-                width={assets.brand.labelDimensions.width}
-                height={assets.brand.labelDimensions.height}
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>{detail.identity.labelLabel}</figcaption>
-            </figure>
+          <div className="project-detail-candles-collection">
+            {assets.illustrations.map((illustration) => (
+              <figure key={illustration.id}>
+                <div className="project-detail-candles-illustration">
+                  <img
+                    src={illustration.image}
+                    alt={detail.collection.items[illustration.id].alt}
+                    width="1800"
+                    height="1800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
@@ -941,36 +1002,10 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           </div>
         </section>
 
-        <section className="project-detail-candles-section" aria-labelledby="angels-collection-title">
-          <SectionIntroduction
-            id="angels-collection-title"
-            number="04"
-            title={detail.collection.title}
-            description={detail.collection.description}
-          />
-          <div className="project-detail-candles-collection">
-            {assets.illustrations.map((illustration) => (
-              <figure key={illustration.id}>
-                <div className="project-detail-candles-illustration">
-                  <img
-                    src={illustration.image}
-                    alt={detail.collection.items[illustration.id].alt}
-                    width="1800"
-                    height="1800"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
         <section className="project-detail-candles-section project-detail-candles-process" aria-labelledby="angels-process-title">
           <SectionIntroduction
             id="angels-process-title"
-            number="05"
+            number="04"
             title={detail.process.title}
             description={detail.process.description}
           />
@@ -1039,7 +1074,9 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
 
           <header className="project-detail-summary">
             <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
-            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+            <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>
+              {content.title}
+            </h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <ProjectFacts facts={detail.facts} />
             {assets.links && (
@@ -1432,6 +1469,18 @@ function ProjectDetailPage() {
   if (assets.layout === 'murana') {
     return (
       <MuranaProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'garden') {
+    return (
+      <GardenProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}

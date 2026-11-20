@@ -44,10 +44,10 @@ function ExperiencePreview({ experience }) {
 
         <div className="recent-jobs">
           {experience.previewJobs.map((job) => (
-            <article className={`recent-job${job.showDashes ? ' recent-job-dashed' : ''}`} key={`${job.company}-${job.role}`}>
-              <p className="recent-job-meta">{job.meta}</p>
-              <h3>{job.company}</h3>
+            <article className="recent-job" key={`${job.company}-${job.role}`}>
               <p className="recent-job-role">{job.role}</p>
+              <h3>{job.company}</h3>
+              <p className="recent-job-meta">{job.meta}</p>
               <ul className="recent-job-highlights">
                 {job.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
               </ul>

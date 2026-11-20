@@ -1,20 +1,11 @@
 @use '../styles/abstracts' as tokens;
 
 .instagram-summary {
-  margin-block: tokens.$space-6 calc(tokens.$space-6 * 2);
+  margin-block: 0 calc(tokens.$space-6 * 2);
 }
 
-.instagram-eyebrow {
-  margin: 0 0 tokens.$space-4;
-  color: tokens.$color-project-type;
-  font-weight: 600;
-}
-
-.instagram-facts div {
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
+.project-detail--instagram .instagram-summary h1 {
+  font-size: tokens.$font-size-project-detail-title-illustration;
 }
 
 .instagram-brands {
@@ -101,12 +92,12 @@
 }
 
 @media (min-width: tokens.$breakpoint-desktop) {
-  .instagram-summary {
-    margin-block: calc(tokens.$space-6 * 2) calc(tokens.$space-6 * 3);
+  .project-detail--instagram .instagram-summary h1 {
+    font-size: tokens.$font-size-project-detail-title-desktop;
   }
 
-  .instagram-eyebrow {
-    grid-column: 1 / -1;
+  .instagram-summary {
+    margin-block: 0 calc(tokens.$space-6 * 3);
   }
 
   .instagram-brands {
