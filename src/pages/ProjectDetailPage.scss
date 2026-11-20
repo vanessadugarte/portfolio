@@ -57,6 +57,10 @@
   color: tokens.$color-chess-blue;
 }
 
+.project-detail--forest .project-detail-title {
+  color: tokens.$color-forest-title;
+}
+
 .project-detail-placeholder h1 {
   max-width: 46.25rem;
   margin: 0;
@@ -465,6 +469,15 @@
   border-radius: 16px;
 }
 
+.project-detail--jungle .project-detail-hero > .project-detail-final-artwork > img {
+  border-radius: 16px;
+}
+
+.project-detail--jungle .project-detail-hero > .project-detail-final-artwork {
+  width: min(100%, 32rem);
+  margin-inline: auto;
+}
+
 .project-detail-organic-image {
   -webkit-mask-image: var(--organic-mask);
   mask-image: var(--organic-mask);
@@ -520,6 +533,11 @@
   gap: 1rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid tokens.$color-border;
+}
+
+.project-detail--forest .project-detail-process-section {
+  margin-block-start: tokens.$space-5;
+  border-top: 1px solid tokens.$color-border;
 }
 
 .project-detail-frames-summary {
@@ -631,10 +649,23 @@
 }
 
 .project-detail-nationalities-summary {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: tokens.$space-2;
+  align-items: start;
   min-width: 0;
 }
 
+.project-detail-nationalities-summary > .project-detail-number {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+}
+
 .project-detail-nationalities-summary h1 {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 0;
   max-width: 14ch;
   margin: 0;
   color: tokens.$color-muchokids-green;
@@ -647,6 +678,7 @@
 }
 
 .project-detail-nationalities-summary .project-detail-introduction {
+  grid-column: 1 / -1;
   max-width: 36rem;
   margin: tokens.$space-3 0 0;
   font-size: tokens.$font-size-body-emphasis;
@@ -654,6 +686,7 @@
 }
 
 .project-detail-nationalities-summary .project-detail-facts {
+  grid-column: 1 / -1;
   margin-top: tokens.$space-4;
 }
 
@@ -803,12 +836,7 @@
 .project-detail-biomes-section {
   display: grid;
   gap: tokens.$space-5;
-  padding-block: clamp(3rem, 8vw, 6rem);
-  border-top: 1px solid tokens.$color-border;
-}
-
-.project-detail-biomes-section .project-detail-section-intro {
-  max-width: 40rem;
+  padding-block: tokens.$space-5 clamp(3rem, 8vw, 6rem);
 }
 
 .project-detail-biomes-grid {
@@ -1019,7 +1047,7 @@
 
 .project-detail-candles-hero {
   width: min(100%, 70rem);
-  margin: 0 auto clamp(4rem, 10vw, 8rem);
+  margin: 0 auto;
 }
 
 .project-detail-candles-hero img,
@@ -1045,6 +1073,11 @@
 
 .project-detail-candles-section .project-detail-section-intro {
   max-width: 44rem;
+}
+
+.project-detail-candles-collection-section {
+  padding-block-start: clamp(2rem, 5vw, 3rem);
+  border-top: 0;
 }
 
 .project-detail-candles-applications,
@@ -1087,6 +1120,11 @@
 .project-detail-candles-collection {
   grid-template-columns: minmax(0, 1fr);
   gap: tokens.$space-4 tokens.$space-2;
+}
+
+.project-detail-candles-collection figcaption {
+  margin-top: 0;
+  margin-bottom: tokens.$space-2;
 }
 
 .project-detail-candles-illustration {
@@ -1228,6 +1266,7 @@
 }
 
 .project-detail--jungle .project-detail-hero-palette .project-detail-palette,
+.project-detail--forest .project-detail-hero-palette .project-detail-palette,
 .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette {
   width: fit-content;
   margin-inline: auto;
@@ -1241,11 +1280,13 @@
 }
 
 .project-detail--jungle .project-detail-hero-palette .project-detail-palette h2,
+.project-detail--forest .project-detail-hero-palette .project-detail-palette h2,
 .project-detail--deep-sea .project-detail-hero-palette .project-detail-palette h2 {
   text-align: left;
 }
 
 .project-detail--jungle .project-detail-hero-references,
+.project-detail--forest .project-detail-hero-references,
 .project-detail--deep-sea .project-detail-hero-references {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1262,6 +1303,7 @@
 }
 
 .project-detail--jungle .project-detail-hero-references h3,
+.project-detail--forest .project-detail-hero-references h3,
 .project-detail--deep-sea .project-detail-hero-references h3 {
   grid-column: 1 / -1;
   margin: 0;
@@ -1293,6 +1335,11 @@
   .project-detail--jungle .project-detail-hero-palette .project-detail-palette ul {
     justify-content: start;
   }
+
+  .project-detail--forest .project-detail-hero-palette .project-detail-palette,
+  .project-detail--forest .project-detail-hero-references {
+    margin-inline: 0;
+  }
 }
 
 @media (min-width: tokens.$breakpoint-tablet) and (max-width: calc(tokens.$breakpoint-desktop - 0.0625rem)) {
@@ -1321,6 +1368,7 @@
 }
 
 .project-detail--jungle .project-detail-hero-references img,
+.project-detail--forest .project-detail-hero-references img,
 .project-detail--deep-sea .project-detail-hero-references img {
   display: block;
   min-width: 0;
@@ -1428,26 +1476,22 @@
     width: 80%;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-navigation,
   .project-detail--muchomix-biomas .project-detail-navigation,
   .project-detail--muchomix-game .project-detail-navigation {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-back,
   .project-detail--muchomix-biomas .project-detail-back,
   .project-detail--muchomix-game .project-detail-back {
     flex: none;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-pager,
   .project-detail--muchomix-biomas .project-detail-pager,
   .project-detail--muchomix-game .project-detail-pager {
     justify-content: space-between;
   }
 
-  .project-detail--muchokids-nationalities .project-detail-pager a,
   .project-detail--muchomix-biomas .project-detail-pager a,
   .project-detail--muchomix-game .project-detail-pager a {
     padding-inline: 0;
@@ -1460,6 +1504,11 @@
     margin-inline: -0.75rem;
   }
 
+  .project-detail--jungle .project-detail-hero > .project-detail-final-artwork {
+    width: min(100%, 32rem);
+    margin-inline: auto;
+  }
+
   .project-detail--deep-sea .project-detail-final-artworks {
     gap: tokens.$space-5;
   }
@@ -1468,17 +1517,6 @@
     max-width: none;
   }
 
-  .project-detail--jungle .project-detail-hero-ornament--1 {
-    width: 15%;
-  }
-
-  .project-detail--jungle .project-detail-hero-ornament--2 {
-    width: 19%;
-  }
-
-  .project-detail--jungle .project-detail-hero-ornament--3 {
-    width: 14%;
-  }
 }
 
 @media (min-width: tokens.$breakpoint-tablet) {
@@ -1702,7 +1740,14 @@
 
   .project-detail-candles-collection-section > .project-detail-candles-collection {
     grid-column: 1;
+    width: 90%;
     gap: tokens.$space-6;
+    margin-inline: auto;
+  }
+
+  .project-detail-candles-illustration {
+    width: 90%;
+    margin-inline: auto;
   }
 
   .project-detail-game-summary {
@@ -1875,6 +1920,9 @@
   }
 
   .project-detail--medusas .project-detail-hero > .project-detail-final-artwork {
+    width: 94%;
+    max-width: 76rem;
+    margin-inline: auto;
     margin-top: tokens.$space-xxl;
   }
 
@@ -1888,20 +1936,34 @@
   }
 
   .project-detail--forest .project-detail-final-artwork {
-    max-width: 34rem;
+    max-width: 30rem;
   }
 
   .project-detail--forest .project-detail-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 30rem) max-content minmax(0, 1fr);
+    column-gap: 0;
     row-gap: tokens.$space-6;
   }
 
-  .project-detail--forest .project-detail-palette-section {
-    grid-template-columns: minmax(0, 1fr);
+  .project-detail--forest .project-detail-final-artwork {
+    grid-column: 2;
   }
 
-  .project-detail--forest .project-detail-palette-section .project-detail-palette {
+  .project-detail--forest .project-detail-hero-palette {
+    grid-column: 3;
+    align-self: center;
+    margin-inline-start: clamp(2rem, 5vw, 5rem);
     justify-self: center;
-    width: fit-content;
+  }
+
+  .project-detail--forest .project-detail-hero-palette .project-detail-palette ul {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: start;
+  }
+
+  .project-detail--forest .project-detail-hero-references {
+    margin-top: tokens.$space-6;
   }
 
   .project-detail--reindeer .project-detail-hero > .project-detail-final-artwork {
@@ -2104,6 +2166,11 @@
     margin-top: tokens.$space-5;
   }
 
+  .project-detail--game-icons .project-detail-process-section {
+    margin-block-start: tokens.$space-5;
+    border-top: 1px solid tokens.$color-border;
+  }
+
   .project-detail-decoration {
     position: absolute;
     z-index: 0;
@@ -2125,6 +2192,15 @@
     right: -6.5rem;
     width: 23rem;
     transform: rotate(20deg) scaleX(-1);
+  }
+
+  .project-detail--game-icons .project-detail-decoration-left {
+    width: 7rem;
+  }
+
+  .project-detail--game-icons .project-detail-decoration-right {
+    right: -2rem;
+    width: 9rem;
   }
 
   .project-detail--deep-sea .project-detail-decoration {

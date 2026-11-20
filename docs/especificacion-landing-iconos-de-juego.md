@@ -48,6 +48,29 @@ Completar la ficha bilingüe de Iconos de juego / Game Icons con los recursos ya
 - No sumar el proyecto a Trabajos seleccionados.
 - No modificar los recursos visuales proporcionados ni las fichas de otros proyectos.
 
+## Ajuste de presentación en escritorio
+
+### Objetivo y alcance
+
+- Separar visualmente el paso 02 (Proceso) del contenido anterior con una línea horizontal y reducir considerablemente los dos adornos de fondo de Iconos de juego.
+
+### Flujo de usuario y criterios de aceptación
+
+- Al recorrer la ficha en escritorio, la persona ve una línea divisora inmediatamente antes del paso 02.
+- Los dos adornos laterales siguen visibles como fondo, pero ocupan menos de la mitad del ancho que tenían; no tapan contenido ni reciben foco.
+- En móvil y tablet se conserva la presentación actual. Las demás fichas no cambian.
+
+### Requisitos no funcionales y exclusiones
+
+- Implementar el ajuste con estilos Sass específicos de Iconos de juego, manteniendo el SVG original y su carácter decorativo.
+- No modificar el contenido, los textos, la navegación ni las imágenes informativas.
+
+### Validación del ajuste
+
+- `npm run build` y `npm run lint`: correctos.
+- Navegador integrado de Codex (Chromium): a 1280 CSS px, el paso 02 tiene un borde superior de 1 px y 24 px de separación; los adornos miden 112 y 144 px, siguen ocultos para tecnologías de asistencia y la página no tiene desbordamiento horizontal. A 768 CSS px, los adornos siguen ocultos y el paso 02 no tiene borde superior; tampoco hay desbordamiento horizontal.
+- La revisión de accesibilidad se limitó al reflujo y la naturaleza decorativa de los elementos afectados; no cambian controles, navegación ni semántica.
+
 ## Validación inicial
 
 - `npm run test:content`, `npm run lint` y `npm run build`: correctos.

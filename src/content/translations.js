@@ -606,6 +606,7 @@ export const translations = {
           description: 'Rostros infantiles inspirados en trajes típicos de distintos países para Muchokids.',
           previewAlt: 'Seis rostros de personajes infantiles junto a las banderas de España, Estados Unidos, Brasil, Rusia, China y Francia.',
           detail: {
+            number: '01',
             introduction: 'Rostros de personajes inspirados en trajes típicos de distintos países para Muchokids, una app de videojuego infantil e interactivo.',
             facts: [
               { label: 'Año', value: '2017' },
@@ -646,11 +647,16 @@ export const translations = {
               { label: 'Técnica', value: 'Ilustración digital' },
               { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
+            referencesTitle: 'Referencias',
             paletteTitle: 'Paleta de color',
             processTitle: 'Proceso',
             processDescription: 'Tres etapas muestran la construcción de los troncos, el follaje y la atmósfera del bosque.',
             imageAlt: {
               hero: 'Ilustración final de un bosque con troncos altos, follaje verde, musgo y un claro azul al fondo.',
+              heroReferences: [
+                'Bosque verde iluminado con un tronco cubierto de musgo y vegetación en primer plano.',
+                'Siluetas de troncos altos en un bosque azul y violeta con niebla.',
+              ],
               process: [
                 'Primera etapa de la ilustración Forest con la composición de los troncos y el claro.',
                 'Segunda etapa de Forest con color base en los árboles, el suelo y el follaje.',
@@ -666,14 +672,12 @@ export const translations = {
           previewAlt: 'Cueva de hielo azul con un lago y una abertura luminosa al fondo.',
           detail: {
             number: '01',
-            introduction: 'Una colección de fondos creada para ampliar el mundo de Muchomix. Cada escenario propone una atmósfera propia —desde cuevas heladas hasta desiertos y campos de flores— sin perder la unidad visual del juego.',
+            introduction: 'Una colección de fondos creada para ampliar el mundo del juego Muchomix. Cada escenario propone una atmósfera propia, desde cuevas heladas hasta desiertos y campos de flores, sin perder la unidad visual.',
             facts: [
               { label: 'Año', value: '2016–2017' },
               { label: 'Técnica', value: 'Ilustración digital de escenarios' },
               { label: 'Herramientas', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Seis escenarios, un mismo mundo',
-            galleryDescription: 'Fondos verticales pensados para transformar el ambiente de cada nivel mediante el color, la profundidad y los elementos del paisaje.',
             biomes: {
               'ice-zone': {
                 name: 'Zona de hielo',
@@ -819,7 +823,6 @@ export const translations = {
               { label: 'Técnica', value: 'Infografía' },
               { label: 'Herramientas', value: 'Illustrator' },
             ],
-            galleryTitle: 'Publicaciones',
             backToCollection: 'Volver a Infografías navales',
             series: navalSeriesText.es,
             pages: {
@@ -1584,6 +1587,7 @@ export const translations = {
           description: 'Children’s faces inspired by traditional clothing from different countries for Muchokids.',
           previewAlt: 'Six children’s character faces beside the flags of Spain, the United States, Brazil, Russia, China and France.',
           detail: {
+            number: '01',
             introduction: 'Character faces inspired by traditional clothing from different countries for Muchokids, an interactive children’s video game app.',
             facts: [
               { label: 'Year', value: '2017' },
@@ -1624,11 +1628,16 @@ export const translations = {
               { label: 'Technique', value: 'Digital illustration' },
               { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
+            referencesTitle: 'References',
             paletteTitle: 'Color palette',
             processTitle: 'Process',
             processDescription: 'Three stages show the construction of the trunks, foliage and atmosphere of the forest.',
             imageAlt: {
               hero: 'Final forest illustration with tall trunks, green foliage, moss and a blue clearing in the background.',
+              heroReferences: [
+                'Sunlit green forest with a moss-covered trunk and foliage in the foreground.',
+                'Silhouettes of tall trunks in a misty blue and violet forest.',
+              ],
               process: [
                 'First Forest stage with the composition of the trunks and clearing.',
                 'Second Forest stage with base color on the trees, ground and foliage.',
@@ -1644,14 +1653,12 @@ export const translations = {
           previewAlt: 'Blue ice cave with a lake and a glowing opening in the distance.',
           detail: {
             number: '01',
-            introduction: 'A collection of backgrounds created to expand the world of Muchomix. Each setting has its own atmosphere—from frozen caves to deserts and flower fields—while preserving the game’s visual unity.',
+            introduction: 'A collection of backgrounds created to expand the world of the Muchomix game. Each setting offers its own atmosphere, from frozen caves to deserts and flower fields, while preserving visual unity.',
             facts: [
               { label: 'Year', value: '2016–2017' },
               { label: 'Technique', value: 'Digital environment illustration' },
               { label: 'Tools', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Six settings, one world',
-            galleryDescription: 'Vertical backgrounds designed to transform each level through color, depth and landscape elements.',
             biomes: {
               'ice-zone': {
                 name: 'Ice zone',
@@ -1797,7 +1804,6 @@ export const translations = {
               { label: 'Technique', value: 'Infographic' },
               { label: 'Tools', value: 'Illustrator' },
             ],
-            galleryTitle: 'Publications',
             backToCollection: 'Back to Naval Infographics',
             series: navalSeriesText.en,
             pages: {

@@ -6,11 +6,11 @@ Dar protagonismo a la ilustración final de Medusas al inicio de la ficha para q
 
 ## Alcance y flujo
 
-Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el título, contexto y ficha técnica del proyecto, sin repetir el año y la técnica en una línea adicional. A continuación aparece la ilustración final a casi todo el ancho del contenedor. Después puede continuar hacia referencias, proceso y detalles. La misma imagen no se repite al cierre.
+Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el título, contexto y ficha técnica del proyecto, sin repetir el año y la técnica en una línea adicional. A continuación aparece la ilustración final centrada, ligeramente más estrecha que el contenedor. Después puede continuar hacia referencias, proceso y detalles. La misma imagen no se repite al cierre.
 
 ## Criterios de aceptación
 
-- En escritorio, la ilustración final de la cabecera usa el ancho disponible del contenido, con un máximo de `81.25rem`.
+- En escritorio, la ilustración final de la cabecera ocupa el 94 % del ancho disponible, centrada, con un máximo de `76rem`.
 - En escritorio, el texto descriptivo previo a la ilustración consume el ancho compartido de `44rem` definido para las cabeceras de proyecto.
 - En escritorio, la ficha técnica se muestra a la derecha de la descripción, en la misma fila y separada por una línea vertical; móvil y tablet conservan el orden vertical.
 - El encabezado no muestra la línea redundante «Ilustración digital - 2015»; el año y la técnica se presentan una sola vez en la ficha técnica.
@@ -33,8 +33,8 @@ Al abrir el detalle de Medusas en escritorio, la persona encuentra primero el t�
 
 ## Validación
 
-- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: resultado final amplio, sin copia al final y sin desplazamiento horizontal.
+- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: la portada mide aproximadamente 1083 px, queda centrada y no hay desplazamiento horizontal.
 - Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: la descripción de la cabecera no supera el ancho compartido de `44rem`.
 - Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 1280 px: descripción y ficha técnica comparten fila, con un separador vertical visible; a 390 px permanecen apiladas.
-- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 390 px: imagen fluida, sin desplazamiento horizontal.
+- Navegador integrado (Chromium), ruta `#/proyectos/medusas` a 320 px: la imagen conserva su ancho móvil de 304 px y no hay desplazamiento horizontal.
 - `npm run lint` y `npm run build` finalizan correctamente.

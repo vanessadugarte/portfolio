@@ -28,7 +28,7 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 
 - Mantener React Router, Sass, carga diferida de páginas posteriores y los formatos WebP entregados.
 - El texto de cuerpo de la ficha conserva la fuente base Inter del portafolio.
-- «Publicaciones» usa la fuente de encabezados del portafolio y los nombres de las portadas usan la fuente de cuerpo; no se utiliza Georgia en esta ficha.
+- Los nombres de las portadas usan la fuente de cuerpo; no se utiliza Georgia en esta ficha.
 - Conservar WCAG 2.2 A y AA en las rutas y controles modificados.
 
 ## Exclusiones
@@ -45,3 +45,11 @@ Presentar las cuatro publicaciones navales como series independientes, con una i
 - Actualización de la ficha técnica: `npm run test:content`, `npm run lint` y `npm run build` aprobados; en el navegador integrado se comprobó la lista de definición, la fuente Inter y la ausencia de desbordamiento a 320 y 1280 px.
 - Homologación tipográfica: `npm run lint` y `npm run build` aprobados; el navegador integrado confirmó Google Sans en «Publicaciones», Inter en los nombres de las portadas y ausencia de desbordamiento a 320 y 1280 px.
 - Separación de páginas: `npm run lint` y `npm run build` aprobados; el navegador integrado midió `16px` entre dos WebP consecutivos, sin desbordamiento a 320 y 1280 px.
+
+## Ajuste de la ficha principal
+
+- Objetivo y alcance: dar mayor protagonismo a las cuatro portadas, retirando la etiqueta de tipo y el encabezado «Publicaciones», reduciendo el espacio bajo el resumen y limitando el ancho de la galería a `72rem` en escritorio.
+- Flujo y criterios de aceptación: tras el `h1`, descripción y ficha técnica, la persona encuentra las cuatro portadas enlazadas, con nombre visible y sin un encabezado redundante; las rutas de las series y el orden de las portadas permanecen iguales.
+- Requisitos no funcionales: mantener React Router y Sass, foco visible, nombres accesibles y reflujo desde 320 CSS px.
+- Exclusiones: no cambiar las páginas de cada serie ni sus imágenes.
+- Validación: `npm run test:content` (22 pruebas), `npm run lint`, `npm run build` y `git diff --check` correctos. La comprobación de accesibilidad se concentra en la jerarquía semántica y los nombres de los enlaces; queda pendiente una comprobación manual con teclado y lector de pantalla.

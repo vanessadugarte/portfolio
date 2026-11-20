@@ -66,7 +66,7 @@ function SectionIntroduction({ description, id, number, title }) {
   return (
     <header className="project-detail-section-intro">
       <h2 id={id}>
-        <span aria-hidden="true">{number}</span>
+        {number && <span aria-hidden="true">{number}</span>}
         {title}
       </h2>
       <p>{description}</p>
@@ -108,14 +108,12 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
         />
 
         <header className="naval-infographics-summary">
-          <p className="naval-infographics-type">{content.type}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="naval-infographics-introduction">{detail.introduction}</p>
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
-          <h2 className="naval-infographics-gallery-title" id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
+        <div className="naval-infographics-gallery">
           <ul className="naval-infographics-covers">
             {assets.series.map((series, index) => {
               const cover = series.pages[series.coverPage - 1]
@@ -137,7 +135,7 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
               )
             })}
           </ul>
-        </section>
+        </div>
       </div>
     </article>
   )
@@ -279,6 +277,7 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
 
         <div className="project-detail-nationalities-hero">
           <header className="project-detail-nationalities-summary">
+            <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
             <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <ProjectFacts facts={detail.facts} />
@@ -314,7 +313,6 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
         <section className="project-detail-nationalities-gallery" aria-labelledby="nationalities-gallery-title">
           <header className="project-detail-section-intro project-detail-nationalities-gallery-intro">
             <h2 id="nationalities-gallery-title">
-              <span aria-hidden="true">01</span>
               {detail.galleryTitle}
             </h2>
           </header>
@@ -802,13 +800,7 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="project-detail-biomes-section" aria-labelledby="muchomix-biomes-gallery-title">
-          <SectionIntroduction
-            id="muchomix-biomes-gallery-title"
-            number="02"
-            title={detail.galleryTitle}
-            description={detail.galleryDescription}
-          />
+        <div className="project-detail-biomes-section">
           <ol className="project-detail-biomes-grid">
             {assets.biomes.map((biome, index) => (
               <li key={biome.id}>
@@ -829,7 +821,7 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
               </li>
             ))}
           </ol>
-        </section>
+        </div>
       </div>
     </article>
   )
@@ -884,6 +876,7 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           <div className="project-detail-candles-collection">
             {assets.illustrations.map((illustration) => (
               <figure key={illustration.id}>
+                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
                 <div className="project-detail-candles-illustration">
                   <img
                     src={illustration.image}
@@ -894,7 +887,6 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
                     decoding="async"
                   />
                 </div>
-                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
               </figure>
             ))}
           </div>
