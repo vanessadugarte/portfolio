@@ -60,3 +60,10 @@ Permitir recorrer los proyectos de una categoría desde el inicio de cada págin
 - Teclado en Nacionalidades: Tab y Shift+Tab mantienen el orden regreso → anterior → siguiente, foco visible y objetivos de 44 px; Enter abre Forest correctamente.
 - `npm run build`, `npm run lint` y `npm run test:content` (22 pruebas): correctos. Build conserva el aviso de tamaño de bundle superior a 500 kB.
 - Alcance de la comprobación: geometría y operación de la fila afectada en Chrome. No se repitió auditoría global, axe ni lector de pantalla; la corrección solo elimina una excepción de espaciado.
+
+### Corrección de disposición móvil de Nacionalidades — 2026-11-20
+
+- Se elimina la excepción Sass que colocaba «Anterior» y «Siguiente» debajo de «Volver a categoría» en Nacionalidades por debajo del breakpoint de tablet.
+- Navegador integrado Chromium: a 320, 768 y 1440 CSS px, los tres enlaces comparten la misma fila, tienen 44 px de alto y la página no presenta desbordamiento horizontal. Revisión visual a 320 CSS px: los enlaces y el contenido siguen visibles.
+- `npm run build`, `npm run lint` y `npm run test:content` (22 pruebas): correctos. El build conserva el aviso de tamaño de bundle superior a 500 kB.
+- La comprobación se limita a la disposición afectada; la semántica, el foco y los destinos de los enlaces no cambiaron.

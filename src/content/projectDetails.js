@@ -278,7 +278,13 @@ export const projectDetails = {
     heroDimensions: { width: 1920, height: 2561 },
     illustrationTreatment: true,
     accentColor: '#0C2C31',
-    palette: ['#061314', '#0C2C31', '#24555B', '#5EB5C0', '#16451F', '#559B39'],
+    heroReferenceImages: [
+      forestAsset('forest-reference2-02.webp'),
+      forestAsset('forest-reference2-03.webp'),
+    ],
+    heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 416, height: 481 })),
+    palette: ['#061314', '#0C2C31', '#24555B', '#5EB5C0', '#71868A', '#16451F', '#559B39', '#83B666'],
+    palettePlacement: 'hero',
     processImages: [
       forestAsset('forest-process-1.png'),
       forestAsset('forest-process-2.jpg'),
@@ -312,18 +318,12 @@ export const projectDetails = {
     heroDimensions: { width: 1200, height: 1490 },
     illustrationTreatment: true,
     accentColor: '#6B8534',
-    heroDecorations: [
-      jungleAsset('adorno-jungle-01.svg'),
-      jungleAsset('adorno-jungle-02.svg'),
-      jungleAsset('adorno-jungle-03.svg'),
-    ],
     heroReferenceImages: [
       jungleAsset('swamp-reference.jpg'),
       jungleAsset('swamp-reference-2.jpg'),
     ],
     heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 576, height: 842 })),
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-02.svg'),
       details: [
         organicShapeAsset('organic-shape-05.svg'),
         organicShapeAsset('organic-shape-02.svg'),

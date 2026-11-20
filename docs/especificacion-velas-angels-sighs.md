@@ -96,3 +96,45 @@ Validación del ajuste:
 - Navegador integrado (Chromium): revisión visual a 1280 × 900 de círculos pequeños en los márgenes junto a la colección, diferenciados de las ilustraciones y fuera del texto en esa vista.
 - Estilos calculados: doce gradientes con radios de 24/40 px en escritorio (1280 y 1024 px); los dos originales se conservan a 768 y 320 px. Sin desbordamiento horizontal en los cuatro anchos.
 - Validación de accesibilidad limitada a presentación y reflujo: decoración CSS estática sin cambios en semántica, foco o interacción; no se ejecutó una auditoría global ni lector de pantalla.
+
+## Ajuste: separación bajo la foto principal
+
+- Objetivo: acercar la sección de ilustraciones a la foto principal para reducir el espacio vertical vacío.
+- Alcance y flujo: en Angel's Sighs, al avanzar desde la foto principal hacia la colección, se elimina la línea divisora y se usa una separación más corta en móvil, tablet y escritorio.
+- Criterios de aceptación: no aparece un borde entre la foto y la sección 02; la distancia entre ambas disminuye; la imagen conserva su proporción y la colección sigue siendo la sección 02. Los separadores de las secciones posteriores permanecen visibles.
+- Requisitos no funcionales: usar Sass y mantener el reflujo desde 320 CSS px sin cambiar semántica, contenido ni comportamiento.
+- Exclusiones: no cambiar otras fichas, fotografías, ilustraciones o videos.
+
+Validación del ajuste:
+
+- `npm run build`, `npm run lint` y `git diff --check`: correctos. El build mantiene la advertencia existente del bundle superior a 500 kB.
+- Navegador integrado de Codex (Chromium): revisión visual a 1280 × 900; entre la foto y el título 02 hay 48 px de relleno superior, sin margen inferior en la foto ni borde. El separador de la sección siguiente conserva 1 px.
+- A 320 × 740, el relleno superior es de 32 px y `scrollWidth` coincide con `clientWidth` (320 px); la foto mide 280 px de ancho. No se observaron cambios semánticos ni de interacción, por lo que la validación de accesibilidad se limitó al reflujo y la presentación modificados.
+
+## Ajuste: tamaño de las ilustraciones circulares en escritorio
+
+- Objetivo: reducir ligeramente la presencia visual de las diez ilustraciones circulares de la colección.
+- Alcance y flujo: en la sección 02 de Angel's Sighs, cada círculo se centra dentro de su columna y ocupa el 90 % del ancho disponible desde el breakpoint de escritorio.
+- Criterios de aceptación: los diez círculos son algo menores en escritorio, mantienen proporción 1:1 y dos columnas, y sus leyendas continúan centradas. En móvil y tablet conservan el tamaño actual.
+- Requisitos no funcionales: usar Sass, sin introducir desbordamiento horizontal ni alterar las imágenes o alternativas.
+- Exclusiones: no cambiar los círculos decorativos del fondo ni las demás secciones o fichas.
+
+Validación del ajuste:
+
+- `npm run build`, `npm run lint` y `git diff --check`: correctos; permanece la advertencia existente de tamaño del bundle.
+- Navegador integrado de Codex (Chromium): revisión visual y medidas a 1280 × 900 y 1024 × 900. Los círculos miden 504 px dentro de columnas de 560 px y 400 px dentro de columnas de 445 px, respectivamente; conservan proporción cuadrada y quedan centrados.
+- A 768 px y 320 px miden 352 px y 280 px, el ancho completo de su columna. En los cuatro anchos `scrollWidth` coincide con `clientWidth`; no se modificaron semántica ni interacción.
+
+## Ajuste: pares de ilustraciones y títulos
+
+- Objetivo: dar más aire a las ilustraciones principales en escritorio y facilitar la lectura de sus nombres.
+- Alcance y flujo: en la colección 02, reducir ligeramente los círculos y acercar cada par al centro desde el breakpoint de escritorio; colocar el nombre localizado encima de cada ilustración en todos los tamaños.
+- Criterios de aceptación: la colección conserva diez ilustraciones en dos columnas desde tablet y una en móvil; en escritorio los círculos son menores que antes y los centros de las dos columnas están más próximos; cada nombre aparece inmediatamente encima de su círculo y conserva su asociación semántica con la imagen.
+- Requisitos no funcionales: usar Sass, mantener las proporciones 1:1, las alternativas localizadas y el reflujo a 320 CSS px sin desbordamiento horizontal.
+- Exclusiones: no cambiar los círculos decorativos, los recursos gráficos ni las demás secciones o fichas.
+
+Validación del ajuste:
+
+- `npm run build`, `npm run lint` y `git diff --check`: correctos; el build mantiene la advertencia existente de bundle superior a 500 kB.
+- Navegador integrado (Chromium), a 1280 × 900: revisión visual de la colección; los dos primeros círculos miden 452 px, quedan centrados en una cuadrícula de 1037 px y sus nombres aparecen arriba. No hay desbordamiento horizontal.
+- A 320 × 740: una columna de 280 px, diez figuras, nombres encima de los círculos y `scrollWidth` igual a 320 px. La validación de accesibilidad se limitó al orden semántico del nombre y al reflujo; no se modificaron controles ni gestión de foco.

@@ -24,7 +24,7 @@ Crear una ficha bilingüe que reúna seis fondos de escenario realizados para Mu
 
 - La ruta `/proyectos/muchomix-biomas` contiene un único `h1` localizado y deja de depender del estado «Próximamente».
 - Los seis fondos se muestran completos, sin recortes ni deformación, con dimensiones intrínsecas de `2048 × 2732`.
-- La galería usa una columna a 320 CSS px, dos en tablet y dos en escritorio, situadas debajo del texto de presentación de la galería y aprovechando su ancho, sin desplazamiento horizontal.
+- La galería usa una columna a 320 CSS px, dos en tablet y dos en escritorio, situada inmediatamente después de la presentación principal y aprovechando su ancho, sin desplazamiento horizontal.
 - La ficha técnica informa el período 2016–2017, la técnica de ilustración digital y las herramientas Photoshop y Wacom Tablet.
 - Los nombres, textos y alternativas de todas las imágenes existen en español e inglés.
 - Deep Sea y Forest conservan sus fichas y assets independientes; no se repiten dentro de esta colección.
@@ -49,3 +49,11 @@ Crear una ficha bilingüe que reúna seis fondos de escenario realizados para Mu
 - Revisión visual en escritorio: fondos completos, de mayor tamaño, en dos columnas. Se conservan las proporciones de las imágenes y los colores de sus rótulos.
 - Contenido informativo: seis imágenes con alternativas útiles; título de documento, encabezado, descripción y rótulos actualizados en español e inglés. Se comprobó el cambio de idioma en navegador.
 - Alcance de accesibilidad: orden del contenido, alternativas y reflujo de esta galería. No se modificaron controles, navegación ni foco; no se repitió una auditoría global ni pruebas con lector de pantalla.
+
+## Ajuste de presentación
+
+- Objetivo y alcance: simplificar la entrada a los seis fondos, retirando el segundo encabezado y párrafo introductor de la galería en ambos idiomas y reduciendo el espacio previo.
+- Flujo y criterios de aceptación: después del título, contexto y ficha técnica, la persona encuentra directamente los seis fondos con sus nombres y alternativas localizadas; permanece un único `h1` y no se agrega una sección sin título.
+- Requisitos no funcionales: conservar el orden de lectura, el reflujo desde 320 CSS px y los estilos Sass; mantener los controles y el foco existentes.
+- Exclusiones: no cambiar imágenes, rutas, cantidad de fondos ni su navegación.
+- Validación: `npm run test:content` (22 pruebas), `npm run lint`, `npm run build` y `git diff --check` correctos. La comprobación de accesibilidad se concentra en el orden semántico afectado; queda pendiente una comprobación manual con lector de pantalla.

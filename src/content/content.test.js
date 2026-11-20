@@ -153,7 +153,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(jungleAssets.referenceImages, undefined)
   assert.equal(jungleAssets.heroReferenceImages.length, 2)
   assert.deepEqual(jungleAssets.heroDimensions, { width: 1200, height: 1490 })
-  assert.equal(jungleAssets.heroDecorations.length, 3)
+  assert.equal(jungleAssets.heroDecorations, undefined)
   assert.equal(jungleAssets.palettePlacement, 'hero')
   assert.equal(jungleAssets.illustrationTreatment, true)
   assert.equal(jungleAssets.accentColor, '#6B8534')
@@ -450,7 +450,7 @@ test('Muchokids Nationalities shows Brazil, an editorial gallery introduction an
   }
 })
 
-test('Forest exposes its localized final illustration, palette and process', () => {
+test('Forest exposes its localized final illustration, hero references, palette and process', () => {
   const assets = getProjectDetails('forest')
 
   assert.equal(assets.heroImage.endsWith('/forest-finalwork.jpg'), true)
@@ -461,7 +461,14 @@ test('Forest exposes its localized final illustration, palette and process', () 
     'forest-process-3.jpg',
   ])
   assert.equal(assets.processArrows.length, assets.processImages.length - 1)
-  assert.equal(assets.palette.length, 6)
+  assert.equal(assets.palette.length, 8)
+  assert.equal(assets.palettePlacement, 'hero')
+  assert.deepEqual(assets.heroReferenceImages.map((image) => image.split('/').at(-1)), [
+    'forest-reference2-02.webp',
+    'forest-reference2-03.webp',
+  ])
+  assert.ok(assets.heroReferenceImages.every((image) => existsSync(new URL(image))))
+  assert.deepEqual(assets.heroReferenceImageDimensions, Array.from({ length: 2 }, () => ({ width: 416, height: 481 })))
   assert.equal(assets.referenceImages, undefined)
   assert.equal(assets.detailImages, undefined)
 
@@ -472,6 +479,9 @@ test('Forest exposes its localized final illustration, palette and process', () 
     assert.equal(detail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
     assert.equal(detail.facts.at(-1).value, 'Illustrator, Photoshop, Wacom Tablet')
     assert.ok(detail.paletteTitle)
+    assert.ok(detail.referencesTitle)
+    assert.equal(detail.imageAlt.heroReferences.length, assets.heroReferenceImages.length)
+    assert.ok(detail.imageAlt.heroReferences.every((alt) => alt.trim()))
     assert.equal(detail.imageAlt.process.length, assets.processImages.length)
   }
 })
@@ -500,8 +510,8 @@ test('Muchomix Biomes exposes six localized environment backgrounds', () => {
     assert.deepEqual(detail.facts.map(({ value }) => value), language === 'es'
       ? ['2016–2017', 'Ilustración digital de escenarios', 'Photoshop, Wacom Tablet']
       : ['2016–2017', 'Digital environment illustration', 'Photoshop, Wacom Tablet'])
-    assert.ok(detail.galleryTitle)
-    assert.ok(detail.galleryDescription)
+    assert.equal(detail.galleryTitle, undefined)
+    assert.equal(detail.galleryDescription, undefined)
     assert.deepEqual(sortedKeys(detail.biomes), [...expectedBiomeIds].sort())
     for (const biome of assets.biomes) {
       assert.ok(detail.biomes[biome.id].name)
@@ -641,7 +651,7 @@ test('naval infographics expose four illustrated series with ordered pages in bo
           { label: 'Technique', value: 'Infographic' },
           { label: 'Tools', value: 'Illustrator' },
         ])
-    assert.ok(content.detail.galleryTitle)
+    assert.equal(content.detail.galleryTitle, undefined)
     assert.equal(content.detail.openPageText, undefined)
     for (const series of detail.series) {
       const seriesText = content.detail.series[series.id]
