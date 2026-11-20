@@ -455,7 +455,9 @@
   }
 
   .garden-project-summary {
-    grid-template-columns: minmax(0, 1fr) minmax(0, tokens.$width-project-detail-facts-desktop);
+    grid-template-columns:
+      minmax(0, tokens.$width-project-detail-description-desktop)
+      minmax(0, tokens.$width-project-detail-facts-desktop);
     column-gap: tokens.$space-6;
   }
 

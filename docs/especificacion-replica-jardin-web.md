@@ -23,6 +23,7 @@ Presentar el proyecto Jardín Virtual dentro de su ficha del portafolio, con una
 - La muestra incluye banner, presentación, collage y selección de plantas y maceteros extraídos del repositorio original.
 - Los elementos de tienda representados como muestra no simulan compras, carrito ni enlaces que no funcionan.
 - La ficha tiene un único `h1`, encabezados ordenados, imágenes con alternativas pertinentes, texto legible y reflujo en móvil.
+- Desde `64rem`, la descripción y la ficha técnica ocupan columnas contiguas de hasta `44rem` y `23rem`, respectivamente, con la misma separación de `2rem` que Murana; la ficha no se desplaza al extremo derecho del contenedor.
 - Español e inglés muestran títulos, textos y alternativas coherentes con el idioma activo.
 
 ## Requisitos no funcionales
@@ -43,6 +44,8 @@ Presentar el proyecto Jardín Virtual dentro de su ficha del portafolio, con una
 
 ## Validación de accesibilidad del alcance
 
+- Ajuste de columnas, navegador integrado de Codex (Chromium): a 1280 CSS px, Jardín web y Murana muestran descripción de 704 px, ficha de 368 px y 32 px entre ambos bloques; a 1024 CSS px Jardín web conserva 32 px de separación y reduce la descripción sin desbordamiento. A 320 CSS px, descripción y ficha permanecen apiladas y no hay desplazamiento horizontal. No cambiaron semántica, controles ni foco.
+- `npm run build`, `npm run lint` y `git diff --check`: correctos tras el ajuste de columnas.
 - Navegador integrado de Codex, ruta directa de la ficha en español e inglés: título del documento localizado, un `h1` y encabezados `h2`/`h3` en orden; todas las imágenes tienen atributo `alt` (descriptivo o vacío cuando son decorativas).
 - Navegador integrado de Codex, viewport de 320 CSS px: ancho del documento y ancho desplazable iguales a 320 px; inspección visual de cabecera, mosaico y tarjetas sin corte de texto ni desplazamiento horizontal.
 - Cambio de idioma mediante el control existente: nombre del control, título, contenido y alternativas de imágenes cambian al inglés. La navegación y el foco usan los componentes existentes del portafolio.
