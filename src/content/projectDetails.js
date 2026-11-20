@@ -12,6 +12,7 @@ const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrat
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
 const muranaAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/murana/${filename}`, import.meta.url).href
+const gardenAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/jardin-web/${filename}`, import.meta.url).href
 const donutShopAsset = (filename) => new URL(`../assets/images/projects/front-end-ux/donut-shop/${filename}`, import.meta.url).href
 const submarineAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/submarines/${filename}`, import.meta.url).href
 const carrierAsset = (filename) => new URL(`../assets/images/projects/other/naval-infographics/portaaviones/${filename}`, import.meta.url).href
@@ -99,6 +100,29 @@ export const projectDetails = {
       { id: 'chocolate', image: donutShopAsset('favorite-chocolate.jpg'), width: 318, height: 223 },
       { id: 'strawberry', image: donutShopAsset('favorite-strawberry.jpg'), width: 318, height: 223 },
       { id: 'colorful', image: donutShopAsset('favorite-colorful.jpg'), width: 326, height: 231 },
+    ],
+  },
+  'jardin-web': {
+    layout: 'garden',
+    logo: gardenAsset('logo.png'),
+    hero: { image: gardenAsset('hero.jpg'), width: 1728, height: 508 },
+    mosaic: [
+      { id: 'flower', image: gardenAsset('flower-circle.jpg'), width: 836, height: 836 },
+      { id: 'gomero', image: gardenAsset('gomero.jpg'), width: 1263, height: 446 },
+      { id: 'jungle', image: gardenAsset('jungle-at-home.jpg'), width: 624, height: 562 },
+      { id: 'bear', image: gardenAsset('oreja-oso.jpg'), width: 801, height: 973 },
+      { id: 'succulents', image: gardenAsset('succulents.jpg'), width: 939, height: 297 },
+      { id: 'mushrooms', image: gardenAsset('red-mushroom.jpg'), width: 971, height: 759 },
+    ],
+    plants: [
+      { id: 'monstera', image: gardenAsset('img-monstera.jpg') },
+      { id: 'lyrata', image: gardenAsset('img-lyrata.jpg') },
+      { id: 'pinkPrincess', image: gardenAsset('img-pink-princess.jpg') },
+    ],
+    pots: [
+      { id: 'wicker', image: gardenAsset('macetero-mimbre.jpg') },
+      { id: 'cement', image: gardenAsset('macetero-cemento.jpg') },
+      { id: 'clay', image: gardenAsset('macetero-arcilla.jpg') },
     ],
   },
   murana: {
