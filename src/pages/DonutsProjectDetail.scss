@@ -23,7 +23,26 @@
 }
 
 .donuts-project-inner {
-  padding-top: clamp(1.5rem, 4vw, 3rem);
+  padding-top: 0;
+}
+
+@media (max-width: calc(tokens.$breakpoint-tablet - 0.0625rem)) {
+  .donuts-project .project-detail-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .donuts-project .project-detail-back {
+    flex: none;
+  }
+
+  .donuts-project .project-detail-pager {
+    justify-content: space-between;
+  }
+
+  .donuts-project .project-detail-pager a {
+    padding-inline: 0;
+  }
 }
 
 .donuts-landing {
