@@ -9,6 +9,7 @@ import ProjectFacts from '../components/ProjectFacts.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
+import './GardenProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
@@ -386,6 +387,100 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
               </figure>
             ))}
           </div>
+        </section>
+      </div>
+    </article>
+  )
+}
+
+function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const detail = content.detail
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+
+  return (
+    <article className="project-detail project-detail--garden" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation
+          categoryName={categoryName}
+          navigation={navigation}
+          neighbors={neighbors}
+          text={text}
+        />
+
+        <header className="garden-project-summary">
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p className="project-detail-introduction">{detail.introduction}</p>
+          <ProjectFacts facts={detail.facts} />
+        </header>
+
+        <section className="garden-replica-section" aria-label={detail.showcaseLabel}>
+          <div className="garden-replica">
+            <div className="garden-replica-bar">
+              <img src={assets.logo} alt="" width="112" height="64" />
+              <span aria-hidden="true">{detail.menu.join('　 ')}</span>
+            </div>
+
+            <img
+              className="garden-replica-hero"
+              src={assets.hero.image}
+              alt={detail.heroAlt}
+              width={assets.hero.width}
+              height={assets.hero.height}
+              fetchPriority="high"
+            />
+
+            <div className="garden-replica-intro">
+              <h2>{detail.brandTitle}</h2>
+              <p>{detail.welcome}</p>
+            </div>
+
+            <section className="garden-replica-gallery" aria-labelledby="garden-gallery-title">
+              <h3 id="garden-gallery-title">{detail.galleryTitle}</h3>
+              <div className="garden-replica-mosaic">
+                {assets.mosaic.map((item) => (
+                  <img
+                    key={item.id}
+                    className={`garden-replica-mosaic-${item.id}`}
+                    src={item.image}
+                    alt={detail.mosaic[item.id]}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="garden-replica-catalog" aria-labelledby="garden-plants-title">
+              <h3 id="garden-plants-title">{detail.plantsTitle}</h3>
+              <p>{detail.plantsDescription}</p>
+              <ul>
+                {assets.plants.map((plant) => (
+                  <li key={plant.id}>
+                    <img src={plant.image} alt={detail.plants[plant.id].alt} width="255" height="226" loading="lazy" decoding="async" />
+                    <span>{detail.plants[plant.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="garden-replica-catalog garden-replica-catalog--pots" aria-labelledby="garden-pots-title">
+              <h3 id="garden-pots-title">{detail.potsTitle}</h3>
+              <ul>
+                {assets.pots.map((pot) => (
+                  <li key={pot.id}>
+                    <img src={pot.image} alt={detail.pots[pot.id].alt} width="255" height="226" loading="lazy" decoding="async" />
+                    <span>{detail.pots[pot.id].name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <div className="garden-replica-footer" aria-hidden="true">{detail.brandTitle}</div>
+          </div>
+          <p className="garden-project-note">{detail.portfolioNote}</p>
         </section>
       </div>
     </article>
@@ -1374,6 +1469,18 @@ function ProjectDetailPage() {
   if (assets.layout === 'murana') {
     return (
       <MuranaProjectDetail
+        assets={assets}
+        content={content}
+        navigation={navigation}
+        neighbors={neighbors}
+        text={text}
+      />
+    )
+  }
+
+  if (assets.layout === 'garden') {
+    return (
+      <GardenProjectDetail
         assets={assets}
         content={content}
         navigation={navigation}

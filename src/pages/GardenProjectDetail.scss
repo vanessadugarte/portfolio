@@ -1,0 +1,271 @@
+@use '../styles/abstracts' as tokens;
+
+.project-detail--garden {
+  background: tokens.$color-garden-canvas;
+}
+
+.garden-project-summary {
+  display: grid;
+  gap: tokens.$space-4;
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.garden-project-summary h1 {
+  max-width: 12ch;
+  margin: 0;
+  color: tokens.$color-garden-ink;
+  font-size: clamp(2.5rem, 12vw, 5rem);
+}
+
+.garden-project-summary h1:focus {
+  outline: none;
+}
+
+.garden-project-summary .project-detail-introduction {
+  max-width: tokens.$width-project-detail-description-desktop;
+  margin: 0;
+  font-size: tokens.$font-size-body-emphasis;
+  line-height: 1.6;
+}
+
+.garden-project-summary .project-detail-facts {
+  margin-top: tokens.$space-2;
+}
+
+.garden-replica-section {
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+}
+
+.garden-replica {
+  overflow: hidden;
+  border: 1px solid rgb(23 63 51 / 16%);
+  border-radius: clamp(1rem, 3vw, 2rem);
+  background: #fff;
+  box-shadow: 0 1.25rem 3.5rem rgb(23 63 51 / 12%);
+  color: tokens.$color-garden-ink;
+}
+
+.garden-replica img {
+  display: block;
+  max-width: 100%;
+}
+
+.garden-replica-bar {
+  display: flex;
+  min-height: 5.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-4;
+  padding: 0.6rem clamp(1rem, 4vw, 3rem);
+  background: tokens.$color-garden-mint;
+}
+
+.garden-replica-bar img {
+  width: 6rem;
+  height: auto;
+}
+
+.garden-replica-bar span {
+  display: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.garden-replica-hero {
+  width: 100%;
+  height: clamp(11rem, 30vw, 25rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+.garden-replica-intro,
+.garden-replica-gallery,
+.garden-replica-catalog {
+  padding-inline: clamp(1rem, 5vw, 4rem);
+}
+
+.garden-replica-intro {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding-block: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.garden-replica h2,
+.garden-replica h3 {
+  margin: 0;
+  color: tokens.$color-garden-ink;
+  font-family: tokens.$font-heading;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.garden-replica h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.garden-replica h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.garden-replica-intro p,
+.garden-replica-catalog > p {
+  margin: tokens.$space-4 auto 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.garden-replica-gallery {
+  padding-block: 0 clamp(2rem, 5vw, 4rem);
+}
+
+.garden-replica-gallery h3 {
+  margin-bottom: tokens.$space-5;
+  text-align: center;
+}
+
+.garden-replica-mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: clamp(7rem, 22vw, 12rem);
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.garden-replica-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.garden-replica-mosaic-flower,
+.garden-replica-mosaic-jungle {
+  grid-row: span 2;
+}
+
+.garden-replica-catalog {
+  padding-block: clamp(2rem, 5vw, 4rem);
+  background: #f5faf7;
+  text-align: center;
+}
+
+.garden-replica-catalog--pots {
+  background: #fff;
+}
+
+.garden-replica-catalog ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: tokens.$space-5;
+  max-width: 64rem;
+  margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.garden-replica-catalog li {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgb(23 63 51 / 15%);
+  border-radius: 0.8rem;
+  background: #fff;
+  text-align: left;
+}
+
+.garden-replica-catalog img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 255 / 226;
+  object-fit: cover;
+}
+
+.garden-replica-catalog li span {
+  display: block;
+  padding: tokens.$space-4;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.garden-replica-footer {
+  padding: tokens.$space-5;
+  background: tokens.$color-garden-mint;
+  font-weight: 700;
+  text-align: center;
+}
+
+.garden-project-note {
+  max-width: 60rem;
+  margin: tokens.$space-5 auto 0;
+  color: tokens.$color-garden-ink;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .garden-replica-bar span {
+    display: block;
+  }
+
+  .garden-replica-mosaic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: clamp(6rem, 12vw, 10rem);
+    gap: 0.75rem;
+  }
+
+  .garden-replica-mosaic-flower {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .garden-replica-mosaic-gomero {
+    grid-column: 2 / -1;
+    grid-row: 1;
+  }
+
+  .garden-replica-mosaic-jungle {
+    grid-column: 3;
+    grid-row: 2 / span 2;
+  }
+
+  .garden-replica-mosaic-bear {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+
+  .garden-replica-mosaic-succulents {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .garden-replica-mosaic-mushrooms {
+    grid-column: 4;
+    grid-row: 2 / span 2;
+  }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .garden-project-summary {
+    grid-template-columns: minmax(0, 1fr) minmax(0, tokens.$width-project-detail-facts-desktop);
+    column-gap: tokens.$space-6;
+  }
+
+  .garden-project-summary h1 {
+    grid-column: 1 / -1;
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+
+  .garden-project-summary .project-detail-introduction {
+    max-width: tokens.$width-project-detail-description-desktop;
+  }
+
+  .garden-project-summary .project-detail-facts {
+    max-width: tokens.$width-project-detail-facts-desktop;
+    margin-top: 0;
+    padding-left: tokens.$space-6;
+    border-left: 1px solid tokens.$color-border;
+  }
+}
