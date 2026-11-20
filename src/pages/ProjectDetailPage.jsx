@@ -163,7 +163,6 @@ function WhoIsPayingProjectDetail({ assets, content, navigation, neighbors, text
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="project-detail-introduction">{detail.introduction}</p>
           <ProjectFacts facts={detail.facts} />
-          <ProjectExternalLinks links={assets.links} localizedLinks={detail.links} />
         </header>
 
         <WhoIsPayingApp copy={detail.interactive} />

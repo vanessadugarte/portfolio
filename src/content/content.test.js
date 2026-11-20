@@ -129,7 +129,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.deepEqual(donutShopAssets.favorites.map(({ id }) => id), ['green', 'chocolate', 'strawberry', 'colorful'])
   assert.equal(whoIsPayingAssets.layout, 'who-is-paying')
   assert.deepEqual(whoIsPayingAssets.palette, ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'])
-  assert.deepEqual(whoIsPayingAssets.links.map(({ id }) => id), ['repository'])
+  assert.equal(whoIsPayingAssets.links, undefined)
   assert.deepEqual(deepSeaAssets.heroDimensions, { width: 1200, height: 891 })
   assert.deepEqual(deepSeaAssets.heroSecondaryDimensions, { width: 1200, height: 1618 })
   assert.ok(deepSeaAssets.heroSecondaryImage)
@@ -226,9 +226,10 @@ test('complete project details expose localized content, media and catalog navig
     assert.deepEqual(sortedKeys(donutShopDetail.landing.favorites), donutShopAssets.favorites.map(({ id }) => id).sort())
 
     const whoIsPayingDetail = text.projects.items['who-is-paying'].detail
+    assert.equal(text.projects.items['who-is-paying'].title, 'Who is paying?')
     assert.equal(whoIsPayingDetail.number, '01')
     assert.equal(whoIsPayingDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
-    assert.deepEqual(sortedKeys(whoIsPayingDetail.links.items), whoIsPayingAssets.links.map(({ id }) => id).sort())
+    assert.equal(whoIsPayingDetail.links, undefined)
     assert.match(whoIsPayingDetail.interactive.winnerMessage, /\{name\}/)
     assert.match(whoIsPayingDetail.interactive.participantCountOne, /\{count\}/)
     assert.match(whoIsPayingDetail.interactive.participantCountOther, /\{count\}/)
