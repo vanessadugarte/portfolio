@@ -75,9 +75,6 @@ export const projectDetails = {
   'who-is-paying': {
     layout: 'who-is-paying',
     palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],
-    links: [
-      { id: 'repository', href: 'https://github.com/vanessadugarte/who-is-paying' },
-    ],
   },
   'donut-shop': {
     layout: 'donuts-home',
@@ -105,6 +102,7 @@ export const projectDetails = {
   'jardin-web': {
     layout: 'garden',
     logo: gardenAsset('logo.png'),
+    contactMap: { image: gardenAsset('contact-map.jpg'), width: 1742, height: 984 },
     hero: { image: gardenAsset('hero.jpg'), width: 1728, height: 508 },
     mosaic: [
       { id: 'flower', image: gardenAsset('flower-circle.jpg'), width: 836, height: 836 },
@@ -115,14 +113,14 @@ export const projectDetails = {
       { id: 'mushrooms', image: gardenAsset('red-mushroom.jpg'), width: 971, height: 759 },
     ],
     plants: [
-      { id: 'monstera', image: gardenAsset('img-monstera.jpg') },
-      { id: 'lyrata', image: gardenAsset('img-lyrata.jpg') },
-      { id: 'pinkPrincess', image: gardenAsset('img-pink-princess.jpg') },
+      { id: 'monstera', slug: 'monstera', image: gardenAsset('img-monstera.jpg'), priceCLP: 5500, category: 'interior' },
+      { id: 'lyrata', slug: 'ficus-lyrata', image: gardenAsset('img-lyrata.jpg'), priceCLP: 7000, category: 'interior' },
+      { id: 'pinkPrincess', slug: 'pink-princess', image: gardenAsset('img-pink-princess.jpg'), priceCLP: 7500, category: 'interior' },
     ],
     pots: [
-      { id: 'wicker', image: gardenAsset('macetero-mimbre.jpg') },
-      { id: 'cement', image: gardenAsset('macetero-cemento.jpg') },
-      { id: 'clay', image: gardenAsset('macetero-arcilla.jpg') },
+      { id: 'wicker', slug: 'mimbre', image: gardenAsset('macetero-mimbre.jpg'), priceCLP: 3000, category: 'small' },
+      { id: 'cement', slug: 'cemento', image: gardenAsset('macetero-cemento.jpg'), priceCLP: 5990, category: 'small' },
+      { id: 'clay', slug: 'arcilla', image: gardenAsset('macetero-arcilla.jpg'), priceCLP: 5000, category: 'small' },
     ],
   },
   murana: {
@@ -280,7 +278,13 @@ export const projectDetails = {
     heroDimensions: { width: 1920, height: 2561 },
     illustrationTreatment: true,
     accentColor: '#0C2C31',
-    palette: ['#061314', '#0C2C31', '#24555B', '#5EB5C0', '#16451F', '#559B39'],
+    heroReferenceImages: [
+      forestAsset('forest-reference2-02.webp'),
+      forestAsset('forest-reference2-03.webp'),
+    ],
+    heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 416, height: 481 })),
+    palette: ['#061314', '#0C2C31', '#24555B', '#5EB5C0', '#71868A', '#16451F', '#559B39', '#83B666'],
+    palettePlacement: 'hero',
     processImages: [
       forestAsset('forest-process-1.png'),
       forestAsset('forest-process-2.jpg'),
@@ -314,18 +318,12 @@ export const projectDetails = {
     heroDimensions: { width: 1200, height: 1490 },
     illustrationTreatment: true,
     accentColor: '#6B8534',
-    heroDecorations: [
-      jungleAsset('adorno-jungle-01.svg'),
-      jungleAsset('adorno-jungle-02.svg'),
-      jungleAsset('adorno-jungle-03.svg'),
-    ],
     heroReferenceImages: [
       jungleAsset('swamp-reference.jpg'),
       jungleAsset('swamp-reference-2.jpg'),
     ],
     heroReferenceImageDimensions: Array.from({ length: 2 }, () => ({ width: 576, height: 842 })),
     organicMasks: {
-      hero: organicShapeAsset('organic-shape-02.svg'),
       details: [
         organicShapeAsset('organic-shape-05.svg'),
         organicShapeAsset('organic-shape-02.svg'),

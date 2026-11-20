@@ -8,7 +8,7 @@ Completar la ficha del proyecto de rostros infantiles de Muchokids y mostrar sus
 
 - Presentar el personaje de Brasil con contorno blanco sobre el fondo ilustrado de Río de Janeiro y ubicar tres banderas circulares decorativas alrededor de la composición.
 - Mostrar quince personajes en una galería con el nombre de su país. La tercera fila incorpora India, Emiratos Árabes Unidos, una segunda ilustración de Países Bajos, Reino Unido y Canadá.
-- Introducir la galería con el titular localizado «01 Personajes», siguiendo la tipografía de los títulos de sección.
+- Mostrar «01» junto al título principal, como en las demás fichas de proyecto, e introducir la galería con un titular localizado.
 - Mostrar los personajes directamente sobre el fondo crema, sin tarjetas, bordes ni rellenos individuales.
 - Explicar brevemente que los rostros se inspiraron en trajes típicos de distintos países para la app de videojuego infantil e interactivo Muchokids.
 - Mostrar una ficha técnica localizada: ilustración digital, 2017 e Illustrator, Photoshop y Wacom Tablet.
@@ -28,7 +28,8 @@ La persona abre la ficha desde Ilustración, ve el título y el personaje de Bra
 - En escritorio, la ficha comienza inmediatamente después de la navegación y la cabecera no reserva altura vacía por encima de la composición; el espacio inferior conserva la superposición de la cara sin cruzar la línea de la galería.
 - Cada rostro tiene una alternativa útil y un nombre localizado visible.
 - La cabecera muestra la ficha técnica con técnica, año y herramientas en español e inglés.
-- Antes de la cuadrícula aparece un `h2` negro y localizado; usa la misma tipografía y tamaño que «Proceso» y en inglés muestra «01 Characters».
+- El «01» aparece junto al `h1` en móvil, tablet y escritorio, sin repetirse en la galería.
+- Antes de la cuadrícula aparece un `h2` negro y localizado; usa la misma tipografía y tamaño que «Proceso» y en inglés muestra «Characters».
 - Los personajes no tienen tarjetas, bordes, rellenos ni espaciado interno individuales.
 - No aparecen bloques de proceso, detalles ni contenido pendiente.
 - La composición se adapta a móvil, tablet y escritorio sin desplazamiento horizontal.
@@ -47,6 +48,7 @@ La persona abre la ficha desde Ilustración, ve el título y el personaje de Bra
 
 ## Validación
 
+- Ajuste de posición del «01» (2026-11-20): `npm run build`, `npm run lint`, `npm run test:content` y `git diff --check` correctos. Navegador integrado de Codex (Chromium): en español a 320 y 1280 CSS px, y en inglés a 320 CSS px, «01» y el `h1` comienzan en la misma línea; el `h2` de la galería no repite el número y `scrollWidth` coincide con el viewport. La comprobación cubre esta cabecera y su reflujo; no incluye lector de pantalla ni auditoría global.
 - `npm run build`, `npm run lint`, `npm run test:content` y `git diff --check`: correctos.
 - Navegador integrado de Codex (Chromium): galería de 1 columna a 320 CSS px, 3 a 768 CSS px y 5 a 1280 CSS px; `scrollWidth` coincide con el ancho del viewport en los tres tamaños. Los quince personajes forman tres filas completas en escritorio y las cinco imágenes nuevas cargan.
 - Inspección de estructura accesible en Chromium: un único `h1`, quince figuras de galería con nombre y alternativa en español y una imagen principal con alternativa útil; los cinco nombres y alternativas nuevos cambian a inglés junto con el título de documento y `html[lang]`.

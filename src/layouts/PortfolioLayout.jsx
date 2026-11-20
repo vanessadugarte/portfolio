@@ -35,7 +35,7 @@ function PortfolioLayout() {
       <a className="skip-link" href="#main-content" onClick={skipToContent}>{text.skipToContent}</a>
       <Navigation onLanguageChange={toggleLanguage} text={text} />
       <main className="page" id="main-content" ref={mainRef} tabIndex={-1}>
-        <Outlet context={{ text }} />
+        <Outlet context={{ text, language }} />
       </main>
     </>
   )

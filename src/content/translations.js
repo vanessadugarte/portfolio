@@ -134,6 +134,7 @@ export const translations = {
               { label: 'Tecnologías', value: 'React, Material UI, Firebase' },
             ],
             showcaseLabel: 'Muestra del sitio Jardín Virtual',
+            siteNavLabel: 'Navegación de Jardín Virtual',
             menu: ['Inicio', 'Plantas', 'Maceteros', 'Contacto'],
             heroAlt: 'Plantas de interior en maceteros frente a una pared clara.',
             brandTitle: 'Jardín Virtual',
@@ -149,18 +150,51 @@ export const translations = {
             },
             plantsTitle: 'Nuestras plantas',
             plantsDescription: 'Una selección de especies para interiores que formaban parte del catálogo original.',
+            priceLabel: 'Precio de referencia',
+            priceNotice: 'Precios del archivo original de 2024; no representan valores actuales.',
+            productDescriptionTitle: 'Descripción',
+            technicalDetailsTitle: 'Ficha técnica',
+            productTypeLabel: 'Tipo de producto',
+            productCategoryLabel: 'Categoría',
+            plantType: 'Planta',
+            potType: 'Macetero',
+            indoorCategory: 'Interior',
+            smallCategory: 'Pequeño',
+            careTitle: 'Cuidados',
+            backToPortfolio: '← Volver a Jardín web',
+            backToCatalog: '← Volver al catálogo',
             plants: {
-              monstera: { name: 'Monstera deliciosa', alt: 'Monstera deliciosa de hojas grandes en un macetero.' },
-              lyrata: { name: 'Ficus lyrata', alt: 'Ficus lyrata con hojas amplias en un macetero.' },
-              pinkPrincess: { name: 'Pink Princess', alt: 'Filodendro Pink Princess de hojas verdes y rosadas.' },
+              monstera: {
+                name: 'Monstera deliciosa',
+                alt: 'Monstera deliciosa de hojas grandes en un macetero.',
+                description: 'También conocida como Costilla de Adán, es una planta tropical de hojas grandes y perforadas. Su follaje exuberante la hizo parte de la selección de interior del proyecto.',
+                care: 'Mantener en un espacio luminoso sin sol directo y adaptar el riego a la luz y la temperatura del lugar.',
+              },
+              lyrata: {
+                name: 'Ficus lyrata',
+                alt: 'Ficus lyrata con hojas amplias en un macetero.',
+                description: 'Una planta de interior de hojas grandes y brillantes que aporta un carácter tropical a los espacios.',
+                care: 'Requiere luz indirecta y riego moderado, según la descripción del catálogo original.',
+              },
+              pinkPrincess: {
+                name: 'Pink Princess',
+                alt: 'Filodendro Pink Princess de hojas verdes y rosadas.',
+                description: 'Filodendro de hojas moteadas en verde y rosa, pensado como una pieza llamativa para el hogar.',
+                care: 'Prefiere luz indirecta brillante y humedad moderada, según la descripción del catálogo original.',
+              },
             },
             potsTitle: 'Maceteros',
+            potsDescription: 'Maceteros de distintas texturas y materiales para acompañar las plantas del catálogo.',
             pots: {
-              wicker: { name: 'Mimbre', alt: 'Macetero tejido de mimbre.' },
-              cement: { name: 'Cemento', alt: 'Macetero de cemento.' },
-              clay: { name: 'Arcilla', alt: 'Macetero de arcilla.' },
+              wicker: { name: 'Mimbre', alt: 'Macetero tejido de mimbre.', description: 'Macetero cilíndrico tejido de mimbre en tono natural.' },
+              cement: { name: 'Cemento', alt: 'Macetero de cemento.', description: 'Macetero redondeado de aspecto pétreo y textura gris.' },
+              clay: { name: 'Arcilla', alt: 'Macetero de arcilla.', description: 'Macetero cilíndrico de arcilla en tono terracota.' },
             },
-            portfolioNote: 'Muestra de archivo creada para este portafolio con imágenes del proyecto original Jardín Virtual. El catálogo y las compras no están activos en esta presentación.',
+            contactTitle: 'Contacto',
+            contactDescription: 'La página de contacto original presentaba un punto de encuentro en Providencia, Santiago. Esta vista conserva el mapa como parte del archivo visual del proyecto.',
+            contactMapAlt: 'Mapa de Providencia con un marcador cerca de la estación Pedro de Valdivia.',
+            contactArchiveNote: 'Ubicación mostrada solo como referencia histórica del diseño; no representa un local activo.',
+            portfolioNote: 'Muestra de archivo creada para este portafolio con recursos del proyecto original Jardín Virtual. Los precios son históricos y las compras no están activas.',
           },
         },
         'donut-shop': {
@@ -178,6 +212,7 @@ export const translations = {
                 favorites: 'Favoritas',
                 contact: 'Contacto',
               },
+              internalNav: { gallery: 'Galería', places: 'Lugares' },
               welcome: '¡Bienvenidos a Donuts, el destino definitivo para quienes aman las donas! Este rincón de dulzura reúne sabores, colores e historias para explorar, disfrutar y dejarse tentar.',
               heroAlt: 'Composición de cinco donas con coberturas de chocolate, fresa y vainilla, rodeadas de chispas de colores.',
               storyTitle: 'Donas, dulces momentos',
@@ -219,7 +254,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who is paying',
+          title: 'Who is paying?',
           description: 'Aplicación para sortear quién paga entre un grupo de personas.',
           previewAlt: 'Icono de una bandeja de comida que representa la aplicación Who Is Paying.',
           detail: {
@@ -230,15 +265,6 @@ export const translations = {
               { label: 'Aporte', value: 'Interfaz y Desarrollo front-end' },
               { label: 'Herramientas', value: 'HTML, CSS, JavaScript, React y Sass' },
             ],
-            links: {
-              label: 'Enlace del proyecto',
-              items: {
-                repository: {
-                  label: 'Ver código original',
-                  ariaLabel: 'Abrir el repositorio de Who Is Paying en una pestaña nueva',
-                },
-              },
-            },
             paletteTitle: 'Paleta de color',
             interactive: {
               eyebrow: 'Aplicación interactiva',
@@ -580,6 +606,7 @@ export const translations = {
           description: 'Rostros infantiles inspirados en trajes típicos de distintos países para Muchokids.',
           previewAlt: 'Seis rostros de personajes infantiles junto a las banderas de España, Estados Unidos, Brasil, Rusia, China y Francia.',
           detail: {
+            number: '01',
             introduction: 'Rostros de personajes inspirados en trajes típicos de distintos países para Muchokids, una app de videojuego infantil e interactivo.',
             facts: [
               { label: 'Año', value: '2017' },
@@ -620,11 +647,16 @@ export const translations = {
               { label: 'Técnica', value: 'Ilustración digital' },
               { label: 'Herramientas', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
+            referencesTitle: 'Referencias',
             paletteTitle: 'Paleta de color',
             processTitle: 'Proceso',
             processDescription: 'Tres etapas muestran la construcción de los troncos, el follaje y la atmósfera del bosque.',
             imageAlt: {
               hero: 'Ilustración final de un bosque con troncos altos, follaje verde, musgo y un claro azul al fondo.',
+              heroReferences: [
+                'Bosque verde iluminado con un tronco cubierto de musgo y vegetación en primer plano.',
+                'Siluetas de troncos altos en un bosque azul y violeta con niebla.',
+              ],
               process: [
                 'Primera etapa de la ilustración Forest con la composición de los troncos y el claro.',
                 'Segunda etapa de Forest con color base en los árboles, el suelo y el follaje.',
@@ -640,14 +672,12 @@ export const translations = {
           previewAlt: 'Cueva de hielo azul con un lago y una abertura luminosa al fondo.',
           detail: {
             number: '01',
-            introduction: 'Una colección de fondos creada para ampliar el mundo de Muchomix. Cada escenario propone una atmósfera propia —desde cuevas heladas hasta desiertos y campos de flores— sin perder la unidad visual del juego.',
+            introduction: 'Una colección de fondos creada para ampliar el mundo del juego Muchomix. Cada escenario propone una atmósfera propia, desde cuevas heladas hasta desiertos y campos de flores, sin perder la unidad visual.',
             facts: [
               { label: 'Año', value: '2016–2017' },
               { label: 'Técnica', value: 'Ilustración digital de escenarios' },
               { label: 'Herramientas', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Seis escenarios, un mismo mundo',
-            galleryDescription: 'Fondos verticales pensados para transformar el ambiente de cada nivel mediante el color, la profundidad y los elementos del paisaje.',
             biomes: {
               'ice-zone': {
                 name: 'Zona de hielo',
@@ -793,7 +823,6 @@ export const translations = {
               { label: 'Técnica', value: 'Infografía' },
               { label: 'Herramientas', value: 'Illustrator' },
             ],
-            galleryTitle: 'Publicaciones',
             backToCollection: 'Volver a Infografías navales',
             series: navalSeriesText.es,
             pages: {
@@ -1086,6 +1115,7 @@ export const translations = {
               { label: 'Technology', value: 'React, Material UI, Firebase' },
             ],
             showcaseLabel: 'Jardín Virtual website showcase',
+            siteNavLabel: 'Jardín Virtual navigation',
             menu: ['Home', 'Plants', 'Planters', 'Contact'],
             heroAlt: 'Indoor plants in pots against a light wall.',
             brandTitle: 'Jardín Virtual',
@@ -1101,18 +1131,51 @@ export const translations = {
             },
             plantsTitle: 'Our plants',
             plantsDescription: 'A selection of indoor species from the original catalog.',
+            priceLabel: 'Reference price',
+            priceNotice: 'Prices from the original 2024 archive; they are not current offers.',
+            productDescriptionTitle: 'Description',
+            technicalDetailsTitle: 'Product details',
+            productTypeLabel: 'Product type',
+            productCategoryLabel: 'Category',
+            plantType: 'Plant',
+            potType: 'Planter',
+            indoorCategory: 'Indoor',
+            smallCategory: 'Small',
+            careTitle: 'Care',
+            backToPortfolio: '← Back to Web garden',
+            backToCatalog: '← Back to catalog',
             plants: {
-              monstera: { name: 'Monstera deliciosa', alt: 'Large-leaf monstera deliciosa in a planter.' },
-              lyrata: { name: 'Ficus lyrata', alt: 'Broad-leaf ficus lyrata in a planter.' },
-              pinkPrincess: { name: 'Pink Princess', alt: 'Pink Princess philodendron with green and pink leaves.' },
+              monstera: {
+                name: 'Monstera deliciosa',
+                alt: 'Large-leaf monstera deliciosa in a planter.',
+                description: 'Also known as the Swiss cheese plant, this tropical species has large split leaves. Its lush foliage made it part of the project’s indoor selection.',
+                care: 'Keep in a bright place away from direct sun and adjust watering to the light and temperature of the space.',
+              },
+              lyrata: {
+                name: 'Ficus lyrata',
+                alt: 'Broad-leaf ficus lyrata in a planter.',
+                description: 'An indoor plant with large, glossy leaves that brings a tropical feel to a room.',
+                care: 'It needs indirect light and moderate watering, according to the original catalog description.',
+              },
+              pinkPrincess: {
+                name: 'Pink Princess',
+                alt: 'Pink Princess philodendron with green and pink leaves.',
+                description: 'A philodendron with green and pink variegated leaves, chosen as a striking piece for the home.',
+                care: 'It prefers bright indirect light and moderate humidity, according to the original catalog description.',
+              },
             },
             potsTitle: 'Planters',
+            potsDescription: 'Planters in different textures and materials to accompany the catalog plants.',
             pots: {
-              wicker: { name: 'Wicker', alt: 'Woven wicker planter.' },
-              cement: { name: 'Cement', alt: 'Cement planter.' },
-              clay: { name: 'Clay', alt: 'Clay planter.' },
+              wicker: { name: 'Wicker', alt: 'Woven wicker planter.', description: 'A cylindrical planter woven in natural-colored wicker.' },
+              cement: { name: 'Cement', alt: 'Cement planter.', description: 'A round planter with a stone-like grey texture.' },
+              clay: { name: 'Clay', alt: 'Clay planter.', description: 'A cylindrical clay planter in a terracotta shade.' },
             },
-            portfolioNote: 'Archive showcase created for this portfolio using images from the original Jardín Virtual project. The catalog and checkout are inactive in this presentation.',
+            contactTitle: 'Contact',
+            contactDescription: 'The original contact page showed a meeting point in Providencia, Santiago. This view preserves the map as part of the project’s visual archive.',
+            contactMapAlt: 'Map of Providencia with a marker near Pedro de Valdivia station.',
+            contactArchiveNote: 'Location shown only as a historical design reference; it does not represent an active store.',
+            portfolioNote: 'Archive showcase created for this portfolio using assets from the original Jardín Virtual project. Prices are historical and checkout is inactive.',
           },
         },
         'donut-shop': {
@@ -1130,6 +1193,7 @@ export const translations = {
                 favorites: 'Favorites',
                 contact: 'Contact',
               },
+              internalNav: { gallery: 'Gallery', places: 'Places' },
               welcome: 'Welcome to Donuts, the ultimate destination for donut lovers! This sweet corner brings flavors, colors and stories together, inviting everyone to explore, enjoy and give in to temptation.',
               heroAlt: 'Composition of five donuts with chocolate, strawberry and vanilla toppings, surrounded by colorful sprinkles.',
               storyTitle: 'Donuts, sweet moments',
@@ -1171,7 +1235,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who is paying',
+          title: 'Who is paying?',
           description: 'An app that randomly chooses who pays from a group of people.',
           previewAlt: 'Food serving tray icon representing the Who Is Paying application.',
           detail: {
@@ -1182,15 +1246,6 @@ export const translations = {
               { label: 'Contribution', value: 'Interface and front-end development' },
               { label: 'Tools', value: 'HTML, CSS, JavaScript, React and Sass' },
             ],
-            links: {
-              label: 'Project link',
-              items: {
-                repository: {
-                  label: 'View original code',
-                  ariaLabel: 'Open the Who Is Paying repository in a new tab',
-                },
-              },
-            },
             paletteTitle: 'Color palette',
             interactive: {
               eyebrow: 'Interactive application',
@@ -1532,6 +1587,7 @@ export const translations = {
           description: 'Children’s faces inspired by traditional clothing from different countries for Muchokids.',
           previewAlt: 'Six children’s character faces beside the flags of Spain, the United States, Brazil, Russia, China and France.',
           detail: {
+            number: '01',
             introduction: 'Character faces inspired by traditional clothing from different countries for Muchokids, an interactive children’s video game app.',
             facts: [
               { label: 'Year', value: '2017' },
@@ -1572,11 +1628,16 @@ export const translations = {
               { label: 'Technique', value: 'Digital illustration' },
               { label: 'Tools', value: 'Illustrator, Photoshop, Wacom Tablet' },
             ],
+            referencesTitle: 'References',
             paletteTitle: 'Color palette',
             processTitle: 'Process',
             processDescription: 'Three stages show the construction of the trunks, foliage and atmosphere of the forest.',
             imageAlt: {
               hero: 'Final forest illustration with tall trunks, green foliage, moss and a blue clearing in the background.',
+              heroReferences: [
+                'Sunlit green forest with a moss-covered trunk and foliage in the foreground.',
+                'Silhouettes of tall trunks in a misty blue and violet forest.',
+              ],
               process: [
                 'First Forest stage with the composition of the trunks and clearing.',
                 'Second Forest stage with base color on the trees, ground and foliage.',
@@ -1592,14 +1653,12 @@ export const translations = {
           previewAlt: 'Blue ice cave with a lake and a glowing opening in the distance.',
           detail: {
             number: '01',
-            introduction: 'A collection of backgrounds created to expand the world of Muchomix. Each setting has its own atmosphere—from frozen caves to deserts and flower fields—while preserving the game’s visual unity.',
+            introduction: 'A collection of backgrounds created to expand the world of the Muchomix game. Each setting offers its own atmosphere, from frozen caves to deserts and flower fields, while preserving visual unity.',
             facts: [
               { label: 'Year', value: '2016–2017' },
               { label: 'Technique', value: 'Digital environment illustration' },
               { label: 'Tools', value: 'Photoshop, Wacom Tablet' },
             ],
-            galleryTitle: 'Six settings, one world',
-            galleryDescription: 'Vertical backgrounds designed to transform each level through color, depth and landscape elements.',
             biomes: {
               'ice-zone': {
                 name: 'Ice zone',
@@ -1745,7 +1804,6 @@ export const translations = {
               { label: 'Technique', value: 'Infographic' },
               { label: 'Tools', value: 'Illustrator' },
             ],
-            galleryTitle: 'Publications',
             backToCollection: 'Back to Naval Infographics',
             series: navalSeriesText.en,
             pages: {

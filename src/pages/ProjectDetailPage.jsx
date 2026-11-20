@@ -5,7 +5,10 @@ import { getProjectCategory, projectCategories } from '../content/projectCategor
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
+import GardenProductGrid from '../components/GardenProductGrid.jsx'
+import GardenSiteHeader from '../components/GardenSiteHeader.jsx'
 import ProjectFacts from '../components/ProjectFacts.jsx'
+import ProjectNavigation from '../components/ProjectNavigation.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
@@ -13,13 +16,6 @@ import './GardenProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
-
-function formatTemplate(template, replacements) {
-  return Object.entries(replacements).reduce(
-    (result, [key, value]) => result.replace(`{${key}}`, value),
-    template,
-  )
-}
 
 function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
@@ -70,7 +66,7 @@ function SectionIntroduction({ description, id, number, title }) {
   return (
     <header className="project-detail-section-intro">
       <h2 id={id}>
-        <span aria-hidden="true">{number}</span>
+        {number && <span aria-hidden="true">{number}</span>}
         {title}
       </h2>
       <p>{description}</p>
@@ -96,54 +92,6 @@ function ColorPalette({ headingId, headingLevel = 'h3', title, colors }) {
   )
 }
 
-function ProjectPager({ categoryId, neighbors, text }) {
-  const previousContent = neighbors.previous && text.projects.items[neighbors.previous.id]
-  const nextContent = neighbors.next && text.projects.items[neighbors.next.id]
-
-  return (
-    <nav className="project-detail-pager" aria-label={text.nav.projects}>
-      {neighbors.previous && (
-        <Link
-          className="project-detail-pager-previous"
-          to={paths.projectDetail(neighbors.previous.id, categoryId)}
-          aria-label={formatTemplate(text.projectDetail.previousProjectLabel, { title: previousContent.title })}
-        >
-          <span aria-hidden="true">←</span>
-          <span>{text.projectDetail.previousProject}</span>
-        </Link>
-      )}
-      {neighbors.next && (
-        <Link
-          className="project-detail-pager-next"
-          to={paths.projectDetail(neighbors.next.id, categoryId)}
-          aria-label={formatTemplate(text.projectDetail.nextProjectLabel, { title: nextContent.title })}
-        >
-          <span>{text.projectDetail.nextProject}</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-      )}
-    </nav>
-  )
-}
-
-function ProjectBackLink({ categoryName, navigation, text }) {
-  return (
-    <Link className="project-detail-back" to={navigation.backPath}>
-      <span aria-hidden="true">←</span>{' '}
-      {formatTemplate(text.projectDetail.backToCategory, { category: categoryName.toLocaleLowerCase() })}
-    </Link>
-  )
-}
-
-function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
-  return (
-    <div className="project-detail-navigation">
-      <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
-      <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
-    </div>
-  )
-}
-
 function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
@@ -160,14 +108,12 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
         />
 
         <header className="naval-infographics-summary">
-          <p className="naval-infographics-type">{content.type}</p>
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="naval-infographics-introduction">{detail.introduction}</p>
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="naval-infographics-gallery" aria-labelledby="naval-infographics-gallery-title">
-          <h2 className="naval-infographics-gallery-title" id="naval-infographics-gallery-title">{detail.galleryTitle}</h2>
+        <div className="naval-infographics-gallery">
           <ul className="naval-infographics-covers">
             {assets.series.map((series, index) => {
               const cover = series.pages[series.coverPage - 1]
@@ -189,7 +135,7 @@ function NavalInfographicsProjectDetail({ assets, content, navigation, neighbors
               )
             })}
           </ul>
-        </section>
+        </div>
       </div>
     </article>
   )
@@ -215,7 +161,6 @@ function WhoIsPayingProjectDetail({ assets, content, navigation, neighbors, text
           <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
           <p className="project-detail-introduction">{detail.introduction}</p>
           <ProjectFacts facts={detail.facts} />
-          <ProjectExternalLinks links={assets.links} localizedLinks={detail.links} />
         </header>
 
         <WhoIsPayingApp copy={detail.interactive} />
@@ -298,7 +243,7 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
                 <li key={asset.image}>
                   <img
                     src={asset.image}
-                    alt={formatTemplate(detail.isolatedAssetsAlt, { number: index + 1 })}
+                    alt={detail.isolatedAssetsAlt.replace('{number}', String(index + 1))}
                     width={asset.width}
                     height={asset.height}
                     loading="lazy"
@@ -332,6 +277,7 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
 
         <div className="project-detail-nationalities-hero">
           <header className="project-detail-nationalities-summary">
+            <p className="project-detail-number" aria-hidden="true">{detail.number}</p>
             <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
             <p className="project-detail-introduction">{detail.introduction}</p>
             <ProjectFacts facts={detail.facts} />
@@ -367,7 +313,6 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
         <section className="project-detail-nationalities-gallery" aria-labelledby="nationalities-gallery-title">
           <header className="project-detail-section-intro project-detail-nationalities-gallery-intro">
             <h2 id="nationalities-gallery-title">
-              <span aria-hidden="true">01</span>
               {detail.galleryTitle}
             </h2>
           </header>
@@ -393,7 +338,7 @@ function NationalitiesProjectDetail({ assets, content, navigation, neighbors, te
   )
 }
 
-function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
+function GardenProjectDetail({ assets, content, language, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const detail = content.detail
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
@@ -416,10 +361,7 @@ function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
 
         <section className="garden-replica-section" aria-label={detail.showcaseLabel}>
           <div className="garden-replica">
-            <div className="garden-replica-bar">
-              <img src={assets.logo} alt="" width="112" height="64" />
-              <span aria-hidden="true">{detail.menu.join('　 ')}</span>
-            </div>
+            <GardenSiteHeader detail={detail} logo={assets.logo} />
 
             <img
               className="garden-replica-hero"
@@ -456,26 +398,14 @@ function GardenProjectDetail({ assets, content, navigation, neighbors, text }) {
             <section className="garden-replica-catalog" aria-labelledby="garden-plants-title">
               <h3 id="garden-plants-title">{detail.plantsTitle}</h3>
               <p>{detail.plantsDescription}</p>
-              <ul>
-                {assets.plants.map((plant) => (
-                  <li key={plant.id}>
-                    <img src={plant.image} alt={detail.plants[plant.id].alt} width="255" height="226" loading="lazy" decoding="async" />
-                    <span>{detail.plants[plant.id].name}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="garden-archive-price-note">{detail.priceNotice}</p>
+              <GardenProductGrid kind="plants" products={assets.plants} localizedProducts={detail.plants} language={language} priceLabel={detail.priceLabel} />
             </section>
 
             <section className="garden-replica-catalog garden-replica-catalog--pots" aria-labelledby="garden-pots-title">
               <h3 id="garden-pots-title">{detail.potsTitle}</h3>
-              <ul>
-                {assets.pots.map((pot) => (
-                  <li key={pot.id}>
-                    <img src={pot.image} alt={detail.pots[pot.id].alt} width="255" height="226" loading="lazy" decoding="async" />
-                    <span>{detail.pots[pot.id].name}</span>
-                  </li>
-                ))}
-              </ul>
+              <p>{detail.potsDescription}</p>
+              <GardenProductGrid kind="pots" products={assets.pots} localizedProducts={detail.pots} language={language} priceLabel={detail.priceLabel} />
             </section>
 
             <div className="garden-replica-footer" aria-hidden="true">{detail.brandTitle}</div>
@@ -609,25 +539,15 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
   )
 }
 
-function scrollToDonutsSection(sectionId) {
-  const section = document.getElementById(sectionId)
-
-  if (!section) return
-
-  section.scrollIntoView({ block: 'start' })
-  section.focus({ preventScroll: true })
-}
-
 function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const landing = content.detail.landing
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
   const navigationItems = [
-    { id: 'project-detail-title', label: landing.nav.home },
-    { id: 'donuts-story-title', label: landing.nav.story },
-    { id: 'donuts-recipes-title', label: landing.nav.recipes },
-    { id: 'donuts-favorites-title', label: landing.nav.favorites },
-    { id: 'donuts-contact-title', label: landing.nav.contact },
+    { id: 'gallery', label: landing.internalNav.gallery },
+    { id: 'places', label: landing.internalNav.places },
+    { id: 'recipes', label: landing.nav.recipes },
+    { id: 'contact', label: landing.nav.contact },
   ]
 
   return (
@@ -642,12 +562,12 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
 
         <div className="donuts-landing">
           <header className="donuts-landing-header">
-            <span className="donuts-landing-brand" aria-hidden="true">DONUTS</span>
+            <Link className="donuts-landing-brand" to={paths.projectDetail('donut-shop')}>DONUTS</Link>
             <nav aria-label={landing.navLabel}>
               <ul>
                 {navigationItems.map((item) => (
                   <li key={item.id}>
-                    <button type="button" onClick={() => scrollToDonutsSection(item.id)}>{item.label}</button>
+                    <Link to={paths.donutShopPage(item.id)}>{item.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -880,13 +800,7 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
           <ProjectFacts facts={detail.facts} />
         </header>
 
-        <section className="project-detail-biomes-section" aria-labelledby="muchomix-biomes-gallery-title">
-          <SectionIntroduction
-            id="muchomix-biomes-gallery-title"
-            number="02"
-            title={detail.galleryTitle}
-            description={detail.galleryDescription}
-          />
+        <div className="project-detail-biomes-section">
           <ol className="project-detail-biomes-grid">
             {assets.biomes.map((biome, index) => (
               <li key={biome.id}>
@@ -907,7 +821,7 @@ function BiomesProjectDetail({ assets, content, navigation, neighbors, text }) {
               </li>
             ))}
           </ol>
-        </section>
+        </div>
       </div>
     </article>
   )
@@ -962,6 +876,7 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
           <div className="project-detail-candles-collection">
             {assets.illustrations.map((illustration) => (
               <figure key={illustration.id}>
+                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
                 <div className="project-detail-candles-illustration">
                   <img
                     src={illustration.image}
@@ -972,7 +887,6 @@ function CandlesProjectDetail({ assets, content, navigation, neighbors, text }) 
                     decoding="async"
                   />
                 </div>
-                <figcaption>{detail.collection.items[illustration.id].name}</figcaption>
               </figure>
             ))}
           </div>
@@ -1359,7 +1273,7 @@ function CompleteProjectDetail({ assets, content, navigation, neighbors, project
 }
 
 function ProjectDetailPage() {
-  const { text } = useOutletContext()
+  const { text, language } = useOutletContext()
   const { slug } = useParams()
   const [searchParams] = useSearchParams()
   const project = getProjectBySlug(slug)
@@ -1483,6 +1397,7 @@ function ProjectDetailPage() {
       <GardenProjectDetail
         assets={assets}
         content={content}
+        language={language}
         navigation={navigation}
         neighbors={neighbors}
         text={text}

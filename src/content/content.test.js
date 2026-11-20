@@ -85,13 +85,14 @@ test('project detail URLs are generated from the catalog without category collis
   const categorySlugs = new Set(projectCategories.map(({ slug }) => slug))
 
   for (const project of projects) {
-    assert.equal(getProjectBySlug(project.id), project)
+    assert.equal(getProjectBySlug(project.id), project.published === false ? undefined : project)
     assert.equal(paths.projectDetail(project.id), `/proyectos/${project.id}`)
     assert.equal(paths.projectDetail(project.id, 'all'), `/proyectos/${project.id}?categoria=all`)
     assert.equal(categorySlugs.has(project.id), false)
   }
 
   assert.equal(getProjectBySlug('inexistente'), undefined)
+  assert.equal(getProjectBySlug('snapchat-frames'), undefined)
 })
 
 test('complete project details expose localized content, media and catalog navigation', () => {
@@ -129,7 +130,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.deepEqual(donutShopAssets.favorites.map(({ id }) => id), ['green', 'chocolate', 'strawberry', 'colorful'])
   assert.equal(whoIsPayingAssets.layout, 'who-is-paying')
   assert.deepEqual(whoIsPayingAssets.palette, ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'])
-  assert.deepEqual(whoIsPayingAssets.links.map(({ id }) => id), ['repository'])
+  assert.equal(whoIsPayingAssets.links, undefined)
   assert.deepEqual(deepSeaAssets.heroDimensions, { width: 1200, height: 891 })
   assert.deepEqual(deepSeaAssets.heroSecondaryDimensions, { width: 1200, height: 1618 })
   assert.ok(deepSeaAssets.heroSecondaryImage)
@@ -152,7 +153,7 @@ test('complete project details expose localized content, media and catalog navig
   assert.equal(jungleAssets.referenceImages, undefined)
   assert.equal(jungleAssets.heroReferenceImages.length, 2)
   assert.deepEqual(jungleAssets.heroDimensions, { width: 1200, height: 1490 })
-  assert.equal(jungleAssets.heroDecorations.length, 3)
+  assert.equal(jungleAssets.heroDecorations, undefined)
   assert.equal(jungleAssets.palettePlacement, 'hero')
   assert.equal(jungleAssets.illustrationTreatment, true)
   assert.equal(jungleAssets.accentColor, '#6B8534')
@@ -226,9 +227,10 @@ test('complete project details expose localized content, media and catalog navig
     assert.deepEqual(sortedKeys(donutShopDetail.landing.favorites), donutShopAssets.favorites.map(({ id }) => id).sort())
 
     const whoIsPayingDetail = text.projects.items['who-is-paying'].detail
+    assert.equal(text.projects.items['who-is-paying'].title, 'Who is paying?')
     assert.equal(whoIsPayingDetail.number, '01')
     assert.equal(whoIsPayingDetail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2024')
-    assert.deepEqual(sortedKeys(whoIsPayingDetail.links.items), whoIsPayingAssets.links.map(({ id }) => id).sort())
+    assert.equal(whoIsPayingDetail.links, undefined)
     assert.match(whoIsPayingDetail.interactive.winnerMessage, /\{name\}/)
     assert.match(whoIsPayingDetail.interactive.participantCountOne, /\{count\}/)
     assert.match(whoIsPayingDetail.interactive.participantCountOther, /\{count\}/)
@@ -276,7 +278,7 @@ test('project navigation follows its category or the menu category order', () =>
   assert.equal(illustrationNeighbors.previous.id, 'medusas')
   assert.equal(illustrationNeighbors.next.id, 'jungle')
   assert.deepEqual(allProjects.map(({ id }) => id), [
-    'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs',
+    'medusas', 'deep-sea', 'jungle', 'game-icons', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs',
     'jardin-web', 'murana', 'donut-shop', 'who-is-paying', 'donas-3d', 'ajedrez', 'instagram-posts', 'naval-infographics',
   ])
   assert.equal(getProjectNeighbors('muchomix-game', allProjects).next.id, 'angels-sighs')
@@ -448,7 +450,7 @@ test('Muchokids Nationalities shows Brazil, an editorial gallery introduction an
   }
 })
 
-test('Forest exposes its localized final illustration, palette and process', () => {
+test('Forest exposes its localized final illustration, hero references, palette and process', () => {
   const assets = getProjectDetails('forest')
 
   assert.equal(assets.heroImage.endsWith('/forest-finalwork.jpg'), true)
@@ -459,7 +461,14 @@ test('Forest exposes its localized final illustration, palette and process', () 
     'forest-process-3.jpg',
   ])
   assert.equal(assets.processArrows.length, assets.processImages.length - 1)
-  assert.equal(assets.palette.length, 6)
+  assert.equal(assets.palette.length, 8)
+  assert.equal(assets.palettePlacement, 'hero')
+  assert.deepEqual(assets.heroReferenceImages.map((image) => image.split('/').at(-1)), [
+    'forest-reference2-02.webp',
+    'forest-reference2-03.webp',
+  ])
+  assert.ok(assets.heroReferenceImages.every((image) => existsSync(new URL(image))))
+  assert.deepEqual(assets.heroReferenceImageDimensions, Array.from({ length: 2 }, () => ({ width: 416, height: 481 })))
   assert.equal(assets.referenceImages, undefined)
   assert.equal(assets.detailImages, undefined)
 
@@ -470,6 +479,9 @@ test('Forest exposes its localized final illustration, palette and process', () 
     assert.equal(detail.facts.find(({ label }) => label === (text === translations.es ? 'Año' : 'Year')).value, '2017')
     assert.equal(detail.facts.at(-1).value, 'Illustrator, Photoshop, Wacom Tablet')
     assert.ok(detail.paletteTitle)
+    assert.ok(detail.referencesTitle)
+    assert.equal(detail.imageAlt.heroReferences.length, assets.heroReferenceImages.length)
+    assert.ok(detail.imageAlt.heroReferences.every((alt) => alt.trim()))
     assert.equal(detail.imageAlt.process.length, assets.processImages.length)
   }
 })
@@ -498,8 +510,8 @@ test('Muchomix Biomes exposes six localized environment backgrounds', () => {
     assert.deepEqual(detail.facts.map(({ value }) => value), language === 'es'
       ? ['2016–2017', 'Ilustración digital de escenarios', 'Photoshop, Wacom Tablet']
       : ['2016–2017', 'Digital environment illustration', 'Photoshop, Wacom Tablet'])
-    assert.ok(detail.galleryTitle)
-    assert.ok(detail.galleryDescription)
+    assert.equal(detail.galleryTitle, undefined)
+    assert.equal(detail.galleryDescription, undefined)
     assert.deepEqual(sortedKeys(detail.biomes), [...expectedBiomeIds].sort())
     for (const biome of assets.biomes) {
       assert.ok(detail.biomes[biome.id].name)
@@ -589,8 +601,9 @@ test("Angel's Sighs exposes its applications, lid collection and process videos 
 
   assert.equal(getProjectNeighbors('deep-sea').next.id, 'jungle')
   assert.equal(getProjectNeighbors('jungle').next.id, 'game-icons')
-  assert.equal(getProjectNeighbors('game-icons').next.id, 'snapchat-frames')
-  assert.equal(getProjectNeighbors('snapchat-frames').next.id, 'reindeer')
+  assert.equal(getProjectNeighbors('game-icons').next.id, 'reindeer')
+  assert.equal(getProjectNeighbors('reindeer').previous.id, 'game-icons')
+  assert.deepEqual(getProjectNeighbors('snapchat-frames'), { previous: undefined, next: undefined })
   assert.equal(getProjectNeighbors('reindeer').next.id, 'muchokids-nationalities')
   assert.equal(getProjectNeighbors('muchokids-nationalities').next.id, 'forest')
   assert.equal(getProjectNeighbors('forest').next.id, 'muchomix-biomas')
@@ -638,7 +651,7 @@ test('naval infographics expose four illustrated series with ordered pages in bo
           { label: 'Technique', value: 'Infographic' },
           { label: 'Tools', value: 'Illustrator' },
         ])
-    assert.ok(content.detail.galleryTitle)
+    assert.equal(content.detail.galleryTitle, undefined)
     assert.equal(content.detail.openPageText, undefined)
     for (const series of detail.series) {
       const seriesText = content.detail.series[series.id]
@@ -668,7 +681,7 @@ test('a project can be listed in multiple categories without duplicate records',
   const catalog = [multiCategoryProject, ...projects.slice(1), animationProject]
 
   assert.deepEqual(getProjectsByCategory('three-d', catalog), [multiCategoryProject, ...projects.slice(1, 2)])
-  assert.deepEqual(getProjectsByCategory('illustration', catalog).map(({ id }) => id), ['donas-3d', 'medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs'])
+  assert.deepEqual(getProjectsByCategory('illustration', catalog).map(({ id }) => id), ['donas-3d', 'medusas', 'deep-sea', 'jungle', 'game-icons', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs'])
   assert.deepEqual(getProjectsByCategory('animations', catalog).map(({ id }) => id), ['naval-infographics', 'new-animation'])
   assert.deepEqual(getSelectedProjects(catalog).map(({ id }) => id), ['donas-3d', 'jardin-web', 'medusas', 'instagram-posts'])
   assert.equal(catalog.filter(({ id }) => id === multiCategoryProject.id).length, 1)
@@ -679,7 +692,7 @@ test('project category listings derive from the catalog and preserve expected pr
   assert.deepEqual(projects.map(({ id }) => id), ['donas-3d', 'ajedrez', 'jardin-web', 'murana', 'donut-shop', 'who-is-paying', 'medusas', 'instagram-posts', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs', 'naval-infographics'])
   assert.deepEqual(getProjectsByCategory('three-d').map(({ id }) => id), ['donas-3d', 'ajedrez'])
   assert.deepEqual(getProjectsByCategory('uxui').map(({ id }) => id), ['jardin-web', 'murana', 'donut-shop', 'who-is-paying'])
-  assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas', 'deep-sea', 'jungle', 'game-icons', 'snapchat-frames', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs'])
+  assert.deepEqual(getProjectsByCategory('illustration').map(({ id }) => id), ['medusas', 'deep-sea', 'jungle', 'game-icons', 'reindeer', 'muchokids-nationalities', 'forest', 'muchomix-biomas', 'muchomix-game', 'angels-sighs'])
   assert.deepEqual(getProjectsByCategory('graphic-design').map(({ id }) => id), ['instagram-posts'])
   assert.deepEqual(getProjectsByCategory('animations').map(({ id }) => id), ['naval-infographics'])
 })

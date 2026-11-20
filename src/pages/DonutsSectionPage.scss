@@ -1,0 +1,96 @@
+@use '../styles/abstracts' as tokens;
+
+.donuts-section-content {
+  min-height: 55vh;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4rem);
+  background: #fdf3f5;
+  color: #513f47;
+}
+
+.donuts-section-intro {
+  max-width: 52rem;
+  margin: 0 auto clamp(2rem, 6vw, 4rem);
+  text-align: center;
+}
+
+.donuts-section-intro h1 {
+  margin: 0;
+  color: #e70d0d;
+  font-family: 'Donuts Oswald', tokens.$font-heading;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.donuts-section-intro > p:last-child {
+  margin: 1rem auto 0;
+  color: #706269;
+  line-height: 1.7;
+}
+
+.donuts-section-content h2 {
+  color: #e70d0d;
+  font-family: 'Donuts Oswald', tokens.$font-heading;
+}
+
+.donuts-gallery,
+.donuts-place-grid,
+.donuts-recipe-donuts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.donuts-gallery img,
+.donuts-place-grid img,
+.donuts-recipe-donuts img,
+.donuts-recipe-hero > img,
+.donuts-contact-layout > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.donuts-gallery img {
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.donuts-place-grid article {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 0.75rem 2rem rgb(231 13 13 / 8%);
+}
+
+.donuts-place-grid article img { aspect-ratio: 3 / 2; object-fit: cover; }
+.donuts-place-grid h2, .donuts-place-grid p { margin: 0; padding: 0.8rem 1rem 0; }
+.donuts-place-grid p { padding-bottom: 1rem; color: #706269; line-height: 1.6; }
+
+.donuts-recipe-hero { display: grid; gap: 1.5rem; align-items: center; }
+.donuts-recipe-hero > img { border-radius: 1rem; }
+.donuts-recipe-hero ul, .donuts-recipe-steps { padding-left: 1.5rem; line-height: 1.8; }
+.donuts-steps-title { margin-top: 2rem; }
+.donuts-recipe-donuts { margin-top: 2rem; }
+.donuts-recipe-donuts img { aspect-ratio: 1; object-fit: contain; }
+
+.donuts-contact-layout { display: grid; gap: 1.5rem; align-items: center; max-width: 60rem; margin: 0 auto; }
+.donuts-contact-layout form { display: grid; gap: 1rem; }
+.donuts-contact-layout label { display: grid; gap: 0.4rem; font-weight: 700; }
+.donuts-contact-layout input, .donuts-contact-layout textarea { width: 100%; min-height: 2.75rem; padding: 0.7rem; border: 1px solid #876d78; border-radius: 0.4rem; background: #fff; color: #31242a; font: inherit; }
+.donuts-contact-layout button { min-height: 2.75rem; padding: 0.6rem 1.5rem; border: 0; border-radius: 999px; background: #e70d0d; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.donuts-contact-layout :focus-visible { outline: 3px solid #8c1032; outline-offset: 3px; }
+.donuts-contact-layout > p { grid-column: 1 / -1; margin: 0; line-height: 1.6; }
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .donuts-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .donuts-place-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .donuts-recipe-hero { grid-template-columns: 1fr 1fr; }
+  .donuts-recipe-donuts { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .donuts-contact-layout { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .donuts-place-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
