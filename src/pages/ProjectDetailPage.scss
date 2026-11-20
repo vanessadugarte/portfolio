@@ -1590,6 +1590,7 @@
 
 @media (min-width: tokens.$breakpoint-desktop) {
   .project-detail-game-hero-grid {
+    width: min(100%, 62rem);
     margin-bottom: 0;
   }
 

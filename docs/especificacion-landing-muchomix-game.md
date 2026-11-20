@@ -25,6 +25,7 @@ Convertir la ruta existente de Muchomix Game en una ficha bilingüe que explique
 
 - La ruta `/proyectos/muchomix-game` deja de mostrar el estado pendiente y contiene un único `h1` localizado.
 - Se muestran `gameplay.jpg` junto a `forest game area.webp`, sin deformación ni rótulo para Forest; ambas imágenes quedan alineadas.
+- En escritorio, la cuadrícula de estas dos imágenes no supera `62rem` de ancho y permanece centrada; tablet y móvil conservan sus tamaños actuales.
 - Debajo de ambas imágenes se muestra una paleta de turquesas y magentas con sus muestras y códigos.
 - Las seis pantallas complementarias se muestran sin deformación, con dimensiones intrínsecas y carga diferida.
 - La imagen principal no tiene borde ni marco decorativo.
@@ -50,6 +51,7 @@ Convertir la ruta existente de Muchomix Game en una ficha bilingüe que explique
 
 ## Validación
 
+- Ajuste de tamaño: `npm run build`, `npm run lint` y `git diff --check` correctos. En Chromium, a 1280 CSS px la cuadrícula principal mide `62rem` (992 px), con dos imágenes de 484 px alineadas y sin desbordamiento horizontal; a 800 y 320 CSS px conserva el diseño previo sin desbordamiento.
 - `npm run test:content` (19 pruebas), `npm run lint`, `npm run build` y `git diff --check`: correctos.
 - Navegador integrado (Chromium): a 1280 CSS px la ficha muestra un único `h1` de 80 px, introducción de 704 px (`44rem`), ficha técnica de 368 px (`23rem`), diez imágenes y ningún desplazamiento horizontal.
 - Navegador integrado (Chromium): a 320 CSS px la ficha conserva un único `h1`, las diez imágenes refluyen en una columna y `scrollWidth` coincide con `clientWidth` (320 px).
