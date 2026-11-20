@@ -11,6 +11,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import { paths } from './routes/paths.js'
 import LegacyProjectRedirect from './routes/LegacyProjectRedirect.jsx'
+import DonutsSectionPage from './pages/DonutsSectionPage.jsx'
 
 function migrateLegacyHash() {
   const { hash, pathname, search } = window.location
@@ -44,6 +45,7 @@ export const routeConfig = [
       { path: `${paths.gardenPots.slice(1)}/:productSlug`, element: <GardenProductPage kind="pots" /> },
       { path: paths.gardenContact.slice(1), element: <GardenContactPage /> },
       { path: `${paths.projectDetail('naval-infographics').slice(1)}/:series`, element: <NavalSeriesPage /> },
+      { path: `${paths.projectDetail('donut-shop').slice(1)}/:section`, element: <DonutsSectionPage /> },
       { path: paths.projectDetail('ventti').slice(1), element: <LegacyProjectRedirect slug="instagram-posts" /> },
       { path: `${paths.projects.slice(1)}/:slug`, element: <ProjectDetailPage /> },
       { path: paths.experience.slice(1), element: <ExperiencePage /> },

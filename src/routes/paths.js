@@ -4,6 +4,7 @@ export const paths = {
   experience: '/experiencia',
   projectCategory: (slug) => `/proyectos/${slug}`,
   navalSeries: (series) => `/proyectos/naval-infographics/${series}`,
+  donutShopPage: (section) => `/proyectos/donut-shop/${section}`,
   gardenHome: '/proyectos/jardin-web',
   gardenPlants: '/proyectos/jardin-web/plantas',
   gardenPots: '/proyectos/jardin-web/maceteros',
