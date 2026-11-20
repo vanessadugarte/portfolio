@@ -245,7 +245,7 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
                 <li key={asset.image}>
                   <img
                     src={asset.image}
-                    alt={formatTemplate(detail.isolatedAssetsAlt, { number: index + 1 })}
+                    alt={detail.isolatedAssetsAlt.replace('{number}', String(index + 1))}
                     width={asset.width}
                     height={asset.height}
                     loading="lazy"
