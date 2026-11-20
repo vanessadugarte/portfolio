@@ -95,7 +95,7 @@ export const translations = {
           description: 'Modelado y composición 3D de piezas de ajedrez.',
           previewAlt: 'Composición 3D de piezas de ajedrez.',
           detail: {
-            number: '02',
+            number: '01',
             introduction: 'Una composición 3D inspirada en el ajedrez, enfocada en las formas de sus piezas y el contraste entre luces y sombras.',
             facts: [
               { label: 'Año', value: '2024' },
@@ -178,7 +178,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who Is Paying',
+          title: 'Who is paying',
           description: 'Aplicación para sortear quién paga entre un grupo de personas.',
           previewAlt: 'Icono de una bandeja de comida que representa la aplicación Who Is Paying.',
           detail: {
@@ -186,7 +186,7 @@ export const translations = {
             introduction: 'Versión funcional reconstruida con React y Sass y alojada en el portafolio. Permite crear y editar una lista de participantes y realizar un sorteo aleatorio para decidir quién paga el almuerzo.',
             facts: [
               { label: 'Año', value: '2024' },
-              { label: 'Aporte', value: 'Diseño de interfaz y desarrollo front-end' },
+              { label: 'Aporte', value: 'Interfaz y Desarrollo front-end' },
               { label: 'Herramientas', value: 'HTML, CSS, JavaScript, React y Sass' },
             ],
             links: {
@@ -237,7 +237,7 @@ export const translations = {
           detail: {
             introduction: 'Landing de marca desarrollada durante mi etapa en Tottus para presentar el universo de cuidado personal de Murana mediante una experiencia visual, clara y responsive.',
             facts: [
-              { label: 'Contexto', value: 'Tottus' },
+              { label: 'Fecha', value: '2021' },
               { label: 'Aporte', value: 'Desarrollo front-end' },
               { label: 'Entrega', value: 'Landing e-commerce responsive' },
             ],
@@ -814,15 +814,14 @@ export const translations = {
           role: 'Diseñador web UX/UI & Front-end (Vue)',
           highlights: [
             'Diseño de interfaces completas en Figma, utilizando como base el design system interno basado en Ant Design.',
-            'Desarrollo del front-end en Vue.js, asegurando coherencia visual, accesibilidad y alto rendimiento.',
             'Creación y mantenimiento de componentes reutilizables en Figma, aplicando autolayout para lograr consistencia y escalabilidad.',
+            'Desarrollo del front-end en Vue.js, asegurando coherencia visual, accesibilidad y alto rendimiento.',
           ],
         },
         {
-          meta: 'Septiembre 2025- Agosto 2026',
+          meta: 'Marzo 2024 - Agosto 2025',
           company: 'Solunova SPA',
           role: 'Diseñador web UX/UI & Front-end (React)',
-          showDashes: true,
           highlights: [
             'Diseño e implementeación de interfaces completas desde Figma, utilizando como base el sistema de componentes de Material UI (MUI).',
             'Liderazgo del ciclo completo de producto, desde discovery hasta producción: investigación rápida, definición de Design System y handoff.',
@@ -1007,7 +1006,7 @@ export const translations = {
           description: '3D modeling and composition of chess pieces.',
           previewAlt: '3D composition of chess pieces.',
           detail: {
-            number: '02',
+            number: '01',
             introduction: 'A 3D composition inspired by chess, focused on the shapes of its pieces and the contrast between light and shadow.',
             facts: [
               { label: 'Year', value: '2024' },
@@ -1090,7 +1089,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who Is Paying',
+          title: 'Who is paying',
           description: 'An app that randomly chooses who pays from a group of people.',
           previewAlt: 'Food serving tray icon representing the Who Is Paying application.',
           detail: {
@@ -1098,7 +1097,7 @@ export const translations = {
             introduction: 'A functional version rebuilt with React and Sass and hosted in the portfolio. It creates and edits a participant list and runs a random draw to decide who pays for lunch.',
             facts: [
               { label: 'Year', value: '2024' },
-              { label: 'Contribution', value: 'Interface design and front-end development' },
+              { label: 'Contribution', value: 'Interface and front-end development' },
               { label: 'Tools', value: 'HTML, CSS, JavaScript, React and Sass' },
             ],
             links: {
@@ -1149,7 +1148,7 @@ export const translations = {
           detail: {
             introduction: 'A brand landing page developed during my time at Tottus to present Murana’s personal care universe through a visual, clear and responsive experience.',
             facts: [
-              { label: 'Context', value: 'Tottus' },
+              { label: 'Date', value: '2021' },
               { label: 'Contribution', value: 'Front-end development' },
               { label: 'Deliverable', value: 'Responsive e-commerce landing page' },
             ],
@@ -1726,15 +1725,14 @@ export const translations = {
           role: 'Web UX/UI Designer & Front-end Developer (Vue)',
           highlights: [
             'Design of complete interfaces in Figma, using the internal Ant Design-based design system.',
-            'Front-end development in Vue.js, ensuring visual consistency, accessibility and high performance.',
             'Creation and maintenance of reusable Figma components with Auto Layout for consistency and scalability.',
+            'Front-end development in Vue.js, ensuring visual consistency, accessibility and high performance.',
           ],
         },
         {
-          meta: 'September 2025- August 2026',
+          meta: 'March 2024 - August 2025',
           company: 'Solunova SPA',
           role: 'Web UX/UI Designer & Front-end Developer (React)',
-          showDashes: true,
           highlights: [
             'Design and implementation of complete interfaces from Figma, using the Material UI (MUI) component system.',
             'Leadership of the complete product cycle, from discovery to production: rapid research, Design System definition and handoff.',

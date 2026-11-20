@@ -53,6 +53,10 @@
   color: #e96486;
 }
 
+.project-detail--ajedrez .project-detail-title {
+  color: tokens.$color-chess-blue;
+}
+
 .project-detail-placeholder h1 {
   max-width: 46.25rem;
   margin: 0;
@@ -416,6 +420,10 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project-detail--ajedrez .project-detail-final-artwork img {
+  border-radius: 16px;
 }
 
 .project-detail--medusas .project-detail-hero > .project-detail-final-artwork > img {
@@ -2032,6 +2040,18 @@
     max-width: none;
   }
 
+  .project-detail--ajedrez .project-detail-summary > .project-detail-facts {
+    grid-column: 2 / -1;
+    max-width: none;
+    flex-wrap: wrap;
+  }
+
+  .project-detail--ajedrez .project-detail-facts div {
+    flex: 0 0 auto;
+    align-items: center;
+    white-space: nowrap;
+  }
+
   .project-detail-nationalities-summary .project-detail-introduction,
   .project-detail-nationalities-summary .project-detail-facts {
     width: 100%;
@@ -2275,6 +2295,11 @@
   .project-detail--deep-sea .project-detail-hero-references {
     margin-top: tokens.$space-6;
     margin-inline: 0;
+  }
+
+  .project-detail--ajedrez .project-detail-final-artwork {
+    max-width: 64rem;
+    margin-inline: auto;
   }
 
   .project-detail h1.project-detail-title,
