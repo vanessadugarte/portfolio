@@ -44,7 +44,7 @@ export const projects = [
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
   { id: 'jungle', categoryIds: ['illustration'], previewImage: jungleImage },
   { id: 'game-icons', categoryIds: ['illustration'], previewImage: gameIconsImage },
-  { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage },
+  { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage, published: false },
   { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
   { id: 'forest', categoryIds: ['illustration'], previewImage: forestImage },
@@ -56,16 +56,20 @@ export const projects = [
 
 export function getSelectedProjects(catalog = projects) {
   return catalog
-    .filter(({ selectedOrder }) => selectedOrder != null)
+    .filter((project) => isPublished(project) && project.selectedOrder != null)
     .sort((a, b) => a.selectedOrder - b.selectedOrder)
 }
 
+function isPublished(project) {
+  return project.published !== false
+}
+
 export function getProjectsByCategory(categoryId, catalog = projects) {
-  return catalog.filter(({ categoryIds }) => categoryIds.includes(categoryId))
+  return catalog.filter((project) => isPublished(project) && project.categoryIds.includes(categoryId))
 }
 
 export function getProjectBySlug(slug, catalog = projects) {
-  return catalog.find(({ id }) => id === slug)
+  return catalog.find((project) => isPublished(project) && project.id === slug)
 }
 
 export function getProjectsInMenuOrder(catalog = projects, categories) {
@@ -85,15 +89,16 @@ export function getProjectsInMenuOrder(catalog = projects, categories) {
 }
 
 export function getProjectNeighbors(projectId, catalog = projects) {
-  const projectIndex = catalog.findIndex(({ id }) => id === projectId)
+  const publishedProjects = catalog.filter(isPublished)
+  const projectIndex = publishedProjects.findIndex(({ id }) => id === projectId)
 
   if (projectIndex === -1) {
     return { previous: undefined, next: undefined }
   }
 
   return {
-    previous: catalog[projectIndex - 1],
-    next: catalog[projectIndex + 1],
+    previous: publishedProjects[projectIndex - 1],
+    next: publishedProjects[projectIndex + 1],
   }
 }
 

@@ -1,5 +1,7 @@
 # Especificación: galería Snapchat Frames
 
+> Estado: ficha no publicada. La visibilidad vigente se define en [ocultar Snapchat Frames](especificacion-ocultar-snapchat-frames.md).
+
 ## Objetivo
 
 Completar la ficha bilingüe de Snapchat Frames como una galería de marcos creados para la promoción del videojuego Muchokids sobre nacionalidades.
