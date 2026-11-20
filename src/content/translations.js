@@ -254,7 +254,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who is paying',
+          title: 'Who is paying?',
           description: 'Aplicación para sortear quién paga entre un grupo de personas.',
           previewAlt: 'Icono de una bandeja de comida que representa la aplicación Who Is Paying.',
           detail: {
@@ -265,15 +265,6 @@ export const translations = {
               { label: 'Aporte', value: 'Interfaz y Desarrollo front-end' },
               { label: 'Herramientas', value: 'HTML, CSS, JavaScript, React y Sass' },
             ],
-            links: {
-              label: 'Enlace del proyecto',
-              items: {
-                repository: {
-                  label: 'Ver código original',
-                  ariaLabel: 'Abrir el repositorio de Who Is Paying en una pestaña nueva',
-                },
-              },
-            },
             paletteTitle: 'Paleta de color',
             interactive: {
               eyebrow: 'Aplicación interactiva',
@@ -1241,7 +1232,7 @@ export const translations = {
         },
         'who-is-paying': {
           type: 'Front-end / UX/UI',
-          title: 'Who is paying',
+          title: 'Who is paying?',
           description: 'An app that randomly chooses who pays from a group of people.',
           previewAlt: 'Food serving tray icon representing the Who Is Paying application.',
           detail: {
@@ -1252,15 +1243,6 @@ export const translations = {
               { label: 'Contribution', value: 'Interface and front-end development' },
               { label: 'Tools', value: 'HTML, CSS, JavaScript, React and Sass' },
             ],
-            links: {
-              label: 'Project link',
-              items: {
-                repository: {
-                  label: 'View original code',
-                  ariaLabel: 'Open the Who Is Paying repository in a new tab',
-                },
-              },
-            },
             paletteTitle: 'Color palette',
             interactive: {
               eyebrow: 'Interactive application',

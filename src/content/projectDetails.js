@@ -75,9 +75,6 @@ export const projectDetails = {
   'who-is-paying': {
     layout: 'who-is-paying',
     palette: ['#D9CDD7', '#8F4282', '#5D495A', '#D9B5AE', '#FFFFFF'],
-    links: [
-      { id: 'repository', href: 'https://github.com/vanessadugarte/who-is-paying' },
-    ],
   },
   'donut-shop': {
     layout: 'donuts-home',
