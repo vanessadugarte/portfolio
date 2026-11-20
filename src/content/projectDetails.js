@@ -196,7 +196,9 @@ export const projectDetails = {
       chessAsset('chess-proceso2.webp'),
     ],
     detailImages: [
-      chessAsset('ajedrez-1.webp'),
+      chessAsset('chess-detail.webp'),
+      chessAsset('chess-detail2.webp'),
+      chessAsset('chess-detail3.webp'),
     ],
   },
   'deep-sea': {
