@@ -609,25 +609,15 @@ function MuranaProjectDetail({ assets, content, navigation, neighbors, text }) {
   )
 }
 
-function scrollToDonutsSection(sectionId) {
-  const section = document.getElementById(sectionId)
-
-  if (!section) return
-
-  section.scrollIntoView({ block: 'start' })
-  section.focus({ preventScroll: true })
-}
-
 function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
   const headingRef = usePageMetadata(content.title)
   const landing = content.detail.landing
   const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
   const navigationItems = [
-    { id: 'project-detail-title', label: landing.nav.home },
-    { id: 'donuts-story-title', label: landing.nav.story },
-    { id: 'donuts-recipes-title', label: landing.nav.recipes },
-    { id: 'donuts-favorites-title', label: landing.nav.favorites },
-    { id: 'donuts-contact-title', label: landing.nav.contact },
+    { id: 'gallery', label: landing.internalNav.gallery },
+    { id: 'places', label: landing.internalNav.places },
+    { id: 'recipes', label: landing.nav.recipes },
+    { id: 'contact', label: landing.nav.contact },
   ]
 
   return (
@@ -642,12 +632,12 @@ function DonutsProjectDetail({ assets, content, navigation, neighbors, text }) {
 
         <div className="donuts-landing">
           <header className="donuts-landing-header">
-            <span className="donuts-landing-brand" aria-hidden="true">DONUTS</span>
+            <Link className="donuts-landing-brand" to={paths.projectDetail('donut-shop')}>DONUTS</Link>
             <nav aria-label={landing.navLabel}>
               <ul>
                 {navigationItems.map((item) => (
                   <li key={item.id}>
-                    <button type="button" onClick={() => scrollToDonutsSection(item.id)}>{item.label}</button>
+                    <Link to={paths.donutShopPage(item.id)}>{item.label}</Link>
                   </li>
                 ))}
               </ul>

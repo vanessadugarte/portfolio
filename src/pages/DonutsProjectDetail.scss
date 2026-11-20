@@ -86,18 +86,24 @@
   list-style: none;
 }
 
+.donuts-landing-header a,
 .donuts-landing-header button {
+  display: inline-flex;
+  align-items: center;
   min-width: 2.75rem;
   min-height: 2.75rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border: 0;
   background: transparent;
-  color: var(--donuts-pink);
-  cursor: pointer;
+  color: var(--donuts-ink);
   font: inherit;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.donuts-landing-header a:hover,
+.donuts-landing-header a:focus-visible,
 .donuts-landing-header button:hover,
 .donuts-landing-header button:focus-visible {
   color: var(--donuts-red);
