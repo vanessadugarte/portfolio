@@ -105,6 +105,7 @@ export const projectDetails = {
   'jardin-web': {
     layout: 'garden',
     logo: gardenAsset('logo.png'),
+    contactMap: { image: gardenAsset('contact-map.jpg'), width: 1742, height: 984 },
     hero: { image: gardenAsset('hero.jpg'), width: 1728, height: 508 },
     mosaic: [
       { id: 'flower', image: gardenAsset('flower-circle.jpg'), width: 836, height: 836 },
@@ -115,14 +116,14 @@ export const projectDetails = {
       { id: 'mushrooms', image: gardenAsset('red-mushroom.jpg'), width: 971, height: 759 },
     ],
     plants: [
-      { id: 'monstera', image: gardenAsset('img-monstera.jpg') },
-      { id: 'lyrata', image: gardenAsset('img-lyrata.jpg') },
-      { id: 'pinkPrincess', image: gardenAsset('img-pink-princess.jpg') },
+      { id: 'monstera', slug: 'monstera', image: gardenAsset('img-monstera.jpg'), priceCLP: 5500, category: 'interior' },
+      { id: 'lyrata', slug: 'ficus-lyrata', image: gardenAsset('img-lyrata.jpg'), priceCLP: 7000, category: 'interior' },
+      { id: 'pinkPrincess', slug: 'pink-princess', image: gardenAsset('img-pink-princess.jpg'), priceCLP: 7500, category: 'interior' },
     ],
     pots: [
-      { id: 'wicker', image: gardenAsset('macetero-mimbre.jpg') },
-      { id: 'cement', image: gardenAsset('macetero-cemento.jpg') },
-      { id: 'clay', image: gardenAsset('macetero-arcilla.jpg') },
+      { id: 'wicker', slug: 'mimbre', image: gardenAsset('macetero-mimbre.jpg'), priceCLP: 3000, category: 'small' },
+      { id: 'cement', slug: 'cemento', image: gardenAsset('macetero-cemento.jpg'), priceCLP: 5990, category: 'small' },
+      { id: 'clay', slug: 'arcilla', image: gardenAsset('macetero-arcilla.jpg'), priceCLP: 5000, category: 'small' },
     ],
   },
   murana: {
