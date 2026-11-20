@@ -8,6 +8,7 @@ import WhoIsPayingApp from '../components/WhoIsPayingApp.jsx'
 import GardenProductGrid from '../components/GardenProductGrid.jsx'
 import GardenSiteHeader from '../components/GardenSiteHeader.jsx'
 import ProjectFacts from '../components/ProjectFacts.jsx'
+import ProjectNavigation from '../components/ProjectNavigation.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import InstagramPostsProjectDetail from './InstagramPostsProjectDetail.jsx'
 import './DonutsProjectDetail.scss'
@@ -15,13 +16,6 @@ import './GardenProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
-
-function formatTemplate(template, replacements) {
-  return Object.entries(replacements).reduce(
-    (result, [key, value]) => result.replace(`{${key}}`, value),
-    template,
-  )
-}
 
 function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
@@ -94,54 +88,6 @@ function ColorPalette({ headingId, headingLevel = 'h3', title, colors }) {
           </li>
         ))}
       </ul>
-    </div>
-  )
-}
-
-function ProjectPager({ categoryId, neighbors, text }) {
-  const previousContent = neighbors.previous && text.projects.items[neighbors.previous.id]
-  const nextContent = neighbors.next && text.projects.items[neighbors.next.id]
-
-  return (
-    <nav className="project-detail-pager" aria-label={text.nav.projects}>
-      {neighbors.previous && (
-        <Link
-          className="project-detail-pager-previous"
-          to={paths.projectDetail(neighbors.previous.id, categoryId)}
-          aria-label={formatTemplate(text.projectDetail.previousProjectLabel, { title: previousContent.title })}
-        >
-          <span aria-hidden="true">←</span>
-          <span>{text.projectDetail.previousProject}</span>
-        </Link>
-      )}
-      {neighbors.next && (
-        <Link
-          className="project-detail-pager-next"
-          to={paths.projectDetail(neighbors.next.id, categoryId)}
-          aria-label={formatTemplate(text.projectDetail.nextProjectLabel, { title: nextContent.title })}
-        >
-          <span>{text.projectDetail.nextProject}</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-      )}
-    </nav>
-  )
-}
-
-function ProjectBackLink({ categoryName, navigation, text }) {
-  return (
-    <Link className="project-detail-back" to={navigation.backPath}>
-      <span aria-hidden="true">←</span>{' '}
-      {formatTemplate(text.projectDetail.backToCategory, { category: categoryName.toLocaleLowerCase() })}
-    </Link>
-  )
-}
-
-function ProjectNavigation({ categoryName, navigation, neighbors, text }) {
-  return (
-    <div className="project-detail-navigation">
-      <ProjectBackLink categoryName={categoryName} navigation={navigation} text={text} />
-      <ProjectPager categoryId={navigation.contextId} neighbors={neighbors} text={text} />
     </div>
   )
 }

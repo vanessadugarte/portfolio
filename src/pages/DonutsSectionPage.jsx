@@ -1,12 +1,24 @@
 import { Link, useOutletContext, useParams } from 'react-router-dom'
+import ProjectNavigation from '../components/ProjectNavigation.jsx'
+import { getProjectCategory } from '../content/projectCategories.js'
+import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory } from '../content/projects.js'
 import { usePageMetadata } from '../hooks/usePageMetadata.js'
 import { paths } from '../routes/paths.js'
 import './DonutsProjectDetail.scss'
 import './DonutsSectionPage.scss'
+import './ProjectDetailPage.scss'
 
 const asset = (name) => new URL(`../assets/images/projects/front-end-ux/donut-shop/internal/${name}`, import.meta.url).href
 const gallery = Array.from({ length: 8 }, (_, index) => asset(`foto-${index + 1}-galeria-grid-desk.jpg`))
 const recipes = ['dona-1-manjar.png', 'dona-2-gomitas.png', 'dona-4-chispas-chocolate.png', 'dona-5-frutilla.png', 'dona-6-cookies-and-cream.png'].map(asset)
+const donutProject = getProjectBySlug('donut-shop')
+const category = getProjectCategory(donutProject.categoryIds[0])
+const projectNavigation = {
+  backPath: paths.projectCategory(category.slug),
+  categoryId: category.id,
+  contextId: category.id,
+}
+const projectNeighbors = getProjectNeighbors(donutProject.id, getProjectsByCategory(category.id))
 const places = [
   ['Dum Dum Doughnuts', 'foto-dum-dum-donuts.jpg', 'Donas gourmet creativas, elaboradas con ingredientes de alta calidad.'],
   ['Happy Donuts', 'foto-happy-donuts.jpg', 'Donas horneadas con métodos tradicionales y una textura ligera.'],
@@ -38,9 +50,9 @@ const copy = {
 }
 
 function DonutsSectionPage() {
-  const { text } = useOutletContext()
+  const { text, language } = useOutletContext()
   const { section } = useParams()
-  const lang = text.categories.illustration === 'Illustration' ? 'en' : 'es'
+  const lang = language
   const t = copy[lang]
   const valid = ['gallery', 'places', 'recipes', 'contact'].includes(section)
   const titleRef = usePageMetadata(valid ? t.titles[section] : 'Donuts')
@@ -51,6 +63,12 @@ function DonutsSectionPage() {
   return (
     <article className="project-detail donuts-project donuts-section-project" aria-labelledby="donuts-section-title">
       <div className="project-detail-inner donuts-project-inner">
+        <ProjectNavigation
+          categoryName={text.categories[category.id]}
+          navigation={projectNavigation}
+          neighbors={projectNeighbors}
+          text={text}
+        />
         <div className="donuts-landing">
           <header className="donuts-landing-header">
             <Link className="donuts-landing-brand" to={paths.projectDetail('donut-shop')}>DONUTS</Link>

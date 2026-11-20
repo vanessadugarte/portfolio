@@ -194,6 +194,13 @@
     transform tokens.$transition-fast;
 }
 
+.project-detail-pager-next-placeholder {
+  display: block;
+  min-height: tokens.$target-size-comfortable;
+  width: 6.5rem;
+  flex: 0 0 6.5rem;
+}
+
 .project-detail-pager a::after {
   position: absolute;
   right: tokens.$space-2;
