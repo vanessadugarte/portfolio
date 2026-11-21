@@ -45,7 +45,6 @@ export const projects = [
   { id: 'deep-sea', categoryIds: ['illustration'], previewImage: deepSeaImage },
   { id: 'jungle', categoryIds: ['illustration'], previewImage: jungleImage },
   { id: 'game-icons', categoryIds: ['illustration'], previewImage: gameIconsImage },
-  { id: 'otras-ilustraciones', categoryIds: ['illustration'], previewImage: otherIllustrationsImage },
   { id: 'snapchat-frames', categoryIds: ['illustration'], previewImage: snapchatFramesImage, published: false },
   { id: 'reindeer', categoryIds: ['illustration'], previewImage: reindeerImage },
   { id: 'muchokids-nationalities', categoryIds: ['illustration'], previewImage: muchokidsNationalitiesImage },
@@ -53,6 +52,7 @@ export const projects = [
   { id: 'muchomix-biomas', categoryIds: ['illustration'], previewImage: muchomixBiomesImage },
   { id: 'muchomix-game', categoryIds: ['illustration'], previewImage: muchomixGameImage },
   { id: 'angels-sighs', categoryIds: ['illustration'], previewImage: angelsSighsImage },
+  { id: 'otras-ilustraciones', categoryIds: ['illustration'], previewImage: otherIllustrationsImage },
   { id: 'naval-infographics', categoryIds: ['animations'], previewImage: navalInfographicsImage },
 ]
 
