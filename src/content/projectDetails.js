@@ -8,6 +8,7 @@ const forestAsset = (filename) => new URL(`../assets/images/projects/illustratio
 const muchomixBiomesAsset = (filename) => new URL(`../assets/images/projects/illustrations/biomas/${filename}`, import.meta.url).href
 const jungleAsset = (filename) => new URL(`../assets/images/projects/illustrations/jungle/${filename}`, import.meta.url).href
 const gameIconsAsset = (filename) => new URL(`../assets/images/projects/illustrations/game-icons/${filename}`, import.meta.url).href
+const otherIllustrationsAsset = (filename) => new URL(`../assets/images/projects/illustrations/other-illustrations/${filename}`, import.meta.url).href
 const reindeerAsset = (filename) => new URL(`../assets/images/projects/illustrations/reindeer/${filename}`, import.meta.url).href
 const snapchatFramesAsset = (filename) => new URL(`../assets/images/projects/illustrations/snapchat-frames/${filename}`, import.meta.url).href
 const muchokidsNationalitiesAsset = (filename) => new URL(`../assets/images/projects/illustrations/muchokids-nationalities/${filename}`, import.meta.url).href
@@ -62,6 +63,14 @@ const processArrowAsset = (filename, mobileRotation, desktopRotation) => ({
 })
 
 export const projectDetails = {
+  'otras-ilustraciones': {
+    layout: 'art-gallery',
+    works: [
+      { id: 'woman-and-dog', image: otherIllustrationsAsset('illus-03.webp'), width: 367, height: 1046 },
+      { id: 'portrait', image: otherIllustrationsAsset('illus-05.webp'), width: 1050, height: 1051 },
+      { id: 'popsicle', image: otherIllustrationsAsset('illus-06.webp'), width: 809, height: 1046 },
+    ],
+  },
   'instagram-posts': instagramPostsAssets,
   'naval-infographics': {
     layout: 'naval-infographics',

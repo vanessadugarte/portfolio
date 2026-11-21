@@ -1,4 +1,5 @@
 import { Link, useOutletContext, useParams, useSearchParams } from 'react-router-dom'
+import { useRef, useState } from 'react'
 import { getProjectDetails } from '../content/projectDetails.js'
 import { getProjectBySlug, getProjectNeighbors, getProjectsByCategory, getProjectsInMenuOrder } from '../content/projects.js'
 import { getProjectCategory, projectCategories } from '../content/projectCategories.js'
@@ -16,6 +17,7 @@ import './GardenProjectDetail.scss'
 import './MuranaProjectDetail.scss'
 import './NavalInfographicsProjectDetail.scss'
 import './ProjectDetailPage.scss'
+import './OtherIllustrationsProjectDetail.scss'
 
 function getOrganicMaskStyle(mask) {
   return mask ? { '--organic-mask': `url("${mask}")` } : undefined
@@ -256,6 +258,58 @@ function GalleryProjectDetail({ assets, content, navigation, neighbors, text }) 
         </div>
 
       </div>
+    </article>
+  )
+}
+
+function OtherIllustrationsProjectDetail({ assets, content, navigation, neighbors, text }) {
+  const headingRef = usePageMetadata(content.title)
+  const dialogRef = useRef(null)
+  const [activeWork, setActiveWork] = useState(null)
+  const categoryName = text.categories[getProjectCategory(navigation.categoryId).id]
+  const detail = content.detail
+
+  function openWork(work) {
+    setActiveWork(work)
+    dialogRef.current?.showModal()
+  }
+
+  function closeWork() {
+    dialogRef.current?.close()
+  }
+
+  return (
+    <article className="project-detail project-detail--other-illustrations" aria-labelledby="project-detail-title">
+      <div className="project-detail-inner">
+        <ProjectNavigation categoryName={categoryName} navigation={navigation} neighbors={neighbors} text={text} />
+        <header className="other-illustrations-heading">
+          <h1 className="project-detail-title" id="project-detail-title" ref={headingRef} tabIndex={-1}>{content.title}</h1>
+          <p>{detail.introduction}</p>
+        </header>
+        <ul className="other-illustrations-grid" aria-label={detail.galleryLabel}>
+          {assets.works.map((work, index) => (
+            <li key={work.id}>
+              <button
+                type="button"
+                onClick={() => openWork(work)}
+                aria-label={detail.openImage.replace('{image}', detail.images[work.id])}
+              >
+                <img src={work.image} alt="" width={work.width} height={work.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <dialog
+        className="other-illustrations-dialog"
+        ref={dialogRef}
+        onClick={(event) => { if (event.target === dialogRef.current) closeWork() }}
+        onClose={() => setActiveWork(null)}
+        aria-label={activeWork ? detail.images[activeWork.id] : detail.galleryLabel}
+      >
+        <button type="button" className="other-illustrations-close" onClick={closeWork} aria-label={detail.closeImage}>×</button>
+        {activeWork && <img src={activeWork.image} alt={detail.images[activeWork.id]} width={activeWork.width} height={activeWork.height} />}
+      </dialog>
     </article>
   )
 }
@@ -1366,6 +1420,10 @@ function ProjectDetailPage() {
         text={text}
       />
     )
+  }
+
+  if (assets.layout === 'art-gallery') {
+    return <OtherIllustrationsProjectDetail assets={assets} content={content} navigation={navigation} neighbors={neighbors} text={text} />
   }
 
   if (assets.layout === 'nationalities') {
