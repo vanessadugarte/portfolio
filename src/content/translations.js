@@ -522,6 +522,23 @@ export const translations = {
             },
           },
         },
+        'otras-ilustraciones': {
+          type: 'Ilustración',
+          title: 'Otras ilustraciones',
+          description: 'Tres ilustraciones digitales independientes reunidas en una galería.',
+          previewAlt: 'Detalle de un retrato ilustrado de una mujer pelirroja con un ojo color ámbar.',
+          detail: {
+            introduction: 'Una pequeña selección de ilustraciones digitales independientes.',
+            galleryLabel: 'Galería de ilustraciones',
+            openImage: 'Ampliar: {image}',
+            closeImage: 'Cerrar imagen ampliada',
+            images: {
+              'woman-and-dog': 'Mujer con abrigo rosado que sostiene un perro blanco sobre un fondo malva.',
+              portrait: 'Primer plano de una mujer pelirroja con pecas y un ojo color ámbar.',
+              popsicle: 'Paleta helada azul mordida sobre un fondo verde lima.',
+            },
+          },
+        },
         'snapchat-frames': {
           type: 'Ilustración',
           title: 'Snapchat Frames',
@@ -1500,6 +1517,23 @@ export const translations = {
                 'Locked golden star with a padlock on a dark background.',
                 'Hourglass with a golden frame and golden sand against a black background.',
               ],
+            },
+          },
+        },
+        'otras-ilustraciones': {
+          type: 'Illustration',
+          title: 'Other Illustrations',
+          description: 'Three independent digital illustrations gathered in a gallery.',
+          previewAlt: 'Detail of an illustrated red-haired woman with an amber eye.',
+          detail: {
+            introduction: 'A small selection of independent digital illustrations.',
+            galleryLabel: 'Illustration gallery',
+            openImage: 'Enlarge: {image}',
+            closeImage: 'Close enlarged image',
+            images: {
+              'woman-and-dog': 'Woman in a pink coat holding a white dog against a mauve background.',
+              portrait: 'Close-up of a red-haired woman with freckles and an amber eye.',
+              popsicle: 'Bitten blue popsicle against a lime green background.',
             },
           },
         },

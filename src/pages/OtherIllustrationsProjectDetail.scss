@@ -1,0 +1,114 @@
+@use '../styles/abstracts' as tokens;
+
+.other-illustrations-heading {
+  max-width: 44rem;
+  margin: clamp(3rem, 7vw, 6rem) auto 2.5rem;
+  text-align: center;
+}
+
+.other-illustrations-heading h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  line-height: 1;
+}
+
+.other-illustrations-heading p {
+  margin: 1.25rem 0 0;
+  font-size: tokens.$font-size-body;
+  line-height: 1.5;
+}
+
+.other-illustrations-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto 4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.other-illustrations-grid li {
+  min-width: 0;
+}
+
+.other-illustrations-grid button {
+  display: grid;
+  width: 100%;
+  min-height: 20rem;
+  place-items: center;
+  padding: 1.25rem;
+  border: 1px solid tokens.$color-border;
+  background: tokens.$color-surface;
+  cursor: zoom-in;
+}
+
+.other-illustrations-grid button:focus-visible,
+.other-illustrations-close:focus-visible {
+  outline: tokens.$focus-ring-width solid tokens.$color-page;
+  outline-offset: tokens.$focus-ring-offset;
+}
+
+.other-illustrations-grid img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 28rem;
+}
+
+.other-illustrations-dialog {
+  position: fixed;
+  width: min(92vw, 76rem);
+  max-width: none;
+  max-height: none;
+  height: min(90dvh, 60rem);
+  padding: 3.5rem 1rem 1rem;
+  border: 0;
+  background: tokens.$color-surface;
+  overflow: auto;
+}
+
+.other-illustrations-dialog::backdrop {
+  background: rgb(10 12 24 / 84%);
+}
+
+.other-illustrations-dialog img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(90dvh - 4.5rem);
+  margin: auto;
+  object-fit: contain;
+}
+
+.other-illustrations-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid tokens.$color-border;
+  background: tokens.$color-surface;
+  color: tokens.$color-text;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (min-width: tokens.$breakpoint-tablet) {
+  .other-illustrations-grid {
+    grid-template-columns: 0.7fr 1.4fr 1fr;
+    align-items: stretch;
+  }
+
+  .other-illustrations-grid button {
+    height: 100%;
+  }
+}
+
+@media (min-width: tokens.$breakpoint-desktop) {
+  .other-illustrations-heading h1 {
+    font-size: tokens.$font-size-project-detail-title-desktop;
+  }
+}
